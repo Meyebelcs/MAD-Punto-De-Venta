@@ -134,7 +134,7 @@ namespace MAD._0
             this.chb_admin.Text = "Administrador";
             this.chb_admin.UseVisualStyleBackColor = true;
             // 
-            // PantallaInicio
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -153,7 +153,7 @@ namespace MAD._0
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.MaximizeBox = false;
-            this.Name = "PantallaInicio";
+            this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio_de_Sesion";
             this.ResumeLayout(false);

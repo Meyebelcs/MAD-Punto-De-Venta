@@ -46,11 +46,16 @@ namespace MAD._0
 
         private void btn_cerrarS_PC_Click(object sender, EventArgs e)
         {
-          
-            Login pantalla = new Login();
-            
-            pantalla.Show();
-            this.Hide();
+            var resp = new DialogResult();
+
+            resp = MessageBox.Show("¿Seguro que desea cerrar sesión?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resp == DialogResult.Yes)
+            {
+                Login pantalla = new Login();
+
+                pantalla.Show();
+                this.Hide();
+            }
 
         }
     }

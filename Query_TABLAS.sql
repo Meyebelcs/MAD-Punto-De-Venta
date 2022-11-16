@@ -55,11 +55,12 @@ IF OBJECT_ID('Departamento')IS NOT NULL
 
 CREATE TABLE Departamento(
 IdDepartamento        INT IDENTITY(1000000,1) NOT NULL PRIMARY KEY,
+IdAdminstrador        INT NOT NULL,
 Nombre                VARCHAR(50) NOT NULL,
 Descripcion           VARCHAR(100) NOT NULL,
-IdAdmins              INT NOT NULL,
 
-CONSTRAINT FK_DEPARTAMENTO_IDAD FOREIGN KEY (IdAdmins)
+
+CONSTRAINT FK_DEPARTAMENTO_IDAD FOREIGN KEY (IdAdminstrador)
    REFERENCES Administrador(IdAdministrador)
 );
 
@@ -68,16 +69,16 @@ IF OBJECT_ID('Productos')IS NOT NULL
 
 CREATE TABLE Productos(
 IdProducto		    INT IDENTITY(1000000,1) NOT NULL PRIMARY KEY,
+IdDepartamento		INT NOT NULL,
 Nombre			    VARCHAR(20) NOT NULL,
 Descripcion			VARCHAR (100) NOT NULL,
-Departamento		INT NOT NULL,
 Descuento           BIT NULL, --ES BIT PARA DECIRLE SI HAY Q BUSCAR O NO EN LA TABLA DE DESCUENTO
 UnidaddeMedida	    VARCHAR(20) NOT NULL,
 Costo				MONEY NOT NULL, --precio al q lo vende en la tienda
 Eliminacion         BIT NOT NULL,
 CantidadDeInventario INT NOT NULL,
 
-CONSTRAINT FK_PRODUCTOS_DEP FOREIGN KEY (Departamento)
+CONSTRAINT FK_PRODUCTOS_DEP FOREIGN KEY (IdDepartamento)
    REFERENCES Departamento(IdDepartamento),
 
 );
@@ -87,11 +88,12 @@ IF OBJECT_ID('Info_Productos')IS NOT NULL
 
 CREATE TABLE Info_Productos(
 IdInfoProductos	    INT IDENTITY(1000000,1) NOT NULL PRIMARY KEY,
+IdAdministrador     INT NOT NULL,
 IdProducto	        INT NOT NULL,
 FechaDeAlta         DATETIME NOT NULL,
 PuntoReorden		INT NOT NULL,
 PrecioUnitario      MONEY NOT NULL, --precio al cual compró a los proveedores
-IdAdministrador     INT NOT NULL
+
 
 CONSTRAINT FK_Info_Productos_IDP FOREIGN KEY (IdProducto)
    REFERENCES Productos(IdProducto),
@@ -106,9 +108,10 @@ IF OBJECT_ID('Historial_Productos')IS NOT NULL
 
 CREATE TABLE Historial_Productos(
 IdHistorialIp	      INT IDENTITY(1000000,1) NOT NULL PRIMARY KEY,
+IdUsuarioModificacion   INT NOT NULL,
 IdInfoProducto	      INT NOT NULL,
 FechaDeCambios        DATETIME NOT NULL,
-IdUsuarioModificacion   INT NOT NULL
+
 
 CONSTRAINT FK_HISTORIAL_PRODUCTOS_IDINFO FOREIGN KEY (IdInfoProducto)
    REFERENCES Info_Productos(IdInfoProductos),
@@ -143,12 +146,13 @@ IF OBJECT_ID('Descuento')IS NOT NULL
 
 CREATE TABLE Descuento(
 IdDescuento         INT IDENTITY(1000000,1) NOT NULL PRIMARY KEY,
+IdProducto          INT NOT NULL,
+IdDepartamento      INT NOT NULL,
+IdAdmin             INT NOT NULL,
 Porcentaje  	    INT NOT NULL,
 FechaInicio         DATETIME NOT NULL,
 FechaFinal          DATETIME NOT NULL,
-IdProducto          INT NOT NULL,
-IdDepartamento      INT NOT NULL,
-IdAdmin             INT NOT NULL
+
 
 CONSTRAINT FK_DESCUENTO_IDP FOREIGN KEY (IdProducto)
    REFERENCES Productos(IdProducto),
@@ -192,11 +196,12 @@ IF OBJECT_ID('Devolucion')IS NOT NULL
 
 CREATE TABLE Devolucion(
 IdDevolucion          INT IDENTITY(1000000,1) NOT NULL PRIMARY KEY,
-IdVenta               INT NOT NULL,
-Merma                 BIT NOT NULL,
 IdProducto            INT NOT NULL,
 IdDepartamento        INT NOT NULL,
-IdAdministrador       INT NOT NULL
+IdAdministrador       INT NOT NULL,
+IdVenta               INT NOT NULL,
+Merma                 BIT NOT NULL,
+
 
 CONSTRAINT FK_DEVOLUCION_IDP FOREIGN KEY (IdProducto)
    REFERENCES Productos(IdProducto),
@@ -217,9 +222,10 @@ IF OBJECT_ID('Caja')IS NOT NULL
 
 CREATE TABLE Caja(
 IdCaja                INT IDENTITY(1000000,1) NOT NULL PRIMARY KEY,
-Numero				  INT NOT NULL, --Ejemplo Caja 1
 IdAdministrador       INT NOT NULL,
-IdCajero              INT NOT NULL
+IdCajero              INT NOT NULL,
+Numero				  INT NOT NULL, --Ejemplo Caja 1
+
 
 CONSTRAINT FK_CAJA_IDA FOREIGN KEY (IdAdministrador)
    REFERENCES Administrador(IdAdministrador),
@@ -270,59 +276,59 @@ VALUES('Denisse', 'Cardoza' , 'Pezina', '124436678', 'denisse.123@hotmail.com', 
 ----
 
 INSERT INTO Administrador( IdEmpleado, CodigoAcceso)
-VALUES(1000012, 132);
+VALUES(1000000, 132);
 
 INSERT INTO Administrador( IdEmpleado, CodigoAcceso)
-VALUES(1000011, 123);
+VALUES(1000001, 123);
 
 ----
 INSERT INTO Cajero( IdEmpleado,IdAdmin )
-VALUES(1000001, 1000011 );
+VALUES(1000002, 1000000 );
 
 INSERT INTO Cajero( IdEmpleado,IdAdmin )
-VALUES(1000002, 1000012 );
+VALUES(1000003, 1000001 );
 ----
-INSERT INTO Departamento( Nombre, Descripcion, IdAdmins)
-VALUES('Limpieza', 'Para el hogar',1000012);
+INSERT INTO Departamento( Nombre, Descripcion, IdAdminstrador)
+VALUES('Limpieza', 'Para el hogar',1000000);
 
-INSERT INTO Departamento( Nombre, Descripcion, IdAdmins)
-VALUES('Carnes', 'Alimentos carnivoros',1000012);
+INSERT INTO Departamento( Nombre, Descripcion, IdAdminstrador)
+VALUES('Carnes', 'Alimentos carnivoros',1000001);
 
 --producto1
 
-INSERT INTO Productos( Nombre, Descripcion,Departamento,Descuento, UnidaddeMedida,Costo,Eliminacion, CantidadDeInventario)
-VALUES('Fabuloso', 'Dura 24 horas',1000001, '0','lts',60,'0',300);
+INSERT INTO Productos( Nombre, Descripcion,IdDepartamento,Descuento, UnidaddeMedida,Costo,Eliminacion, CantidadDeInventario)
+VALUES('Fabuloso', 'Dura 24 horas',1000000, '0','lts',60,'0',300);
 
 INSERT INTO Info_Productos( IdProducto, FechaDeAlta, PuntoReorden, PrecioUnitario, IdAdministrador)
-VALUES(1000001, '15-11-2022',40, 1200, 1000001);
+VALUES(1000000, '20220618',40, 1200, 1000000);
 
 INSERT INTO Historial_Productos( IdInfoProducto,FechaDeCambios, IdUsuarioModificacion)
-VALUES(1000002, '16-11-2022', 1000002);
+VALUES(1000001, '20220618 10:34:09 AM', 1000000);
 ----
 --producto2
 
-INSERT INTO Productos( Nombre, Descripcion,Departamento,Descuento, UnidaddeMedida,Costo,Eliminacion, CantidadDeInventario)
-VALUES('Filete de res', 'Carne importada',1000002, '0','kg',80,'0',120);
+INSERT INTO Productos( Nombre, Descripcion,IdDepartamento,Descuento, UnidaddeMedida,Costo,Eliminacion, CantidadDeInventario)
+VALUES('Filete de res', 'Carne importada',1000001, '0','kg',80,'0',120);
 
 INSERT INTO Info_Productos( IdProducto, FechaDeAlta, PuntoReorden, PrecioUnitario, IdAdministrador)
-VALUES(1000002, '16-11-2022',30, 1500, 1000002);
+VALUES(1000001, '20221018',30, 1500, 1000001);
 
 INSERT INTO Historial_Productos( IdInfoProducto,FechaDeCambios, IdUsuarioModificacion)
-VALUES(1000002, '16-11-2022', 1000002);
+VALUES(1000002, '20221122 10:34:09 AM', 1000001);
 ----
 
 INSERT INTO Venta( IdProducto,NombreProducto,CantidadProducto,CostoUnitario,Descuento,subtotal,Total, Departamento)
-VALUES(1000002, 'Fabuloso', 2, 60, '20%', 120, 96, 'Limpieza');
+VALUES(1000000, 'Fabuloso', 2, 60, '20%', 120, 96, 'Limpieza');
 
 INSERT INTO Venta( IdProducto,NombreProducto,CantidadProducto,CostoUnitario,Descuento,subtotal,Total, Departamento)
-VALUES(1000002, 'Filete de res', 1, 80, '0%', 80, 80, 'Carnes');
+VALUES(1000001, 'Filete de res', 1, 80, '0%', 80, 80, 'Carnes');
 ----
 INSERT INTO Descuento(Porcentaje,FechaInicio,FechaFinal,IdProducto,IdDepartamento,IdAdmin)
-VALUES (10,'11-01-2022','11-04-2022',100001,1000001,1000001)
+VALUES (10,'11-01-2022','11-04-2022',1000000,1000000,1000000)
 
 INSERT INTO Descuento(Porcentaje,FechaInicio,FechaFinal,IdProducto,IdDepartamento,IdAdmin)
-VALUES (30,'11-01-2022','11-04-2022',100001,1000001,1000001)
-
+VALUES (30,'11-01-2022','11-04-2022',1000001,1000001,1000001)
+----
 INSERT INTO Opcion_Pago( Nombre)
 VALUES('Efectivo');
 
@@ -331,28 +337,28 @@ VALUES('Tarjeta de Credito');
 ----
 
 INSERT INTO Tipo_Pago( IdCajero,IdPago, IdVenta)
-VALUES(1000001,1000001,1000001);
+VALUES(1000002,1000000,1000000);
 
 INSERT INTO Tipo_Pago( IdCajero,IdPago, IdVenta)
-VALUES(1000001,1000001,1000001);
+VALUES(1000003,1000001,1000001);
 ----
 
 INSERT INTO Devolucion( IdVenta,Merma, IdProducto, IdDepartamento, IdAdministrador)
-VALUES(1000001,'0', 1000001,1000001,1000001);
+VALUES(1000000,'0', 1000000,1000000,1000000);
 ----
 
 INSERT INTO Caja(Numero, IdAdministrador,IdCajero)
-VALUES(1, 1000001,1000001);
+VALUES(1, 1000000,1000002);
 
 INSERT INTO Caja(Numero, IdAdministrador,IdCajero)
-VALUES(2, 1000001,1000001);
+VALUES(2, 1000001,1000003);
 ----
 
 INSERT INTO Ticket(IdVenta, IdCajero,IdTipoPago, FechaHr, NumCaja, Subtotal, DescuentoTotal)
-VALUES(1000001,1000001, 1000001,'11-01-2022 05:40:10', 1,120, 96 );
+VALUES(1000000,1000002, 1000002,'20221110 03:51:09 PM', 1,120, 96 );
 
 INSERT INTO Ticket(IdVenta, IdCajero,IdTipoPago, FechaHr, NumCaja, Subtotal, DescuentoTotal)
-VALUES(1000001,1000001, 1000001,'11-01-2022 07:20:10', 2,80, 80 );
+VALUES(1000001,1000003, 1000003,'20221113 07:13:02 PM', 2,80, 80 );
 ----
 
 SELECT *FROM Empleados

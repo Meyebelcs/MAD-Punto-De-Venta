@@ -17,7 +17,7 @@ namespace MAD._0
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PrincipalAdministrador());
+            Application.Run(new Login());
         }
     }
 }

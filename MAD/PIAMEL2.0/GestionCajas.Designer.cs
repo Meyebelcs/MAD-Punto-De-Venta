@@ -97,7 +97,7 @@
             this.btn_regresar_GC.UseVisualStyleBackColor = false;
             this.btn_regresar_GC.Click += new System.EventHandler(this.btn_regresar_GC_Click);
             // 
-            // GestionCajeros
+            // GestionCajas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -109,11 +109,11 @@
             this.Controls.Add(this.lbl_nombrec_PA);
             this.Controls.Add(this.label4);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.Name = "GestionCajeros";
+            this.Name = "GestionCajas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GestionCajeros";
+            this.Text = "GestionCajas";
             this.ResumeLayout(false);
             this.PerformLayout();
 

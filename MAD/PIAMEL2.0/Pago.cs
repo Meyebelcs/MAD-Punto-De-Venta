@@ -44,5 +44,11 @@ namespace MAD._0
 
 
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lbl_tiempo_PC.Text = DateTime.Now.ToString("hh:mm:ss");
+            lbl_fecha_PC.Text = DateTime.Now.ToLongDateString();
+        }
     }
 }

@@ -33,12 +33,20 @@ namespace MAD._0
                 conection.Close();
 
 
-                //si es admin abre principal admin
+                if (chb_admin.Checked) //valida si admin está checked
+                {
+                    PrincipalAdministrador pantalla = new PrincipalAdministrador();
+                    pantalla.Show();
+                    this.Hide();
+                }
+                else//si es cajero abre principal cajero
+                {
+                    PrincipalCajero pantalla = new PrincipalCajero();
+                    pantalla.Show();
+                    this.Hide();
+                }
 
-                //si es cajero abre principal cajero
-                PrincipalCajero pantalla = new PrincipalCajero();
-                pantalla.Show();
-                this.Hide();
+                
             }
             conection.Close();
         }
@@ -64,6 +72,5 @@ namespace MAD._0
 
         }
 
-       
     }
 }

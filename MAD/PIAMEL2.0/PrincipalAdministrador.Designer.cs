@@ -161,6 +161,7 @@
             this.btn_devoluciones_PA.TabIndex = 17;
             this.btn_devoluciones_PA.Text = "Devoluciones";
             this.btn_devoluciones_PA.UseVisualStyleBackColor = false;
+            this.btn_devoluciones_PA.Click += new System.EventHandler(this.btn_devoluciones_PA_Click);
             // 
             // btn_ventas_PA
             // 
