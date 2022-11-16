@@ -1,0 +1,11 @@
+C:\Users\hench\Desktop\PIAMEL2.0\PIAMEL2.0\PIAMEL2.0\bin\Debug\PIAMEL2.0.exe.config
+C:\Users\hench\Desktop\PIAMEL2.0\PIAMEL2.0\PIAMEL2.0\bin\Debug\PIAMEL2.0.exe
+C:\Users\hench\Desktop\PIAMEL2.0\PIAMEL2.0\PIAMEL2.0\bin\Debug\PIAMEL2.0.pdb
+C:\Users\hench\Desktop\PIAMEL2.0\PIAMEL2.0\PIAMEL2.0\obj\Debug\PIAMEL2.0.csproj.AssemblyReference.cache
+C:\Users\hench\Desktop\PIAMEL2.0\PIAMEL2.0\PIAMEL2.0\obj\Debug\PIAMEL2._0.Properties.Resources.resources
+C:\Users\hench\Desktop\PIAMEL2.0\PIAMEL2.0\PIAMEL2.0\obj\Debug\PIAMEL2.0.csproj.GenerateResource.cache
+C:\Users\hench\Desktop\PIAMEL2.0\PIAMEL2.0\PIAMEL2.0\obj\Debug\PIAMEL2.0.csproj.CoreCompileInputs.cache
+C:\Users\hench\Desktop\PIAMEL2.0\PIAMEL2.0\PIAMEL2.0\obj\Debug\PIAMEL2.0.exe
+C:\Users\hench\Desktop\PIAMEL2.0\PIAMEL2.0\PIAMEL2.0\obj\Debug\PIAMEL2.0.pdb
+C:\Users\hench\Desktop\PIAMEL2.0\PIAMEL2.0\PIAMEL2.0\obj\Debug\PIAMEL2._0.Form11.resources
+C:\Users\hench\Desktop\PIAMEL2.0\PIAMEL2.0\PIAMEL2.0\obj\Debug\PIAMEL2._0.PantallaInicio.resources
