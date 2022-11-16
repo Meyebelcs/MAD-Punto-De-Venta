@@ -41,17 +41,9 @@ namespace MAD._0
             pantalla.Show();
             this.Hide();
         }
-
-        private void btn_Productos_PA_Click(object sender, EventArgs e)
-        {
-            GestionProductos pantalla = new GestionProductos();
-            pantalla.Show();
-            this.Hide();
-        }
-
         private void btn_cerrarS_PA_Click(object sender, EventArgs e)
         {
-            PantallaInicio pantalla = new PantallaInicio();
+            Login pantalla = new Login();
             pantalla.Show();
             this.Hide();
         }
@@ -66,6 +58,20 @@ namespace MAD._0
         private void btn_reportes_PA_Click(object sender, EventArgs e)
         {
             GestionReportes pantalla = new GestionReportes();
+            pantalla.Show();
+            this.Hide();
+        }
+
+        private void btn_inventario_PA_Click(object sender, EventArgs e)
+        {
+            GestionInventario pantalla = new GestionInventario();
+            pantalla.Show();
+            this.Hide();
+        }
+
+        private void btn_productos_PA_Click(object sender, EventArgs e)
+        {
+            GestionProductos pantalla = new GestionProductos();
             pantalla.Show();
             this.Hide();
         }

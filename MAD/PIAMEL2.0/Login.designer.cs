@@ -1,7 +1,7 @@
 ﻿
 namespace MAD._0
 {
-    partial class PantallaInicio
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.

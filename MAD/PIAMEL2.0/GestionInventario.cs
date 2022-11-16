@@ -1,5 +1,4 @@
-﻿using MAD._0;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MAD._0
 {
-    public partial class GestionProductos : Form
+    public partial class GestionInventario : Form
     {
-        public GestionProductos()
+        public GestionInventario()
         {
             InitializeComponent();
         }

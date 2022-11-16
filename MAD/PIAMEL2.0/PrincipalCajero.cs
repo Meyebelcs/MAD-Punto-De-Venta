@@ -47,7 +47,7 @@ namespace MAD._0
         private void btn_cerrarS_PC_Click(object sender, EventArgs e)
         {
           
-            PantallaInicio pantalla = new PantallaInicio();
+            Login pantalla = new Login();
             
             pantalla.Show();
             this.Hide();

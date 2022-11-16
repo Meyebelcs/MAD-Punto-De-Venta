@@ -10,9 +10,9 @@ using MAD._0;
 
 namespace MAD._0
 {
-    public partial class PantallaInicio : Form
+    public partial class Login : Form
     {
-        public PantallaInicio()
+        public Login()
         {
             InitializeComponent();
         }

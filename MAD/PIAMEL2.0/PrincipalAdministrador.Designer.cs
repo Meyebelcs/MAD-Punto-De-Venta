@@ -37,11 +37,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.timer_PA = new System.Windows.Forms.Timer(this.components);
             this.btn_cajas_PA = new System.Windows.Forms.Button();
-            this.btn_Productos_PA = new System.Windows.Forms.Button();
+            this.btn_inventario_PA = new System.Windows.Forms.Button();
             this.btn_reportes_PA = new System.Windows.Forms.Button();
             this.btn_devoluciones_PA = new System.Windows.Forms.Button();
             this.btn_ventas_PA = new System.Windows.Forms.Button();
             this.btn_cerrarS_PA = new System.Windows.Forms.Button();
+            this.btn_productos_PA = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Lista_PA)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             this.dgv_Lista_PA.Name = "dgv_Lista_PA";
             this.dgv_Lista_PA.RowHeadersWidth = 51;
             this.dgv_Lista_PA.RowTemplate.Height = 24;
-            this.dgv_Lista_PA.Size = new System.Drawing.Size(651, 220);
+            this.dgv_Lista_PA.Size = new System.Drawing.Size(651, 263);
             this.dgv_Lista_PA.TabIndex = 0;
             // 
             // label1
@@ -126,23 +127,23 @@
             this.btn_cajas_PA.UseVisualStyleBackColor = false;
             this.btn_cajas_PA.Click += new System.EventHandler(this.btn_cajeros_PA_Click);
             // 
-            // btn_Productos_PA
+            // btn_inventario_PA
             // 
-            this.btn_Productos_PA.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btn_Productos_PA.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Productos_PA.Location = new System.Drawing.Point(49, 207);
-            this.btn_Productos_PA.Name = "btn_Productos_PA";
-            this.btn_Productos_PA.Size = new System.Drawing.Size(147, 76);
-            this.btn_Productos_PA.TabIndex = 15;
-            this.btn_Productos_PA.Text = "Productos";
-            this.btn_Productos_PA.UseVisualStyleBackColor = false;
-            this.btn_Productos_PA.Click += new System.EventHandler(this.btn_Productos_PA_Click);
+            this.btn_inventario_PA.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btn_inventario_PA.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_inventario_PA.Location = new System.Drawing.Point(49, 267);
+            this.btn_inventario_PA.Name = "btn_inventario_PA";
+            this.btn_inventario_PA.Size = new System.Drawing.Size(147, 76);
+            this.btn_inventario_PA.TabIndex = 15;
+            this.btn_inventario_PA.Text = "Inventario";
+            this.btn_inventario_PA.UseVisualStyleBackColor = false;
+            this.btn_inventario_PA.Click += new System.EventHandler(this.btn_inventario_PA_Click);
             // 
             // btn_reportes_PA
             // 
             this.btn_reportes_PA.BackColor = System.Drawing.Color.Crimson;
             this.btn_reportes_PA.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_reportes_PA.Location = new System.Drawing.Point(763, 502);
+            this.btn_reportes_PA.Location = new System.Drawing.Point(781, 510);
             this.btn_reportes_PA.Name = "btn_reportes_PA";
             this.btn_reportes_PA.Size = new System.Drawing.Size(147, 76);
             this.btn_reportes_PA.TabIndex = 16;
@@ -154,7 +155,7 @@
             // 
             this.btn_devoluciones_PA.BackColor = System.Drawing.Color.MidnightBlue;
             this.btn_devoluciones_PA.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_devoluciones_PA.Location = new System.Drawing.Point(49, 311);
+            this.btn_devoluciones_PA.Location = new System.Drawing.Point(49, 349);
             this.btn_devoluciones_PA.Name = "btn_devoluciones_PA";
             this.btn_devoluciones_PA.Size = new System.Drawing.Size(147, 76);
             this.btn_devoluciones_PA.TabIndex = 17;
@@ -165,7 +166,7 @@
             // 
             this.btn_ventas_PA.BackColor = System.Drawing.Color.MidnightBlue;
             this.btn_ventas_PA.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ventas_PA.Location = new System.Drawing.Point(49, 414);
+            this.btn_ventas_PA.Location = new System.Drawing.Point(49, 431);
             this.btn_ventas_PA.Name = "btn_ventas_PA";
             this.btn_ventas_PA.Size = new System.Drawing.Size(147, 76);
             this.btn_ventas_PA.TabIndex = 18;
@@ -177,7 +178,7 @@
             // 
             this.btn_cerrarS_PA.BackColor = System.Drawing.Color.Maroon;
             this.btn_cerrarS_PA.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btn_cerrarS_PA.Location = new System.Drawing.Point(49, 522);
+            this.btn_cerrarS_PA.Location = new System.Drawing.Point(49, 530);
             this.btn_cerrarS_PA.Name = "btn_cerrarS_PA";
             this.btn_cerrarS_PA.Size = new System.Drawing.Size(147, 56);
             this.btn_cerrarS_PA.TabIndex = 21;
@@ -185,17 +186,30 @@
             this.btn_cerrarS_PA.UseVisualStyleBackColor = false;
             this.btn_cerrarS_PA.Click += new System.EventHandler(this.btn_cerrarS_PA_Click);
             // 
+            // btn_productos_PA
+            // 
+            this.btn_productos_PA.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btn_productos_PA.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_productos_PA.Location = new System.Drawing.Point(49, 185);
+            this.btn_productos_PA.Name = "btn_productos_PA";
+            this.btn_productos_PA.Size = new System.Drawing.Size(147, 76);
+            this.btn_productos_PA.TabIndex = 22;
+            this.btn_productos_PA.Text = "Productos";
+            this.btn_productos_PA.UseVisualStyleBackColor = false;
+            this.btn_productos_PA.Click += new System.EventHandler(this.btn_productos_PA_Click);
+            // 
             // PrincipalAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(966, 614);
+            this.ClientSize = new System.Drawing.Size(966, 607);
+            this.Controls.Add(this.btn_productos_PA);
             this.Controls.Add(this.btn_cerrarS_PA);
             this.Controls.Add(this.btn_ventas_PA);
             this.Controls.Add(this.btn_devoluciones_PA);
             this.Controls.Add(this.btn_reportes_PA);
-            this.Controls.Add(this.btn_Productos_PA);
+            this.Controls.Add(this.btn_inventario_PA);
             this.Controls.Add(this.btn_cajas_PA);
             this.Controls.Add(this.lbl_fecha_PA);
             this.Controls.Add(this.lbl_tiempo_PA);
@@ -225,11 +239,12 @@
         private System.Windows.Forms.Label lbl_nombrec_PA;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Timer timer_PA;
-        private System.Windows.Forms.Button btn_Productos_PA;
+        private System.Windows.Forms.Button btn_inventario_PA;
         private System.Windows.Forms.Button btn_reportes_PA;
         private System.Windows.Forms.Button btn_devoluciones_PA;
         private System.Windows.Forms.Button btn_ventas_PA;
         private System.Windows.Forms.Button btn_cajas_PA;
         private System.Windows.Forms.Button btn_cerrarS_PA;
+        private System.Windows.Forms.Button btn_productos_PA;
     }
 }

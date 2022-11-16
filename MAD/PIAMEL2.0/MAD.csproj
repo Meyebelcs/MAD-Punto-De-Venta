@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EnlaceDB.cs" />
+    <Compile Include="GestionProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionProductos.Designer.cs">
+      <DependentUpon>GestionProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionReportes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,11 +78,11 @@
     <Compile Include="GestionDevoluciones.Designer.cs">
       <DependentUpon>GestionDevoluciones.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionProductos.cs">
+    <Compile Include="GestionInventario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestionProductos.Designer.cs">
-      <DependentUpon>GestionProductos.cs</DependentUpon>
+    <Compile Include="GestionInventario.Designer.cs">
+      <DependentUpon>GestionInventario.cs</DependentUpon>
     </Compile>
     <Compile Include="Pago.cs">
       <SubType>Form</SubType>
@@ -84,11 +90,11 @@
     <Compile Include="Pago.Designer.cs">
       <DependentUpon>Pago.cs</DependentUpon>
     </Compile>
-    <Compile Include="PantallaInicio.cs">
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PantallaInicio.designer.cs">
-      <DependentUpon>PantallaInicio.cs</DependentUpon>
+    <Compile Include="Login.designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="PrincipalAdministrador.cs">
       <SubType>Form</SubType>
@@ -116,6 +122,9 @@
     <Compile Include="SeleccionDeCaja.Designer.cs">
       <DependentUpon>SeleccionDeCaja.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GestionProductos.resx">
+      <DependentUpon>GestionProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionReportes.resx">
       <DependentUpon>GestionReportes.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,14 +137,14 @@
     <EmbeddedResource Include="GestionDevoluciones.resx">
       <DependentUpon>GestionDevoluciones.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestionProductos.resx">
-      <DependentUpon>GestionProductos.cs</DependentUpon>
+    <EmbeddedResource Include="GestionInventario.resx">
+      <DependentUpon>GestionInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pago.resx">
       <DependentUpon>Pago.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PantallaInicio.resx">
-      <DependentUpon>PantallaInicio.cs</DependentUpon>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrincipalAdministrador.resx">
       <DependentUpon>PrincipalAdministrador.cs</DependentUpon>
