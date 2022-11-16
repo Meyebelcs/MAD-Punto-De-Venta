@@ -30,9 +30,9 @@ BEGIN
 
 	IF @Accion = 'I'
 	BEGIN
-		INSERT INTO Productos(Nombre, Descripcion,Descuento,UnidaddeMedida, Costo, Eliminacion,
+		INSERT INTO Productos(Nombre,IdDepartamento, Descripcion,Descuento,UnidaddeMedida, Costo, Eliminacion,
 		CantidadDeInventario )
-		VALUES(@Nombre,@Descripcion, @Descuento, @UnidaddeMedida,@Costo,@Eliminacion,
+		VALUES(@Nombre,@IdDepartamento,@Descripcion, @Descuento, @UnidaddeMedida,@Costo,@Eliminacion,
 		@CantidadDeInventario);
 	END;
 
@@ -41,13 +41,14 @@ BEGIN
 		UPDATE Productos
 		SET
 			Nombre = @Nombre,
+			IdDepartamento = @IdDepartamento,
 			Descripcion = @Descripcion,
 			Descuento = @Descuento,
 			UnidaddeMedida = @UnidaddeMedida,
 			Costo = @Costo,
 			Eliminacion = @Eliminacion,
 			CantidadDeInventario = @CantidadDeInventario
-			
+
 		WHERE IdProducto = @IdProducto;
 	END;
 
@@ -82,7 +83,7 @@ BEGIN
 
 	 IF @Accion = 'J'
     BEGIN
-        SELECT P.IdProducto [IdProducto],P.Nombre [Nombre],P.Departamento [Departamento],P.Descuento [Descuento],
+        SELECT P.IdProducto [IdProducto],P.Nombre [Nombre],P.IdDepartamento [Departamento],P.Descuento [Descuento],
 		P.UnidaddeMedida [UnidadMedida],P.Costo [Costo],P.CantidadDeInventario [Inventario]
 		FROM Productos P JOIN Info_Productos I
 		on P.IdProducto = I.IdProducto
@@ -93,7 +94,7 @@ BEGIN
 
 	IF @Accion = '*'
 	BEGIN
-		SELECT IdProducto [IdProducto],Departamento [Departamento],Nombre [Nombre],Descripcion [Descripcion],Descuento [Descuento],UnidaddeMedida [UnidadMedida],Costo [Costo],Eliminacion [Eliminacion],
+		SELECT IdProducto [IdProducto],IdDepartamento [Departamento],Nombre [Nombre],Descripcion [Descripcion],Descuento [Descuento],UnidaddeMedida [UnidadMedida],Costo [Costo],Eliminacion [Eliminacion],
 		CantidadDeInventario [CantidadInventario]
 		FROM Productos  
 		ORDER BY Nombre;
