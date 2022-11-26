@@ -57,14 +57,14 @@ namespace MAD._0
 
         private void btn_ventas_PA_Click(object sender, EventArgs e)
         {
-            GestionVentas pantalla = new GestionVentas();
+            GestionDevoluciones pantalla = new GestionDevoluciones();
             pantalla.Show();
             this.Hide();
         }
 
         private void btn_reportes_PA_Click(object sender, EventArgs e)
         {
-            GestionReportes pantalla = new GestionReportes();
+            ReporteRecibos pantalla = new ReporteRecibos();
             pantalla.Show();
             this.Hide();
         }
@@ -85,7 +85,7 @@ namespace MAD._0
 
         private void btn_devoluciones_PA_Click(object sender, EventArgs e)
         {
-            GestionDevoluciones pantalla = new GestionDevoluciones();
+            GestionDescuentos pantalla = new GestionDescuentos();
             pantalla.Show();
             this.Hide();
         }

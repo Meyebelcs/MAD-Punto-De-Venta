@@ -32,6 +32,11 @@ namespace MAD._0
             {
                 MessageBox.Show("Pago realizado con éxito", "Compra exitosa", MessageBoxButtons.OK);
                 this.Close();
+
+                //se hace la impresion del pdf 
+
+                MessageBox.Show("Se guardó un PDF del recibo", "Impresión", MessageBoxButtons.OK);
+                this.Close();
             }
         }
 

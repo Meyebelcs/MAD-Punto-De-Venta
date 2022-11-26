@@ -76,6 +76,8 @@ namespace MAD._0
         {
             e.Handled = !char.IsDigit(e.KeyChar); //Solo numeros en el txt
         }
+
+       
     }
 }
 

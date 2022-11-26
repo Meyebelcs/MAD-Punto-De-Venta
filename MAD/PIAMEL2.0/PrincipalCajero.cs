@@ -32,7 +32,7 @@ namespace MAD._0
         private void PrincipalCajero_Load(object sender, EventArgs e)
         {
             //Pregunta cual caja va a utilizar
-            var frmSeleccionDeCaja = new SeleccionDeCaja();
+            var frmSeleccionDeCaja = new Caja_Seleccion();
 
             frmSeleccionDeCaja.ShowDialog(); //Ventana Modal
         }

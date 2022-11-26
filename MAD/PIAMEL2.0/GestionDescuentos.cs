@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace MAD._0
 {
-    public partial class GestionReportes : Form
+    public partial class GestionDescuentos : Form
     {
-        public GestionReportes()
+        public GestionDescuentos()
         {
             InitializeComponent();
         }
 
-        private void btn_regresar_GP_Click(object sender, EventArgs e)
+        private void btn_regresar_GC_Click(object sender, EventArgs e)
         {
             PrincipalAdministrador pantalla = new PrincipalAdministrador();
             pantalla.Show();

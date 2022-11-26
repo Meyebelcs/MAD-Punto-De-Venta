@@ -63,6 +63,9 @@ Descripcion           VARCHAR(100) NOT NULL,
 CONSTRAINT FK_DEPARTAMENTO_IDAD FOREIGN KEY (IdAdminstrador)
    REFERENCES Administrador(IdAdministrador)
 );
+ALTER TABLE Departamento
+ADD PermiteDevolucion BIT NULL
+-----------------------------------------------------------------
 
 IF OBJECT_ID('Productos')IS NOT NULL
 	DROP TABLE Productos
@@ -216,6 +219,29 @@ CONSTRAINT FK_DEVOLUCION_IDAD FOREIGN KEY (IdAdministrador)
    REFERENCES Administrador(IdAdministrador)
 );
 
+ALTER TABLE Devolucion
+ADD Motivo VARCHAR(80) NULL
+-----------------------------------------------------------------
+
+IF OBJECT_ID('NotaCredito')IS NOT NULL
+	DROP TABLE NotaCredito;
+
+CREATE TABLE NotaCredito(
+IdNotaCredito	INT IDENTITY(1000000,1) NOT NULL PRIMARY KEY,
+idProducto		INT NOT NULL,
+idTicket		INT NOT NULL,
+cantidad		FLOAT NOT NULL,
+subtotal		MONEY NOT NULL,
+total			MONEY NOT NULL,
+
+
+CONSTRAINT FK_NotaCredito_IDProducto FOREIGN KEY (idProducto)
+   REFERENCES Productos(IdProducto),
+
+CONSTRAINT FK_NotaCredito_IDTicket FOREIGN KEY (idTicket)
+   REFERENCES Ticket(IdTicket)
+);
+
 
 IF OBJECT_ID('Caja')IS NOT NULL
 	DROP TABLE Caja;
@@ -233,6 +259,10 @@ CONSTRAINT FK_CAJA_IDA FOREIGN KEY (IdAdministrador)
 CONSTRAINT FK_CAJA_IDC FOREIGN KEY (IdCajero)
    REFERENCES Cajero(IdCajero)
 );
+ALTER TABLE Caja
+ALTER COLUMN IdCajero INT NULL
+-----------------------------------------------------------------
+
 
 IF OBJECT_ID('Ticket')IS NOT NULL
 	DROP TABLE Ticket;

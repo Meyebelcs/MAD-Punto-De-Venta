@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MAD._0
 {
-    public partial class SeleccionDeCaja : Form
+    public partial class Caja_Seleccion : Form
     {
-        public SeleccionDeCaja()
+        public Caja_Seleccion()
         {
             InitializeComponent();
         }

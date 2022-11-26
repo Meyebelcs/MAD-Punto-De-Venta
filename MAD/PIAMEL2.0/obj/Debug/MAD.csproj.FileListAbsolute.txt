@@ -22,8 +22,6 @@ D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\bin\Debug\
 D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\MAD.csproj.AssemblyReference.cache
 D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\MAD.csproj.SuggestedBindingRedirects.cache
 D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\MAD._0.GestionProductos.resources
-D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\MAD._0.GestionReportes.resources
-D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\MAD._0.GestionVentas.resources
 D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\MAD._0.GestionCajas.resources
 D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\MAD._0.GestionDevoluciones.resources
 D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\MAD._0.GestionInventario.resources
@@ -33,8 +31,13 @@ D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\
 D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\MAD._0.PrincipalCajero.resources
 D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\PIAMEL2._0.Properties.Resources.resources
 D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\MAD._0.RegistroEmpleado.resources
-D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\MAD._0.SeleccionDeCaja.resources
 D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\MAD.csproj.GenerateResource.cache
 D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\MAD.csproj.CoreCompileInputs.cache
 D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\PIAMEL2.0.exe
 D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\PIAMEL2.0.pdb
+D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\PIAMEL2._0.Caja_Baja.resources
+D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\MAD._0.Modificar_Caja.resources
+D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\PIAMEL2._0.Caja_Alta.resources
+D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\MAD._0.Caja_Seleccion.resources
+D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\MAD._0.ReporteRecibos.resources
+D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\MAD._0.GestionDescuentos.resources

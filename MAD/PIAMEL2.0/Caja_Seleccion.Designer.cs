@@ -1,6 +1,6 @@
 ﻿namespace MAD._0
 {
-    partial class SeleccionDeCaja
+    partial class Caja_Seleccion
     {
         /// <summary>
         /// Required designer variable.

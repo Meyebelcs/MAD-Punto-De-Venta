@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Caja_Baja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caja_Baja.Designer.cs">
+      <DependentUpon>Caja_Baja.cs</DependentUpon>
+    </Compile>
     <Compile Include="EnlaceDB.cs" />
     <Compile Include="GestionProductos.cs">
       <SubType>Form</SubType>
@@ -54,23 +60,11 @@
     <Compile Include="GestionProductos.Designer.cs">
       <DependentUpon>GestionProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionReportes.cs">
+    <Compile Include="ReporteRecibos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestionReportes.Designer.cs">
-      <DependentUpon>GestionReportes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GestionVentas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestionVentas.Designer.cs">
-      <DependentUpon>GestionVentas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GestionCajas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestionCajas.Designer.cs">
-      <DependentUpon>GestionCajas.cs</DependentUpon>
+    <Compile Include="ReporteRecibos.Designer.cs">
+      <DependentUpon>ReporteRecibos.cs</DependentUpon>
     </Compile>
     <Compile Include="GestionDevoluciones.cs">
       <SubType>Form</SubType>
@@ -78,11 +72,35 @@
     <Compile Include="GestionDevoluciones.Designer.cs">
       <DependentUpon>GestionDevoluciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionCajas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionCajas.Designer.cs">
+      <DependentUpon>GestionCajas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionDescuentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionDescuentos.Designer.cs">
+      <DependentUpon>GestionDescuentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionInventario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GestionInventario.Designer.cs">
       <DependentUpon>GestionInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caja_Cambio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caja_Cambio.Designer.cs">
+      <DependentUpon>Caja_Cambio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caja_Alta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caja_Alta.Designer.cs">
+      <DependentUpon>Caja_Alta.cs</DependentUpon>
     </Compile>
     <Compile Include="Pago.cs">
       <SubType>Form</SubType>
@@ -116,29 +134,38 @@
     <Compile Include="RegistroEmpleado.Designer.cs">
       <DependentUpon>RegistroEmpleado.cs</DependentUpon>
     </Compile>
-    <Compile Include="SeleccionDeCaja.cs">
+    <Compile Include="Caja_Seleccion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SeleccionDeCaja.Designer.cs">
-      <DependentUpon>SeleccionDeCaja.cs</DependentUpon>
+    <Compile Include="Caja_Seleccion.Designer.cs">
+      <DependentUpon>Caja_Seleccion.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Caja_Baja.resx">
+      <DependentUpon>Caja_Baja.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionProductos.resx">
       <DependentUpon>GestionProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestionReportes.resx">
-      <DependentUpon>GestionReportes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GestionVentas.resx">
-      <DependentUpon>GestionVentas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GestionCajas.resx">
-      <DependentUpon>GestionCajas.cs</DependentUpon>
+    <EmbeddedResource Include="ReporteRecibos.resx">
+      <DependentUpon>ReporteRecibos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionDevoluciones.resx">
       <DependentUpon>GestionDevoluciones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GestionCajas.resx">
+      <DependentUpon>GestionCajas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionDescuentos.resx">
+      <DependentUpon>GestionDescuentos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionInventario.resx">
       <DependentUpon>GestionInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caja_Cambio.resx">
+      <DependentUpon>Caja_Cambio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caja_Alta.resx">
+      <DependentUpon>Caja_Alta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pago.resx">
       <DependentUpon>Pago.cs</DependentUpon>
@@ -164,8 +191,8 @@
     <EmbeddedResource Include="RegistroEmpleado.resx">
       <DependentUpon>RegistroEmpleado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SeleccionDeCaja.resx">
-      <DependentUpon>SeleccionDeCaja.cs</DependentUpon>
+    <EmbeddedResource Include="Caja_Seleccion.resx">
+      <DependentUpon>Caja_Seleccion.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
