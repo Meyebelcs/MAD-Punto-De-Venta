@@ -1,4 +1,5 @@
 ﻿using MAD._0;
+using PIAMEL2._0;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,16 @@ namespace MAD._0
 
         private void PrincipalAdministrador_Load(object sender, EventArgs e)
         {
+            var enlace = new EnlaceDB();
+            var nombre = new DataTable();
+            Login IdUser = new Login();
+
+            nombre = enlace.get_DatosEmpleado('S', IdUser.getCurrentIdUser()); //traigo de la base los datos del user q inició sesion
+            lbl_nombrec_PA.Text = nombre.Rows[0][1].ToString() + " " + nombre.Rows[0][2].ToString() + " " + nombre.Rows[0][3].ToString();
+
+
+
+
             var obj = new EnlaceDB(); //creo objeto enlaceDB
             var tabla = new DataTable();//creo tabla 
             tabla = obj.ConsultaTabla("spProductos", "J");//manda llamar el SP
@@ -86,6 +97,18 @@ namespace MAD._0
         private void btn_devoluciones_PA_Click(object sender, EventArgs e)
         {
             GestionDescuentos pantalla = new GestionDescuentos();
+            pantalla.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_empleados_Click(object sender, EventArgs e)
+        {
+            gestionEmpleados pantalla = new gestionEmpleados();
             pantalla.Show();
             this.Hide();
         }

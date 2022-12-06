@@ -86,7 +86,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(289, 248);
+            this.label3.Location = new System.Drawing.Point(520, 248);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(132, 19);
@@ -96,7 +96,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(519, 248);
+            this.label4.Location = new System.Drawing.Point(288, 248);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 19);
@@ -245,7 +245,7 @@
             // 
             // txt_ApellidoM_RE
             // 
-            this.txt_ApellidoM_RE.Location = new System.Drawing.Point(266, 271);
+            this.txt_ApellidoM_RE.Location = new System.Drawing.Point(497, 271);
             this.txt_ApellidoM_RE.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txt_ApellidoM_RE.Name = "txt_ApellidoM_RE";
             this.txt_ApellidoM_RE.Size = new System.Drawing.Size(205, 24);
@@ -253,7 +253,7 @@
             // 
             // txt_ApellidoP_RE
             // 
-            this.txt_ApellidoP_RE.Location = new System.Drawing.Point(497, 271);
+            this.txt_ApellidoP_RE.Location = new System.Drawing.Point(266, 271);
             this.txt_ApellidoP_RE.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txt_ApellidoP_RE.Name = "txt_ApellidoP_RE";
             this.txt_ApellidoP_RE.Size = new System.Drawing.Size(200, 24);
@@ -315,7 +315,6 @@
             // tp_FechaNacimiento_RE
             // 
             this.tp_FechaNacimiento_RE.CustomFormat = "yyyy-MM-dd/h:m:s";
-            this.tp_FechaNacimiento_RE.Enabled = false;
             this.tp_FechaNacimiento_RE.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.tp_FechaNacimiento_RE.Location = new System.Drawing.Point(497, 450);
             this.tp_FechaNacimiento_RE.Name = "tp_FechaNacimiento_RE";

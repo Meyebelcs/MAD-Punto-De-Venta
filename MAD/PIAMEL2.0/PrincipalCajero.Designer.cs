@@ -58,11 +58,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dgv_busqueda_PC = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Existencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descuentos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_AgregarP_PC = new System.Windows.Forms.Button();
             this.btn_eliminarP_PC = new System.Windows.Forms.Button();
             this.btn_ticket_PC = new System.Windows.Forms.Button();
@@ -323,12 +318,6 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_busqueda_PC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_busqueda_PC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_busqueda_PC.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Producto,
-            this.Precio,
-            this.Existencia,
-            this.Descuentos});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -343,46 +332,6 @@
             this.dgv_busqueda_PC.RowTemplate.Height = 24;
             this.dgv_busqueda_PC.Size = new System.Drawing.Size(544, 231);
             this.dgv_busqueda_PC.TabIndex = 16;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 85;
-            // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "Producto";
-            this.Producto.MinimumWidth = 6;
-            this.Producto.Name = "Producto";
-            this.Producto.ReadOnly = true;
-            this.Producto.Width = 125;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.MinimumWidth = 6;
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            this.Precio.Width = 95;
-            // 
-            // Existencia
-            // 
-            this.Existencia.HeaderText = "Existencia";
-            this.Existencia.MinimumWidth = 6;
-            this.Existencia.Name = "Existencia";
-            this.Existencia.ReadOnly = true;
-            this.Existencia.Width = 95;
-            // 
-            // Descuentos
-            // 
-            this.Descuentos.HeaderText = "Descuentos";
-            this.Descuentos.MinimumWidth = 6;
-            this.Descuentos.Name = "Descuentos";
-            this.Descuentos.ReadOnly = true;
-            this.Descuentos.Width = 90;
             // 
             // btn_AgregarP_PC
             // 
@@ -501,10 +450,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn precioU;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Existencia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descuentos;
     }
 }

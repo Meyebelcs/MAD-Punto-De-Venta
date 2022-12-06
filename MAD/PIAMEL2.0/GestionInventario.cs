@@ -29,5 +29,21 @@ namespace MAD._0
             pantalla.Show();
             this.Hide();
         }
+
+        private void GestionInventario_Load(object sender, EventArgs e)
+        {
+            var enlace = new EnlaceDB();
+            var nombre = new DataTable();
+            Login IdUser = new Login();
+
+            nombre = enlace.get_DatosEmpleado('S', IdUser.getCurrentIdUser()); //traigo de la base los datos del user q inició sesion
+            lbl_nombrec_PA.Text = nombre.Rows[0][1].ToString() + " " + nombre.Rows[0][2].ToString() + " " + nombre.Rows[0][3].ToString();
+
+
+            var obj = new EnlaceDB(); //creo objeto enlaceDB
+            var tabla = new DataTable();//creo tabla 
+            tabla = obj.ConsultaTabla("spProductos", "*");//manda llamar el SP
+            dgv_Lista_GP.DataSource = tabla; //Asigna la info a la tabla
+        }
     }
 }

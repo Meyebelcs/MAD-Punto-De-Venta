@@ -54,6 +54,12 @@
       <DependentUpon>Caja_Baja.cs</DependentUpon>
     </Compile>
     <Compile Include="EnlaceDB.cs" />
+    <Compile Include="GestionoEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionoEmpleados.Designer.cs">
+      <DependentUpon>GestionoEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </Compile>
     <EmbeddedResource Include="Caja_Baja.resx">
       <DependentUpon>Caja_Baja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionoEmpleados.resx">
+      <DependentUpon>GestionoEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionProductos.resx">
       <DependentUpon>GestionProductos.cs</DependentUpon>

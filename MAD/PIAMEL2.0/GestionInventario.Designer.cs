@@ -204,6 +204,7 @@
             this.Name = "GestionInventario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GestionInventario";
+            this.Load += new System.EventHandler(this.GestionInventario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Lista_GP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
