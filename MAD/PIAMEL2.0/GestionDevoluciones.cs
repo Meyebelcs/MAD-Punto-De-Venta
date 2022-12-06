@@ -64,5 +64,15 @@ namespace MAD._0
             //muestra los datos en el grid
 
         }
+
+        private void GestionDevoluciones_Load(object sender, EventArgs e)
+        {
+            var enlace = new EnlaceDB();
+            var nombre = new DataTable();
+            Login IdUser = new Login();
+
+            nombre = enlace.get_DatosEmpleado('S', IdUser.getCurrentIdUser()); //traigo de la base los datos del user q inició sesion
+            lbl_nombrec_PA.Text = nombre.Rows[0][1].ToString() + " " + nombre.Rows[0][2].ToString() + " " + nombre.Rows[0][3].ToString();
+        }
     }
 }

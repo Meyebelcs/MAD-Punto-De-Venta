@@ -35,6 +35,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btn_regresar_GC = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.dgv_devoluciones = new System.Windows.Forms.DataGridView();
+            this.btn_EProducto = new System.Windows.Forms.Button();
+            this.btn_MProducto = new System.Windows.Forms.Button();
+            this.btn_NProducto = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_devoluciones)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_fecha_PA
@@ -84,7 +89,7 @@
             // 
             this.btn_regresar_GC.BackColor = System.Drawing.Color.Crimson;
             this.btn_regresar_GC.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_regresar_GC.Location = new System.Drawing.Point(25, 398);
+            this.btn_regresar_GC.Location = new System.Drawing.Point(26, 488);
             this.btn_regresar_GC.Name = "btn_regresar_GC";
             this.btn_regresar_GC.Size = new System.Drawing.Size(147, 39);
             this.btn_regresar_GC.TabIndex = 19;
@@ -97,12 +102,59 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // GestionDevoluciones
+            // dgv_devoluciones
+            // 
+            this.dgv_devoluciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_devoluciones.Location = new System.Drawing.Point(251, 165);
+            this.dgv_devoluciones.Name = "dgv_devoluciones";
+            this.dgv_devoluciones.RowHeadersWidth = 51;
+            this.dgv_devoluciones.RowTemplate.Height = 24;
+            this.dgv_devoluciones.Size = new System.Drawing.Size(602, 280);
+            this.dgv_devoluciones.TabIndex = 20;
+            // 
+            // btn_EProducto
+            // 
+            this.btn_EProducto.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btn_EProducto.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_EProducto.Location = new System.Drawing.Point(26, 369);
+            this.btn_EProducto.Name = "btn_EProducto";
+            this.btn_EProducto.Size = new System.Drawing.Size(147, 76);
+            this.btn_EProducto.TabIndex = 28;
+            this.btn_EProducto.Text = "Eliminar Descuento";
+            this.btn_EProducto.UseVisualStyleBackColor = false;
+            // 
+            // btn_MProducto
+            // 
+            this.btn_MProducto.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btn_MProducto.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_MProducto.Location = new System.Drawing.Point(26, 240);
+            this.btn_MProducto.Name = "btn_MProducto";
+            this.btn_MProducto.Size = new System.Drawing.Size(147, 76);
+            this.btn_MProducto.TabIndex = 27;
+            this.btn_MProducto.Text = "Modificar Descuento";
+            this.btn_MProducto.UseVisualStyleBackColor = false;
+            // 
+            // btn_NProducto
+            // 
+            this.btn_NProducto.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btn_NProducto.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_NProducto.Location = new System.Drawing.Point(26, 120);
+            this.btn_NProducto.Name = "btn_NProducto";
+            this.btn_NProducto.Size = new System.Drawing.Size(147, 76);
+            this.btn_NProducto.TabIndex = 26;
+            this.btn_NProducto.Text = "Nuevo Descuento";
+            this.btn_NProducto.UseVisualStyleBackColor = false;
+            // 
+            // GestionDescuentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(926, 461);
+            this.ClientSize = new System.Drawing.Size(926, 556);
+            this.Controls.Add(this.btn_EProducto);
+            this.Controls.Add(this.btn_MProducto);
+            this.Controls.Add(this.btn_NProducto);
+            this.Controls.Add(this.dgv_devoluciones);
             this.Controls.Add(this.btn_regresar_GC);
             this.Controls.Add(this.lbl_fecha_PA);
             this.Controls.Add(this.lbl_tiempo_PA);
@@ -111,9 +163,11 @@
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.Name = "GestionDevoluciones";
+            this.Name = "GestionDescuentos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GestionDevoluciones";
+            this.Text = "GestionDescuentos";
+            this.Load += new System.EventHandler(this.GestionDescuentos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_devoluciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,5 +181,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_regresar_GC;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DataGridView dgv_devoluciones;
+        private System.Windows.Forms.Button btn_EProducto;
+        private System.Windows.Forms.Button btn_MProducto;
+        private System.Windows.Forms.Button btn_NProducto;
     }
 }

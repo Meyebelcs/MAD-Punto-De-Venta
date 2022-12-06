@@ -150,6 +150,7 @@
             this.dgv_ticket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ticket.Location = new System.Drawing.Point(40, 168);
             this.dgv_ticket.Name = "dgv_ticket";
+            this.dgv_ticket.RowHeadersWidth = 51;
             this.dgv_ticket.Size = new System.Drawing.Size(535, 339);
             this.dgv_ticket.TabIndex = 28;
             // 
@@ -176,7 +177,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(742, 310);
+            this.label2.Location = new System.Drawing.Point(738, 310);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 19);
             this.label2.TabIndex = 31;
@@ -306,6 +307,7 @@
             this.Name = "GestionDevoluciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GestionDevoluciones";
+            this.Load += new System.EventHandler(this.GestionDevoluciones_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ticket)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
