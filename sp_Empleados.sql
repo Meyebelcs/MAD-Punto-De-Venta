@@ -19,7 +19,7 @@ CREATE PROCEDURE spEmpleados(
 @FechaIngreso       DATETIME = NULL,
 @CURP				VARCHAR(20) = NULL,
 @FechaNac			DATETIME = NULL,
-@Contrase�a			VARCHAR(10) = NULL,
+@Contraseña			VARCHAR(10) = NULL,
 @NumNomina			INT = NULL,
 @Eliminacion		BIT = NULL,
 @CodigoAcceso		INT = NULL
@@ -34,8 +34,8 @@ BEGIN
 
 	IF @Accion = 'I'
 	BEGIN
-		INSERT INTO Empleados(Nombre,APpellidoP,APpellidoM,Telefono,Email,FechaIngreso,CURP,FechaNac,Contrase�a,NumNomina,Eliminacion)
-		VALUES(@Nombre,@APpellidoP,@APpellidoM,@Telefono,@Email,@FechaIngreso,@CURP,@FechaNac,@Contrase�a, @NumNomina,@Eliminacion);
+		INSERT INTO Empleados(Nombre,APpellidoP,APpellidoM,Telefono,Email,FechaIngreso,CURP,FechaNac,Contraseña,NumNomina,Eliminacion)
+		VALUES(@Nombre,@APpellidoP,@APpellidoM,@Telefono,@Email,@FechaIngreso,@CURP,@FechaNac,@Contraseña, @NumNomina,@Eliminacion);
 	END;
 
 	IF @Accion = 'U'
@@ -50,7 +50,7 @@ BEGIN
 			FechaIngreso = @FechaIngreso,
 			CURP = @CURP,
 			FechaNac = @FechaNac,
-			Contrase�a = @Contrase�a,
+			Contraseña = @Contraseña,
 			NumNomina = @NumNomina,
 			Eliminacion = @Eliminacion
 		WHERE IdEmpleados = @IdEmpleados;
@@ -72,7 +72,7 @@ BEGIN
 
 	IF @Accion = '*'
 	BEGIN
-		SELECT  IdEmpleados, Nombre, APpellidoP, APpellidoM, Email, FechaIngreso, CURP, NumNomina, Telefono, FechaNac
+		SELECT  IdEmpleados[IdEmpleado], Nombre[Nombre], APpellidoP[Apellido Paterno], APpellidoM[Apellido Materno], Email[Eamil], FechaIngreso[Fecha de Ingreso], CURP[CURP], NumNomina[NumNomina], Telefono[Telefono], FechaNac[Fecha Nacimiento]
 		FROM Empleados  
 		WHERE  Eliminacion = 0
 		ORDER BY Nombre;
@@ -80,20 +80,20 @@ BEGIN
 
 	IF @Accion = 'S'
 	BEGIN
-		SELECT  IdEmpleados, Nombre, APpellidoP, APpellidoM, Email, FechaIngreso, CURP, NumNomina, Telefono, FechaNac, Contrase�a
+		SELECT  IdEmpleados[IdEmpleado], Nombre[Nombre], APpellidoP[Apellido Paterno], APpellidoM[Apellido Materno], Email[Eamil], FechaIngreso[Fecha de Ingreso], CURP[CURP], NumNomina[NumNomina], Telefono[Telefono], FechaNac[Fecha Nacimiento], Contraseña[Contraseña]
 		FROM Empleados  
 		WHERE  IdEmpleados = @IdEmpleados;
 	END;
 
 	IF @Accion = 'T'
 	BEGIN
-		SELECT  IdEmpleados, Nombre, APpellidoP, APpellidoM, Email, FechaIngreso, CURP[CURP], NumNomina[Nomina], Telefono, FechaNac
+		SELECT  IdEmpleados[IdEmpleados], Nombre[Nombre], APpellidoP[Apellido Paterno], APpellidoM[Apellido Materno], Email[Email], FechaIngreso[Fecha Ingreso], CURP[CURP], NumNomina[Nomina], Telefono[Telefono], FechaNac[Fecha Nacimiento]
 		FROM Empleados  
 	END;
 
 	IF @Accion = 'V'
 	BEGIN
-		SELECT  IdAdministrador, IdEmpleado, CodigoAcceso
+		SELECT  IdAdministrador[IdAdministrador], IdEmpleado[IdEmpleado], CodigoAcceso[Codigo Acceso]
 		FROM Administrador  
 		WHERE IdEmpleado = @IdEmpleados;
 	END;
