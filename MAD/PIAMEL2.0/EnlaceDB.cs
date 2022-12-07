@@ -205,7 +205,7 @@ namespace MAD._0
 
             return tabla;
         }
-        public DataTable get_Empleados(string opc)
+        public DataTable get_Empleados(char opc)
         {
             var msg = "";
             DataTable tabla = new DataTable();

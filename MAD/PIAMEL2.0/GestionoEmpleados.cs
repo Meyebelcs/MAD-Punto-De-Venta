@@ -94,7 +94,7 @@ namespace PIAMEL2._0
 
             //Muestra la tabla con la info de los empleados
             var tablita = new DataTable();
-            tablita = obj.get_Empleados("*");
+            tablita = obj.get_Empleados('*');
             dgv_empleados.DataSource = tablita;
 
         }

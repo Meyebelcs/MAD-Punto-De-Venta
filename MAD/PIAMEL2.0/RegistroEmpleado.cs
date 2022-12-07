@@ -155,7 +155,7 @@ namespace MAD._0
             //VALIDACIONES DE DATOS Q NO DEBEN REPETIRSE
             var enlace = new EnlaceDB();
             var tablita = new DataTable();
-            tablita = enlace.get_Empleados("T");
+            tablita = enlace.get_Empleados('T');
 
             //Que el CURP no se repita
 
@@ -260,7 +260,17 @@ namespace MAD._0
             e.Handled = !char.IsDigit(e.KeyChar); //Solo numeros en el txt
         }
 
-       
+        private void RegistroEmpleado_Load(object sender, EventArgs e)
+        {
+
+
+            var obj = new EnlaceDB();
+            var IdProvisional = new DataTable();
+            IdProvisional = obj.get_Empleados('P'); //traigo de la base los datos del empleado
+
+
+            txt_usuario_RE.Text = IdProvisional.Rows[0][0].ToString();
+        }
     }
 }
 

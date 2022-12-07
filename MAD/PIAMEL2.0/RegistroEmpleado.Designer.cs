@@ -392,6 +392,7 @@
             this.Name = "RegistroEmpleado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegistroEmpleado";
+            this.Load += new System.EventHandler(this.RegistroEmpleado_Load);
             this.gb_check_RE.ResumeLayout(false);
             this.gb_check_RE.PerformLayout();
             this.ResumeLayout(false);
