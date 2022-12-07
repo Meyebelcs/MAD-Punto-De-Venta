@@ -51,10 +51,10 @@
             this.txt_codigoAcceso_RE = new System.Windows.Forms.TextBox();
             this.txt_Email_RE = new System.Windows.Forms.TextBox();
             this.txt_Telefono_RE = new System.Windows.Forms.TextBox();
-            this.tp_FechaIngreso_RE = new System.Windows.Forms.DateTimePicker();
+            this.tp_fechanac = new System.Windows.Forms.DateTimePicker();
             this.txt_nomina_RE = new System.Windows.Forms.TextBox();
             this.txt_curp_RE = new System.Windows.Forms.TextBox();
-            this.tp_FechaNacimiento_RE = new System.Windows.Forms.DateTimePicker();
+            this.tp_fechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.btn_cancelar_RE = new System.Windows.Forms.Button();
             this.btn_registrar_RE = new System.Windows.Forms.Button();
             this.gb_check_RE = new System.Windows.Forms.GroupBox();
@@ -86,7 +86,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(289, 248);
+            this.label3.Location = new System.Drawing.Point(520, 248);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(132, 19);
@@ -96,7 +96,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(519, 248);
+            this.label4.Location = new System.Drawing.Point(288, 248);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 19);
@@ -245,7 +245,7 @@
             // 
             // txt_ApellidoM_RE
             // 
-            this.txt_ApellidoM_RE.Location = new System.Drawing.Point(266, 271);
+            this.txt_ApellidoM_RE.Location = new System.Drawing.Point(497, 271);
             this.txt_ApellidoM_RE.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txt_ApellidoM_RE.Name = "txt_ApellidoM_RE";
             this.txt_ApellidoM_RE.Size = new System.Drawing.Size(205, 24);
@@ -253,7 +253,7 @@
             // 
             // txt_ApellidoP_RE
             // 
-            this.txt_ApellidoP_RE.Location = new System.Drawing.Point(497, 271);
+            this.txt_ApellidoP_RE.Location = new System.Drawing.Point(266, 271);
             this.txt_ApellidoP_RE.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txt_ApellidoP_RE.Name = "txt_ApellidoP_RE";
             this.txt_ApellidoP_RE.Size = new System.Drawing.Size(200, 24);
@@ -286,14 +286,14 @@
             this.txt_Telefono_RE.TabIndex = 21;
             this.txt_Telefono_RE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Telefono_RE_KeyPress);
             // 
-            // tp_FechaIngreso_RE
+            // tp_fechanac
             // 
-            this.tp_FechaIngreso_RE.CustomFormat = "yyyy-MM-dd";
-            this.tp_FechaIngreso_RE.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.tp_FechaIngreso_RE.Location = new System.Drawing.Point(497, 356);
-            this.tp_FechaIngreso_RE.Name = "tp_FechaIngreso_RE";
-            this.tp_FechaIngreso_RE.Size = new System.Drawing.Size(200, 24);
-            this.tp_FechaIngreso_RE.TabIndex = 24;
+            this.tp_fechanac.CustomFormat = "yyyy-MM-dd";
+            this.tp_fechanac.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.tp_fechanac.Location = new System.Drawing.Point(497, 356);
+            this.tp_fechanac.Name = "tp_fechanac";
+            this.tp_fechanac.Size = new System.Drawing.Size(200, 24);
+            this.tp_fechanac.TabIndex = 24;
             // 
             // txt_nomina_RE
             // 
@@ -312,15 +312,14 @@
             this.txt_curp_RE.Size = new System.Drawing.Size(205, 24);
             this.txt_curp_RE.TabIndex = 25;
             // 
-            // tp_FechaNacimiento_RE
+            // tp_fechaIngreso
             // 
-            this.tp_FechaNacimiento_RE.CustomFormat = "yyyy-MM-dd/h:m:s";
-            this.tp_FechaNacimiento_RE.Enabled = false;
-            this.tp_FechaNacimiento_RE.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.tp_FechaNacimiento_RE.Location = new System.Drawing.Point(497, 450);
-            this.tp_FechaNacimiento_RE.Name = "tp_FechaNacimiento_RE";
-            this.tp_FechaNacimiento_RE.Size = new System.Drawing.Size(200, 24);
-            this.tp_FechaNacimiento_RE.TabIndex = 27;
+            this.tp_fechaIngreso.CustomFormat = "yyyy-MM-dd/h:m:s";
+            this.tp_fechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.tp_fechaIngreso.Location = new System.Drawing.Point(497, 450);
+            this.tp_fechaIngreso.Name = "tp_fechaIngreso";
+            this.tp_fechaIngreso.Size = new System.Drawing.Size(200, 24);
+            this.tp_fechaIngreso.TabIndex = 27;
             // 
             // btn_cancelar_RE
             // 
@@ -362,10 +361,10 @@
             this.Controls.Add(this.gb_check_RE);
             this.Controls.Add(this.btn_registrar_RE);
             this.Controls.Add(this.btn_cancelar_RE);
-            this.Controls.Add(this.tp_FechaNacimiento_RE);
+            this.Controls.Add(this.tp_fechaIngreso);
             this.Controls.Add(this.txt_nomina_RE);
             this.Controls.Add(this.txt_curp_RE);
-            this.Controls.Add(this.tp_FechaIngreso_RE);
+            this.Controls.Add(this.tp_fechanac);
             this.Controls.Add(this.txt_Email_RE);
             this.Controls.Add(this.txt_Telefono_RE);
             this.Controls.Add(this.txt_codigoAcceso_RE);
@@ -393,6 +392,7 @@
             this.Name = "RegistroEmpleado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegistroEmpleado";
+            this.Load += new System.EventHandler(this.RegistroEmpleado_Load);
             this.gb_check_RE.ResumeLayout(false);
             this.gb_check_RE.PerformLayout();
             this.ResumeLayout(false);
@@ -425,10 +425,10 @@
         private System.Windows.Forms.TextBox txt_codigoAcceso_RE;
         private System.Windows.Forms.TextBox txt_Email_RE;
         private System.Windows.Forms.TextBox txt_Telefono_RE;
-        private System.Windows.Forms.DateTimePicker tp_FechaIngreso_RE;
+        private System.Windows.Forms.DateTimePicker tp_fechanac;
         private System.Windows.Forms.TextBox txt_nomina_RE;
         private System.Windows.Forms.TextBox txt_curp_RE;
-        private System.Windows.Forms.DateTimePicker tp_FechaNacimiento_RE;
+        private System.Windows.Forms.DateTimePicker tp_fechaIngreso;
         private System.Windows.Forms.Button btn_cancelar_RE;
         private System.Windows.Forms.Button btn_registrar_RE;
         private System.Windows.Forms.GroupBox gb_check_RE;

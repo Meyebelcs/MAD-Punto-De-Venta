@@ -264,6 +264,7 @@
             this.Name = "ReporteRecibos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta de recibos";
+            this.Load += new System.EventHandler(this.ReporteRecibos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ticket)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -45,6 +45,7 @@
             this.btn_productos_PA = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.btn_empleados = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Lista_PA)).BeginInit();
             this.SuspendLayout();
             // 
@@ -211,6 +212,7 @@
             this.button1.TabIndex = 23;
             this.button1.Text = "Departamento";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -223,12 +225,25 @@
             this.button2.Text = "Reportes";
             this.button2.UseVisualStyleBackColor = false;
             // 
+            // btn_empleados
+            // 
+            this.btn_empleados.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btn_empleados.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_empleados.Location = new System.Drawing.Point(280, 536);
+            this.btn_empleados.Name = "btn_empleados";
+            this.btn_empleados.Size = new System.Drawing.Size(147, 76);
+            this.btn_empleados.TabIndex = 25;
+            this.btn_empleados.Text = "Empleados";
+            this.btn_empleados.UseVisualStyleBackColor = false;
+            this.btn_empleados.Click += new System.EventHandler(this.btn_empleados_Click);
+            // 
             // PrincipalAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1130, 656);
+            this.Controls.Add(this.btn_empleados);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_productos_PA);
@@ -275,5 +290,6 @@
         private System.Windows.Forms.Button btn_productos_PA;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_empleados;
     }
 }

@@ -36,7 +36,6 @@ namespace MAD._0
             this.btn_login = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_salir = new System.Windows.Forms.Button();
-            this.btn_registrar = new System.Windows.Forms.Button();
             this.chb_admin = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
@@ -45,7 +44,7 @@ namespace MAD._0
             this.txt_user.Location = new System.Drawing.Point(43, 215);
             this.txt_user.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txt_user.Name = "txt_user";
-            this.txt_user.Size = new System.Drawing.Size(376, 32);
+            this.txt_user.Size = new System.Drawing.Size(376, 27);
             this.txt_user.TabIndex = 0;
             // 
             // txt_pass
@@ -54,7 +53,7 @@ namespace MAD._0
             this.txt_pass.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txt_pass.Name = "txt_pass";
             this.txt_pass.PasswordChar = '*';
-            this.txt_pass.Size = new System.Drawing.Size(376, 32);
+            this.txt_pass.Size = new System.Drawing.Size(376, 27);
             this.txt_pass.TabIndex = 3;
             // 
             // lbl_user
@@ -63,7 +62,7 @@ namespace MAD._0
             this.lbl_user.Location = new System.Drawing.Point(39, 186);
             this.lbl_user.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbl_user.Name = "lbl_user";
-            this.lbl_user.Size = new System.Drawing.Size(79, 23);
+            this.lbl_user.Size = new System.Drawing.Size(66, 21);
             this.lbl_user.TabIndex = 4;
             this.lbl_user.Text = "Usuario";
             // 
@@ -73,14 +72,14 @@ namespace MAD._0
             this.lbl_pass.Location = new System.Drawing.Point(39, 281);
             this.lbl_pass.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbl_pass.Name = "lbl_pass";
-            this.lbl_pass.Size = new System.Drawing.Size(125, 23);
+            this.lbl_pass.Size = new System.Drawing.Size(103, 21);
             this.lbl_pass.TabIndex = 5;
             this.lbl_pass.Text = "Contraseña";
             // 
             // btn_login
             // 
             this.btn_login.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_login.Location = new System.Drawing.Point(249, 425);
+            this.btn_login.Location = new System.Drawing.Point(138, 420);
             this.btn_login.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(170, 40);
@@ -95,7 +94,7 @@ namespace MAD._0
             this.label1.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(131, 77);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(228, 44);
+            this.label1.Size = new System.Drawing.Size(186, 37);
             this.label1.TabIndex = 7;
             this.label1.Text = "Bienvenid@";
             // 
@@ -111,37 +110,24 @@ namespace MAD._0
             this.btn_salir.UseVisualStyleBackColor = true;
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
-            // btn_registrar
-            // 
-            this.btn_registrar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_registrar.Location = new System.Drawing.Point(43, 425);
-            this.btn_registrar.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.btn_registrar.Name = "btn_registrar";
-            this.btn_registrar.Size = new System.Drawing.Size(170, 40);
-            this.btn_registrar.TabIndex = 9;
-            this.btn_registrar.Text = "Registrar";
-            this.btn_registrar.UseVisualStyleBackColor = true;
-            this.btn_registrar.Click += new System.EventHandler(this.btn_registrar_Click);
-            // 
             // chb_admin
             // 
             this.chb_admin.AutoSize = true;
             this.chb_admin.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chb_admin.Location = new System.Drawing.Point(173, 366);
             this.chb_admin.Name = "chb_admin";
-            this.chb_admin.Size = new System.Drawing.Size(120, 21);
+            this.chb_admin.Size = new System.Drawing.Size(99, 20);
             this.chb_admin.TabIndex = 10;
             this.chb_admin.Text = "Administrador";
             this.chb_admin.UseVisualStyleBackColor = true;
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(457, 582);
             this.Controls.Add(this.chb_admin);
-            this.Controls.Add(this.btn_registrar);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_login);
@@ -156,6 +142,7 @@ namespace MAD._0
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio_de_Sesion";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,7 +157,6 @@ namespace MAD._0
         private System.Windows.Forms.Button btn_login;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_salir;
-        private System.Windows.Forms.Button btn_registrar;
         private System.Windows.Forms.CheckBox chb_admin;
     }
 }

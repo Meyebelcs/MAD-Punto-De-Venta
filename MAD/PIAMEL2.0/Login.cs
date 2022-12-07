@@ -12,43 +12,75 @@ namespace MAD._0
 {
     public partial class Login : Form
     {
+        private static int usuario;
+        private static bool Admin;
+
         public Login()
         {
             InitializeComponent();
         }
 
-        SqlConnection conection = new SqlConnection("server= DESKTOP-IMKRRN7\\SQLEXPRESS ; database = DB_MAD ; INTEGRATED SECURITY = true");
-
+        public int getCurrentIdUser()
+        {
+            return usuario;
+        }
+        public bool getCurrentRol()
+        {
+            return Admin;
+        }
         private void btn_login_Click(object sender, EventArgs e)
         {
-            conection.Open();
-            SqlCommand comando = new SqlCommand("SELECT [IdEmpleados], Contraseña FROM Empleados WHERE [IdEmpleados] = @vUser AND Contraseña = @vPassword", conection);
-            comando.Parameters.AddWithValue("@vUser", txt_user.Text);
-            comando.Parameters.AddWithValue("@vPassword", txt_pass.Text);
-           
 
-            SqlDataReader lector = comando.ExecuteReader();
-            if (lector.Read())
+            if (txt_user.TextLength < 1)
             {
-                conection.Close();
+                MessageBox.Show("El campo usuario no puede estar vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.None);
+                return;
+            }
 
+            if (txt_pass.TextLength < 1)
+            {
+                MessageBox.Show("El campo contraseña no puede estar vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.None);
+                return;
+            }
 
-                if (chb_admin.Checked) //valida si admin está checked
+            if (chb_admin.Checked) //valida si admin está checked
+            {
+                var enlace = new EnlaceDB();
+                if (enlace.Autentificar("A", Convert.ToInt32(txt_user.Text), txt_pass.Text)) 
                 {
+                    usuario = Convert.ToInt32(txt_user.Text);
+                    Admin = true;
+
                     PrincipalAdministrador pantalla = new PrincipalAdministrador();
                     pantalla.Show();
                     this.Hide();
                 }
-                else//si es cajero abre principal cajero
+                else
                 {
+                    MessageBox.Show("Las credenciales ingresadas no pertenecen a ningun usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+            }
+            else//si es cajero abre principal cajero
+            {
+                var enlace = new EnlaceDB();
+                if (enlace.Autentificar("C", Convert.ToInt32(txt_user.Text), txt_pass.Text))
+                {
+                    usuario = Convert.ToInt32(txt_user.Text);
+                    Admin = false;
+
                     PrincipalCajero pantalla = new PrincipalCajero();
                     pantalla.Show();
                     this.Hide();
                 }
+                else
+                {
+                    MessageBox.Show("Las credenciales ingresadas no pertenecen a ningun usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
 
-                
             }
-            conection.Close();
+
         }
 
         private void btn_salir_Click(object sender, EventArgs e)
@@ -65,12 +97,16 @@ namespace MAD._0
 
         private void btn_registrar_Click(object sender, EventArgs e)
         {
-            var frmRegistroEmpleado = new RegistroEmpleado();
+            //var frmRegistroEmpleado = new RegistroEmpleado();
 
             //frmRegistroEmpleado.Show();//Ventana NO Modal
-            frmRegistroEmpleado.ShowDialog(); //Ventana Modal
+            //  frmRegistroEmpleado.ShowDialog(); //Ventana Modal
 
         }
 
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

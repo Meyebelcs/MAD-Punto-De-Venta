@@ -40,34 +40,47 @@ namespace MAD._0
             _conexion.Close();
         }
 
-        public bool Autentificar(string us, string ps)
+        public bool Autentificar(string opc, int IdRol, string contra)
         {
+            var msg = "";
             bool isValid = false;
             try
             {
-                conectar(); 
+                conectar();
                 string qry = "SP_ValidaUser";
                 _comandosql = new SqlCommand(qry, _conexion);
                 _comandosql.CommandType = CommandType.StoredProcedure;
                 _comandosql.CommandTimeout = 9000;
 
-                var parametro1 = _comandosql.Parameters.Add("@u", SqlDbType.Char, 20);
-                parametro1.Value = us;
-                var parametro2 = _comandosql.Parameters.Add("@p", SqlDbType.Char, 20);
-                parametro2.Value = ps;
+                var parametro1 = _comandosql.Parameters.Add("@Op", SqlDbType.Char, 1);
+                parametro1.Value = opc;
+                var parametro3 = _comandosql.Parameters.Add("@Contraseña", SqlDbType.VarChar, 20);
+                parametro3.Value = contra;
+                var parametro2 = _comandosql.Parameters.Add("@IdRol", SqlDbType.Int, 4);
+                parametro2.Value = IdRol;
 
                 _adaptador.SelectCommand = _comandosql;
                 _adaptador.Fill(_tabla);
 
-                if(_tabla.Rows.Count > 0)
+                if (_tabla.Rows.Count > 0)
                 {
-                    isValid = true;
+                    foreach (DataRow fila in _tabla.Rows)
+                    {
+                        if (fila["IdEmpleado"].ToString() == IdRol.ToString())
+                        {
+                            isValid = true;
+                        }
+                    }
                 }
 
             }
-            catch(SqlException e)
+            catch (SqlException e)
             {
                 isValid = false;
+
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             finally
             {
@@ -110,19 +123,101 @@ namespace MAD._0
             return tabla;
         }
 
-        public DataTable get_Deptos(string opc)
+        //EMPLEADOS
+        public bool validarRol( int IdRol)
+        {
+            var msg = "";
+            bool isValid = false;
+            try
+            {
+                conectar();
+                string qry = "spEmpleados";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 9000;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = 'V';
+                var parametro2 = _comandosql.Parameters.Add("@IdEmpleados", SqlDbType.Int, 20);
+                parametro2.Value = IdRol;
+
+                _adaptador.SelectCommand = _comandosql;
+                _adaptador.Fill(_tabla);
+
+                if (_tabla.Rows.Count > 0)
+                {
+                    foreach (DataRow fila in _tabla.Rows)
+                    {
+                        if (fila["IdEmpleado"].ToString() == IdRol.ToString())
+                        {
+                            isValid = true;
+                        }
+                    }
+                }
+
+            }
+            catch (SqlException e)
+            {
+                isValid = false;
+
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return isValid;
+        }
+        public DataTable get_DatosEmpleado(char op, int noEmpleado)
         {
             var msg = "";
             DataTable tabla = new DataTable();
             try
             {
                 conectar();
-                string qry = "sp_Gestiona_Deptos";
+                string qry = "spEmpleados";
                 _comandosql = new SqlCommand(qry, _conexion);
                 _comandosql.CommandType = CommandType.StoredProcedure;
                 _comandosql.CommandTimeout = 1200;
 
-                var parametro1 = _comandosql.Parameters.Add("@Opc", SqlDbType.Char, 1);
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = op;
+                var parametro2 = _comandosql.Parameters.Add("@IdEmpleados", SqlDbType.Int, 20);
+                parametro2.Value = noEmpleado;
+
+                _adaptador.SelectCommand = _comandosql;
+                _adaptador.Fill(tabla);
+
+            }
+            catch (SqlException e)
+            {
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return tabla;
+        }
+        public DataTable get_Empleados(string opc)
+        {
+            var msg = "";
+            DataTable tabla = new DataTable();
+            try
+            {
+                conectar();
+                string qry = "spEmpleados";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
                 parametro1.Value = opc;
 
 
@@ -143,25 +238,50 @@ namespace MAD._0
 
             return tabla;
         }
-        public bool Add_Deptos(string opc, string depto)
+        public bool add_Empleados(string opc, int noEmpleado, string nombre, string apPaterno, string apMaterno, int telefono, string contraseña, DateTime fechaNacimiento, string curp,  string email, DateTime fechaIngreso, int numNomina)
         {
             var msg = "";
             var add = true;
             try
             {
                 conectar();
-                string qry = "sp_Gestiona_Deptos";
+                string qry = "spEmpleados";
                 _comandosql = new SqlCommand(qry, _conexion);
                 _comandosql.CommandType = CommandType.StoredProcedure;
                 _comandosql.CommandTimeout = 1200;
 
-                var parametro1 = _comandosql.Parameters.Add("@Opc", SqlDbType.Char, 1);
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
                 parametro1.Value = opc;
-                var parametro2 = _comandosql.Parameters.Add("@Nombre", SqlDbType.VarChar, 20);
-                parametro2.Value = depto;
+                var parametro2 = _comandosql.Parameters.Add("@IdEmpleados", SqlDbType.Int, 20);
+                parametro2.Value = noEmpleado;
+                var parametro3 = _comandosql.Parameters.Add("@Nombre", SqlDbType.VarChar, 50);
+                parametro3.Value = nombre;
+                var parametro4 = _comandosql.Parameters.Add("@APpellidoP", SqlDbType.VarChar, 50);
+                parametro4.Value = apPaterno;
+                var parametro5 = _comandosql.Parameters.Add("@APpellidoM", SqlDbType.VarChar, 50);
+                parametro5.Value = apMaterno;
+                var parametro6 = _comandosql.Parameters.Add("@Telefono", SqlDbType.Int, 11);
+                parametro6.Value = telefono;
+                var parametro7 = _comandosql.Parameters.Add("@Email", SqlDbType.VarChar, 50);
+                parametro7.Value = email;
+                var parametro8 = _comandosql.Parameters.Add("@FechaIngreso", SqlDbType.DateTime);
+                parametro8.Value = fechaIngreso;
+                var parametro9 = _comandosql.Parameters.Add("@CURP", SqlDbType.VarChar, 20);
+                parametro9.Value = curp;
+                var parametro10 = _comandosql.Parameters.Add("@FechaNac", SqlDbType.DateTime);
+                parametro10.Value = fechaNacimiento;
+                var parametro11 = _comandosql.Parameters.Add("@Contraseña", SqlDbType.VarChar, 10);
+                parametro11.Value = contraseña;
+                var parametro12 = _comandosql.Parameters.Add("@NumNomina", SqlDbType.Int, 20);
+                parametro12.Value = numNomina;
+
+                var parametro13 = _comandosql.Parameters.Add("@Eliminacion", SqlDbType.Int, 1);
+                parametro13.Value = 0;
+                var parametro14 = _comandosql.Parameters.Add("@CodigoAcceso", SqlDbType.Int, 1);
+                parametro14.Value = 0;
 
                 _adaptador.InsertCommand = _comandosql;
-                
+
                 _comandosql.ExecuteNonQuery();
 
             }
@@ -174,11 +294,167 @@ namespace MAD._0
             }
             finally
             {
-                desconectar();                
+                desconectar();
             }
 
             return add;
         }
 
+        //ADMINISTRADOR
+        public bool add_Administrador(string opc, int noEmpleado, int IdAdmin, int codigoAcceso)
+        {
+            var msg = "";
+            var add = true;
+            try
+            {
+                conectar();
+                string qry = "spAdministrador";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = opc;
+                var parametro2 = _comandosql.Parameters.Add("@IdAdministrador", SqlDbType.Int, 20);
+                parametro2.Value = IdAdmin;
+                var parametro3 = _comandosql.Parameters.Add("@IdEmpleado", SqlDbType.Int, 20);
+                parametro3.Value = noEmpleado;
+                var parametro4 = _comandosql.Parameters.Add("@CodigoAcceso", SqlDbType.Int, 20);
+                parametro4.Value = codigoAcceso;
+                var parametro5 = _comandosql.Parameters.Add("@Eliminacion", SqlDbType.Int, 1);
+                parametro5.Value = 0;
+
+                _adaptador.InsertCommand = _comandosql;
+
+                _comandosql.ExecuteNonQuery();
+
+            }
+            catch (SqlException e)
+            {
+                add = false;
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return add;
+        }
+
+        public DataTable get_DatosAdmin(char op, int noEmpleado)
+        {
+            var msg = "";
+            DataTable tabla = new DataTable();
+            try
+            {
+                conectar();
+                string qry = "spAdministrador";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = op;
+                var parametro2 = _comandosql.Parameters.Add("@IdEmpleado", SqlDbType.Int, 20);
+                parametro2.Value = noEmpleado;
+
+                _adaptador.SelectCommand = _comandosql;
+                _adaptador.Fill(tabla);
+
+            }
+            catch (SqlException e)
+            {
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return tabla;
+        }
+
+        //CAJERO
+        public bool add_Cajero(string opc, int IdCajero, int IdEmpleado, int IdAdmin)
+        {
+            var msg = "";
+            var add = true;
+            try
+            {
+                conectar();
+                string qry = "spCajero";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = opc;
+                var parametro2 = _comandosql.Parameters.Add("@IdCajero", SqlDbType.Int, 20);
+                parametro2.Value = IdCajero;
+                var parametro3 = _comandosql.Parameters.Add("@IdEmpleado", SqlDbType.Int, 20);
+                parametro3.Value = IdEmpleado;
+                var parametro4 = _comandosql.Parameters.Add("@IdAdmin", SqlDbType.Int, 20);
+                parametro4.Value = IdAdmin;
+                var parametro5 = _comandosql.Parameters.Add("@Eliminacion", SqlDbType.Int, 1);
+                parametro5.Value = 0;
+
+                _adaptador.InsertCommand = _comandosql;
+
+                _comandosql.ExecuteNonQuery();
+
+            }
+            catch (SqlException e)
+            {
+                add = false;
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return add;
+        }
+        public DataTable get_DatosCajero(char op, int IdEmpleado)
+        {
+            var msg = "";
+            DataTable tabla = new DataTable();
+            try
+            {
+                conectar();
+                string qry = "spCajero";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = op;
+                var parametro2 = _comandosql.Parameters.Add("@IdEmpleado", SqlDbType.Int, 20);
+                parametro2.Value = IdEmpleado;
+
+                _adaptador.SelectCommand = _comandosql;
+                _adaptador.Fill(tabla);
+
+            }
+            catch (SqlException e)
+            {
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return tabla;
+        }
     }
 }

@@ -31,10 +31,19 @@ namespace MAD._0
 
         private void PrincipalCajero_Load(object sender, EventArgs e)
         {
+
+           
+
+
             //Pregunta cual caja va a utilizar
             var frmSeleccionDeCaja = new Caja_Seleccion();
 
             frmSeleccionDeCaja.ShowDialog(); //Ventana Modal
+
+            var obj = new EnlaceDB(); //creo objeto enlaceDB
+            var tabla = new DataTable();//creo tabla 
+            tabla = obj.ConsultaTabla("spProductos", "*");//manda llamar el SP
+            dgv_busqueda_PC.DataSource = tabla; //Asigna la info a la tabla
         }
 
         private void btn_ticket_PC_Click(object sender, EventArgs e)
