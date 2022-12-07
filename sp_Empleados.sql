@@ -95,10 +95,13 @@ BEGIN
 	BEGIN
 		SELECT  IdAdministrador, IdEmpleado, CodigoAcceso
 		FROM Administrador  
-		WHERE IdEmpleado = @IdEmpleados;
+		WHERE IdEmpleado = @IdEmpleados and Eliminacion = 0;
 	END;
 
-	
+	IF @Accion='P'
+	BEGIN
+		SELECT dbo.fn_IdProvisional() 
+	END
 
 END;
 

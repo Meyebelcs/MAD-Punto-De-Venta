@@ -371,6 +371,7 @@
             this.dgv_empleados.Name = "dgv_empleados";
             this.dgv_empleados.Size = new System.Drawing.Size(330, 450);
             this.dgv_empleados.TabIndex = 60;
+            this.dgv_empleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_empleados_CellClick);
             this.dgv_empleados.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_empleados_CellContentDoubleClick);
             // 
             // label14

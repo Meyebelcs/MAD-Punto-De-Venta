@@ -20,7 +20,7 @@ BEGIN
 		SELECT E.IdEmpleados, A.IdEmpleado, A.IdAdministrador,A.CodigoAcceso, E.Nombre, E.APpellidoP, E.APpellidoM, E.Telefono, E.Email,E.FechaIngreso, E.CURP, E.Contraseña, E.FechaNac, E.NumNomina, E.Eliminacion
 		FROM Empleados E JOIN Administrador A
 		on E.IdEmpleados = A.IdEmpleado
-		WHERE A.IdEmpleado = @IdRol AND E.Contraseña=@Contraseña AND Eliminacion = 0;
+		WHERE A.IdEmpleado = @IdRol AND E.Contraseña=@Contraseña AND E.Eliminacion = 0;
 
 	END;
 
@@ -29,7 +29,7 @@ BEGIN
 		SELECT C.IdAdmin, C.IdCajero, C.IdEmpleado, E.IdEmpleados, E.Nombre, E.APpellidoP, E.APpellidoM, E.Telefono, E.Email,E.FechaIngreso, E.CURP, E.Contraseña, E.FechaNac, E.NumNomina, E.Eliminacion
 		FROM Empleados E JOIN Cajero C
 		on E.IdEmpleados = C.IdEmpleado
-		WHERE C.IdEmpleado = @IdRol AND E.Contraseña=@Contraseña AND Eliminacion = 0;
+		WHERE C.IdEmpleado = @IdRol AND E.Contraseña=@Contraseña AND E.Eliminacion = 0;
 		
 	END
 

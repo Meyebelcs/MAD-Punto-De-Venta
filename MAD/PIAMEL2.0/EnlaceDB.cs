@@ -250,7 +250,6 @@ namespace MAD._0
                 _comandosql.CommandType = CommandType.StoredProcedure;
                 _comandosql.CommandTimeout = 1200;
 
-
                 var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
                 parametro1.Value = opc;
                 var parametro2 = _comandosql.Parameters.Add("@IdEmpleados", SqlDbType.Int, 20);
@@ -322,6 +321,8 @@ namespace MAD._0
                 parametro3.Value = noEmpleado;
                 var parametro4 = _comandosql.Parameters.Add("@CodigoAcceso", SqlDbType.Int, 20);
                 parametro4.Value = codigoAcceso;
+                var parametro5 = _comandosql.Parameters.Add("@Eliminacion", SqlDbType.Int, 1);
+                parametro5.Value = 0;
 
                 _adaptador.InsertCommand = _comandosql;
 
@@ -399,6 +400,8 @@ namespace MAD._0
                 parametro3.Value = IdEmpleado;
                 var parametro4 = _comandosql.Parameters.Add("@IdAdmin", SqlDbType.Int, 20);
                 parametro4.Value = IdAdmin;
+                var parametro5 = _comandosql.Parameters.Add("@Eliminacion", SqlDbType.Int, 1);
+                parametro5.Value = 0;
 
                 _adaptador.InsertCommand = _comandosql;
 
@@ -419,6 +422,39 @@ namespace MAD._0
 
             return add;
         }
+        public DataTable get_DatosCajero(char op, int IdEmpleado)
+        {
+            var msg = "";
+            DataTable tabla = new DataTable();
+            try
+            {
+                conectar();
+                string qry = "spCajero";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
 
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = op;
+                var parametro2 = _comandosql.Parameters.Add("@IdEmpleado", SqlDbType.Int, 20);
+                parametro2.Value = IdEmpleado;
+
+                _adaptador.SelectCommand = _comandosql;
+                _adaptador.Fill(tabla);
+
+            }
+            catch (SqlException e)
+            {
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return tabla;
+        }
     }
 }

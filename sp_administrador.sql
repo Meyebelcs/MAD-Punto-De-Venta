@@ -12,7 +12,8 @@ CREATE PROCEDURE spAdministrador(
 @Accion				CHAR(1),
 @IdAdministrador	INT = NULL,
 @IdEmpleado			INT = NULL,
-@CodigoAcceso		INT = NULL
+@CodigoAcceso		INT = NULL,
+@Eliminacion		BIT=NULL
 )
 AS
 
@@ -23,8 +24,8 @@ BEGIN
 
 	IF @Accion = 'I'
 	BEGIN
-		INSERT INTO Administrador(IdEmpleado, CodigoAcceso)
-		VALUES(@IdEmpleado, @CodigoAcceso);
+		INSERT INTO Administrador(IdEmpleado, CodigoAcceso,Eliminacion)
+		VALUES(@IdEmpleado, @CodigoAcceso,@Eliminacion);
 	END;
 
 	IF @Accion = 'U'
@@ -34,6 +35,15 @@ BEGIN
 			IdEmpleado = @IdEmpleado,
 			CodigoAcceso = @CodigoAcceso
 		WHERE IdAdministrador = @IdAdministrador;
+	END;
+
+	IF @Accion = 'E' 
+	/*eliminacion logica*/
+	BEGIN
+		UPDATE Administrador 
+		SET
+			Eliminacion = 1 
+			WHERE IdAdministrador = @IdAdministrador;
 	END;
 
 	IF @Accion = 'D'
@@ -47,7 +57,7 @@ BEGIN
 	BEGIN
 		SELECT  IdAdministrador, IdEmpleado, CodigoAcceso
 		FROM Administrador  
-		WHERE IdEmpleado = @IdEmpleado;
+		WHERE IdEmpleado = @IdEmpleado AND Eliminacion = 0;
 	END;
 
 	IF @Accion = '*'
@@ -55,6 +65,7 @@ BEGIN
 		SELECT  IdAdministrador[IdAdministrador], IdEmpleado[IdEmpleado], CodigoAcceso[CodigoAcceso]
 		FROM Administrador  
 		ORDER BY IdAdministrador;
+
 
  END;
 END;

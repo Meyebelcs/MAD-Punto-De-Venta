@@ -20,6 +20,11 @@ NumNomina			INT NULL,
 Eliminacion			BIT NULL,
 );
 
+ALTER TABLE Empleados
+ALTER COLUMN FechaIngreso DATETIME NULL
+
+ALTER TABLE Empleados
+ALTER COLUMN FechaNac DATETIME NULL
 
 IF OBJECT_ID('Administrador')IS NOT NULL
 	DROP TABLE Administrador;
@@ -33,6 +38,8 @@ CONSTRAINT FK_ADMINISTRADOR_IDEMPLEADO FOREIGN KEY (IdEmpleado)
    REFERENCES Empleados(IdEmpleados)
 );
 
+ALTER TABLE Administrador
+ADD Eliminacion BIT NULL
 
 IF OBJECT_ID('Cajero')IS NOT NULL
 	DROP TABLE Cajero;
@@ -49,6 +56,9 @@ CONSTRAINT FK_CAJERO_EM FOREIGN KEY (IdEmpleado)
    REFERENCES Empleados(IdEmpleados)
 
 );
+
+ALTER TABLE Cajero
+ADD Eliminacion BIT NULL
 
 IF OBJECT_ID('Departamento')IS NOT NULL
 	DROP TABLE Departamento;
@@ -449,9 +459,13 @@ SELECT *FROM Caja
 SELECT *FROM Ticket
 
 
+Select MAX(IdEmpleados) AS maximo from Empleados
 
+SELECT Top 1 IdEmpleados 
+From Empleados
+order by IdEmpleados desc
 
-
+SELECT dbo.fn_IdProvisional() 
 
 
 /*-------------NO EJECUTAR, SOLO SON EJEMPLOS----------------------*/
@@ -461,9 +475,36 @@ ALTER COLUMN Nombre VARCHAR(50) NOT NULL
 DELETE FROM Empleados
 WHERE Nombre = 'Boing'
 
+UPDATE Cajero
+		SET
+			Eliminacion = 0
+WHERE IdEmpleado = 1000003;
+
+UPDATE Empleados
+		SET
+			Nombre = 'Fernanda',
+			APpellidoP = 'Fernanda',
+			APpellidoM = 'Fernanda',
+			Telefono = '1234567898',
+			Email ='Fernanda@gmail.com',
+			FechaIngreso = '2022-03-11 00:00:00.000',
+			CURP = 'fgvbhyt678uyhgf',
+			FechaNac = '2002-11-11 00:00:00.000',
+			Contraseña ='fer2020',
+			NumNomina = '629',
+			Eliminacion = 0
+WHERE IdEmpleados = 1000005;
+
+
 update Empleados
 set Eliminacion = 0
 WHERE Eliminacion = 1
+
+update Cajero
+set Eliminacion = 0
+
+update Empleados
+set Eliminacion = 0
 
 ALTER TABLE Productos
 ADD Descuento BIT NULL
