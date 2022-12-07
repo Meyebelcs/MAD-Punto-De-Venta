@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -94,7 +95,7 @@ namespace PIAMEL2._0
 
             //Muestra la tabla con la info de los empleados
             var tablita = new DataTable();
-            tablita = obj.get_Empleados('*');
+            tablita = obj.get_Empleados("*");
             dgv_empleados.DataSource = tablita;
 
         }
@@ -168,6 +169,33 @@ namespace PIAMEL2._0
             RegistroEmpleado pantalla = new RegistroEmpleado();
             pantalla.Show();
             this.Hide();
+        }
+
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            if (empleadoSelected != 0)
+            {
+                var enlace = new EnlaceDB();
+                DialogResult result = MessageBox.Show("Esta acción es irreversible\n\n ¿Está seguro que desea continuar?", "Eliminar", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.No)
+                {
+                    MessageBox.Show("No se eliminó el empleado", "Cancelado", MessageBoxButtons.OK);
+                    return;
+                }
+
+                enlace.get_DatosEmpleado('E', empleadoSelected);
+
+                MessageBox.Show("se eliminó correctamente el empleado", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+
+               //recargar pantalla
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
     }
 }

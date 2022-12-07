@@ -66,7 +66,8 @@ namespace MAD._0
                 var enlace = new EnlaceDB();
                 if (enlace.Autentificar("C", Convert.ToInt32(txt_user.Text), txt_pass.Text))
                 {
-                 
+                    usuario = Convert.ToInt32(txt_user.Text);
+                    Admin = false;
 
                     PrincipalCajero pantalla = new PrincipalCajero();
                     pantalla.Show();
@@ -103,5 +104,9 @@ namespace MAD._0
 
         }
 
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

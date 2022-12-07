@@ -145,9 +145,17 @@ namespace MAD._0
             }
 
             //validacion de fecha de nacimiento q sea mayor de edad y no fecha futura
-            ValidarFecha();
+            if (!ValidarFecha()) {
+                return;
+            }
 
 
+            //valida fecha de ingreso
+            //
+            //capturar el primer id de empleados
+            //buscar su fecha de ingreso
+            //validar la fecha de ingreso con esa que trajimos de la base
+            //validar que no se repita el codigo de acceso del administrador si esq lo es
             //validacion de la fecha de ingreso. Que sea una fecha en la que ya existe la empresa
             //--------------------------------------------------------------------------
 
@@ -155,7 +163,7 @@ namespace MAD._0
             //VALIDACIONES DE DATOS Q NO DEBEN REPETIRSE
             var enlace = new EnlaceDB();
             var tablita = new DataTable();
-            tablita = enlace.get_Empleados('T');
+            tablita = enlace.get_Empleados("T");
 
             //Que el CURP no se repita
 
@@ -191,8 +199,10 @@ namespace MAD._0
             var empleado = new EnlaceDB();
             bool control;
 
+            int nomina = Convert.ToInt32(txt_nomina_RE.Text);
+
             //alta de empleado
-            control=  empleado.add_Empleados("I", 0, txt_nombre_RE.Text, txt_ApellidoP_RE.Text, txt_ApellidoM_RE.Text, Convert.ToInt32( txt_Telefono_RE.Text), txt_contraseña_RE.Text, tp_FechaIngreso_RE.Value.ToString("yyyy-MM-dd"), txt_curp_RE.Text, txt_Email_RE.Text, tp_FechaNacimiento_RE.Value.ToString("yyyy-MM-dd/h:m:s"), Convert.ToInt32(txt_nomina_RE.Text));
+            control =  empleado.add_Empleados("I", 0, txt_nombre_RE.Text, txt_ApellidoP_RE.Text, txt_ApellidoM_RE.Text, Convert.ToInt32( txt_Telefono_RE.Text), txt_contraseña_RE.Text, tp_fechanac.Value, txt_curp_RE.Text, txt_Email_RE.Text, tp_fechaIngreso.Value, nomina);
 
             if (!control)
             {
@@ -241,17 +251,23 @@ namespace MAD._0
             this.Hide();
         }
 
-        void ValidarFecha()
+        bool ValidarFecha()
         {
+            bool isvalid = true;
+
             DateTime hoy = DateTime.Today;
-            if (tp_FechaIngreso_RE.Value.Date >= hoy) //valida que sea menor a hoy
+            if (tp_fechanac.Value.Date >= hoy) //valida que sea menor a hoy
             {
+                isvalid = false;
                 MessageBox.Show("Fecha inválida, no puedes seleccionar una fecha futura o presente", "Error de registro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (tp_FechaIngreso_RE.Value.Date.AddYears(18) > hoy) //valida que sea mayor de edad
+            else if (tp_fechanac.Value.Date.AddYears(18) > hoy) //valida que sea mayor de edad
             {
+                isvalid = false;
                 MessageBox.Show("Eres menor de edad", "Error de registro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+            return isvalid;
         }
 
 
@@ -266,7 +282,7 @@ namespace MAD._0
 
             var obj = new EnlaceDB();
             var IdProvisional = new DataTable();
-            IdProvisional = obj.get_Empleados('P'); //traigo de la base los datos del empleado
+            IdProvisional = obj.get_Empleados("P"); //traigo de la base los datos del empleado
 
 
             txt_usuario_RE.Text = IdProvisional.Rows[0][0].ToString();

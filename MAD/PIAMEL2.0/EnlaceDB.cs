@@ -54,10 +54,10 @@ namespace MAD._0
 
                 var parametro1 = _comandosql.Parameters.Add("@Op", SqlDbType.Char, 1);
                 parametro1.Value = opc;
-                var parametro2 = _comandosql.Parameters.Add("@IdRol", SqlDbType.Int, 4);
-                parametro2.Value = IdRol;
                 var parametro3 = _comandosql.Parameters.Add("@Contraseña", SqlDbType.VarChar, 20);
                 parametro3.Value = contra;
+                var parametro2 = _comandosql.Parameters.Add("@IdRol", SqlDbType.Int, 4);
+                parametro2.Value = IdRol;
 
                 _adaptador.SelectCommand = _comandosql;
                 _adaptador.Fill(_tabla);
@@ -66,7 +66,7 @@ namespace MAD._0
                 {
                     foreach (DataRow fila in _tabla.Rows)
                     {
-                        if (fila["Contraseña"].ToString() == contra)
+                        if (fila["IdEmpleado"].ToString() == IdRol.ToString())
                         {
                             isValid = true;
                         }
@@ -205,7 +205,7 @@ namespace MAD._0
 
             return tabla;
         }
-        public DataTable get_Empleados(char opc)
+        public DataTable get_Empleados(string opc)
         {
             var msg = "";
             DataTable tabla = new DataTable();
@@ -238,7 +238,7 @@ namespace MAD._0
 
             return tabla;
         }
-        public bool add_Empleados(string opc, int noEmpleado, string nombre, string apPaterno, string apMaterno, int telefono, string contraseña, string fechaNacimiento, string curp,  string email, string fechaIngreso, int numNomina)
+        public bool add_Empleados(string opc, int noEmpleado, string nombre, string apPaterno, string apMaterno, int telefono, string contraseña, DateTime fechaNacimiento, string curp,  string email, DateTime fechaIngreso, int numNomina)
         {
             var msg = "";
             var add = true;
@@ -265,11 +265,11 @@ namespace MAD._0
                 parametro6.Value = telefono;
                 var parametro7 = _comandosql.Parameters.Add("@Email", SqlDbType.VarChar, 50);
                 parametro7.Value = email;
-                var parametro8 = _comandosql.Parameters.Add("@FechaIngreso", SqlDbType.Date, 3);
+                var parametro8 = _comandosql.Parameters.Add("@FechaIngreso", SqlDbType.DateTime);
                 parametro8.Value = fechaIngreso;
                 var parametro9 = _comandosql.Parameters.Add("@CURP", SqlDbType.VarChar, 20);
                 parametro9.Value = curp;
-                var parametro10 = _comandosql.Parameters.Add("@FechaNac", SqlDbType.Date, 3);
+                var parametro10 = _comandosql.Parameters.Add("@FechaNac", SqlDbType.DateTime);
                 parametro10.Value = fechaNacimiento;
                 var parametro11 = _comandosql.Parameters.Add("@Contraseña", SqlDbType.VarChar, 10);
                 parametro11.Value = contraseña;

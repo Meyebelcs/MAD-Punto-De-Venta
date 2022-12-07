@@ -51,10 +51,10 @@
             this.txt_codigoAcceso_RE = new System.Windows.Forms.TextBox();
             this.txt_Email_RE = new System.Windows.Forms.TextBox();
             this.txt_Telefono_RE = new System.Windows.Forms.TextBox();
-            this.tp_FechaIngreso_RE = new System.Windows.Forms.DateTimePicker();
+            this.tp_fechanac = new System.Windows.Forms.DateTimePicker();
             this.txt_nomina_RE = new System.Windows.Forms.TextBox();
             this.txt_curp_RE = new System.Windows.Forms.TextBox();
-            this.tp_FechaNacimiento_RE = new System.Windows.Forms.DateTimePicker();
+            this.tp_fechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.btn_cancelar_RE = new System.Windows.Forms.Button();
             this.btn_registrar_RE = new System.Windows.Forms.Button();
             this.gb_check_RE = new System.Windows.Forms.GroupBox();
@@ -286,14 +286,14 @@
             this.txt_Telefono_RE.TabIndex = 21;
             this.txt_Telefono_RE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Telefono_RE_KeyPress);
             // 
-            // tp_FechaIngreso_RE
+            // tp_fechanac
             // 
-            this.tp_FechaIngreso_RE.CustomFormat = "yyyy-MM-dd";
-            this.tp_FechaIngreso_RE.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.tp_FechaIngreso_RE.Location = new System.Drawing.Point(497, 356);
-            this.tp_FechaIngreso_RE.Name = "tp_FechaIngreso_RE";
-            this.tp_FechaIngreso_RE.Size = new System.Drawing.Size(200, 24);
-            this.tp_FechaIngreso_RE.TabIndex = 24;
+            this.tp_fechanac.CustomFormat = "yyyy-MM-dd";
+            this.tp_fechanac.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.tp_fechanac.Location = new System.Drawing.Point(497, 356);
+            this.tp_fechanac.Name = "tp_fechanac";
+            this.tp_fechanac.Size = new System.Drawing.Size(200, 24);
+            this.tp_fechanac.TabIndex = 24;
             // 
             // txt_nomina_RE
             // 
@@ -312,14 +312,14 @@
             this.txt_curp_RE.Size = new System.Drawing.Size(205, 24);
             this.txt_curp_RE.TabIndex = 25;
             // 
-            // tp_FechaNacimiento_RE
+            // tp_fechaIngreso
             // 
-            this.tp_FechaNacimiento_RE.CustomFormat = "yyyy-MM-dd/h:m:s";
-            this.tp_FechaNacimiento_RE.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.tp_FechaNacimiento_RE.Location = new System.Drawing.Point(497, 450);
-            this.tp_FechaNacimiento_RE.Name = "tp_FechaNacimiento_RE";
-            this.tp_FechaNacimiento_RE.Size = new System.Drawing.Size(200, 24);
-            this.tp_FechaNacimiento_RE.TabIndex = 27;
+            this.tp_fechaIngreso.CustomFormat = "yyyy-MM-dd/h:m:s";
+            this.tp_fechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.tp_fechaIngreso.Location = new System.Drawing.Point(497, 450);
+            this.tp_fechaIngreso.Name = "tp_fechaIngreso";
+            this.tp_fechaIngreso.Size = new System.Drawing.Size(200, 24);
+            this.tp_fechaIngreso.TabIndex = 27;
             // 
             // btn_cancelar_RE
             // 
@@ -361,10 +361,10 @@
             this.Controls.Add(this.gb_check_RE);
             this.Controls.Add(this.btn_registrar_RE);
             this.Controls.Add(this.btn_cancelar_RE);
-            this.Controls.Add(this.tp_FechaNacimiento_RE);
+            this.Controls.Add(this.tp_fechaIngreso);
             this.Controls.Add(this.txt_nomina_RE);
             this.Controls.Add(this.txt_curp_RE);
-            this.Controls.Add(this.tp_FechaIngreso_RE);
+            this.Controls.Add(this.tp_fechanac);
             this.Controls.Add(this.txt_Email_RE);
             this.Controls.Add(this.txt_Telefono_RE);
             this.Controls.Add(this.txt_codigoAcceso_RE);
@@ -425,10 +425,10 @@
         private System.Windows.Forms.TextBox txt_codigoAcceso_RE;
         private System.Windows.Forms.TextBox txt_Email_RE;
         private System.Windows.Forms.TextBox txt_Telefono_RE;
-        private System.Windows.Forms.DateTimePicker tp_FechaIngreso_RE;
+        private System.Windows.Forms.DateTimePicker tp_fechanac;
         private System.Windows.Forms.TextBox txt_nomina_RE;
         private System.Windows.Forms.TextBox txt_curp_RE;
-        private System.Windows.Forms.DateTimePicker tp_FechaNacimiento_RE;
+        private System.Windows.Forms.DateTimePicker tp_fechaIngreso;
         private System.Windows.Forms.Button btn_cancelar_RE;
         private System.Windows.Forms.Button btn_registrar_RE;
         private System.Windows.Forms.GroupBox gb_check_RE;
