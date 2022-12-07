@@ -94,7 +94,8 @@ BEGIN
 
 	IF @Accion = '*'
 	BEGIN
-		SELECT IdProducto [IdProducto],IdDepartamento [Departamento],Nombre [Nombre],Descripcion [Descripcion],Descuento [Descuento],UnidaddeMedida [UnidadMedida],Costo [Costo],Eliminacion [Eliminacion],
+		SELECT IdProducto [IdProducto],IdDepartamento [Departamento],Nombre [Nombre],Descripcion [Descripcion],Descuento [Descuento],
+		UnidaddeMedida [UnidadMedida],Costo [Costo],Eliminacion [Eliminacion],
 		CantidadDeInventario [CantidadInventario]
 		FROM Productos  
 		ORDER BY Nombre;

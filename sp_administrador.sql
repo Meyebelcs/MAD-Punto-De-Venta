@@ -45,7 +45,7 @@ BEGIN
 
 	IF @Accion = 'V'
 	BEGIN
-		SELECT  IdAdministrador, IdEmpleado, CodigoAcceso
+		SELECT  IdAdministrador[IdAdministrador], IdEmpleado[IdEmpleado], CodigoAcceso[Codigo Acceso]
 		FROM Administrador  
 		WHERE IdEmpleado = @IdEmpleado;
 	END;

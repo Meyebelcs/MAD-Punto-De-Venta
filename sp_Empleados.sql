@@ -72,7 +72,7 @@ BEGIN
 
 	IF @Accion = '*'
 	BEGIN
-		SELECT  IdEmpleados, Nombre, APpellidoP, APpellidoM, Email, FechaIngreso, CURP, NumNomina, Telefono, FechaNac
+		SELECT  IdEmpleados[IdEmpleado], Nombre[Nombre], APpellidoP[Apellido Paterno], APpellidoM[Apellido Materno], Email[Email], FechaIngreso[Fecha de Ingreso], CURP[CURP], NumNomina[Numero Nomina], Telefono[Telefono], FechaNac[Fecha Nacimiento]
 		FROM Empleados  
 		WHERE  Eliminacion = 0
 		ORDER BY Nombre;
@@ -80,20 +80,20 @@ BEGIN
 
 	IF @Accion = 'S'
 	BEGIN
-		SELECT  IdEmpleados, Nombre, APpellidoP, APpellidoM, Email, FechaIngreso, CURP, NumNomina, Telefono, FechaNac, Contraseña
+		SELECT  IdEmpleados[IdEmpleado], Nombre[Nombre], APpellidoP[Apellido Paterno], APpellidoM[Apellido Materno], Email[Email], FechaIngreso[Fecha Ingreso], CURP[CURP], NumNomina[Numero Nomina], Telefono[Telefono], FechaNac[Fecha Nacimiento], Contraseña[Contreseña]
 		FROM Empleados  
 		WHERE  IdEmpleados = @IdEmpleados;
 	END;
 
 	IF @Accion = 'T'
 	BEGIN
-		SELECT  IdEmpleados, Nombre, APpellidoP, APpellidoM, Email, FechaIngreso, CURP[CURP], NumNomina[Nomina], Telefono, FechaNac
+		SELECT  IdEmpleados[IdEmpleado], Nombre[Nombre], APpellidoP[Apellido Paterno], APpellidoM[Apellido Materno], Email[Email], FechaIngreso[Fecha Ingreso], CURP[CURP], NumNomina[Numero Nomina], Telefono[Telefono], FechaNac[Fecha Nacimiento]
 		FROM Empleados  
 	END;
 
 	IF @Accion = 'V'
 	BEGIN
-		SELECT  IdAdministrador, IdEmpleado, CodigoAcceso
+		SELECT  IdAdministrador[IdAdministrador], IdEmpleado[IdEmpleado], CodigoAcceso[Codigo Acceso]
 		FROM Administrador  
 		WHERE IdEmpleado = @IdEmpleados;
 	END;
