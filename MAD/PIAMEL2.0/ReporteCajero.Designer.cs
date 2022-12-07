@@ -164,7 +164,7 @@ namespace PIAMEL2._0
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Indigo;
-            this.groupBox1.Location = new System.Drawing.Point(311, 44);
+            this.groupBox1.Location = new System.Drawing.Point(309, 44);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 95);
             this.groupBox1.TabIndex = 12;
