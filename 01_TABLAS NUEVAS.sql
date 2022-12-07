@@ -75,6 +75,12 @@ CONSTRAINT FK_DEPARTAMENTO_IDAD FOREIGN KEY (IdAdminstrador)
 );
 ALTER TABLE Departamento
 ADD PermiteDevolucion BIT NULL
+
+ALTER TABLE Departamento
+ADD Eliminacion BIT NULL
+
+ALTER TABLE Departamento
+ADD FechaIngreso DATETIME NULL
 -----------------------------------------------------------------
 
 IF OBJECT_ID('Productos')IS NOT NULL

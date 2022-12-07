@@ -62,6 +62,12 @@
             this.btn_eliminarP_PC = new System.Windows.Forms.Button();
             this.btn_ticket_PC = new System.Windows.Forms.Button();
             this.btn_cerrarS_PC = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cb_medida = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_cantidad = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txt_existente = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Lista_PC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_busqueda_PC)).BeginInit();
             this.SuspendLayout();
@@ -337,7 +343,7 @@
             // 
             this.btn_AgregarP_PC.BackColor = System.Drawing.Color.MidnightBlue;
             this.btn_AgregarP_PC.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btn_AgregarP_PC.Location = new System.Drawing.Point(195, 453);
+            this.btn_AgregarP_PC.Location = new System.Drawing.Point(183, 525);
             this.btn_AgregarP_PC.Name = "btn_AgregarP_PC";
             this.btn_AgregarP_PC.Size = new System.Drawing.Size(212, 56);
             this.btn_AgregarP_PC.TabIndex = 17;
@@ -379,12 +385,69 @@
             this.btn_cerrarS_PC.UseVisualStyleBackColor = false;
             this.btn_cerrarS_PC.Click += new System.EventHandler(this.btn_cerrarS_PC_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(27, 463);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(152, 20);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Unidad de Medida:";
+            // 
+            // cb_medida
+            // 
+            this.cb_medida.FormattingEnabled = true;
+            this.cb_medida.Location = new System.Drawing.Point(183, 461);
+            this.cb_medida.Name = "cb_medida";
+            this.cb_medida.Size = new System.Drawing.Size(60, 27);
+            this.cb_medida.TabIndex = 22;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(265, 464);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 20);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Cantidad:";
+            // 
+            // txt_cantidad
+            // 
+            this.txt_cantidad.Location = new System.Drawing.Point(349, 458);
+            this.txt_cantidad.Name = "txt_cantidad";
+            this.txt_cantidad.Size = new System.Drawing.Size(66, 25);
+            this.txt_cantidad.TabIndex = 24;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(425, 463);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 20);
+            this.label8.TabIndex = 25;
+            this.label8.Text = "Existente:";
+            // 
+            // txt_existente
+            // 
+            this.txt_existente.Enabled = false;
+            this.txt_existente.Location = new System.Drawing.Point(503, 458);
+            this.txt_existente.Name = "txt_existente";
+            this.txt_existente.ReadOnly = true;
+            this.txt_existente.Size = new System.Drawing.Size(64, 25);
+            this.txt_existente.TabIndex = 26;
+            // 
             // PrincipalCajero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1318, 714);
+            this.Controls.Add(this.txt_existente);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txt_cantidad);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cb_medida);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_cerrarS_PC);
             this.Controls.Add(this.btn_ticket_PC);
             this.Controls.Add(this.btn_eliminarP_PC);
@@ -450,5 +513,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn precioU;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cb_medida;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txt_cantidad;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txt_existente;
     }
 }

@@ -42,3 +42,5 @@ D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\
 D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\MAD._0.ReporteRecibos.resources
 D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\MAD._0.GestionDescuentos.resources
 D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\PIAMEL2._0.gestionEmpleados.resources
+D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\PIAMEL2._0.GestionDepartamentos.resources
+D:\PROYECTOS\VISUAL STUDIO\MAD FINAL\MAD-Punto-De-Venta\MAD\PIAMEL2.0\obj\Debug\PIAMEL2._0.RegistroDepartamento.resources

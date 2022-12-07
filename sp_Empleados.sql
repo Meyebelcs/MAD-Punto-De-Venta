@@ -87,7 +87,7 @@ BEGIN
 
 	IF @Accion = 'T'
 	BEGIN
-		SELECT  IdEmpleados[IdEmpleado], Nombre[Nombre], APpellidoP[Apellido Paterno], APpellidoM[Apellido Materno], Email[Email], FechaIngreso[Fecha Ingreso], CURP[CURP], NumNomina[Numero Nomina], Telefono[Telefono], FechaNac[Fecha Nacimiento]
+		SELECT  IdEmpleados[IdEmpleados], Nombre[Nombre], APpellidoP[Apellido Paterno], APpellidoM[Apellido Materno], Email[Email], FechaIngreso[Fecha Ingreso], CURP[CURP], NumNomina[Nomina], Telefono[Telefono], FechaNac[Fecha Nacimiento]
 		FROM Empleados  
 	END;
 

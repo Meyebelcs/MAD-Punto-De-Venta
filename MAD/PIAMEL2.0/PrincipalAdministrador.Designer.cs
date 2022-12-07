@@ -43,7 +43,7 @@
             this.btn_devoluciones_PA = new System.Windows.Forms.Button();
             this.btn_cerrarS_PA = new System.Windows.Forms.Button();
             this.btn_productos_PA = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_departamento = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btn_empleados = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Lista_PA)).BeginInit();
@@ -202,17 +202,17 @@
             this.btn_productos_PA.UseVisualStyleBackColor = false;
             this.btn_productos_PA.Click += new System.EventHandler(this.btn_productos_PA_Click);
             // 
-            // button1
+            // btn_departamento
             // 
-            this.button1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(49, 481);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 76);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Departamento";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_departamento.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btn_departamento.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_departamento.Location = new System.Drawing.Point(49, 481);
+            this.btn_departamento.Name = "btn_departamento";
+            this.btn_departamento.Size = new System.Drawing.Size(147, 76);
+            this.btn_departamento.TabIndex = 23;
+            this.btn_departamento.Text = "Departamento";
+            this.btn_departamento.UseVisualStyleBackColor = false;
+            this.btn_departamento.Click += new System.EventHandler(this.btn_departamento_Click);
             // 
             // button2
             // 
@@ -245,7 +245,7 @@
             this.ClientSize = new System.Drawing.Size(1130, 656);
             this.Controls.Add(this.btn_empleados);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_departamento);
             this.Controls.Add(this.btn_productos_PA);
             this.Controls.Add(this.btn_cerrarS_PA);
             this.Controls.Add(this.btn_devoluciones_PA);
@@ -288,7 +288,7 @@
         private System.Windows.Forms.Button btn_cajas_PA;
         private System.Windows.Forms.Button btn_cerrarS_PA;
         private System.Windows.Forms.Button btn_productos_PA;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_departamento;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btn_empleados;
     }

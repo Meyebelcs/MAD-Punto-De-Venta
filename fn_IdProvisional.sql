@@ -23,3 +23,29 @@ BEGIN
 END;
 Go
 
+
+--FUNCIONES DEPARTAMENTO-----------------------------------------------------
+
+IF OBJECT_ID('fn_IdProvisionalDepartamento')IS NOT NULL
+	DROP FUNCTION fn_IdProvisionalDepartamento;
+Go
+CREATE FUNCTION fn_IdProvisionalDepartamento
+(
+)
+RETURNS int
+BEGIN
+
+	DECLARE @IdDepartamentoProvicional int;
+
+	Select @IdDepartamentoProvicional= MAX(IdDepartamento) 
+	
+	from Departamento
+
+	SET @IdDepartamentoProvicional= @IdDepartamentoProvicional + 1;
+	
+		RETURN @IdDepartamentoProvicional;
+
+END;
+Go
+
+

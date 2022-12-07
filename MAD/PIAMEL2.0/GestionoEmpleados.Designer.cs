@@ -137,6 +137,7 @@
             // tp_fechaIngreso
             // 
             this.tp_fechaIngreso.CustomFormat = "yyyy-MM-dd/h:m:s";
+            this.tp_fechaIngreso.Enabled = false;
             this.tp_fechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.tp_fechaIngreso.Location = new System.Drawing.Point(864, 499);
             this.tp_fechaIngreso.Name = "tp_fechaIngreso";

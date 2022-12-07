@@ -101,14 +101,18 @@ namespace MAD._0
             this.Hide();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void btn_empleados_Click(object sender, EventArgs e)
         {
             gestionEmpleados pantalla = new gestionEmpleados();
+            pantalla.Show();
+            this.Hide();
+        }
+
+        private void btn_departamento_Click(object sender, EventArgs e)
+        {
+            GestionDepartamentos pantalla = new GestionDepartamentos();
             pantalla.Show();
             this.Hide();
         }

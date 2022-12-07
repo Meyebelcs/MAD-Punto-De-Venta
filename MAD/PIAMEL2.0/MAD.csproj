@@ -54,6 +54,12 @@
       <DependentUpon>Caja_Baja.cs</DependentUpon>
     </Compile>
     <Compile Include="EnlaceDB.cs" />
+    <Compile Include="GestionDepartamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionDepartamentos.Designer.cs">
+      <DependentUpon>GestionDepartamentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionoEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,12 @@
     </Compile>
     <Compile Include="GestionProductos.Designer.cs">
       <DependentUpon>GestionProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistroDepartamento.Designer.cs">
+      <DependentUpon>RegistroDepartamento.cs</DependentUpon>
     </Compile>
     <Compile Include="ReporteRecibos.cs">
       <SubType>Form</SubType>
@@ -149,11 +161,17 @@
     <EmbeddedResource Include="Caja_Baja.resx">
       <DependentUpon>Caja_Baja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GestionDepartamentos.resx">
+      <DependentUpon>GestionDepartamentos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionoEmpleados.resx">
       <DependentUpon>GestionoEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionProductos.resx">
       <DependentUpon>GestionProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistroDepartamento.resx">
+      <DependentUpon>RegistroDepartamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteRecibos.resx">
       <DependentUpon>ReporteRecibos.cs</DependentUpon>
