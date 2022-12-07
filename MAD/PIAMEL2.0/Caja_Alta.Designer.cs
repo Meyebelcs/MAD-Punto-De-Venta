@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Caja_Alta));
             this.btn_Guardar_GC = new System.Windows.Forms.Button();
             this.cbcajero = new System.Windows.Forms.ComboBox();
             this.txt_admin = new System.Windows.Forms.TextBox();
@@ -73,6 +74,7 @@
             // lbl_idcaja
             // 
             this.lbl_idcaja.AutoSize = true;
+            this.lbl_idcaja.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_idcaja.Location = new System.Drawing.Point(443, 63);
             this.lbl_idcaja.Name = "lbl_idcaja";
             this.lbl_idcaja.Size = new System.Drawing.Size(56, 17);
@@ -91,6 +93,7 @@
             // lbl_cajero
             // 
             this.lbl_cajero.AutoSize = true;
+            this.lbl_cajero.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_cajero.Location = new System.Drawing.Point(82, 101);
             this.lbl_cajero.Name = "lbl_cajero";
             this.lbl_cajero.Size = new System.Drawing.Size(129, 17);
@@ -100,6 +103,7 @@
             // lbl_numcaja
             // 
             this.lbl_numcaja.AutoSize = true;
+            this.lbl_numcaja.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_numcaja.Location = new System.Drawing.Point(143, 68);
             this.lbl_numcaja.Name = "lbl_numcaja";
             this.lbl_numcaja.Size = new System.Drawing.Size(79, 17);
@@ -109,6 +113,7 @@
             // lbl_administrador
             // 
             this.lbl_administrador.AutoSize = true;
+            this.lbl_administrador.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_administrador.Location = new System.Drawing.Point(400, 96);
             this.lbl_administrador.Name = "lbl_administrador";
             this.lbl_administrador.Size = new System.Drawing.Size(98, 17);
@@ -137,10 +142,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label2.ForeColor = System.Drawing.Color.Indigo;
             this.label2.Location = new System.Drawing.Point(315, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 16);
+            this.label2.Size = new System.Drawing.Size(97, 17);
             this.label2.TabIndex = 76;
             this.label2.Text = "NUEVA CAJA";
             // 
@@ -148,7 +155,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(704, 224);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_regresar_GC);
@@ -162,11 +169,14 @@
             this.Controls.Add(this.lbl_administrador);
             this.Controls.Add(this.txt_numcaja);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Caja_Alta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NuevaCaja";
+            this.TransparencyKey = System.Drawing.Color.LightBlue;
             this.ResumeLayout(false);
             this.PerformLayout();
 

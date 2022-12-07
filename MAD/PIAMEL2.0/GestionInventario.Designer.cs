@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionInventario));
             this.lbl_fecha_PA = new System.Windows.Forms.Label();
             this.lbl_tiempo_PA = new System.Windows.Forms.Label();
             this.lbl_nombrec_PA = new System.Windows.Forms.Label();
@@ -50,10 +51,10 @@
             // 
             this.lbl_fecha_PA.AutoSize = true;
             this.lbl_fecha_PA.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_fecha_PA.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.lbl_fecha_PA.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_fecha_PA.Location = new System.Drawing.Point(671, 51);
             this.lbl_fecha_PA.Name = "lbl_fecha_PA";
-            this.lbl_fecha_PA.Size = new System.Drawing.Size(83, 27);
+            this.lbl_fecha_PA.Size = new System.Drawing.Size(68, 22);
             this.lbl_fecha_PA.TabIndex = 17;
             this.lbl_fecha_PA.Text = "Fecha";
             // 
@@ -64,17 +65,17 @@
             this.lbl_tiempo_PA.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_tiempo_PA.Location = new System.Drawing.Point(835, 9);
             this.lbl_tiempo_PA.Name = "lbl_tiempo_PA";
-            this.lbl_tiempo_PA.Size = new System.Drawing.Size(112, 47);
+            this.lbl_tiempo_PA.Size = new System.Drawing.Size(90, 38);
             this.lbl_tiempo_PA.TabIndex = 16;
             this.lbl_tiempo_PA.Text = "Hora";
             // 
             // lbl_nombrec_PA
             // 
             this.lbl_nombrec_PA.AutoSize = true;
-            this.lbl_nombrec_PA.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.lbl_nombrec_PA.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_nombrec_PA.Location = new System.Drawing.Point(164, 30);
             this.lbl_nombrec_PA.Name = "lbl_nombrec_PA";
-            this.lbl_nombrec_PA.Size = new System.Drawing.Size(166, 21);
+            this.lbl_nombrec_PA.Size = new System.Drawing.Size(132, 17);
             this.lbl_nombrec_PA.TabIndex = 15;
             this.lbl_nombrec_PA.Text = "Nombre Completo";
             // 
@@ -85,7 +86,7 @@
             this.label4.ForeColor = System.Drawing.Color.Indigo;
             this.label4.Location = new System.Drawing.Point(16, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 22);
+            this.label4.Size = new System.Drawing.Size(114, 18);
             this.label4.TabIndex = 14;
             this.label4.Text = "Administrador:";
             // 
@@ -108,6 +109,7 @@
             // 
             // dgv_Lista_GP
             // 
+            this.dgv_Lista_GP.BackgroundColor = System.Drawing.SystemColors.MenuBar;
             this.dgv_Lista_GP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Lista_GP.Location = new System.Drawing.Point(81, 252);
             this.dgv_Lista_GP.Name = "dgv_Lista_GP";
@@ -120,27 +122,30 @@
             // 
             this.FILTROS.AutoSize = true;
             this.FILTROS.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FILTROS.ForeColor = System.Drawing.Color.Indigo;
             this.FILTROS.Location = new System.Drawing.Point(90, 116);
             this.FILTROS.Name = "FILTROS";
-            this.FILTROS.Size = new System.Drawing.Size(69, 19);
+            this.FILTROS.Size = new System.Drawing.Size(58, 17);
             this.FILTROS.TabIndex = 21;
             this.FILTROS.Text = "FILTROS";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Indigo;
             this.label1.Location = new System.Drawing.Point(127, 177);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 21);
+            this.label1.Size = new System.Drawing.Size(109, 17);
             this.label1.TabIndex = 22;
             this.label1.Text = "Departamento:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Indigo;
             this.label2.Location = new System.Drawing.Point(521, 177);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(276, 21);
+            this.label2.Size = new System.Drawing.Size(216, 17);
             this.label2.TabIndex = 23;
             this.label2.Text = "Cantidad mínima de existencia:";
             // 
@@ -149,22 +154,23 @@
             this.cb_departamentos_GP.FormattingEnabled = true;
             this.cb_departamentos_GP.Location = new System.Drawing.Point(274, 174);
             this.cb_departamentos_GP.Name = "cb_departamentos_GP";
-            this.cb_departamentos_GP.Size = new System.Drawing.Size(218, 29);
+            this.cb_departamentos_GP.Size = new System.Drawing.Size(218, 25);
             this.cb_departamentos_GP.TabIndex = 26;
             // 
             // txt_cantidad_GP
             // 
             this.txt_cantidad_GP.Location = new System.Drawing.Point(807, 174);
             this.txt_cantidad_GP.Name = "txt_cantidad_GP";
-            this.txt_cantidad_GP.Size = new System.Drawing.Size(100, 27);
+            this.txt_cantidad_GP.Size = new System.Drawing.Size(100, 23);
             this.txt_cantidad_GP.TabIndex = 27;
             // 
             // chb_agotados_GP
             // 
             this.chb_agotados_GP.AutoSize = true;
+            this.chb_agotados_GP.ForeColor = System.Drawing.Color.Indigo;
             this.chb_agotados_GP.Location = new System.Drawing.Point(274, 221);
             this.chb_agotados_GP.Name = "chb_agotados_GP";
-            this.chb_agotados_GP.Size = new System.Drawing.Size(205, 25);
+            this.chb_agotados_GP.Size = new System.Drawing.Size(160, 21);
             this.chb_agotados_GP.TabIndex = 28;
             this.chb_agotados_GP.Text = "Productos Agotados";
             this.chb_agotados_GP.UseVisualStyleBackColor = true;
@@ -172,18 +178,19 @@
             // chb_merma_GP
             // 
             this.chb_merma_GP.AutoSize = true;
+            this.chb_merma_GP.ForeColor = System.Drawing.Color.Indigo;
             this.chb_merma_GP.Location = new System.Drawing.Point(535, 221);
             this.chb_merma_GP.Name = "chb_merma_GP";
-            this.chb_merma_GP.Size = new System.Drawing.Size(132, 25);
+            this.chb_merma_GP.Size = new System.Drawing.Size(104, 21);
             this.chb_merma_GP.TabIndex = 29;
             this.chb_merma_GP.Text = "Con Merma";
             this.chb_merma_GP.UseVisualStyleBackColor = true;
             // 
             // GestionInventario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1034, 650);
             this.Controls.Add(this.chb_merma_GP);
             this.Controls.Add(this.chb_agotados_GP);
@@ -199,6 +206,8 @@
             this.Controls.Add(this.lbl_nombrec_PA);
             this.Controls.Add(this.label4);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.Indigo;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "GestionInventario";

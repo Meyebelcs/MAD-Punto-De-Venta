@@ -17,7 +17,10 @@ BEGIN
 
 	IF @Op='A'
 	BEGIN
-		SELECT E.IdEmpleados, A.IdEmpleado, A.IdAdministrador,A.CodigoAcceso, E.Nombre, E.APpellidoP, E.APpellidoM, E.Telefono, E.Email,E.FechaIngreso, E.CURP, E.Contraseña, E.FechaNac, E.NumNomina, E.Eliminacion
+		SELECT E.IdEmpleados[IdEmpleados], A.IdEmpleado[IdEmpleado], A.IdAdministrador[IdAdministrador],A.CodigoAcceso[Codigo Acceso],
+		E.Nombre[Nombre], E.APpellidoP[Apellido Paterno], E.APpellidoM[Apellido Materno], E.Telefono[Telefono], E.Email[Email],
+		E.FechaIngreso[Fecha Ingreso], E.CURP[CURP], E.Contraseña[Contraseña], E.FechaNac[Fecha Nacimiento], E.NumNomina[Numero Nomina], E.Eliminacion[Eliminacion]
+
 		FROM Empleados E JOIN Administrador A
 		on E.IdEmpleados = A.IdEmpleado
 		WHERE A.IdEmpleado = @IdRol AND E.Contraseña=@Contraseña AND E.Eliminacion = 0;
@@ -26,7 +29,10 @@ BEGIN
 
 	IF @Op='C'
 	BEGIN
-		SELECT C.IdAdmin, C.IdCajero, C.IdEmpleado, E.IdEmpleados, E.Nombre, E.APpellidoP, E.APpellidoM, E.Telefono, E.Email,E.FechaIngreso, E.CURP, E.Contraseña, E.FechaNac, E.NumNomina, E.Eliminacion
+		SELECT C.IdAdmin[IdAdministrador], C.IdCajero[IdCajero], C.IdEmpleado[IdEmpleado], E.IdEmpleados[IdEmpleado], E.Nombre[Nombre],
+		E.APpellidoP[Apellido Paterno], E.APpellidoM[Apellido Materno], E.Telefono[Telefono], E.Email[Email],E.FechaIngreso[Fecha Ingreso],
+		E.CURP[CURP], E.Contraseña[Contraseña], E.FechaNac[Fecha Nacimiento], E.NumNomina[Numero Nomina], E.Eliminacion[Eliminacion]
+
 		FROM Empleados E JOIN Cajero C
 		on E.IdEmpleados = C.IdEmpleado
 		WHERE C.IdEmpleado = @IdRol AND E.Contraseña=@Contraseña AND E.Eliminacion = 0;

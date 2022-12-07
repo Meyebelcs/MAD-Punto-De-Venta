@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionDevoluciones));
             this.btn_regresar_GR = new System.Windows.Forms.Button();
             this.lbl_fecha_PA = new System.Windows.Forms.Label();
             this.lbl_tiempo_PA = new System.Windows.Forms.Label();
@@ -92,7 +93,7 @@
             // lbl_nombrec_PA
             // 
             this.lbl_nombrec_PA.AutoSize = true;
-            this.lbl_nombrec_PA.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.lbl_nombrec_PA.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_nombrec_PA.Location = new System.Drawing.Point(185, 40);
             this.lbl_nombrec_PA.Name = "lbl_nombrec_PA";
             this.lbl_nombrec_PA.Size = new System.Drawing.Size(137, 19);
@@ -118,6 +119,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Indigo;
             this.label1.Location = new System.Drawing.Point(41, 124);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 19);
@@ -145,7 +147,7 @@
             // 
             // dgv_ticket
             // 
-            this.dgv_ticket.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgv_ticket.BackgroundColor = System.Drawing.SystemColors.MenuBar;
             this.dgv_ticket.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_ticket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ticket.Location = new System.Drawing.Point(40, 168);
@@ -177,6 +179,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Indigo;
             this.label2.Location = new System.Drawing.Point(738, 310);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 19);
@@ -186,6 +189,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Indigo;
             this.label3.Location = new System.Drawing.Point(726, 184);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 19);
@@ -203,6 +207,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Indigo;
             this.label5.Location = new System.Drawing.Point(684, 253);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(118, 19);
@@ -220,6 +225,7 @@
             // chb_merma
             // 
             this.chb_merma.AutoSize = true;
+            this.chb_merma.ForeColor = System.Drawing.Color.Indigo;
             this.chb_merma.Location = new System.Drawing.Point(858, 404);
             this.chb_merma.Name = "chb_merma";
             this.chb_merma.Size = new System.Drawing.Size(77, 23);
@@ -230,6 +236,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Indigo;
             this.label6.Location = new System.Drawing.Point(690, 218);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(116, 19);
@@ -267,6 +274,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Indigo;
             this.label7.Location = new System.Drawing.Point(794, 456);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(197, 19);
@@ -277,7 +285,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1020, 612);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label7);
@@ -302,6 +310,8 @@
             this.Controls.Add(this.lbl_nombrec_PA);
             this.Controls.Add(this.label4);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.Indigo;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.Name = "GestionDevoluciones";

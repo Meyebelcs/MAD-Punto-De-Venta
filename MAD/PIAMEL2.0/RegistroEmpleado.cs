@@ -59,7 +59,7 @@ namespace MAD._0
 
         private void btn_registrar_RE_Click(object sender, EventArgs e)
         {
-           
+
 
             #region Validaciones
 
@@ -129,7 +129,8 @@ namespace MAD._0
                 return;
             }
 
-            if (chb_admin_RE.Checked) { //si es admin
+            if (chb_admin_RE.Checked)
+            { //si es admin
 
                 if (txt_codigoAcceso_RE.TextLength < 1)
                 {
@@ -145,7 +146,8 @@ namespace MAD._0
             }
 
             //validacion de fecha de nacimiento q sea mayor de edad y no fecha futura
-            if (!ValidarFecha()) {
+            if (!ValidarFecha())
+            {
                 return;
             }
 
@@ -167,17 +169,17 @@ namespace MAD._0
 
             //Que el CURP no se repita
 
-                if (tablita.Rows.Count >= 0)
+            if (tablita.Rows.Count >= 0)
+            {
+                foreach (DataRow fila in tablita.Rows)
                 {
-                    foreach (DataRow fila in tablita.Rows)
+                    if (fila["CURP"].ToString() == txt_curp_RE.Text)
                     {
-                        if (fila["CURP"].ToString() == txt_curp_RE.Text)
-                        {
-                            MessageBox.Show("El CURP que ingresó ya se encuentra en la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            return;
-                        }
+                        MessageBox.Show("El CURP que ingresó ya se encuentra en la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
                     }
                 }
+            }
 
             //Que el Num de nomina no se repita
 
@@ -202,7 +204,7 @@ namespace MAD._0
             int nomina = Convert.ToInt32(txt_nomina_RE.Text);
 
             //alta de empleado
-            control =  empleado.add_Empleados("I", 0, txt_nombre_RE.Text, txt_ApellidoP_RE.Text, txt_ApellidoM_RE.Text, Convert.ToInt32( txt_Telefono_RE.Text), txt_contraseña_RE.Text, tp_fechanac.Value, txt_curp_RE.Text, txt_Email_RE.Text, tp_fechaIngreso.Value, nomina);
+            control = empleado.add_Empleados("I", 0, txt_nombre_RE.Text, txt_ApellidoP_RE.Text, txt_ApellidoM_RE.Text, Convert.ToInt32(txt_Telefono_RE.Text), txt_contraseña_RE.Text, tp_fechanac.Value, txt_curp_RE.Text, txt_Email_RE.Text, tp_fechaIngreso.Value, nomina);
 
             if (!control)
             {
@@ -227,13 +229,14 @@ namespace MAD._0
                 }
                 MessageBox.Show("Se agregó correctamente el nuevo administrador", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else {
+            else
+            {
                 //CREA EL NUEVO CAJERO
                 var cajero = new EnlaceDB();
                 bool cajeroval;
                 Login gestor = new Login();
 
-                cajeroval = cajero.add_Cajero("I", Convert.ToInt32(txt_usuario_RE.Text), Convert.ToInt32(txt_usuario_RE.Text), gestor.getCurrentIdUser()); 
+                cajeroval = cajero.add_Cajero("I", Convert.ToInt32(txt_usuario_RE.Text), Convert.ToInt32(txt_usuario_RE.Text), gestor.getCurrentIdUser());
                 if (!cajeroval)
                 {
                     MessageBox.Show("No se pudo agregar correctamente el cajero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -276,10 +279,8 @@ namespace MAD._0
             e.Handled = !char.IsDigit(e.KeyChar); //Solo numeros en el txt
         }
 
-        private void RegistroEmpleado_Load(object sender, EventArgs e)
+        private void RegistroEmpleado_Load_1(object sender, EventArgs e)
         {
-
-
             var obj = new EnlaceDB();
             var IdProvisional = new DataTable();
             IdProvisional = obj.get_Empleados("P"); //traigo de la base los datos del empleado

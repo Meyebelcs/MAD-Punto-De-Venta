@@ -46,7 +46,7 @@ namespace MAD._0
             if (chb_admin.Checked) //valida si admin está checked
             {
                 var enlace = new EnlaceDB();
-                if (enlace.Autentificar("A", Convert.ToInt32(txt_user.Text), txt_pass.Text)) 
+                if (enlace.Autentificar("A", Convert.ToInt32(txt_user.Text), txt_pass.Text))
                 {
                     usuario = Convert.ToInt32(txt_user.Text);
                     Admin = true;
@@ -85,11 +85,11 @@ namespace MAD._0
 
         private void btn_salir_Click(object sender, EventArgs e)
         {
-            
+
             var resp = new DialogResult();
 
-            resp = MessageBox.Show("¿Seguro que desea salir?", "Confirmación",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(resp == DialogResult.Yes)
+            resp = MessageBox.Show("¿Seguro que desea salir?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resp == DialogResult.Yes)
             {
                 Application.Exit();
             }

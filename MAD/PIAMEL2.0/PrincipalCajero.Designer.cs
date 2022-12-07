@@ -68,7 +68,7 @@
             // 
             // dgv_Lista_PC
             // 
-            this.dgv_Lista_PC.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgv_Lista_PC.BackgroundColor = System.Drawing.SystemColors.MenuBar;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.MidnightBlue;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -161,7 +161,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(913, 86);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(205, 34);
+            this.label1.Size = new System.Drawing.Size(164, 26);
             this.label1.TabIndex = 1;
             this.label1.Text = "Lista de Venta";
             // 
@@ -171,7 +171,7 @@
             this.label2.Font = new System.Drawing.Font("Century Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(1025, 657);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(157, 49);
+            this.label2.Size = new System.Drawing.Size(128, 41);
             this.label2.TabIndex = 2;
             this.label2.Text = "TOTAL:";
             // 
@@ -181,7 +181,7 @@
             this.lbl_Total_PC.Font = new System.Drawing.Font("Century Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Total_PC.Location = new System.Drawing.Point(1176, 657);
             this.lbl_Total_PC.Name = "lbl_Total_PC";
-            this.lbl_Total_PC.Size = new System.Drawing.Size(130, 49);
+            this.lbl_Total_PC.Size = new System.Drawing.Size(108, 41);
             this.lbl_Total_PC.TabIndex = 3;
             this.lbl_Total_PC.Text = "$0.00";
             // 
@@ -192,7 +192,7 @@
             this.label4.ForeColor = System.Drawing.Color.Indigo;
             this.label4.Location = new System.Drawing.Point(180, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 22);
+            this.label4.Size = new System.Drawing.Size(63, 18);
             this.label4.TabIndex = 4;
             this.label4.Text = "Cajero:";
             // 
@@ -202,7 +202,7 @@
             this.lbl_nombrec_PC.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.lbl_nombrec_PC.Location = new System.Drawing.Point(260, 20);
             this.lbl_nombrec_PC.Name = "lbl_nombrec_PC";
-            this.lbl_nombrec_PC.Size = new System.Drawing.Size(176, 21);
+            this.lbl_nombrec_PC.Size = new System.Drawing.Size(145, 20);
             this.lbl_nombrec_PC.TabIndex = 5;
             this.lbl_nombrec_PC.Text = "Nombre Completo";
             // 
@@ -213,7 +213,7 @@
             this.lbl_tiempo_PC.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_tiempo_PC.Location = new System.Drawing.Point(1138, 7);
             this.lbl_tiempo_PC.Name = "lbl_tiempo_PC";
-            this.lbl_tiempo_PC.Size = new System.Drawing.Size(112, 47);
+            this.lbl_tiempo_PC.Size = new System.Drawing.Size(90, 38);
             this.lbl_tiempo_PC.TabIndex = 6;
             this.lbl_tiempo_PC.Text = "Hora";
             // 
@@ -224,7 +224,7 @@
             this.label7.ForeColor = System.Drawing.Color.Indigo;
             this.label7.Location = new System.Drawing.Point(12, 20);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 22);
+            this.label7.Size = new System.Drawing.Size(90, 18);
             this.label7.TabIndex = 7;
             this.label7.Text = "Num. Caja:";
             // 
@@ -234,7 +234,7 @@
             this.lbl_numcaja_PC.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.lbl_numcaja_PC.Location = new System.Drawing.Point(126, 20);
             this.lbl_numcaja_PC.Name = "lbl_numcaja_PC";
-            this.lbl_numcaja_PC.Size = new System.Drawing.Size(20, 21);
+            this.lbl_numcaja_PC.Size = new System.Drawing.Size(17, 20);
             this.lbl_numcaja_PC.TabIndex = 8;
             this.lbl_numcaja_PC.Text = "1";
             // 
@@ -250,7 +250,7 @@
             this.lbl_fecha_PC.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.lbl_fecha_PC.Location = new System.Drawing.Point(974, 49);
             this.lbl_fecha_PC.Name = "lbl_fecha_PC";
-            this.lbl_fecha_PC.Size = new System.Drawing.Size(83, 27);
+            this.lbl_fecha_PC.Size = new System.Drawing.Size(68, 22);
             this.lbl_fecha_PC.TabIndex = 9;
             this.lbl_fecha_PC.Text = "Fecha";
             // 
@@ -259,7 +259,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(27, 123);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(200, 21);
+            this.label6.Size = new System.Drawing.Size(167, 20);
             this.label6.TabIndex = 10;
             this.label6.Text = "Código del Producto:";
             // 
@@ -268,7 +268,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(27, 159);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(205, 21);
+            this.label9.Size = new System.Drawing.Size(171, 20);
             this.label9.TabIndex = 11;
             this.label9.Text = "Nombre del Producto:";
             // 
@@ -276,7 +276,7 @@
             // 
             this.txt_codigop_PC.Location = new System.Drawing.Point(235, 114);
             this.txt_codigop_PC.Name = "txt_codigop_PC";
-            this.txt_codigop_PC.Size = new System.Drawing.Size(203, 30);
+            this.txt_codigop_PC.Size = new System.Drawing.Size(203, 25);
             this.txt_codigop_PC.TabIndex = 12;
             this.txt_codigop_PC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
@@ -284,7 +284,7 @@
             // 
             this.txt_nombreP_PC.Location = new System.Drawing.Point(235, 150);
             this.txt_nombreP_PC.Name = "txt_nombreP_PC";
-            this.txt_nombreP_PC.Size = new System.Drawing.Size(203, 30);
+            this.txt_nombreP_PC.Size = new System.Drawing.Size(203, 25);
             this.txt_nombreP_PC.TabIndex = 13;
             // 
             // button1
@@ -381,9 +381,9 @@
             // 
             // PrincipalCajero
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1318, 714);
             this.Controls.Add(this.btn_cerrarS_PC);
             this.Controls.Add(this.btn_ticket_PC);

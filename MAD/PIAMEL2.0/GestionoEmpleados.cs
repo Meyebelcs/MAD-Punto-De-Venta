@@ -218,20 +218,20 @@ namespace PIAMEL2._0
 
             }
 
-           //VALIDACION DE CAJERO Y ADMIN
+            //VALIDACION DE CAJERO Y ADMIN
 
             var chequeo = new EnlaceDB();
             Login gestor = new Login();
 
-            if (chequeo.validarRol(empleadoSelected) && chb_cajero_RE.Checked && empleadoSelected!= gestor.getCurrentIdUser() )
+            if (chequeo.validarRol(empleadoSelected) && chb_cajero_RE.Checked && empleadoSelected != gestor.getCurrentIdUser())
             {
-              
+
 
                 //buscar idadmin del seleccionado
                 var enlace2 = new EnlaceDB();
                 var idadmin = new DataTable();
                 idadmin = enlace2.get_DatosAdmin('V', empleadoSelected); //traigo de la base los datos del idadmin 
-                string idadministrador= idadmin.Rows[0][0].ToString();
+                string idadministrador = idadmin.Rows[0][0].ToString();
 
 
                 //si es qadministrador y cambio a cajero
@@ -265,7 +265,7 @@ namespace PIAMEL2._0
             {
                 if (chequeo.validarRol(empleadoSelected) && chb_admin_RE.Checked && empleadoSelected != gestor.getCurrentIdUser())
                 {  //update al admin
-                   
+
 
                     var administrador = new EnlaceDB();
                     bool admin;
@@ -286,7 +286,7 @@ namespace PIAMEL2._0
                 //si es cajero y cambio a admin
                 //se elimina el cajero 
 
-                if (txt_codigoAcceso_RE.TextLength < 1 || txt_codigoAcceso_RE.Text== " ")
+                if (txt_codigoAcceso_RE.TextLength < 1 || txt_codigoAcceso_RE.Text == " ")
                 {
                     MessageBox.Show("El codigo de acceso no contiene información", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
@@ -314,7 +314,7 @@ namespace PIAMEL2._0
                 var administrador = new EnlaceDB();
                 bool admin;
 
-               
+
                 admin = administrador.add_Administrador("I", Convert.ToInt32(empleadoSelected), Convert.ToInt32(txt_usuario_RE.Text), Convert.ToInt32(txt_codigoAcceso_RE.Text));
                 if (!admin)
                 {
@@ -333,7 +333,7 @@ namespace PIAMEL2._0
                     //update al cajero
                     var cajero = new EnlaceDB();
                     bool cajeroval;
-                  
+
 
                     cajeroval = cajero.add_Cajero("U", Convert.ToInt32(txt_usuario_RE.Text), Convert.ToInt32(txt_usuario_RE.Text), gestor.getCurrentIdUser());
                     if (!cajeroval)
@@ -380,9 +380,9 @@ namespace PIAMEL2._0
             var enlace = new EnlaceDB();
             var nombre = new DataTable();
             nombre = enlace.get_DatosEmpleado('S', IdUser.getCurrentIdUser()); //traigo de la base los datos del user q inició sesion
-            lbl_nombrec_PA.Text = nombre.Rows[0][1].ToString() + " " + nombre.Rows[0][2].ToString() +" " + nombre.Rows[0][3].ToString();
-           
-            var obj = new EnlaceDB(); 
+            lbl_nombrec_PA.Text = nombre.Rows[0][1].ToString() + " " + nombre.Rows[0][2].ToString() + " " + nombre.Rows[0][3].ToString();
+
+            var obj = new EnlaceDB();
 
             //Muestra la tabla con la info de los empleados
             var tablita = new DataTable();
@@ -400,7 +400,7 @@ namespace PIAMEL2._0
 
         private void dgv_empleados_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
 
         }
 
@@ -417,34 +417,8 @@ namespace PIAMEL2._0
             this.Hide();
         }
 
-        private void btn_eliminar_Click(object sender, EventArgs e)
-        {
-            if (empleadoSelected != 0)
-            {
-                var enlace = new EnlaceDB();
-                DialogResult result = MessageBox.Show("Esta acción es irreversible\n\n ¿Está seguro que desea continuar?", "Eliminar", MessageBoxButtons.YesNo);
 
-                if (result == DialogResult.No)
-                {
-                    MessageBox.Show("No se eliminó el empleado", "Cancelado", MessageBoxButtons.OK);
-                    return;
-                }
-
-                enlace.get_DatosEmpleado('E', empleadoSelected);
-
-                MessageBox.Show("se eliminó correctamente el empleado", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-
-               //recargar pantalla
-            }
-            else
-            {
-                MessageBox.Show("Selecciona un empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-        }
-
-        private void dgv_empleados_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_empleados_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             Login gestor = new Login();
 
@@ -511,6 +485,33 @@ namespace PIAMEL2._0
                 chb_cajero_RE.Checked = true;
                 txt_codigoAcceso_RE.Enabled = false;
                 txt_codigoAcceso_RE.Text = " ";
+            }
+        }
+
+        private void btn_eliminar_Click_1(object sender, EventArgs e)
+        {
+            if (empleadoSelected != 0)
+            {
+                var enlace = new EnlaceDB();
+                DialogResult result = MessageBox.Show("Esta acción es irreversible\n\n ¿Está seguro que desea continuar?", "Eliminar", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.No)
+                {
+                    MessageBox.Show("No se eliminó el empleado", "Cancelado", MessageBoxButtons.OK);
+                    return;
+                }
+
+                enlace.get_DatosEmpleado('E', empleadoSelected);
+
+                MessageBox.Show("se eliminó correctamente el empleado", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+
+                //recargar pantalla
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
     }

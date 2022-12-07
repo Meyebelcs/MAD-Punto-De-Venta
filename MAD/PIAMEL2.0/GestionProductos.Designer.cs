@@ -65,7 +65,7 @@
             // 
             this.lbl_fecha_PA.AutoSize = true;
             this.lbl_fecha_PA.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_fecha_PA.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.lbl_fecha_PA.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_fecha_PA.Location = new System.Drawing.Point(497, 47);
             this.lbl_fecha_PA.Name = "lbl_fecha_PA";
             this.lbl_fecha_PA.Size = new System.Drawing.Size(68, 22);
@@ -86,7 +86,7 @@
             // lbl_nombrec_PA
             // 
             this.lbl_nombrec_PA.AutoSize = true;
-            this.lbl_nombrec_PA.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.lbl_nombrec_PA.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_nombrec_PA.Location = new System.Drawing.Point(168, 31);
             this.lbl_nombrec_PA.Name = "lbl_nombrec_PA";
             this.lbl_nombrec_PA.Size = new System.Drawing.Size(137, 19);
@@ -160,6 +160,7 @@
             // lbl_idprod
             // 
             this.lbl_idprod.AutoSize = true;
+            this.lbl_idprod.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_idprod.Location = new System.Drawing.Point(516, 113);
             this.lbl_idprod.Name = "lbl_idprod";
             this.lbl_idprod.Size = new System.Drawing.Size(93, 19);
@@ -169,6 +170,7 @@
             // lbl_departamento
             // 
             this.lbl_departamento.AutoSize = true;
+            this.lbl_departamento.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_departamento.Location = new System.Drawing.Point(634, 177);
             this.lbl_departamento.Name = "lbl_departamento";
             this.lbl_departamento.Size = new System.Drawing.Size(112, 19);
@@ -193,6 +195,7 @@
             // lbl_nombre
             // 
             this.lbl_nombre.AutoSize = true;
+            this.lbl_nombre.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_nombre.Location = new System.Drawing.Point(400, 177);
             this.lbl_nombre.Name = "lbl_nombre";
             this.lbl_nombre.Size = new System.Drawing.Size(64, 19);
@@ -202,6 +205,7 @@
             // lbl_descripcion
             // 
             this.lbl_descripcion.AutoSize = true;
+            this.lbl_descripcion.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_descripcion.Location = new System.Drawing.Point(645, 366);
             this.lbl_descripcion.Name = "lbl_descripcion";
             this.lbl_descripcion.Size = new System.Drawing.Size(89, 19);
@@ -219,6 +223,7 @@
             // lbl_medida
             // 
             this.lbl_medida.AutoSize = true;
+            this.lbl_medida.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_medida.Location = new System.Drawing.Point(366, 241);
             this.lbl_medida.Name = "lbl_medida";
             this.lbl_medida.Size = new System.Drawing.Size(142, 19);
@@ -228,6 +233,7 @@
             // lbl_costo
             // 
             this.lbl_costo.AutoSize = true;
+            this.lbl_costo.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_costo.Location = new System.Drawing.Point(412, 307);
             this.lbl_costo.Name = "lbl_costo";
             this.lbl_costo.Size = new System.Drawing.Size(48, 19);
@@ -264,6 +270,7 @@
             // lbl_cantInv
             // 
             this.lbl_cantInv.AutoSize = true;
+            this.lbl_cantInv.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_cantInv.Location = new System.Drawing.Point(611, 244);
             this.lbl_cantInv.Name = "lbl_cantInv";
             this.lbl_cantInv.Size = new System.Drawing.Size(172, 19);
@@ -273,6 +280,7 @@
             // lbl_reorden
             // 
             this.lbl_reorden.AutoSize = true;
+            this.lbl_reorden.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_reorden.Location = new System.Drawing.Point(626, 309);
             this.lbl_reorden.Name = "lbl_reorden";
             this.lbl_reorden.Size = new System.Drawing.Size(130, 19);
@@ -298,6 +306,7 @@
             // lbl_precioUni
             // 
             this.lbl_precioUni.AutoSize = true;
+            this.lbl_precioUni.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_precioUni.Location = new System.Drawing.Point(380, 374);
             this.lbl_precioUni.Name = "lbl_precioUni";
             this.lbl_precioUni.Size = new System.Drawing.Size(107, 19);
@@ -349,7 +358,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(886, 591);
             this.Controls.Add(this.cbUnidadMedida);
             this.Controls.Add(this.btn_Eliminar);

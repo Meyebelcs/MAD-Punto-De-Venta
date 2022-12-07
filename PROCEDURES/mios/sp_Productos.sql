@@ -85,7 +85,6 @@ BEGIN
     BEGIN
         SELECT P.IdProducto [IdProducto],P.Nombre [Nombre],P.IdDepartamento [Departamento],P.Descuento [Descuento],
 		P.UnidaddeMedida [UnidadMedida],P.Costo [Costo],P.CantidadDeInventario [Inventario]
-
 		FROM Productos P JOIN Info_Productos I
 		on P.IdProducto = I.IdProducto
 		WHERE P.CantidadDeInventario <= I.PuntoReorden
@@ -95,13 +94,12 @@ BEGIN
 
 	IF @Accion = '*'
 	BEGIN
-		SELECT IdProducto [IdProducto],IdDepartamento [Departamento],Nombre [Nombre],Descripcion [Descripcion],Descuento [Descuento],
-		UnidaddeMedida [UnidadMedida],Costo [Costo],Eliminacion [Eliminacion],CantidadDeInventario [CantidadInventario]
-
+		SELECT IdProducto [IdProducto],IdDepartamento [Departamento],Nombre [Nombre],Descripcion [Descripcion],Descuento [Descuento],UnidaddeMedida [UnidadMedida],Costo [Costo],Eliminacion [Eliminacion],
+		CantidadDeInventario [CantidadInventario]
 		FROM Productos  
 		ORDER BY Nombre;
 
-	END;
+ END;
 END;
 
 

@@ -124,7 +124,7 @@ namespace MAD._0
         }
 
         //EMPLEADOS
-        public bool validarRol( int IdRol)
+        public bool validarRol(int IdRol)
         {
             var msg = "";
             bool isValid = false;
@@ -238,7 +238,7 @@ namespace MAD._0
 
             return tabla;
         }
-        public bool add_Empleados(string opc, int noEmpleado, string nombre, string apPaterno, string apMaterno, int telefono, string contraseña, DateTime fechaNacimiento, string curp,  string email, DateTime fechaIngreso, int numNomina)
+        public bool add_Empleados(string opc, int noEmpleado, string nombre, string apPaterno, string apMaterno, int telefono, string contraseña, DateTime fechaNacimiento, string curp, string email, DateTime fechaIngreso, int numNomina)
         {
             var msg = "";
             var add = true;

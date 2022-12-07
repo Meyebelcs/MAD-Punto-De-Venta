@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionCajas));
             this.lbl_fecha_PA = new System.Windows.Forms.Label();
             this.lbl_tiempo_PA = new System.Windows.Forms.Label();
             this.lbl_nombrec_PA = new System.Windows.Forms.Label();
@@ -46,7 +47,7 @@
             // 
             this.lbl_fecha_PA.AutoSize = true;
             this.lbl_fecha_PA.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_fecha_PA.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.lbl_fecha_PA.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_fecha_PA.Location = new System.Drawing.Point(515, 51);
             this.lbl_fecha_PA.Name = "lbl_fecha_PA";
             this.lbl_fecha_PA.Size = new System.Drawing.Size(68, 22);
@@ -67,7 +68,7 @@
             // lbl_nombrec_PA
             // 
             this.lbl_nombrec_PA.AutoSize = true;
-            this.lbl_nombrec_PA.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.lbl_nombrec_PA.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_nombrec_PA.Location = new System.Drawing.Point(178, 31);
             this.lbl_nombrec_PA.Name = "lbl_nombrec_PA";
             this.lbl_nombrec_PA.Size = new System.Drawing.Size(137, 19);
@@ -104,6 +105,7 @@
             // 
             // dgv_cajasinfo
             // 
+            this.dgv_cajasinfo.BackgroundColor = System.Drawing.SystemColors.MenuBar;
             this.dgv_cajasinfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_cajasinfo.Location = new System.Drawing.Point(240, 129);
             this.dgv_cajasinfo.Name = "dgv_cajasinfo";
@@ -150,7 +152,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(871, 428);
             this.Controls.Add(this.btn_MCaja);
             this.Controls.Add(this.btn_ECaja);
@@ -162,6 +164,7 @@
             this.Controls.Add(this.lbl_nombrec_PA);
             this.Controls.Add(this.label4);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "GestionCajas";
