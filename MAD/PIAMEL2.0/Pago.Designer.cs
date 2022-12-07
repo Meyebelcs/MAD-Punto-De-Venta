@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pago));
             this.label1 = new System.Windows.Forms.Label();
             this.cb_opcionP_P = new System.Windows.Forms.ComboBox();
             this.btn_Agregar_P = new System.Windows.Forms.Button();
@@ -56,9 +57,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Indigo;
             this.label1.Location = new System.Drawing.Point(41, 165);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(236, 20);
+            this.label1.Size = new System.Drawing.Size(192, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Selecciona la opción de pago:";
             // 
@@ -67,7 +69,7 @@
             this.cb_opcionP_P.FormattingEnabled = true;
             this.cb_opcionP_P.Location = new System.Drawing.Point(283, 157);
             this.cb_opcionP_P.Name = "cb_opcionP_P";
-            this.cb_opcionP_P.Size = new System.Drawing.Size(261, 28);
+            this.cb_opcionP_P.Size = new System.Drawing.Size(261, 25);
             this.cb_opcionP_P.TabIndex = 1;
             // 
             // btn_Agregar_P
@@ -83,7 +85,7 @@
             // 
             // dgv_Lista_P
             // 
-            this.dgv_Lista_P.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgv_Lista_P.BackgroundColor = System.Drawing.SystemColors.MenuBar;
             this.dgv_Lista_P.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Lista_P.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Lista_P.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -105,9 +107,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Indigo;
             this.label2.Location = new System.Drawing.Point(514, 448);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 20);
+            this.label2.Size = new System.Drawing.Size(115, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "Pago en efectivo:";
             this.label2.Visible = false;
@@ -115,9 +118,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Indigo;
             this.label3.Location = new System.Drawing.Point(585, 480);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 20);
+            this.label3.Size = new System.Drawing.Size(58, 17);
             this.label3.TabIndex = 5;
             this.label3.Text = "Cambio:";
             this.label3.Visible = false;
@@ -125,9 +129,10 @@
             // lbl_efectivo_P
             // 
             this.lbl_efectivo_P.AutoSize = true;
+            this.lbl_efectivo_P.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_efectivo_P.Location = new System.Drawing.Point(662, 448);
             this.lbl_efectivo_P.Name = "lbl_efectivo_P";
-            this.lbl_efectivo_P.Size = new System.Drawing.Size(61, 20);
+            this.lbl_efectivo_P.Size = new System.Drawing.Size(53, 17);
             this.lbl_efectivo_P.TabIndex = 6;
             this.lbl_efectivo_P.Text = "$100.00";
             this.lbl_efectivo_P.Visible = false;
@@ -135,9 +140,10 @@
             // lbl_cambio_P
             // 
             this.lbl_cambio_P.AutoSize = true;
+            this.lbl_cambio_P.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_cambio_P.Location = new System.Drawing.Point(662, 480);
             this.lbl_cambio_P.Name = "lbl_cambio_P";
-            this.lbl_cambio_P.Size = new System.Drawing.Size(45, 20);
+            this.lbl_cambio_P.Size = new System.Drawing.Size(39, 17);
             this.lbl_cambio_P.TabIndex = 7;
             this.lbl_cambio_P.Text = "$5.00";
             this.lbl_cambio_P.Visible = false;
@@ -146,9 +152,10 @@
             // 
             this.lbl_Total_P.AutoSize = true;
             this.lbl_Total_P.Font = new System.Drawing.Font("Century Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Total_P.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_Total_P.Location = new System.Drawing.Point(594, 512);
             this.lbl_Total_P.Name = "lbl_Total_P";
-            this.lbl_Total_P.Size = new System.Drawing.Size(130, 49);
+            this.lbl_Total_P.Size = new System.Drawing.Size(108, 41);
             this.lbl_Total_P.TabIndex = 9;
             this.lbl_Total_P.Text = "$0.00";
             // 
@@ -156,9 +163,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Indigo;
             this.label6.Location = new System.Drawing.Point(443, 512);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(157, 49);
+            this.label6.Size = new System.Drawing.Size(128, 41);
             this.label6.TabIndex = 8;
             this.label6.Text = "TOTAL:";
             // 
@@ -189,9 +197,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(46, 232);
+            this.label4.ForeColor = System.Drawing.Color.Indigo;
+            this.label4.Location = new System.Drawing.Point(42, 232);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(343, 20);
+            this.label4.Size = new System.Drawing.Size(276, 17);
             this.label4.TabIndex = 12;
             this.label4.Text = "Ingresa la cantidad a pagar con esta opción:";
             // 
@@ -201,7 +210,7 @@
             this.lbl_numcaja_PC.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.lbl_numcaja_PC.Location = new System.Drawing.Point(128, 18);
             this.lbl_numcaja_PC.Name = "lbl_numcaja_PC";
-            this.lbl_numcaja_PC.Size = new System.Drawing.Size(17, 20);
+            this.lbl_numcaja_PC.Size = new System.Drawing.Size(15, 17);
             this.lbl_numcaja_PC.TabIndex = 16;
             this.lbl_numcaja_PC.Text = "1";
             // 
@@ -212,7 +221,7 @@
             this.label7.ForeColor = System.Drawing.Color.Indigo;
             this.label7.Location = new System.Drawing.Point(14, 18);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 22);
+            this.label7.Size = new System.Drawing.Size(90, 18);
             this.label7.TabIndex = 15;
             this.label7.Text = "Num. Caja:";
             // 
@@ -222,7 +231,7 @@
             this.lbl_nombrec_PC.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.lbl_nombrec_PC.Location = new System.Drawing.Point(262, 18);
             this.lbl_nombrec_PC.Name = "lbl_nombrec_PC";
-            this.lbl_nombrec_PC.Size = new System.Drawing.Size(145, 20);
+            this.lbl_nombrec_PC.Size = new System.Drawing.Size(119, 17);
             this.lbl_nombrec_PC.TabIndex = 14;
             this.lbl_nombrec_PC.Text = "Nombre Completo";
             // 
@@ -233,7 +242,7 @@
             this.label5.ForeColor = System.Drawing.Color.Indigo;
             this.label5.Location = new System.Drawing.Point(182, 18);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 22);
+            this.label5.Size = new System.Drawing.Size(63, 18);
             this.label5.TabIndex = 13;
             this.label5.Text = "Cajero:";
             // 
@@ -244,7 +253,7 @@
             this.lbl_fecha_PC.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.lbl_fecha_PC.Location = new System.Drawing.Point(482, 53);
             this.lbl_fecha_PC.Name = "lbl_fecha_PC";
-            this.lbl_fecha_PC.Size = new System.Drawing.Size(62, 21);
+            this.lbl_fecha_PC.Size = new System.Drawing.Size(53, 19);
             this.lbl_fecha_PC.TabIndex = 18;
             this.lbl_fecha_PC.Text = "Fecha";
             // 
@@ -255,7 +264,7 @@
             this.lbl_tiempo_PC.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_tiempo_PC.Location = new System.Drawing.Point(577, 9);
             this.lbl_tiempo_PC.Name = "lbl_tiempo_PC";
-            this.lbl_tiempo_PC.Size = new System.Drawing.Size(104, 44);
+            this.lbl_tiempo_PC.Size = new System.Drawing.Size(86, 37);
             this.lbl_tiempo_PC.TabIndex = 17;
             this.lbl_tiempo_PC.Text = "Hora";
             // 
@@ -266,9 +275,9 @@
             // 
             // Pago
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(758, 584);
             this.Controls.Add(this.lbl_fecha_PC);
             this.Controls.Add(this.lbl_tiempo_PC);
@@ -290,6 +299,7 @@
             this.Controls.Add(this.cb_opcionP_P);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "Pago";

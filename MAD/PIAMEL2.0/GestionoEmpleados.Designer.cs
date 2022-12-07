@@ -76,6 +76,7 @@
             // 
             this.gb_check_RE.Controls.Add(this.chb_admin_RE);
             this.gb_check_RE.Controls.Add(this.chb_cajero_RE);
+            this.gb_check_RE.ForeColor = System.Drawing.Color.Indigo;
             this.gb_check_RE.Location = new System.Drawing.Point(635, 136);
             this.gb_check_RE.Name = "gb_check_RE";
             this.gb_check_RE.Size = new System.Drawing.Size(221, 90);
@@ -86,6 +87,7 @@
             // chb_admin_RE
             // 
             this.chb_admin_RE.AutoSize = true;
+            this.chb_admin_RE.ForeColor = System.Drawing.Color.Indigo;
             this.chb_admin_RE.Location = new System.Drawing.Point(11, 25);
             this.chb_admin_RE.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.chb_admin_RE.Name = "chb_admin_RE";
@@ -98,6 +100,7 @@
             // chb_cajero_RE
             // 
             this.chb_cajero_RE.AutoSize = true;
+            this.chb_cajero_RE.ForeColor = System.Drawing.Color.Indigo;
             this.chb_cajero_RE.Location = new System.Drawing.Point(11, 53);
             this.chb_cajero_RE.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.chb_cajero_RE.Name = "chb_cajero_RE";
@@ -109,22 +112,26 @@
             // 
             // btn_modificar
             // 
+            this.btn_modificar.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btn_modificar.ForeColor = System.Drawing.Color.GhostWhite;
             this.btn_modificar.Location = new System.Drawing.Point(957, 547);
             this.btn_modificar.Name = "btn_modificar";
             this.btn_modificar.Size = new System.Drawing.Size(126, 30);
             this.btn_modificar.TabIndex = 58;
             this.btn_modificar.Text = "Modificar";
-            this.btn_modificar.UseVisualStyleBackColor = true;
+            this.btn_modificar.UseVisualStyleBackColor = false;
             this.btn_modificar.Click += new System.EventHandler(this.btn_registrar_RE_Click);
             // 
             // btn_cancelar_RE
             // 
+            this.btn_cancelar_RE.BackColor = System.Drawing.Color.Crimson;
+            this.btn_cancelar_RE.ForeColor = System.Drawing.Color.GhostWhite;
             this.btn_cancelar_RE.Location = new System.Drawing.Point(31, 547);
             this.btn_cancelar_RE.Name = "btn_cancelar_RE";
             this.btn_cancelar_RE.Size = new System.Drawing.Size(126, 30);
             this.btn_cancelar_RE.TabIndex = 57;
             this.btn_cancelar_RE.Text = "Regresar";
-            this.btn_cancelar_RE.UseVisualStyleBackColor = true;
+            this.btn_cancelar_RE.UseVisualStyleBackColor = false;
             this.btn_cancelar_RE.Click += new System.EventHandler(this.btn_cancelar_RE_Click);
             // 
             // tp_fechaIngreso
@@ -216,6 +223,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Indigo;
             this.label13.Location = new System.Drawing.Point(884, 160);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
@@ -244,6 +252,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.Indigo;
             this.label12.Location = new System.Drawing.Point(400, 111);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
@@ -254,6 +263,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Indigo;
             this.label11.Location = new System.Drawing.Point(645, 475);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
@@ -264,6 +274,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Indigo;
             this.label10.Location = new System.Drawing.Point(400, 173);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
@@ -274,6 +285,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Indigo;
             this.label9.Location = new System.Drawing.Point(868, 381);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
@@ -284,6 +296,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Indigo;
             this.label8.Location = new System.Drawing.Point(480, 475);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
@@ -294,6 +307,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Indigo;
             this.label7.Location = new System.Drawing.Point(880, 475);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
@@ -304,6 +318,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Indigo;
             this.label6.Location = new System.Drawing.Point(708, 381);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
@@ -314,6 +329,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Indigo;
             this.label5.Location = new System.Drawing.Point(467, 381);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
@@ -324,6 +340,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Indigo;
             this.label4.Location = new System.Drawing.Point(657, 297);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
@@ -334,6 +351,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Indigo;
             this.label3.Location = new System.Drawing.Point(887, 297);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
@@ -344,6 +362,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Indigo;
             this.label2.Location = new System.Drawing.Point(467, 297);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
@@ -354,8 +373,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.label1.BackColor = System.Drawing.SystemColors.MenuBar;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Indigo;
             this.label1.Location = new System.Drawing.Point(656, 87);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
@@ -366,6 +386,7 @@
             // 
             // dgv_empleados
             // 
+            this.dgv_empleados.BackgroundColor = System.Drawing.SystemColors.MenuBar;
             this.dgv_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_empleados.Location = new System.Drawing.Point(31, 79);
             this.dgv_empleados.Name = "dgv_empleados";
@@ -376,6 +397,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.Indigo;
             this.label14.Location = new System.Drawing.Point(28, 59);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
@@ -387,7 +409,7 @@
             // 
             this.lbl_fecha_PA.AutoSize = true;
             this.lbl_fecha_PA.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_fecha_PA.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.lbl_fecha_PA.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_fecha_PA.Location = new System.Drawing.Point(802, 35);
             this.lbl_fecha_PA.Name = "lbl_fecha_PA";
             this.lbl_fecha_PA.Size = new System.Drawing.Size(68, 22);
@@ -408,7 +430,7 @@
             // lbl_nombrec_PA
             // 
             this.lbl_nombrec_PA.AutoSize = true;
-            this.lbl_nombrec_PA.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.lbl_nombrec_PA.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_nombrec_PA.Location = new System.Drawing.Point(186, 18);
             this.lbl_nombrec_PA.Name = "lbl_nombrec_PA";
             this.lbl_nombrec_PA.Size = new System.Drawing.Size(132, 17);
@@ -428,21 +450,25 @@
             // 
             // btn_eliminar
             // 
+            this.btn_eliminar.BackColor = System.Drawing.Color.Crimson;
+            this.btn_eliminar.ForeColor = System.Drawing.Color.GhostWhite;
             this.btn_eliminar.Location = new System.Drawing.Point(806, 547);
             this.btn_eliminar.Name = "btn_eliminar";
             this.btn_eliminar.Size = new System.Drawing.Size(126, 30);
             this.btn_eliminar.TabIndex = 66;
             this.btn_eliminar.Text = "Eliminar";
-            this.btn_eliminar.UseVisualStyleBackColor = true;
+            this.btn_eliminar.UseVisualStyleBackColor = false;
             // 
             // btn_agregar
             // 
+            this.btn_agregar.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btn_agregar.ForeColor = System.Drawing.Color.GhostWhite;
             this.btn_agregar.Location = new System.Drawing.Point(940, 76);
             this.btn_agregar.Name = "btn_agregar";
             this.btn_agregar.Size = new System.Drawing.Size(143, 45);
             this.btn_agregar.TabIndex = 67;
             this.btn_agregar.Text = "Nuevo Empleado";
-            this.btn_agregar.UseVisualStyleBackColor = true;
+            this.btn_agregar.UseVisualStyleBackColor = false;
             this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
             // timer1
@@ -454,7 +480,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1119, 594);
             this.Controls.Add(this.btn_agregar);
             this.Controls.Add(this.btn_eliminar);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Caja_Baja));
             this.cb_numcaja = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_regresar_GC = new System.Windows.Forms.Button();
@@ -53,9 +54,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Indigo;
             this.label2.Location = new System.Drawing.Point(322, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 16);
+            this.label2.Size = new System.Drawing.Size(109, 16);
             this.label2.TabIndex = 99;
             this.label2.Text = "ELIMINAR CAJA";
             // 
@@ -103,6 +105,7 @@
             // lbl_idcaja
             // 
             this.lbl_idcaja.AutoSize = true;
+            this.lbl_idcaja.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_idcaja.Location = new System.Drawing.Point(450, 84);
             this.lbl_idcaja.Name = "lbl_idcaja";
             this.lbl_idcaja.Size = new System.Drawing.Size(56, 17);
@@ -121,6 +124,7 @@
             // lbl_cajero
             // 
             this.lbl_cajero.AutoSize = true;
+            this.lbl_cajero.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_cajero.Location = new System.Drawing.Point(89, 122);
             this.lbl_cajero.Name = "lbl_cajero";
             this.lbl_cajero.Size = new System.Drawing.Size(129, 17);
@@ -130,6 +134,7 @@
             // lbl_numcaja
             // 
             this.lbl_numcaja.AutoSize = true;
+            this.lbl_numcaja.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_numcaja.Location = new System.Drawing.Point(150, 89);
             this.lbl_numcaja.Name = "lbl_numcaja";
             this.lbl_numcaja.Size = new System.Drawing.Size(79, 17);
@@ -139,6 +144,7 @@
             // lbl_administrador
             // 
             this.lbl_administrador.AutoSize = true;
+            this.lbl_administrador.ForeColor = System.Drawing.Color.Indigo;
             this.lbl_administrador.Location = new System.Drawing.Point(407, 117);
             this.lbl_administrador.Name = "lbl_administrador";
             this.lbl_administrador.Size = new System.Drawing.Size(98, 17);
@@ -149,7 +155,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(717, 246);
             this.Controls.Add(this.cb_numcaja);
             this.Controls.Add(this.label2);
@@ -163,6 +169,7 @@
             this.Controls.Add(this.lbl_numcaja);
             this.Controls.Add(this.lbl_administrador);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Caja_Baja";

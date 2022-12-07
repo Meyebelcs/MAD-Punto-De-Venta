@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroEmpleado));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -64,8 +65,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.label1.BackColor = System.Drawing.SystemColors.MenuBar;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Indigo;
             this.label1.Location = new System.Drawing.Point(243, 21);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
@@ -76,6 +78,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Indigo;
             this.label2.Location = new System.Drawing.Point(100, 248);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
@@ -86,6 +89,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Indigo;
             this.label3.Location = new System.Drawing.Point(520, 248);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
@@ -96,6 +100,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Indigo;
             this.label4.Location = new System.Drawing.Point(288, 248);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
@@ -106,6 +111,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Indigo;
             this.label5.Location = new System.Drawing.Point(100, 332);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
@@ -116,6 +122,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Indigo;
             this.label6.Location = new System.Drawing.Point(341, 332);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
@@ -126,6 +133,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Indigo;
             this.label7.Location = new System.Drawing.Point(513, 426);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
@@ -136,6 +144,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Indigo;
             this.label8.Location = new System.Drawing.Point(113, 426);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
@@ -146,6 +155,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Indigo;
             this.label9.Location = new System.Drawing.Point(501, 332);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
@@ -156,6 +166,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Indigo;
             this.label10.Location = new System.Drawing.Point(33, 124);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
@@ -166,6 +177,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Indigo;
             this.label11.Location = new System.Drawing.Point(278, 426);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
@@ -176,6 +188,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.Indigo;
             this.label12.Location = new System.Drawing.Point(33, 62);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
@@ -186,6 +199,7 @@
             // chb_admin_RE
             // 
             this.chb_admin_RE.AutoSize = true;
+            this.chb_admin_RE.ForeColor = System.Drawing.Color.Indigo;
             this.chb_admin_RE.Location = new System.Drawing.Point(11, 25);
             this.chb_admin_RE.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.chb_admin_RE.Name = "chb_admin_RE";
@@ -198,6 +212,7 @@
             // chb_cajero_RE
             // 
             this.chb_cajero_RE.AutoSize = true;
+            this.chb_cajero_RE.ForeColor = System.Drawing.Color.Indigo;
             this.chb_cajero_RE.Location = new System.Drawing.Point(11, 53);
             this.chb_cajero_RE.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.chb_cajero_RE.Name = "chb_cajero_RE";
@@ -228,6 +243,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Indigo;
             this.label13.Location = new System.Drawing.Point(517, 111);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
@@ -323,28 +339,33 @@
             // 
             // btn_cancelar_RE
             // 
+            this.btn_cancelar_RE.BackColor = System.Drawing.Color.Crimson;
+            this.btn_cancelar_RE.ForeColor = System.Drawing.Color.GhostWhite;
             this.btn_cancelar_RE.Location = new System.Drawing.Point(438, 530);
             this.btn_cancelar_RE.Name = "btn_cancelar_RE";
             this.btn_cancelar_RE.Size = new System.Drawing.Size(126, 30);
             this.btn_cancelar_RE.TabIndex = 29;
             this.btn_cancelar_RE.Text = "Cancelar";
-            this.btn_cancelar_RE.UseVisualStyleBackColor = true;
+            this.btn_cancelar_RE.UseVisualStyleBackColor = false;
             this.btn_cancelar_RE.Click += new System.EventHandler(this.btn_cancelar_RE_Click);
             // 
             // btn_registrar_RE
             // 
+            this.btn_registrar_RE.BackColor = System.Drawing.Color.DarkBlue;
+            this.btn_registrar_RE.ForeColor = System.Drawing.Color.GhostWhite;
             this.btn_registrar_RE.Location = new System.Drawing.Point(589, 530);
             this.btn_registrar_RE.Name = "btn_registrar_RE";
             this.btn_registrar_RE.Size = new System.Drawing.Size(126, 30);
             this.btn_registrar_RE.TabIndex = 30;
             this.btn_registrar_RE.Text = "Registrar";
-            this.btn_registrar_RE.UseVisualStyleBackColor = true;
+            this.btn_registrar_RE.UseVisualStyleBackColor = false;
             this.btn_registrar_RE.Click += new System.EventHandler(this.btn_registrar_RE_Click);
             // 
             // gb_check_RE
             // 
             this.gb_check_RE.Controls.Add(this.chb_admin_RE);
             this.gb_check_RE.Controls.Add(this.chb_cajero_RE);
+            this.gb_check_RE.ForeColor = System.Drawing.Color.Indigo;
             this.gb_check_RE.Location = new System.Drawing.Point(268, 87);
             this.gb_check_RE.Name = "gb_check_RE";
             this.gb_check_RE.Size = new System.Drawing.Size(221, 90);
@@ -356,7 +377,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(736, 585);
             this.Controls.Add(this.gb_check_RE);
             this.Controls.Add(this.btn_registrar_RE);
@@ -387,6 +408,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.Indigo;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "RegistroEmpleado";
