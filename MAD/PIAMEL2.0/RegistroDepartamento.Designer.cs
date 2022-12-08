@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label16 = new System.Windows.Forms.Label();
-            this.chb_cajero_RE = new System.Windows.Forms.CheckBox();
+            this.lbl_idadmin = new System.Windows.Forms.Label();
+            this.chb_devolucion = new System.Windows.Forms.CheckBox();
             this.tp_fechaIngreso = new System.Windows.Forms.DateTimePicker();
-            this.txt_ApellidoP_RE = new System.Windows.Forms.TextBox();
+            this.txt_descripction = new System.Windows.Forms.TextBox();
             this.txt_nombre_RE = new System.Windows.Forms.TextBox();
-            this.txt_contraseña_RE = new System.Windows.Forms.TextBox();
-            this.txt_usuario_RE = new System.Windows.Forms.TextBox();
+            this.txt_nameadmin = new System.Windows.Forms.TextBox();
+            this.txt_id = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -45,28 +45,28 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label16
+            // lbl_idadmin
             // 
-            this.label16.AutoSize = true;
-            this.label16.ForeColor = System.Drawing.Color.Indigo;
-            this.label16.Location = new System.Drawing.Point(141, 167);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(124, 17);
-            this.label16.TabIndex = 117;
-            this.label16.Text = "IDADMINISTRADOR";
+            this.lbl_idadmin.AutoSize = true;
+            this.lbl_idadmin.ForeColor = System.Drawing.Color.Indigo;
+            this.lbl_idadmin.Location = new System.Drawing.Point(146, 167);
+            this.lbl_idadmin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_idadmin.Name = "lbl_idadmin";
+            this.lbl_idadmin.Size = new System.Drawing.Size(124, 17);
+            this.lbl_idadmin.TabIndex = 117;
+            this.lbl_idadmin.Text = "IDADMINISTRADOR";
             // 
-            // chb_cajero_RE
+            // chb_devolucion
             // 
-            this.chb_cajero_RE.AutoSize = true;
-            this.chb_cajero_RE.ForeColor = System.Drawing.Color.Indigo;
-            this.chb_cajero_RE.Location = new System.Drawing.Point(64, 283);
-            this.chb_cajero_RE.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.chb_cajero_RE.Name = "chb_cajero_RE";
-            this.chb_cajero_RE.Size = new System.Drawing.Size(154, 21);
-            this.chb_cajero_RE.TabIndex = 105;
-            this.chb_cajero_RE.Text = "Permite Devolución";
-            this.chb_cajero_RE.UseVisualStyleBackColor = true;
+            this.chb_devolucion.AutoSize = true;
+            this.chb_devolucion.ForeColor = System.Drawing.Color.Indigo;
+            this.chb_devolucion.Location = new System.Drawing.Point(64, 283);
+            this.chb_devolucion.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.chb_devolucion.Name = "chb_devolucion";
+            this.chb_devolucion.Size = new System.Drawing.Size(154, 21);
+            this.chb_devolucion.TabIndex = 105;
+            this.chb_devolucion.Text = "Permite Devolución";
+            this.chb_devolucion.UseVisualStyleBackColor = true;
             // 
             // tp_fechaIngreso
             // 
@@ -78,14 +78,14 @@
             this.tp_fechaIngreso.Size = new System.Drawing.Size(200, 23);
             this.tp_fechaIngreso.TabIndex = 116;
             // 
-            // txt_ApellidoP_RE
+            // txt_descripction
             // 
-            this.txt_ApellidoP_RE.Location = new System.Drawing.Point(309, 120);
-            this.txt_ApellidoP_RE.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txt_ApellidoP_RE.Multiline = true;
-            this.txt_ApellidoP_RE.Name = "txt_ApellidoP_RE";
-            this.txt_ApellidoP_RE.Size = new System.Drawing.Size(200, 117);
-            this.txt_ApellidoP_RE.TabIndex = 115;
+            this.txt_descripction.Location = new System.Drawing.Point(309, 120);
+            this.txt_descripction.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txt_descripction.Multiline = true;
+            this.txt_descripction.Name = "txt_descripction";
+            this.txt_descripction.Size = new System.Drawing.Size(200, 117);
+            this.txt_descripction.TabIndex = 115;
             // 
             // txt_nombre_RE
             // 
@@ -95,25 +95,25 @@
             this.txt_nombre_RE.Size = new System.Drawing.Size(205, 23);
             this.txt_nombre_RE.TabIndex = 114;
             // 
-            // txt_contraseña_RE
+            // txt_nameadmin
             // 
-            this.txt_contraseña_RE.Enabled = false;
-            this.txt_contraseña_RE.Location = new System.Drawing.Point(39, 187);
-            this.txt_contraseña_RE.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txt_contraseña_RE.Name = "txt_contraseña_RE";
-            this.txt_contraseña_RE.ReadOnly = true;
-            this.txt_contraseña_RE.Size = new System.Drawing.Size(205, 23);
-            this.txt_contraseña_RE.TabIndex = 113;
+            this.txt_nameadmin.Enabled = false;
+            this.txt_nameadmin.Location = new System.Drawing.Point(39, 187);
+            this.txt_nameadmin.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txt_nameadmin.Name = "txt_nameadmin";
+            this.txt_nameadmin.ReadOnly = true;
+            this.txt_nameadmin.Size = new System.Drawing.Size(205, 23);
+            this.txt_nameadmin.TabIndex = 113;
             // 
-            // txt_usuario_RE
+            // txt_id
             // 
-            this.txt_usuario_RE.Enabled = false;
-            this.txt_usuario_RE.Location = new System.Drawing.Point(39, 129);
-            this.txt_usuario_RE.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txt_usuario_RE.Name = "txt_usuario_RE";
-            this.txt_usuario_RE.ReadOnly = true;
-            this.txt_usuario_RE.Size = new System.Drawing.Size(205, 23);
-            this.txt_usuario_RE.TabIndex = 112;
+            this.txt_id.Enabled = false;
+            this.txt_id.Location = new System.Drawing.Point(39, 129);
+            this.txt_id.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txt_id.Name = "txt_id";
+            this.txt_id.ReadOnly = true;
+            this.txt_id.Size = new System.Drawing.Size(205, 23);
+            this.txt_id.TabIndex = 112;
             // 
             // label12
             // 
@@ -133,9 +133,9 @@
             this.label10.Location = new System.Drawing.Point(35, 167);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(103, 17);
+            this.label10.Size = new System.Drawing.Size(113, 17);
             this.label10.TabIndex = 110;
-            this.label10.Text = "Lo dió de alta:";
+            this.label10.Text = "Lo dará de alta:";
             // 
             // label7
             // 
@@ -180,6 +180,7 @@
             this.btn_registrar_RE.TabIndex = 119;
             this.btn_registrar_RE.Text = "Registrar";
             this.btn_registrar_RE.UseVisualStyleBackColor = false;
+            this.btn_registrar_RE.Click += new System.EventHandler(this.btn_registrar_RE_Click);
             // 
             // btn_cancelar_RE
             // 
@@ -191,6 +192,7 @@
             this.btn_cancelar_RE.TabIndex = 118;
             this.btn_cancelar_RE.Text = "Cancelar";
             this.btn_cancelar_RE.UseVisualStyleBackColor = false;
+            this.btn_cancelar_RE.Click += new System.EventHandler(this.btn_cancelar_RE_Click);
             // 
             // label1
             // 
@@ -213,22 +215,23 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_registrar_RE);
             this.Controls.Add(this.btn_cancelar_RE);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.chb_cajero_RE);
+            this.Controls.Add(this.lbl_idadmin);
+            this.Controls.Add(this.chb_devolucion);
             this.Controls.Add(this.tp_fechaIngreso);
-            this.Controls.Add(this.txt_ApellidoP_RE);
+            this.Controls.Add(this.txt_descripction);
             this.Controls.Add(this.txt_nombre_RE);
-            this.Controls.Add(this.txt_contraseña_RE);
-            this.Controls.Add(this.txt_usuario_RE);
+            this.Controls.Add(this.txt_nameadmin);
+            this.Controls.Add(this.txt_id);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RegistroDepartamento";
             this.Text = "RegistroDepartamento";
+            this.Load += new System.EventHandler(this.RegistroDepartamento_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,13 +239,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.CheckBox chb_cajero_RE;
+        private System.Windows.Forms.Label lbl_idadmin;
+        private System.Windows.Forms.CheckBox chb_devolucion;
         private System.Windows.Forms.DateTimePicker tp_fechaIngreso;
-        private System.Windows.Forms.TextBox txt_ApellidoP_RE;
+        private System.Windows.Forms.TextBox txt_descripction;
         private System.Windows.Forms.TextBox txt_nombre_RE;
-        private System.Windows.Forms.TextBox txt_contraseña_RE;
-        private System.Windows.Forms.TextBox txt_usuario_RE;
+        private System.Windows.Forms.TextBox txt_nameadmin;
+        private System.Windows.Forms.TextBox txt_id;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label7;

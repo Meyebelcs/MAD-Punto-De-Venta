@@ -89,6 +89,7 @@ BEGIN
 	BEGIN
 		SELECT  IdEmpleados[IdEmpleados], Nombre[Nombre], APpellidoP[Apellido Paterno], APpellidoM[Apellido Materno], Email[Email], FechaIngreso[Fecha Ingreso], CURP[CURP], NumNomina[Nomina], Telefono[Telefono], FechaNac[Fecha Nacimiento]
 		FROM Empleados  
+		WHERE  Eliminacion = 0;
 	END;
 
 	IF @Accion = 'V'

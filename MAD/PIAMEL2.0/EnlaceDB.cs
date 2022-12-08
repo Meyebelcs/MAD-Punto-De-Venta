@@ -492,5 +492,53 @@ namespace MAD._0
 
             return tabla;
         }
+        public bool add_Departamento(string opc, int IdDepartamento, string Nombre, string Descripcion, int IdAdministrador, int Devolucion, DateTime FechaIngreso)
+        {
+            var msg = "";
+            var add = true;
+            try
+            {
+                conectar();
+                string qry = "spDepartamento";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = opc;
+                var parametro2 = _comandosql.Parameters.Add("@IdDepartamento", SqlDbType.Int, 20);
+                parametro2.Value = IdDepartamento;
+                var parametro3 = _comandosql.Parameters.Add("@Nombre", SqlDbType.VarChar, 50);
+                parametro3.Value = Nombre;
+                var parametro4 = _comandosql.Parameters.Add("@Descripcion", SqlDbType.VarChar, 100);
+                parametro4.Value = Descripcion;
+                var parametro5 = _comandosql.Parameters.Add("@IdAdminstrador", SqlDbType.Int, 20);
+                parametro5.Value = IdAdministrador;
+                var parametro6 = _comandosql.Parameters.Add("@PermiteDevolucion", SqlDbType.Int, 1);
+                parametro6.Value = Devolucion;
+                var parametro7 = _comandosql.Parameters.Add("@Eliminacion", SqlDbType.Int, 1);
+                parametro7.Value = 0;
+                var parametro8 = _comandosql.Parameters.Add("@FechaIngreso", SqlDbType.DateTime);
+                parametro8.Value = FechaIngreso;
+
+                _adaptador.InsertCommand = _comandosql;
+
+                _comandosql.ExecuteNonQuery();
+
+            }
+            catch (SqlException e)
+            {
+                add = false;
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return add;
+        }
     }
 }

@@ -285,8 +285,8 @@ namespace MAD._0
             var IdProvisional = new DataTable();
             IdProvisional = obj.get_Empleados("P"); //traigo de la base los datos del empleado
 
-
             txt_usuario_RE.Text = IdProvisional.Rows[0][0].ToString();
+
         }
     }
 }

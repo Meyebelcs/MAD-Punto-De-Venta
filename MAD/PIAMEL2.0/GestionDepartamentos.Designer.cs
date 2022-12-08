@@ -66,6 +66,7 @@
             this.btn_agregar.TabIndex = 103;
             this.btn_agregar.Text = "Nuevo Departamento";
             this.btn_agregar.UseVisualStyleBackColor = false;
+            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
             // btn_eliminar
             // 
@@ -77,6 +78,7 @@
             this.btn_eliminar.TabIndex = 102;
             this.btn_eliminar.Text = "Eliminar";
             this.btn_eliminar.UseVisualStyleBackColor = false;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // lbl_fecha_PA
             // 
@@ -164,6 +166,7 @@
             this.btn_modificar.TabIndex = 94;
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = false;
+            this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
             // 
             // btn_cancelar_RE
             // 
@@ -337,7 +340,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GestionDepartamentos";
             this.Text = "GestionDepartamentos";
             this.Load += new System.EventHandler(this.GestionDepartamentos_Load);
