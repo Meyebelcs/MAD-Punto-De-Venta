@@ -503,10 +503,10 @@ ALTER COLUMN Nombre VARCHAR(50) NOT NULL
 DELETE FROM Empleados
 WHERE Nombre = 'Boing'
 
-UPDATE Historial_Productos
+UPDATE Productos
 		SET
-			IdProducto = 1000001
-WHERE IdHistorialIp= 1000002;
+			IdDepartamento = 1000002
+WHERE IdProducto= 1000000;
 
 
 UPDATE Historial_Productos

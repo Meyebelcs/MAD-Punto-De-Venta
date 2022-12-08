@@ -65,7 +65,7 @@ BEGIN
 	BEGIN
 		SELECT IdInfoProductos[IdInfoProductos],IdAdministrador[IdAdministrador], IdProducto[IdProducto],FechaDeAlta[FechaDeAlta],PuntoReorden[PuntoReorden],PrecioUnitario[PrecioUnitario],Eliminacion[Eliminacion]
 		FROM Info_Productos  
-		WHERE  IdInfoProductos = @IdInfoProductos;
+		WHERE  IdProducto = @IdProducto;
 	END;
 
 	IF @Accion = 'V'

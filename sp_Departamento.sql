@@ -94,7 +94,6 @@ BEGIN
 		SELECT  IdDepartamento[IdDepartamento], Nombre[Nombre],Descripcion[Descripcion],IdAdminstrador[IdAdmins],PermiteDevolucion[Permite Devolucion],Eliminacion[Eliminacion],FechaIngreso[Fecha Ingreso]
 		FROM Departamento  
 		WHERE  Eliminacion = 0
-		ORDER BY IdDepartamento;
 
  END;
 END;
