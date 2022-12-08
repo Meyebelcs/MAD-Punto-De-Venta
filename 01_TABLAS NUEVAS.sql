@@ -126,6 +126,9 @@ CONSTRAINT FK_Info_Productos_IDAD FOREIGN KEY (IdAdministrador)
 );
 ALTER TABLE Info_Productos
 ALTER COLUMN PrecioUnitario decimal(10,2) NULL
+
+ALTER TABLE Info_Productos
+ADD Eliminacion BIT NULL
 -----------------------------------------------------------------
 
 IF OBJECT_ID('Historial_Productos')IS NOT NULL
@@ -142,8 +145,20 @@ CONSTRAINT FK_HISTORIAL_PRODUCTOS_IDINFO FOREIGN KEY (IdInfoProducto)
    REFERENCES Info_Productos(IdInfoProductos),
 
 CONSTRAINT FK_HISTORIAL_PRODUCTOS_IDUSERMOD FOREIGN KEY (IdUsuarioModificacion)
-   REFERENCES Empleados(IdEmpleados)
+   REFERENCES Empleados(IdEmpleados),
+
+
 );
+
+ALTER TABLE Historial_Productos
+ADD Eliminacion BIT NULL
+
+ALTER TABLE Historial_Productos
+ADD IdProducto	 INT NULL
+
+CONSTRAINT FK_HISTORIAL_PRODUCTOS_IDUSERPROD FOREIGN KEY (IdProducto)
+   REFERENCES Productos(IdProducto)
+-----------------------------------------------------------------
 
 
 IF OBJECT_ID('Venta')IS NOT NULL
@@ -488,7 +503,13 @@ ALTER COLUMN Nombre VARCHAR(50) NOT NULL
 DELETE FROM Empleados
 WHERE Nombre = 'Boing'
 
-UPDATE Cajero
+UPDATE Historial_Productos
+		SET
+			IdProducto = 1000001
+WHERE IdHistorialIp= 1000002;
+
+
+UPDATE Historial_Productos
 		SET
 			Eliminacion = 0
 WHERE IdEmpleado = 1000003;

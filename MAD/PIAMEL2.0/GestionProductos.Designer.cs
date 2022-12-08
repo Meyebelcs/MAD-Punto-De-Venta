@@ -345,7 +345,7 @@
             this.lb_productoEliminado.AutoSize = true;
             this.lb_productoEliminado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_productoEliminado.ForeColor = System.Drawing.Color.Red;
-            this.lb_productoEliminado.Location = new System.Drawing.Point(334, 541);
+            this.lb_productoEliminado.Location = new System.Drawing.Point(563, 541);
             this.lb_productoEliminado.Name = "lb_productoEliminado";
             this.lb_productoEliminado.Size = new System.Drawing.Size(256, 19);
             this.lb_productoEliminado.TabIndex = 39;
@@ -418,7 +418,7 @@
             this.txt_nameadmin.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txt_nameadmin.Name = "txt_nameadmin";
             this.txt_nameadmin.ReadOnly = true;
-            this.txt_nameadmin.Size = new System.Drawing.Size(205, 24);
+            this.txt_nameadmin.Size = new System.Drawing.Size(231, 24);
             this.txt_nameadmin.TabIndex = 122;
             // 
             // label10
