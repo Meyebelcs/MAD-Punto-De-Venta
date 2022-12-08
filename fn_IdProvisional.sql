@@ -48,4 +48,30 @@ BEGIN
 END;
 Go
 
+--FUNCIONES productos-----------------------------------------------------
+
+IF OBJECT_ID('fn_IdProvisionalProductos')IS NOT NULL
+	DROP FUNCTION fn_IdProvisionalProductos;
+Go
+CREATE FUNCTION fn_IdProvisionalProductos
+(
+)
+RETURNS int
+BEGIN
+
+	DECLARE @IdProductoProvicional int;
+
+	Select @IdProductoProvicional= MAX(IdProducto) 
+	
+	from Productos
+
+	SET @IdProductoProvicional= @IdProductoProvicional + 1;
+	
+		RETURN @IdProductoProvicional;
+
+END;
+Go
+
+
+
 

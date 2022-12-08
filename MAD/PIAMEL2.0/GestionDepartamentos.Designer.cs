@@ -341,7 +341,9 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "GestionDepartamentos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GestionDepartamentos";
             this.Load += new System.EventHandler(this.GestionDepartamentos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_empleados)).EndInit();

@@ -530,5 +530,10 @@ namespace PIAMEL2._0
                 return;
             }
         }
+
+        private void dgv_empleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -178,6 +178,13 @@ ADD MontoCambio decimal(10,2) NULL
 
 ALTER TABLE Venta
 ADD FechaRegistro datetime NULL
+
+ALTER TABLE Venta
+ADD NombreCajero VARCHAR(100)  NULL
+
+ALTER TABLE Venta
+ADD IdCajero INT NULL
+
 -----------------------------------------------------------------
 
 IF OBJECT_ID('Descuento')IS NOT NULL
@@ -502,9 +509,9 @@ UPDATE Empleados
 WHERE IdEmpleados = 1000005;
 
 
-update Empleados
-set Eliminacion = 0
-WHERE Eliminacion = 1
+update Productos
+set Eliminacion = 1
+WHERE IdProducto = 1000001
 
 update Cajero
 set Eliminacion = 0

@@ -1,7 +1,7 @@
 USE DB_MAD;
 Go
 
-/*-----------------------------spAdministrador-------------------------------------------*/
+/*-----------------------------spProductos-------------------------------------------*/
 IF OBJECT_ID('spProductos')IS NOT NULL
 BEGIN
 DROP PROCEDURE spProductos;
@@ -11,14 +11,16 @@ GO
 CREATE PROCEDURE spProductos(
 @Accion				CHAR(1),
 @IdProducto         INT = NULL,
-@IdDepartamento     INT = NULL,
 @Nombre             VARCHAR(20) = NULL,
+@IdDepartamento     INT = NULL,
 @Descripcion        VARCHAR(100) = NULL,
 @Descuento     		BIT = NULL,
 @UnidaddeMedida     VARCHAR(20) = NULL,
-@Costo              MONEY = NULL,
+@Costo              decimal(10,2) = NULL,
 @Eliminacion        BIT = NULL,
 @CantidadDeInventario INT = NULL
+
+
 
 )
 AS
@@ -30,10 +32,8 @@ BEGIN
 
 	IF @Accion = 'I'
 	BEGIN
-		INSERT INTO Productos(Nombre,IdDepartamento, Descripcion,Descuento,UnidaddeMedida, Costo, Eliminacion,
-		CantidadDeInventario )
-		VALUES(@Nombre,@IdDepartamento,@Descripcion, @Descuento, @UnidaddeMedida,@Costo,@Eliminacion,
-		@CantidadDeInventario);
+		INSERT INTO Productos(Nombre,IdDepartamento, Descripcion,Descuento,UnidaddeMedida, Costo, Eliminacion,CantidadDeInventario )
+		VALUES(@Nombre,@IdDepartamento,@Descripcion, @Descuento, @UnidaddeMedida,@Costo,@Eliminacion,@CantidadDeInventario);
 	END;
 
 	IF @Accion = 'U'
@@ -54,42 +54,64 @@ BEGIN
 
 	IF @Accion = 'D'
 	BEGIN
-		DELETE FROM Productos WHERE  IdProducto = @IdProducto;
+		DELETE 
+		FROM Productos 
+		WHERE  IdProducto = @IdProducto;
 	END;
 
 	IF @Accion = 'L'
     BEGIN
-        UPDATE Productos SET
-        Descuento = 0 WHERE  IdProducto = @IdProducto;
+	/*se habilitará el hecho de q contiene descuento*/
+        UPDATE Productos 
+		SET
+			Descuento = 1 
+		WHERE  IdProducto = @IdProducto and Eliminacion = 0;
     END;
 
     IF @Accion = 'A'
     BEGIN
-        UPDATE Productos SET
-        Descuento = 1 WHERE IdProducto = @IdProducto;
+	/*se deshabilitará el hecho de q contiene descuento*/
+        UPDATE Productos 
+		SET
+        Descuento = 0 
+		WHERE IdProducto = @IdProducto and Eliminacion = 0;
     END;
 
-		IF @Accion = 'M'
+		IF @Accion = 'E'
     BEGIN
-        UPDATE Productos SET
-        Eliminacion = 0 WHERE  IdProducto = @IdProducto;
+	/*ELIMINACION LOGICA*/
+        UPDATE Productos 
+		SET
+			Eliminacion = 1 
+		WHERE  IdProducto = @IdProducto ;
     END;
 
-    IF @Accion = 'N'
-    BEGIN
-        UPDATE Productos SET
-        Eliminacion = 1 WHERE IdProducto = @IdProducto;
-    END;
+	IF @Accion = 'S'
+	BEGIN
+	SELECT IdProducto [IdProducto],IdDepartamento [Departamento],Nombre [Nombre],Descripcion [Descripcion],Descuento [Descuento],
+		UnidaddeMedida [UnidadMedida],Costo [Costo],Eliminacion [Eliminacion],CantidadDeInventario [CantidadInventario]
+		
+		FROM Productos  
+		WHERE  IdProducto = @IdProducto;
+	END;
+
+	IF @Accion = 'V'
+	BEGIN
+		SELECT IdProducto [IdProducto],IdDepartamento [Departamento],Nombre [Nombre],Descripcion [Descripcion],Descuento [Descuento],
+		UnidaddeMedida [UnidadMedida],Costo [Costo],Eliminacion [Eliminacion],CantidadDeInventario [CantidadInventario]
+		FROM Productos  
+		WHERE IdProducto = @IdProducto and Eliminacion = 0;
+	END;
 
 	 IF @Accion = 'J'
     BEGIN
+	/*iMPRIME LOS PRODUCTOS QUE YA LLEGARON AL PUNTO DE REORDEN*/
         SELECT P.IdProducto [IdProducto],P.Nombre [Nombre],P.IdDepartamento [Departamento],P.Descuento [Descuento],
-		P.UnidaddeMedida [UnidadMedida],P.Costo [Costo],P.CantidadDeInventario [Inventario]
+		P.UnidaddeMedida [UnidadMedida],P.Costo [Costo],P.CantidadDeInventario [Inventario], P.Descripcion [Descripcion]
 
 		FROM Productos P JOIN Info_Productos I
 		on P.IdProducto = I.IdProducto
-		WHERE P.CantidadDeInventario <= I.PuntoReorden
-		AND P.Eliminacion = 0
+		WHERE P.CantidadDeInventario <= I.PuntoReorden AND P.Eliminacion = 0;
 
     END;
 
@@ -102,6 +124,11 @@ BEGIN
 		ORDER BY Nombre;
 
 	END;
+
+	IF @Accion='P'
+	BEGIN
+		SELECT dbo.fn_IdProvisionalProductos() 
+	END
 END;
 
 
