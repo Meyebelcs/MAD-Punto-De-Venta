@@ -69,6 +69,13 @@ BEGIN
 		WHERE IdDepartamento = @IdDepartamento;
 	END;
 
+	IF @Accion = 'N'
+	BEGIN
+		SELECT  IdDepartamento[IdDepartamento], Nombre[Nombre],Descripcion[Descripcion],IdAdminstrador[IdAdmins],PermiteDevolucion[Permite Devolucion],Eliminacion[Eliminacion],FechaIngreso[Fecha Ingreso]
+		FROM Departamento  
+		WHERE Nombre = @Nombre;
+	END;
+
 	IF @Accion = 'V'
 	BEGIN
 		SELECT  IdDepartamento[IdDepartamento], Nombre[Nombre],Descripcion[Descripcion],IdAdminstrador[IdAdmins],PermiteDevolucion[Permite Devolucion],Eliminacion[Eliminacion],FechaIngreso[Fecha Ingreso]

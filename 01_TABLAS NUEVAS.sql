@@ -105,7 +105,6 @@ CONSTRAINT FK_PRODUCTOS_DEP FOREIGN KEY (IdDepartamento)
 ALTER TABLE Productos
 ALTER COLUMN Costo decimal(10,2) NULL
 -----------------------------------------------------------------
-
 IF OBJECT_ID('Info_Productos')IS NOT NULL
 	DROP TABLE Info_Productos;
 
@@ -503,9 +502,13 @@ ALTER COLUMN Nombre VARCHAR(50) NOT NULL
 DELETE FROM Empleados
 WHERE Nombre = 'Boing'
 
+DELETE 
+		FROM Productos 
+		WHERE  IdProducto = 1000004;
+
 UPDATE Productos
 		SET
-			IdDepartamento = 1000002
+			Descuento = 1
 WHERE IdProducto= 1000000;
 
 
@@ -561,6 +564,5 @@ ALTER TABLE Ticket
 ADD CONSTRAINT FK_TICKET_IDTP FOREIGN KEY (TipoPago)
    REFERENCES Tipo_Pago(IdTipo)
 
-
-
+ sp_help 'dbo.Productos'
 /*----------------------------------*/

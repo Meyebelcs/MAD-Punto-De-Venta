@@ -139,10 +139,22 @@ namespace MAD._0
                
                 txt_nombre.Text = INFO.Rows[0][2].ToString();
                 txt_descripcion.Text = INFO.Rows[0][3].ToString();
-                cb_descuento.Text = INFO.Rows[0][4].ToString();
+                string descuento = INFO.Rows[0][4].ToString();
                 cbUnidadMedida.Text = INFO.Rows[0][5].ToString();
                 txt_costo.Text = INFO.Rows[0][6].ToString();
                 txt_cantidadInv.Text = INFO.Rows[0][8].ToString();
+
+
+                if (descuento=="True")
+                {
+                    cb_si.Checked = true;
+                    cb_no.Checked = false;
+                }
+                else
+                {
+                    cb_si.Checked = false;
+                    cb_no.Checked = true;
+                }
 
                 //Imprimo el noombre del departamento 
                 int iddepa = Convert.ToInt32(INFO.Rows[0][1].ToString());
@@ -182,7 +194,7 @@ namespace MAD._0
                     txt_cantidadInv.Enabled = false;
                     txt_reorden.Enabled = false;
                     txt_descripcion.Enabled = false;
-                    cb_descuento.Enabled = false;
+               
                     tp_fechaIngreso.Enabled = false;
                     btn_EProducto.Visible = false;
                     btn_MProducto.Visible=false;
@@ -198,7 +210,7 @@ namespace MAD._0
                     txt_cantidadInv.Enabled = true;
                     txt_reorden.Enabled = true;
                     txt_descripcion.Enabled = true;
-                    cb_descuento.Enabled = true;
+                  
                     tp_fechaIngreso.Enabled = true;
                     btn_EProducto.Visible = true;
                     btn_MProducto.Visible = true;

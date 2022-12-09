@@ -68,6 +68,7 @@ BEGIN
 		WHERE  IdProducto = @IdProducto;
 	END;
 
+
 	IF @Accion = 'V'
 	BEGIN
 		SELECT IdInfoProductos[IdInfoProductos],IdAdministrador[IdAdministrador], IdProducto[IdProducto],FechaDeAlta[FechaDeAlta],PuntoReorden[PuntoReorden],PrecioUnitario[PrecioUnitario],Eliminacion[Eliminacion]	

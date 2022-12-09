@@ -31,8 +31,6 @@
             this.lbl_idadmin = new System.Windows.Forms.Label();
             this.txt_nameadmin = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.cb_descuento = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tp_fechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_id = new System.Windows.Forms.TextBox();
@@ -89,24 +87,6 @@
             this.label10.Size = new System.Drawing.Size(113, 17);
             this.label10.TabIndex = 147;
             this.label10.Text = "Lo dará de alta:";
-            // 
-            // cb_descuento
-            // 
-            this.cb_descuento.FormattingEnabled = true;
-            this.cb_descuento.Location = new System.Drawing.Point(488, 312);
-            this.cb_descuento.Name = "cb_descuento";
-            this.cb_descuento.Size = new System.Drawing.Size(144, 25);
-            this.cb_descuento.TabIndex = 146;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Indigo;
-            this.label1.Location = new System.Drawing.Point(490, 289);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 17);
-            this.label1.TabIndex = 145;
-            this.label1.Text = "Descuento";
             // 
             // tp_fechaIngreso
             // 
@@ -297,6 +277,7 @@
             this.btn_registrar_RE.TabIndex = 152;
             this.btn_registrar_RE.Text = "Registrar";
             this.btn_registrar_RE.UseVisualStyleBackColor = false;
+            this.btn_registrar_RE.Click += new System.EventHandler(this.btn_registrar_RE_Click);
             // 
             // btn_cancelar_RE
             // 
@@ -334,8 +315,6 @@
             this.Controls.Add(this.lbl_idadmin);
             this.Controls.Add(this.txt_nameadmin);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.cb_descuento);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.tp_fechaIngreso);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txt_id);
@@ -362,6 +341,7 @@
             this.Name = "RegistroProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegistroProducto";
+            this.Load += new System.EventHandler(this.RegistroProducto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -371,8 +351,6 @@
         private System.Windows.Forms.Label lbl_idadmin;
         private System.Windows.Forms.TextBox txt_nameadmin;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cb_descuento;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker tp_fechaIngreso;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_id;

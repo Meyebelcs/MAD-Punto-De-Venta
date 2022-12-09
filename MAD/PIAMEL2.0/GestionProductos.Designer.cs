@@ -61,12 +61,13 @@
             this.txt_id = new System.Windows.Forms.TextBox();
             this.tp_fechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.cb_descuento = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_idadmin = new System.Windows.Forms.Label();
             this.txt_nameadmin = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.cb_si = new System.Windows.Forms.CheckBox();
+            this.cb_no = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -363,6 +364,7 @@
             // 
             // tp_fechaIngreso
             // 
+            this.tp_fechaIngreso.Checked = false;
             this.tp_fechaIngreso.CustomFormat = "yyyy-MM-dd/h:m:s";
             this.tp_fechaIngreso.Enabled = false;
             this.tp_fechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -370,6 +372,7 @@
             this.tp_fechaIngreso.Name = "tp_fechaIngreso";
             this.tp_fechaIngreso.Size = new System.Drawing.Size(200, 24);
             this.tp_fechaIngreso.TabIndex = 118;
+            this.tp_fechaIngreso.Value = new System.DateTime(2022, 12, 8, 17, 25, 56, 0);
             // 
             // label7
             // 
@@ -382,23 +385,15 @@
             this.label7.TabIndex = 117;
             this.label7.Text = "Fecha de Ingreso:";
             // 
-            // cb_descuento
-            // 
-            this.cb_descuento.FormattingEnabled = true;
-            this.cb_descuento.Location = new System.Drawing.Point(849, 303);
-            this.cb_descuento.Name = "cb_descuento";
-            this.cb_descuento.Size = new System.Drawing.Size(144, 27);
-            this.cb_descuento.TabIndex = 120;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Indigo;
             this.label1.Location = new System.Drawing.Point(851, 280);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 19);
+            this.label1.Size = new System.Drawing.Size(126, 19);
             this.label1.TabIndex = 119;
-            this.label1.Text = "Descuento";
+            this.label1.Text = "Tiene Descuento:";
             // 
             // lbl_idadmin
             // 
@@ -445,17 +440,40 @@
             this.label2.TabIndex = 124;
             this.label2.Text = "Datos del Producto";
             // 
+            // cb_si
+            // 
+            this.cb_si.AutoSize = true;
+            this.cb_si.Enabled = false;
+            this.cb_si.Location = new System.Drawing.Point(855, 302);
+            this.cb_si.Name = "cb_si";
+            this.cb_si.Size = new System.Drawing.Size(38, 23);
+            this.cb_si.TabIndex = 125;
+            this.cb_si.Text = "Si";
+            this.cb_si.UseVisualStyleBackColor = true;
+            // 
+            // cb_no
+            // 
+            this.cb_no.AutoSize = true;
+            this.cb_no.Enabled = false;
+            this.cb_no.Location = new System.Drawing.Point(930, 302);
+            this.cb_no.Name = "cb_no";
+            this.cb_no.Size = new System.Drawing.Size(47, 23);
+            this.cb_no.TabIndex = 126;
+            this.cb_no.Text = "No";
+            this.cb_no.UseVisualStyleBackColor = true;
+            // 
             // GestionProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1103, 589);
+            this.Controls.Add(this.cb_no);
+            this.Controls.Add(this.cb_si);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbl_idadmin);
             this.Controls.Add(this.txt_nameadmin);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.cb_descuento);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tp_fechaIngreso);
             this.Controls.Add(this.label7);
@@ -535,11 +553,12 @@
         private System.Windows.Forms.TextBox txt_id;
         private System.Windows.Forms.DateTimePicker tp_fechaIngreso;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cb_descuento;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_idadmin;
         private System.Windows.Forms.TextBox txt_nameadmin;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox cb_si;
+        private System.Windows.Forms.CheckBox cb_no;
     }
 }
