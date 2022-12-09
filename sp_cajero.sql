@@ -13,7 +13,8 @@ CREATE PROCEDURE spCajero(
 @IdCajero	        INT = NULL,
 @IdEmpleado	        INT = NULL,
 @IdAdmin            INT = NULL, /*quien lo dio de alta*/
-@Eliminacion		BIT=NULL
+@Eliminacion		BIT=NULL,
+@IdCaja				INT = NULL
 )
 AS
 
@@ -24,8 +25,8 @@ BEGIN
 
 	IF @Accion = 'I'
 	BEGIN
-		INSERT INTO Cajero(IdEmpleado, IdAdmin, Eliminacion)
-		VALUES(@IdEmpleado, @IdAdmin, @Eliminacion);
+		INSERT INTO Cajero(IdEmpleado, IdAdmin, Eliminacion,IdCaja)
+		VALUES(@IdEmpleado, @IdAdmin, @Eliminacion,0);
 	END;
 
 	IF @Accion = 'U'
@@ -36,6 +37,15 @@ BEGIN
 			IdAdmin    = @IdAdmin   
 
 		WHERE IdCajero = @IdCajero;
+	END;
+
+	IF @Accion = 'M'
+	BEGIN
+		UPDATE Cajero
+		SET
+			IdCaja = @IdCaja
+
+		WHERE IdEmpleado = @IdEmpleado;
 	END;
 
 	IF @Accion = 'E' 
@@ -52,6 +62,13 @@ BEGIN
 		DELETE 
 		FROM Cajero 
 		WHERE  IdCajero = @IdCajero;
+	END;
+
+	IF @Accion = 'T'
+	BEGIN
+		SELECT  IdCajero[IdCajero], IdEmpleado[IdEmpleado], IdAdmin[IdAdmin]
+		FROM Cajero  
+		WHERE IdCaja = 0 and Eliminacion = 0
 	END;
 
 	IF @Accion = 'V'

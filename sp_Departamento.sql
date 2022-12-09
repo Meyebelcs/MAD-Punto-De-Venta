@@ -95,10 +95,15 @@ BEGIN
 		SELECT dbo.fn_IdProvisionalDepartamento() 
 	END
 
+	IF @Accion='B'
+	BEGIN
+		SELECT dbo.fn_busquedaDepartamento(@IdDepartamento)
+	END
+
 	IF @Accion = '*'
 	BEGIN
 
-		SELECT  IdDepartamento[IdDepartamento], Nombre[Nombre],Descripcion[Descripcion],IdAdminstrador[IdAdmins],PermiteDevolucion[Permite Devolucion],Eliminacion[Eliminacion],FechaIngreso[Fecha Ingreso]
+		SELECT  IdDepartamento[IdDepartamento], Nombre[Nombre],Descripcion[Descripcion],IdAdminstrador[IdAdmins],PermiteDevolucion[Permite Devolucion],FechaIngreso[Fecha Ingreso]
 		FROM Departamento  
 		WHERE  Eliminacion = 0
 

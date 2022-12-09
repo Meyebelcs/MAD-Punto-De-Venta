@@ -32,14 +32,14 @@
             this.btn_Guardar_GC = new System.Windows.Forms.Button();
             this.cbcajero = new System.Windows.Forms.ComboBox();
             this.txt_admin = new System.Windows.Forms.TextBox();
-            this.lbl_idcaja = new System.Windows.Forms.Label();
-            this.txt_idcaja = new System.Windows.Forms.TextBox();
             this.lbl_cajero = new System.Windows.Forms.Label();
             this.lbl_numcaja = new System.Windows.Forms.Label();
             this.lbl_administrador = new System.Windows.Forms.Label();
             this.txt_numcaja = new System.Windows.Forms.TextBox();
             this.btn_regresar_GC = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.LBL_ID = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_Guardar_GC
@@ -65,30 +65,11 @@
             // txt_admin
             // 
             this.txt_admin.Enabled = false;
-            this.txt_admin.Location = new System.Drawing.Point(509, 91);
+            this.txt_admin.Location = new System.Drawing.Point(418, 91);
             this.txt_admin.Name = "txt_admin";
             this.txt_admin.ReadOnly = true;
-            this.txt_admin.Size = new System.Drawing.Size(116, 23);
+            this.txt_admin.Size = new System.Drawing.Size(207, 23);
             this.txt_admin.TabIndex = 70;
-            // 
-            // lbl_idcaja
-            // 
-            this.lbl_idcaja.AutoSize = true;
-            this.lbl_idcaja.ForeColor = System.Drawing.Color.Indigo;
-            this.lbl_idcaja.Location = new System.Drawing.Point(443, 63);
-            this.lbl_idcaja.Name = "lbl_idcaja";
-            this.lbl_idcaja.Size = new System.Drawing.Size(56, 17);
-            this.lbl_idcaja.TabIndex = 69;
-            this.lbl_idcaja.Text = "Id Caja";
-            // 
-            // txt_idcaja
-            // 
-            this.txt_idcaja.Enabled = false;
-            this.txt_idcaja.Location = new System.Drawing.Point(509, 63);
-            this.txt_idcaja.Name = "txt_idcaja";
-            this.txt_idcaja.ReadOnly = true;
-            this.txt_idcaja.Size = new System.Drawing.Size(108, 23);
-            this.txt_idcaja.TabIndex = 68;
             // 
             // lbl_cajero
             // 
@@ -114,11 +95,11 @@
             // 
             this.lbl_administrador.AutoSize = true;
             this.lbl_administrador.ForeColor = System.Drawing.Color.Indigo;
-            this.lbl_administrador.Location = new System.Drawing.Point(400, 96);
+            this.lbl_administrador.Location = new System.Drawing.Point(428, 71);
             this.lbl_administrador.Name = "lbl_administrador";
-            this.lbl_administrador.Size = new System.Drawing.Size(98, 17);
+            this.lbl_administrador.Size = new System.Drawing.Size(113, 17);
             this.lbl_administrador.TabIndex = 65;
-            this.lbl_administrador.Text = "Administrador";
+            this.lbl_administrador.Text = "Lo dará de alta:";
             // 
             // txt_numcaja
             // 
@@ -151,19 +132,40 @@
             this.label2.TabIndex = 76;
             this.label2.Text = "NUEVA CAJA";
             // 
+            // LBL_ID
+            // 
+            this.LBL_ID.AutoSize = true;
+            this.LBL_ID.ForeColor = System.Drawing.Color.Indigo;
+            this.LBL_ID.Location = new System.Drawing.Point(540, 71);
+            this.LBL_ID.Name = "LBL_ID";
+            this.LBL_ID.Size = new System.Drawing.Size(64, 17);
+            this.LBL_ID.TabIndex = 77;
+            this.LBL_ID.Text = "IDADMIN";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(274, 124);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 17);
+            this.label1.TabIndex = 78;
+            this.label1.Text = "opcional";
+            // 
             // Caja_Alta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(704, 224);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LBL_ID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_regresar_GC);
             this.Controls.Add(this.btn_Guardar_GC);
             this.Controls.Add(this.cbcajero);
             this.Controls.Add(this.txt_admin);
-            this.Controls.Add(this.lbl_idcaja);
-            this.Controls.Add(this.txt_idcaja);
             this.Controls.Add(this.lbl_cajero);
             this.Controls.Add(this.lbl_numcaja);
             this.Controls.Add(this.lbl_administrador);
@@ -177,6 +179,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NuevaCaja";
             this.TransparencyKey = System.Drawing.Color.LightBlue;
+            this.Load += new System.EventHandler(this.Caja_Alta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,13 +189,13 @@
         private System.Windows.Forms.Button btn_Guardar_GC;
         private System.Windows.Forms.ComboBox cbcajero;
         private System.Windows.Forms.TextBox txt_admin;
-        private System.Windows.Forms.Label lbl_idcaja;
-        private System.Windows.Forms.TextBox txt_idcaja;
         private System.Windows.Forms.Label lbl_cajero;
         private System.Windows.Forms.Label lbl_numcaja;
         private System.Windows.Forms.Label lbl_administrador;
         private System.Windows.Forms.TextBox txt_numcaja;
         private System.Windows.Forms.Button btn_regresar_GC;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LBL_ID;
+        private System.Windows.Forms.Label label1;
     }
 }

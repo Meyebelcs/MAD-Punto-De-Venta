@@ -185,15 +185,19 @@ namespace PIAMEL2._0
                 }
 
                 //validar si existen productos con este departamento
+                string departamentoSelected = txt_idepa.Text;
 
-                //busca en la tabla de productos algunoo que coincida con el id del departamento 
-                //si encuentra es q si existe
+                var obj = new EnlaceDB();
+                var busquedadepa = new DataTable();
+                busquedadepa = obj.get_DatosDepartamento( 'B', Convert.ToInt32(departamentoSelected)); //traigo de la base los datos del depa
 
-                //si existen 
-                //no se elimina el departamento porq ya existen productos
+                string existe = busquedadepa.Rows[0][0].ToString();
 
-                //sino
-                //se elimina exitosamente
+                if (existe == "1")
+                {
+                    MessageBox.Show("No se puede eliminar este departamento porque hay productos asignados a este" , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 enlace.get_DatosDepartamento('E', departamentSelected);
 
@@ -201,6 +205,10 @@ namespace PIAMEL2._0
                 return;
 
                 //recargar pantalla
+                this.Close();
+                GestionDepartamentos pantalla = new GestionDepartamentos();
+                pantalla.Show();
+              
             }
             else
             {

@@ -58,7 +58,7 @@ BEGIN
         UPDATE Info_Productos 
 		SET
 			Eliminacion = 1 
-		WHERE  IdInfoProductos = @IdInfoProductos;
+		WHERE  IdProducto = @IdProducto;
     END;
 
 	IF @Accion = 'S'

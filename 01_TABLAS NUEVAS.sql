@@ -60,6 +60,9 @@ CONSTRAINT FK_CAJERO_EM FOREIGN KEY (IdEmpleado)
 ALTER TABLE Cajero
 ADD Eliminacion BIT NULL
 
+ALTER TABLE Cajero
+ADD IdCaja int NULL
+
 IF OBJECT_ID('Departamento')IS NOT NULL
 	DROP TABLE Departamento;
 
@@ -191,7 +194,16 @@ ALTER TABLE Venta
 ADD MontoCambio decimal(10,2) NULL
 
 ALTER TABLE Venta
+ADD MontopPagado decimal(10,2) NULL
+
+ALTER TABLE Venta
 ADD FechaRegistro datetime NULL
+
+ALTER TABLE Venta
+ADD Costo VARCHAR(100)  NULL
+
+ALTER TABLE Venta
+ALTER COLUMN Costo decimal(10,2) NULL
 
 ALTER TABLE Venta
 ADD NombreCajero VARCHAR(100)  NULL
@@ -324,6 +336,14 @@ CONSTRAINT FK_CAJA_IDC FOREIGN KEY (IdCajero)
 );
 ALTER TABLE Caja
 ALTER COLUMN IdCajero INT NULL
+
+ALTER TABLE Caja
+ADD Eliminacion BIT NULL
+
+ALTER TABLE Caja
+ DROP COLUMN IdCajero;
+
+
 -----------------------------------------------------------------
 
 
@@ -494,6 +514,25 @@ order by IdEmpleados desc
 
 SELECT dbo.fn_IdProvisional() 
 
+SELECT dbo.fn_busquedaDepartamento(1000000) 
+
+SELECT IdCaja[IdCaja],IdAdministrador[Quién dió de alta],Numero[Num Caja],IdCajero[IdCajero]
+FROM Caja 
+WHERE Eliminacion = 0 AND IdCajero=NULL 
+
+SELECT C.IdCajero[IdCajero], C.IdEmpleado[IdEmpleado], J.IdCajero
+FROM Caja J  JOIN Cajero C
+ON C.Eliminacion = 0 AND J.Eliminacion = 0
+WHERE J.IdCajero = NULL
+
+SELECT  IdCajero[IdCajero], IdEmpleado[IdEmpleado], IdAdmin[IdAdmin]
+FROM Cajero  
+WHERE IdCaja = 0;
+
+	 
+
+INSERT INTO Caja(IdCajero,IdAdministrador,Numero, Eliminacion)
+VALUES(NULL,1000000,3,0);
 
 /*-------------NO EJECUTAR, SOLO SON EJEMPLOS----------------------*/
 ALTER TABLE Empleados
@@ -503,13 +542,13 @@ DELETE FROM Empleados
 WHERE Nombre = 'Boing'
 
 DELETE 
-		FROM Productos 
-		WHERE  IdProducto = 1000004;
+		FROM Cajero 
+		WHERE  IdCajero = 1000004;
 
-UPDATE Productos
+UPDATE Caja
 		SET
-			Descuento = 1
-WHERE IdProducto= 1000000;
+			IdCajero = NULL
+WHERE IdCaja= 1000002;
 
 
 UPDATE Historial_Productos

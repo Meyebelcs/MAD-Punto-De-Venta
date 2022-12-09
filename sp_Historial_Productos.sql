@@ -58,7 +58,7 @@ BEGIN
         UPDATE Historial_Productos 
 		SET
 			Eliminacion = 1 
-		WHERE IdHistorialIp = @IdHistorialIp;
+		WHERE IdProducto = @IdProducto;
     END;
 
 	IF @Accion = 'S'

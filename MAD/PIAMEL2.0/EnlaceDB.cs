@@ -27,7 +27,6 @@ namespace MAD._0
                 return _tabla;
             }
         }
-
         private static void conectar()
         {
             //string cnn = ConfigurationManager.AppSettings["desarrollo1"];
@@ -89,7 +88,6 @@ namespace MAD._0
 
             return isValid;
         }
-
         public DataTable ConsultaTabla(string SP, string accion)
         {
             var msg = "";
@@ -343,7 +341,6 @@ namespace MAD._0
 
             return add;
         }
-
         public DataTable get_DatosAdmin(char op, int noEmpleado)
         {
             var msg = "";
@@ -402,6 +399,45 @@ namespace MAD._0
                 parametro4.Value = IdAdmin;
                 var parametro5 = _comandosql.Parameters.Add("@Eliminacion", SqlDbType.Int, 1);
                 parametro5.Value = 0;
+
+                _adaptador.InsertCommand = _comandosql;
+
+                _comandosql.ExecuteNonQuery();
+
+            }
+            catch (SqlException e)
+            {
+                add = false;
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return add;
+        }
+
+        public bool actualiza_Caja(int IdCaja, int IdEmpleado)
+        {
+            var msg = "";
+            var add = true;
+            try
+            {
+                conectar();
+                string qry = "spCajero";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = "M";
+                var parametro2 = _comandosql.Parameters.Add("@IdCaja", SqlDbType.Int, 20);
+                parametro2.Value = IdCaja;
+                var parametro3 = _comandosql.Parameters.Add("@IdEmpleado", SqlDbType.Int, 20);
+                parametro3.Value = IdEmpleado;
 
                 _adaptador.InsertCommand = _comandosql;
 
@@ -492,7 +528,6 @@ namespace MAD._0
 
             return tabla;
         }
-
         public DataTable get_IdDepartamento(char op, string Nombre)
         {
             var msg = "";
@@ -611,7 +646,74 @@ namespace MAD._0
 
             return tabla;
         }
-       
+        public DataTable get_DatosInfoProducto(char op, int noProduct)
+        {
+            var msg = "";
+            DataTable tabla = new DataTable();
+            try
+            {
+                conectar();
+                string qry = "spInfo_Productos";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = op;
+                var parametro2 = _comandosql.Parameters.Add("@IdProducto", SqlDbType.Int, 20);
+                parametro2.Value = noProduct;
+
+                _adaptador.SelectCommand = _comandosql;
+                _adaptador.Fill(tabla);
+
+            }
+            catch (SqlException e)
+            {
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return tabla;
+        }
+        public DataTable get_DatosHistorialProducto(char op, int noProduct)
+        {
+            var msg = "";
+            DataTable tabla = new DataTable();
+            try
+            {
+                conectar();
+                string qry = "spHistorial_Productos";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = op;
+                var parametro2 = _comandosql.Parameters.Add("@IdProducto", SqlDbType.Int, 20);
+                parametro2.Value = noProduct;
+
+                _adaptador.SelectCommand = _comandosql;
+                _adaptador.Fill(tabla);
+
+            }
+            catch (SqlException e)
+            {
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return tabla;
+        }
         public bool add_Productos(string opc, int IdProducto, string Nombre, int IdDepartamento, string Descripcion, string UnidaddeMedida, Decimal Costo, int CantidadDeInventario)
         {
             var msg = "";
@@ -667,7 +769,6 @@ namespace MAD._0
 
             return add;
         }
-
         public bool add_InfoProductos(string opc, int IdInfoProductos, int IdAdministrador, int IdProducto, DateTime FechaDeAlta, int PuntoReorden, Decimal PrecioUnitario, int CantidadDeInventario)
         {
             var msg = "";
@@ -718,7 +819,6 @@ namespace MAD._0
 
             return add;
         }
-
         public bool add_HistorialProductos(string opc, int IdHistorialIp, int IdUsuarioModificacion, int IdInfoProducto, DateTime FechaDeCambios, int IdProducto)
         {
             var msg = "";
@@ -766,22 +866,63 @@ namespace MAD._0
             return add;
         }
 
-        public DataTable get_DatosInfoProducto(char op, int noProduct)
+
+        //CAJAS
+        public bool add_Caja(string opc, int IdAdministrador, int Numero)
+        {
+            var msg = "";
+            var add = true;
+            try
+            {
+                conectar();
+                string qry = "spCaja";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = opc;
+                var parametro2 = _comandosql.Parameters.Add("@IdAdministrador", SqlDbType.Int, 20);
+                parametro2.Value = IdAdministrador;
+                var parametro3 = _comandosql.Parameters.Add("@Numero", SqlDbType.Int, 20);
+                parametro3.Value = Numero;
+              
+
+                _adaptador.InsertCommand = _comandosql;
+
+                _comandosql.ExecuteNonQuery();
+
+            }
+            catch (SqlException e)
+            {
+                add = false;
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return add;
+        }
+        public DataTable get_DatosCaja(char op, int IdCaja)
         {
             var msg = "";
             DataTable tabla = new DataTable();
             try
             {
                 conectar();
-                string qry = "spInfo_Productos";
+                string qry = "spCaja";
                 _comandosql = new SqlCommand(qry, _conexion);
                 _comandosql.CommandType = CommandType.StoredProcedure;
                 _comandosql.CommandTimeout = 1200;
 
                 var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
                 parametro1.Value = op;
-                var parametro2 = _comandosql.Parameters.Add("@IdProducto", SqlDbType.Int, 20);
-                parametro2.Value = noProduct;
+                var parametro2 = _comandosql.Parameters.Add("@IdCaja", SqlDbType.Int, 20);
+                parametro2.Value = IdCaja;
 
                 _adaptador.SelectCommand = _comandosql;
                 _adaptador.Fill(tabla);
@@ -800,7 +941,5 @@ namespace MAD._0
 
             return tabla;
         }
-
-
     }
 }

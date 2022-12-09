@@ -178,14 +178,35 @@ namespace MAD._0
 
         private void btn_EProducto_Click(object sender, EventArgs e)
         {
-            var resp = new DialogResult();
-
-            resp = MessageBox.Show("¿Seguro que desea eliminar este producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (resp == DialogResult.Yes)
+            if (ProductSelected != 0)
             {
-                //SE ELIMINA EL PRODUCTO O MAS BIEN, SE VUELVE TRUE EL BIT DE ELIMINACION
-                MessageBox.Show("Este producto ha sido eliminado", "Eliminación", MessageBoxButtons.OK);
+                var enlace = new EnlaceDB();
+                DialogResult result = MessageBox.Show("Esta acción es irreversible\n\n ¿Está seguro que desea continuar?", "Eliminar", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.No)
+                {
+                    MessageBox.Show("No se eliminó el Producto", "Cancelado", MessageBoxButtons.OK);
+                    return;
+                }
+
+
+                enlace.get_DatosProductos('E', ProductSelected);
+                enlace.get_DatosInfoProducto('E', ProductSelected);
+                enlace.get_DatosHistorialProducto('E', ProductSelected);
+
+
+
+                MessageBox.Show("se eliminó correctamente el Producto", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+
+                //recargar pantalla
             }
+            else
+            {
+                MessageBox.Show("Selecciona un producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
         }
 
 
@@ -334,7 +355,6 @@ namespace MAD._0
                     txt_reorden.Enabled = true;
                     txt_descripcion.Enabled = true;
                   
-                    tp_fechaIngreso.Enabled = true;
                     btn_EProducto.Visible = true;
                     btn_MProducto.Visible = true;
                 }

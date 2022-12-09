@@ -26,17 +26,15 @@ BEGIN
 	IF @Accion = 'I'
 	BEGIN
 		INSERT INTO Caja(IdCajero,IdAdministrador,Numero, Eliminacion)
-		VALUES(@IdCajero,@IdAdministrador,@Numero,@Eliminacion);
+		VALUES(NULL,@IdAdministrador,@Numero,0);
 	END;
 
 	IF @Accion = 'U'
 	BEGIN
 		UPDATE Caja
 		SET
-			IdCajero = @IdCajero,
 			IdAdministrador = @IdAdministrador,
-			Numero = @Numero,
-			Eliminacion = @Eliminacion
+			Numero = @Numero
 
 		WHERE IdCaja = @IdCaja;
 	END;
@@ -57,16 +55,15 @@ BEGIN
 			WHERE  IdCaja = @IdCaja;
 	END;
 
-	IF @Accion = 'S'
+	IF @Accion = 'M'
 	BEGIN
-		SELECT IdCaja[IdCaja],IdAdministrador[Quién dió de alta],Numero[Num Caja],IdCajero[IdCajero]
-		FROM Caja  
-		WHERE  IdCajero = @IdCajero;
+		Select MAX(IdCaja) 
+		from Caja
 	END;
 
 	IF @Accion = '*'
 	BEGIN
-		SELECT IdCaja[IdCaja],IdAdministrador[Quién dió de alta],Numero[Num Caja],IdCajero[IdCajero]
+		SELECT IdCaja[IdCaja],IdAdministrador[Quién dió de alta],Numero[Num Caja]
 		FROM Caja 
 		WHERE Eliminacion = 0 
 		ORDER BY IdCaja;

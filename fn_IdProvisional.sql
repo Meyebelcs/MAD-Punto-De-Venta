@@ -1,5 +1,35 @@
+
+
 --FUNCIONES
-USE DB_MAD
+
+IF OBJECT_ID('fn_busquedaDepartamento')IS NOT NULL
+	DROP FUNCTION fn_busquedaDepartamento;
+Go
+CREATE FUNCTION fn_busquedaDepartamento
+(
+@IdDepartamento  int
+)
+RETURNS int
+BEGIN
+
+	DECLARE @Encontrado int;
+
+	SET @Encontrado = 0
+
+	Select @Encontrado = 1
+	
+	from Productos
+
+	WHERE Productos.IdDepartamento = @IdDepartamento and Eliminacion = 0
+
+	
+		RETURN @Encontrado;
+
+END;
+Go
+-------------------------------------------------------------------------------
+
+--FUNCIONES
 
 IF OBJECT_ID('fn_IdProvisional')IS NOT NULL
 	DROP FUNCTION fn_IdProvisional;
