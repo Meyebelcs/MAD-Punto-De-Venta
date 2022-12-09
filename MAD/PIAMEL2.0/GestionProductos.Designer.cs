@@ -68,6 +68,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cb_si = new System.Windows.Forms.CheckBox();
             this.cb_no = new System.Windows.Forms.CheckBox();
+            this.dtp = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -462,12 +463,26 @@
             this.cb_no.Text = "No";
             this.cb_no.UseVisualStyleBackColor = true;
             // 
+            // dtp
+            // 
+            this.dtp.Checked = false;
+            this.dtp.CustomFormat = "yyyy-MM-dd/h:m:s";
+            this.dtp.Enabled = false;
+            this.dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp.Location = new System.Drawing.Point(850, 426);
+            this.dtp.Name = "dtp";
+            this.dtp.Size = new System.Drawing.Size(200, 24);
+            this.dtp.TabIndex = 127;
+            this.dtp.Value = new System.DateTime(2022, 12, 8, 17, 25, 56, 0);
+            this.dtp.Visible = false;
+            // 
             // GestionProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1103, 589);
+            this.Controls.Add(this.dtp);
             this.Controls.Add(this.cb_no);
             this.Controls.Add(this.cb_si);
             this.Controls.Add(this.label2);
@@ -560,5 +575,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox cb_si;
         private System.Windows.Forms.CheckBox cb_no;
+        private System.Windows.Forms.DateTimePicker dtp;
     }
 }

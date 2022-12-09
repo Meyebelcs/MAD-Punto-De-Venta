@@ -84,6 +84,12 @@
     <Compile Include="RegistroProducto.Designer.cs">
       <DependentUpon>RegistroProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReporteCajero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteCajero.Designer.cs">
+      <DependentUpon>ReporteCajero.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReporteRecibos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,12 @@
     <Compile Include="Caja_Seleccion.Designer.cs">
       <DependentUpon>Caja_Seleccion.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReporteVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteVentas.Designer.cs">
+      <DependentUpon>ReporteVentas.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Caja_Baja.resx">
       <DependentUpon>Caja_Baja.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegistroProducto.resx">
       <DependentUpon>RegistroProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteCajero.resx">
+      <DependentUpon>ReporteCajero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteRecibos.resx">
       <DependentUpon>ReporteRecibos.cs</DependentUpon>
@@ -229,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Caja_Seleccion.resx">
       <DependentUpon>Caja_Seleccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteVentas.resx">
+      <DependentUpon>ReporteVentas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

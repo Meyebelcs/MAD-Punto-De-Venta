@@ -358,6 +358,11 @@ namespace PIAMEL2._0
                 }
 
                 MessageBox.Show("Se modificó correctamente el nuevo empleado", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                this.Close();
+                gestionEmpleados pantalla = new gestionEmpleados();
+                pantalla.Show();
+
             }
             else
             {

@@ -45,12 +45,134 @@ namespace MAD._0
 
         private void btn_MProducto_Click(object sender, EventArgs e)
         {
-         
 
-            //se habilita y deshabiita si el producto está eliminado
-            lb_productoEliminado.Visible = false;
-          
+            if (ProductSelected != 0)
+            {
+                #region Validaciones
 
+                if (txt_nombre.TextLength < 1)
+                {
+                    MessageBox.Show("Nombre no contiene información", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                if (cb_departamento.Text == " ")
+                {
+                    MessageBox.Show("Seleccione un departamento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                if (cbUnidadMedida.Text == " ")
+                {
+                    MessageBox.Show("Seleccione una Unidad de medida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                if (txt_cantidadInv.TextLength < 1)
+                {
+                    MessageBox.Show("Cantidad de Inventario no contiene información", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                if (txt_costo.TextLength < 1)
+                {
+                    MessageBox.Show("Costo no contiene información", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                if (txt_reorden.TextLength < 1)
+                {
+                    MessageBox.Show("Punto de Reorden no contiene información", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                if (txt_precioUnitario.TextLength < 1)
+                {
+                    MessageBox.Show("Precio Unitario no contiene información", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                if (txt_descripcion.TextLength < 1)
+                {
+                    MessageBox.Show("Descripcion no contiene información", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                #endregion
+
+                //busco el id del departamento seleccionado
+                string departamentoSelected = cb_departamento.Text;
+
+                var enlace = new EnlaceDB();
+                var iddepa = new DataTable();
+                iddepa = enlace.get_IdDepartamento('N', departamentoSelected); //traigo de la base los datos 
+                departamentoSelected = iddepa.Rows[0][0].ToString();
+
+                #region MODIFICA_PRODUCTO
+                //Si cumple toda las validaciones continua y guarda la info en la base de datos
+                var product = new EnlaceDB();
+                bool control;
+
+                //modifica de producto
+                control = product.add_Productos("U", Convert.ToInt32(txt_id.Text), txt_nombre.Text, Convert.ToInt32(departamentoSelected), txt_descripcion.Text, cbUnidadMedida.Text, Convert.ToDecimal(txt_costo.Text), Convert.ToInt32(txt_cantidadInv.Text));
+
+                if (!control)
+                {
+                    MessageBox.Show("No se pudo modificar correctamente el Producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+
+                }
+                #endregion
+
+                #region MODIFICA_INFO_PRODUCTO
+
+                //Busco el id_infoproducto que pertenece al producto
+                string idInfoProduct;
+
+                var idinfo = new DataTable();
+                idinfo = enlace.get_DatosInfoProducto('S', Convert.ToInt32(txt_id.Text)); //traigo de la base los datos 
+                idInfoProduct = idinfo.Rows[0][0].ToString();
+               
+                control = true;
+
+
+                //modifica de info producto
+                control = enlace.add_InfoProductos("U", Convert.ToInt32(idInfoProduct), Convert.ToInt32(lbl_idadmin.Text), Convert.ToInt32(txt_id.Text), tp_fechaIngreso.Value, Convert.ToInt32(txt_reorden.Text), Convert.ToDecimal(txt_precioUnitario.Text), Convert.ToInt32(txt_cantidadInv.Text));
+
+                if (!control)
+                {
+                    MessageBox.Show("No se pudo modificar correctamente Info de Producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+
+                }
+                #endregion
+
+                #region ALTA_HISTORIAL_PRODUCTO
+
+                Login gestor= new Login();
+                control = true;
+
+
+                //ALTA de historial producto
+                control = enlace.add_HistorialProductos("I", Convert.ToInt32(txt_id.Text), gestor.getCurrentIdUser(), Convert.ToInt32(idInfoProduct), dtp.Value, Convert.ToInt32(txt_id.Text));
+
+                if (!control)
+                {
+                    MessageBox.Show("No se pudo agregar correctamente el historial de Producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+
+                }
+                #endregion
+
+
+                MessageBox.Show("Se modificó correctamente el Producto", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un Producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
         }
 
@@ -64,11 +186,6 @@ namespace MAD._0
                 //SE ELIMINA EL PRODUCTO O MAS BIEN, SE VUELVE TRUE EL BIT DE ELIMINACION
                 MessageBox.Show("Este producto ha sido eliminado", "Eliminación", MessageBoxButtons.OK);
             }
-
-            //se habilita y deshabiita si el producto está eliminado
-            lb_productoEliminado.Visible = false;
-
-
         }
 
 
@@ -96,6 +213,12 @@ namespace MAD._0
             cb_departamento.ValueMember = "IdDepartamento";
 
             cb_departamento.SelectedIndex = -1;
+
+
+            cbUnidadMedida.Items.Add("Unidad");
+            cbUnidadMedida.Items.Add("Kilogramos");
+            cbUnidadMedida.Items.Add("Litros");
+            cbUnidadMedida.Items.Add("Metros");
 
         }
 
@@ -165,7 +288,7 @@ namespace MAD._0
             }
 
             var INFO_Product = new DataTable();
-            INFO_Product = obj.get_Datos_InfoProductos('S', ProductSelected); //traigo de la base los datos del PRODUCT
+            INFO_Product = obj.get_DatosInfoProducto('S', ProductSelected); //traigo de la base los datos del PRODUCT
 
             if (INFO_Product.Rows.Count >= 1)
             {

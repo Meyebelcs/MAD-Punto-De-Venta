@@ -65,7 +65,7 @@ BEGIN
 	BEGIN
 		SELECT IdHistorialIp[IdHistorialIp],IdUsuarioModificacion[IdUsuarioModificacion],IdInfoProducto[IdInfoProducto],FechaDeCambios[FechaDeCambios],Eliminacion[Eliminacion],IdProducto[IdProducto]
 		FROM Historial_Productos  
-		WHERE  IdHistorialIp = @IdHistorialIp;
+		WHERE  IdProducto = @IdProducto;
 	END;
 
 	IF @Accion = 'V'
