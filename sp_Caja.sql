@@ -68,6 +68,12 @@ BEGIN
 		WHERE IdCaja = @IdCaja;
 	END;
 
+	IF @Accion = 'B'
+	BEGIN
+		SELECT IdCaja[IdCaja],IdAdministrador[Quién dió de alta],Numero[Num Caja]
+		FROM Caja  
+		WHERE Numero = @Numero;
+	END;
 
 	IF @Accion = '*'
 	BEGIN
@@ -76,7 +82,7 @@ BEGIN
 		WHERE Eliminacion = 0 
 		ORDER BY IdCaja;
 
- END;
+	 END;
 END;
 
 

@@ -15,7 +15,18 @@ CREATE PROCEDURE SP_ValidaUser
 AS
 BEGIN
 
+	IF @Op='C'
+	BEGIN
+		SELECT dbo.fn_LOGINcAJERO(@Contraseña,@IdRol)
+	END;
+
 	IF @Op='A'
+	BEGIN
+		SELECT dbo.fn_LOGINaDMINITRADOR(@Contraseña,@IdRol)
+	END;
+
+
+	IF @Op='b'
 	BEGIN
 		SELECT E.IdEmpleados[IdEmpleados], A.IdEmpleado[IdEmpleado], A.IdAdministrador[IdAdministrador],A.CodigoAcceso[Codigo Acceso],
 		E.Nombre[Nombre], E.APpellidoP[Apellido Paterno], E.APpellidoM[Apellido Materno], E.Telefono[Telefono], E.Email[Email],
@@ -23,11 +34,11 @@ BEGIN
 
 		FROM Empleados E JOIN Administrador A
 		on E.IdEmpleados = A.IdEmpleado
-		WHERE A.IdEmpleado = @IdRol AND E.Contraseña=@Contraseña AND E.Eliminacion = 0;
+		WHERE A.IdEmpleado = @IdRol AND E.Contraseña=@Contraseña AND A.Eliminacion = 0;
 
 	END;
 
-	IF @Op='C'
+	IF @Op='d'
 	BEGIN
 		SELECT C.IdAdmin[IdAdministrador], C.IdCajero[IdCajero], C.IdEmpleado[IdEmpleado], E.IdEmpleados[IdEmpleado], E.Nombre[Nombre],
 		E.APpellidoP[Apellido Paterno], E.APpellidoM[Apellido Materno], E.Telefono[Telefono], E.Email[Email],E.FechaIngreso[Fecha Ingreso],
@@ -35,7 +46,7 @@ BEGIN
 
 		FROM Empleados E JOIN Cajero C
 		on E.IdEmpleados = C.IdEmpleado
-		WHERE C.IdEmpleado = @IdRol AND E.Contraseña=@Contraseña AND E.Eliminacion = 0;
+		WHERE C.IdEmpleado = @IdRol AND E.Contraseña=@Contraseña AND C.Eliminacion = 0 ;
 		
 	END
 

@@ -1,4 +1,68 @@
 
+--LOGIN
+
+IF OBJECT_ID('fn_LOGINcAJERO')IS NOT NULL
+	DROP FUNCTION fn_LOGINcAJERO;
+Go
+CREATE FUNCTION fn_LOGINcAJERO
+(
+	@Contraseña					VARCHAR(20),
+	@IdRol						INT = NULL
+)
+RETURNS int
+BEGIN
+
+	DECLARE @Encontrado int;
+
+	SET @Encontrado = 0
+
+	Select @Encontrado = 1
+
+	FROM Empleados E JOIN Cajero C
+
+	on E.IdEmpleados = C.IdEmpleado
+
+	WHERE C.IdEmpleado = @IdRol AND E.Contraseña=@Contraseña AND C.Eliminacion = 0 ;
+
+		RETURN @Encontrado;
+
+END;
+Go
+
+
+--LOGIN
+
+IF OBJECT_ID('fn_LOGINaDMINITRADOR')IS NOT NULL
+	DROP FUNCTION fn_LOGINaDMINITRADOR;
+Go
+CREATE FUNCTION fn_LOGINaDMINITRADOR
+(
+	@Contraseña					VARCHAR(20),
+	@IdRol						INT = NULL
+)
+RETURNS int
+BEGIN
+
+	DECLARE @Encontrado int;
+
+	SET @Encontrado = 0
+
+	Select @Encontrado = 1
+
+	FROM Empleados E JOIN Administrador A
+
+	on E.IdEmpleados = A.IdEmpleado
+
+	WHERE A.IdEmpleado = @IdRol AND E.Contraseña=@Contraseña AND A.Eliminacion = 0;
+
+		RETURN @Encontrado;
+
+END;
+Go
+
+
+
+
 --FUNCIONES
 
 IF OBJECT_ID('fn_busquedaCajero')IS NOT NULL

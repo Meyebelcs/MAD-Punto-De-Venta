@@ -14,12 +14,20 @@ namespace MAD._0
     {
         private static int usuario;
         private static bool Admin;
+        private static string NumCaja;
 
         public Login()
         {
             InitializeComponent();
         }
-
+        public void setNumCaja(string num)
+        {
+            NumCaja = num;
+        }
+        public string getNumCaja()
+        {
+            return NumCaja;
+        }
         public int getCurrentIdUser()
         {
             return usuario;
@@ -45,8 +53,14 @@ namespace MAD._0
 
             if (chb_admin.Checked) //valida si admin está checked
             {
-                var enlace = new EnlaceDB();
-                if (enlace.Autentificar("A", Convert.ToInt32(txt_user.Text), txt_pass.Text))
+
+                var obj = new EnlaceDB();
+                var existe = new DataTable();
+                existe = obj.LOGIN( 'A', txt_pass.Text, Convert.ToInt32(txt_user.Text)); //traigo de la base los datos del empleado
+
+               string validacion= existe.Rows[0][0].ToString();
+
+                if (validacion != "0")
                 {
                     usuario = Convert.ToInt32(txt_user.Text);
                     Admin = true;
@@ -63,8 +77,14 @@ namespace MAD._0
             }
             else//si es cajero abre principal cajero
             {
-                var enlace = new EnlaceDB();
-                if (enlace.Autentificar("C", Convert.ToInt32(txt_user.Text), txt_pass.Text))
+
+                var obj = new EnlaceDB();
+                var existe = new DataTable();
+                existe = obj.LOGIN('C', txt_pass.Text, Convert.ToInt32(txt_user.Text)); //traigo de la base los datos del empleado
+
+                string validacion = existe.Rows[0][0].ToString();
+
+                if (validacion != "0")
                 {
                     usuario = Convert.ToInt32(txt_user.Text);
                     Admin = false;
@@ -105,6 +125,11 @@ namespace MAD._0
         }
 
         private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Login_Load_1(object sender, EventArgs e)
         {
 
         }

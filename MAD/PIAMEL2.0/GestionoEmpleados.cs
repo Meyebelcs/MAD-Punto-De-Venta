@@ -527,6 +527,9 @@ namespace PIAMEL2._0
                 MessageBox.Show("se eliminó correctamente el empleado", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
 
+                //si elimina el empleado tambien se elimina en admin o cajero segun el caso
+
+
                 //recargar pantalla
             }
             else

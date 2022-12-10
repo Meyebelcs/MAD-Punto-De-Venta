@@ -29,18 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_Lista_PC = new System.Windows.Forms.DataGridView();
-            this.Id_Lista = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Productos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_Total_PC = new System.Windows.Forms.Label();
@@ -55,19 +49,29 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txt_codigop_PC = new System.Windows.Forms.TextBox();
             this.txt_nombreP_PC = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_codigoP = new System.Windows.Forms.Button();
             this.dgv_busqueda_PC = new System.Windows.Forms.DataGridView();
             this.btn_AgregarP_PC = new System.Windows.Forms.Button();
             this.btn_eliminarP_PC = new System.Windows.Forms.Button();
             this.btn_ticket_PC = new System.Windows.Forms.Button();
             this.btn_cerrarS_PC = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.cb_medida = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_cantidad = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_existente = new System.Windows.Forms.TextBox();
+            this.txt_unidad = new System.Windows.Forms.TextBox();
+            this.txt_departamento = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btn_nombre = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.iddepartament = new System.Windows.Forms.Label();
+            this.idproducto = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.porcentaje = new System.Windows.Forms.Label();
+            this.lbl_descuento = new System.Windows.Forms.Label();
+            this.tp_fechaIngreso = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Lista_PC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_busqueda_PC)).BeginInit();
             this.SuspendLayout();
@@ -75,91 +79,37 @@
             // dgv_Lista_PC
             // 
             this.dgv_Lista_PC.BackgroundColor = System.Drawing.SystemColors.MenuBar;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Lista_PC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Lista_PC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgv_Lista_PC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Lista_PC.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id_Lista,
-            this.Productos,
-            this.Cantidad,
-            this.precioU,
-            this.Descuento,
-            this.Total});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Lavender;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Lista_PC.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Lavender;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Lista_PC.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgv_Lista_PC.Location = new System.Drawing.Point(666, 123);
             this.dgv_Lista_PC.Name = "dgv_Lista_PC";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Lista_PC.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Lista_PC.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgv_Lista_PC.RowHeadersWidth = 51;
             this.dgv_Lista_PC.RowTemplate.Height = 24;
             this.dgv_Lista_PC.Size = new System.Drawing.Size(640, 458);
             this.dgv_Lista_PC.TabIndex = 0;
-            // 
-            // Id_Lista
-            // 
-            this.Id_Lista.HeaderText = "Id";
-            this.Id_Lista.MinimumWidth = 6;
-            this.Id_Lista.Name = "Id_Lista";
-            this.Id_Lista.ReadOnly = true;
-            this.Id_Lista.Width = 95;
-            // 
-            // Productos
-            // 
-            this.Productos.HeaderText = "Productos";
-            this.Productos.MinimumWidth = 6;
-            this.Productos.Name = "Productos";
-            this.Productos.ReadOnly = true;
-            this.Productos.Width = 125;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.MinimumWidth = 6;
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            this.Cantidad.Width = 90;
-            // 
-            // precioU
-            // 
-            this.precioU.HeaderText = "Precio";
-            this.precioU.MinimumWidth = 6;
-            this.precioU.Name = "precioU";
-            this.precioU.ReadOnly = true;
-            this.precioU.Width = 90;
-            // 
-            // Descuento
-            // 
-            this.Descuento.HeaderText = "Descuento";
-            this.Descuento.MinimumWidth = 6;
-            this.Descuento.Name = "Descuento";
-            this.Descuento.Width = 90;
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total";
-            this.Total.MinimumWidth = 6;
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            this.Total.Width = 95;
             // 
             // label1
             // 
@@ -293,62 +243,58 @@
             this.txt_nombreP_PC.Size = new System.Drawing.Size(203, 25);
             this.txt_nombreP_PC.TabIndex = 13;
             // 
-            // button1
+            // btn_codigoP
             // 
-            this.button1.Location = new System.Drawing.Point(473, 114);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 30);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(473, 150);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 30);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Buscar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_codigoP.BackColor = System.Drawing.Color.Orange;
+            this.btn_codigoP.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.btn_codigoP.Location = new System.Drawing.Point(473, 114);
+            this.btn_codigoP.Name = "btn_codigoP";
+            this.btn_codigoP.Size = new System.Drawing.Size(87, 30);
+            this.btn_codigoP.TabIndex = 14;
+            this.btn_codigoP.Text = "Buscar";
+            this.btn_codigoP.UseVisualStyleBackColor = false;
+            this.btn_codigoP.Click += new System.EventHandler(this.btn_codigoP_Click);
             // 
             // dgv_busqueda_PC
             // 
             this.dgv_busqueda_PC.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dgv_busqueda_PC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Lavender;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_busqueda_PC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.Lavender;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_busqueda_PC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgv_busqueda_PC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Lavender;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_busqueda_PC.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Lavender;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_busqueda_PC.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgv_busqueda_PC.Location = new System.Drawing.Point(26, 205);
             this.dgv_busqueda_PC.Name = "dgv_busqueda_PC";
             this.dgv_busqueda_PC.RowHeadersWidth = 51;
             this.dgv_busqueda_PC.RowTemplate.Height = 24;
             this.dgv_busqueda_PC.Size = new System.Drawing.Size(544, 231);
             this.dgv_busqueda_PC.TabIndex = 16;
+            this.dgv_busqueda_PC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_busqueda_PC_CellClick);
             // 
             // btn_AgregarP_PC
             // 
             this.btn_AgregarP_PC.BackColor = System.Drawing.Color.MidnightBlue;
             this.btn_AgregarP_PC.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btn_AgregarP_PC.Location = new System.Drawing.Point(183, 525);
+            this.btn_AgregarP_PC.Location = new System.Drawing.Point(177, 541);
             this.btn_AgregarP_PC.Name = "btn_AgregarP_PC";
             this.btn_AgregarP_PC.Size = new System.Drawing.Size(212, 56);
             this.btn_AgregarP_PC.TabIndex = 17;
             this.btn_AgregarP_PC.Text = "Agregar Producto";
             this.btn_AgregarP_PC.UseVisualStyleBackColor = false;
+            this.btn_AgregarP_PC.Click += new System.EventHandler(this.btn_AgregarP_PC_Click);
             // 
             // btn_eliminarP_PC
             // 
@@ -394,14 +340,6 @@
             this.label3.TabIndex = 21;
             this.label3.Text = "Unidad de Medida:";
             // 
-            // cb_medida
-            // 
-            this.cb_medida.FormattingEnabled = true;
-            this.cb_medida.Location = new System.Drawing.Point(183, 461);
-            this.cb_medida.Name = "cb_medida";
-            this.cb_medida.Size = new System.Drawing.Size(60, 27);
-            this.cb_medida.TabIndex = 22;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -436,25 +374,155 @@
             this.txt_existente.Size = new System.Drawing.Size(64, 25);
             this.txt_existente.TabIndex = 26;
             // 
+            // txt_unidad
+            // 
+            this.txt_unidad.Enabled = false;
+            this.txt_unidad.Location = new System.Drawing.Point(177, 458);
+            this.txt_unidad.Name = "txt_unidad";
+            this.txt_unidad.ReadOnly = true;
+            this.txt_unidad.Size = new System.Drawing.Size(66, 25);
+            this.txt_unidad.TabIndex = 27;
+            // 
+            // txt_departamento
+            // 
+            this.txt_departamento.Enabled = false;
+            this.txt_departamento.Location = new System.Drawing.Point(154, 496);
+            this.txt_departamento.Name = "txt_departamento";
+            this.txt_departamento.ReadOnly = true;
+            this.txt_departamento.Size = new System.Drawing.Size(123, 25);
+            this.txt_departamento.TabIndex = 29;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(27, 501);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(121, 20);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Departamento:";
+            // 
+            // btn_nombre
+            // 
+            this.btn_nombre.BackColor = System.Drawing.Color.Orange;
+            this.btn_nombre.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.btn_nombre.Location = new System.Drawing.Point(473, 147);
+            this.btn_nombre.Name = "btn_nombre";
+            this.btn_nombre.Size = new System.Drawing.Size(87, 30);
+            this.btn_nombre.TabIndex = 30;
+            this.btn_nombre.Text = "Buscar";
+            this.btn_nombre.UseVisualStyleBackColor = false;
+            this.btn_nombre.Click += new System.EventHandler(this.btn_nombre_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Orange;
+            this.button1.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.button1.Location = new System.Drawing.Point(449, 65);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(142, 43);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "Mostrar Todo";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // iddepartament
+            // 
+            this.iddepartament.AutoSize = true;
+            this.iddepartament.Location = new System.Drawing.Point(27, 521);
+            this.iddepartament.Name = "iddepartament";
+            this.iddepartament.Size = new System.Drawing.Size(119, 20);
+            this.iddepartament.TabIndex = 32;
+            this.iddepartament.Text = "iddepartament";
+            this.iddepartament.Visible = false;
+            // 
+            // idproducto
+            // 
+            this.idproducto.AutoSize = true;
+            this.idproducto.Location = new System.Drawing.Point(27, 92);
+            this.idproducto.Name = "idproducto";
+            this.idproducto.Size = new System.Drawing.Size(91, 20);
+            this.idproducto.TabIndex = 33;
+            this.idproducto.Text = "idproducto";
+            this.idproducto.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(345, 501);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(93, 20);
+            this.label11.TabIndex = 34;
+            this.label11.Text = "Descuento:";
+            // 
+            // porcentaje
+            // 
+            this.porcentaje.AutoSize = true;
+            this.porcentaje.Location = new System.Drawing.Point(455, 501);
+            this.porcentaje.Name = "porcentaje";
+            this.porcentaje.Size = new System.Drawing.Size(21, 20);
+            this.porcentaje.TabIndex = 35;
+            this.porcentaje.Text = "%";
+            // 
+            // lbl_descuento
+            // 
+            this.lbl_descuento.AutoSize = true;
+            this.lbl_descuento.Location = new System.Drawing.Point(334, 518);
+            this.lbl_descuento.Name = "lbl_descuento";
+            this.lbl_descuento.Size = new System.Drawing.Size(104, 20);
+            this.lbl_descuento.TabIndex = 36;
+            this.lbl_descuento.Text = "IdDescuento";
+            this.lbl_descuento.Visible = false;
+            // 
+            // tp_fechaIngreso
+            // 
+            this.tp_fechaIngreso.CustomFormat = "yyyy-MM-dd/h:m:s";
+            this.tp_fechaIngreso.Enabled = false;
+            this.tp_fechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.tp_fechaIngreso.Location = new System.Drawing.Point(666, 673);
+            this.tp_fechaIngreso.Name = "tp_fechaIngreso";
+            this.tp_fechaIngreso.Size = new System.Drawing.Size(200, 25);
+            this.tp_fechaIngreso.TabIndex = 94;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.Indigo;
+            this.label12.Location = new System.Drawing.Point(663, 653);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(142, 20);
+            this.label12.TabIndex = 93;
+            this.label12.Text = "Fecha de Ingreso:";
+            // 
             // PrincipalCajero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1318, 714);
+            this.Controls.Add(this.tp_fechaIngreso);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.lbl_descuento);
+            this.Controls.Add(this.porcentaje);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.idproducto);
+            this.Controls.Add(this.iddepartament);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_nombre);
+            this.Controls.Add(this.txt_departamento);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.txt_unidad);
             this.Controls.Add(this.txt_existente);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txt_cantidad);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.cb_medida);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_cerrarS_PC);
             this.Controls.Add(this.btn_ticket_PC);
             this.Controls.Add(this.btn_eliminarP_PC);
             this.Controls.Add(this.btn_AgregarP_PC);
             this.Controls.Add(this.dgv_busqueda_PC);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_codigoP);
             this.Controls.Add(this.txt_nombreP_PC);
             this.Controls.Add(this.txt_codigop_PC);
             this.Controls.Add(this.label9);
@@ -500,24 +568,28 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txt_codigop_PC;
         private System.Windows.Forms.TextBox txt_nombreP_PC;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_codigoP;
         private System.Windows.Forms.DataGridView dgv_busqueda_PC;
         private System.Windows.Forms.Button btn_AgregarP_PC;
         private System.Windows.Forms.Button btn_eliminarP_PC;
         private System.Windows.Forms.Button btn_ticket_PC;
         private System.Windows.Forms.Button btn_cerrarS_PC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Lista;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Productos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioU;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cb_medida;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txt_cantidad;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_existente;
+        private System.Windows.Forms.TextBox txt_unidad;
+        private System.Windows.Forms.TextBox txt_departamento;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btn_nombre;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label iddepartament;
+        private System.Windows.Forms.Label idproducto;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label porcentaje;
+        private System.Windows.Forms.Label lbl_descuento;
+        private System.Windows.Forms.DateTimePicker tp_fechaIngreso;
+        private System.Windows.Forms.Label label12;
     }
 }

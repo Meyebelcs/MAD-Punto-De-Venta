@@ -81,6 +81,7 @@
             this.Name = "Caja_Seleccion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SeleccionDeCaja";
+            this.Load += new System.EventHandler(this.Caja_Seleccion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

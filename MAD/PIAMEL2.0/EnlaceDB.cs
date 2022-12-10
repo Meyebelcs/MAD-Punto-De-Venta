@@ -88,6 +88,42 @@ namespace MAD._0
 
             return isValid;
         }
+        public DataTable LOGIN(char op, string contraseña, int rol)
+        {
+            var msg = "";
+            DataTable tabla = new DataTable();
+            try
+            {
+                conectar();
+                string qry = "SP_ValidaUser";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Op", SqlDbType.Char, 1);
+                parametro1.Value = op;
+                var parametro2 = _comandosql.Parameters.Add("@Contraseña", SqlDbType.VarChar, 20);
+                parametro2.Value = contraseña;
+                var parametro3 = _comandosql.Parameters.Add("@IdRol", SqlDbType.Int, 30);
+                parametro3.Value = rol;
+
+                _adaptador.SelectCommand = _comandosql;
+                _adaptador.Fill(tabla);
+
+            }
+            catch (SqlException e)
+            {
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return tabla;
+        }
         public DataTable ConsultaTabla(string SP, string accion)
         {
             var msg = "";
@@ -976,6 +1012,41 @@ namespace MAD._0
             return tabla;
         }
 
+        public DataTable get_idcaja(char op, int NumCaja)
+        {
+            var msg = "";
+            DataTable tabla = new DataTable();
+            try
+            {
+                conectar();
+                string qry = "spCaja";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = op;
+                var parametro2 = _comandosql.Parameters.Add("@Numero", SqlDbType.Int, 20);
+                parametro2.Value = NumCaja;
+
+                _adaptador.SelectCommand = _comandosql;
+                _adaptador.Fill(tabla);
+
+            }
+            catch (SqlException e)
+            {
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return tabla;
+        }
+
         //DESCUENTO
         public bool add_Descuento(string opc, int IdDescuento, int IdProducto, int IdDepartamento,int IdAdmin, int Porcentaje, DateTime FechaInicio, DateTime FechaFinal)
         {
@@ -1062,6 +1133,41 @@ namespace MAD._0
             return tabla;
         }
 
+        public DataTable get_DatosPorcentaje(char op, int IdProducto)
+        {
+            var msg = "";
+            DataTable tabla = new DataTable();
+            try
+            {
+                conectar();
+                string qry = "spDescuento";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = op;
+                var parametro2 = _comandosql.Parameters.Add("@IdProducto", SqlDbType.Int, 20);
+                parametro2.Value = IdProducto;
+
+                _adaptador.SelectCommand = _comandosql;
+                _adaptador.Fill(tabla);
+
+            }
+            catch (SqlException e)
+            {
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return tabla;
+        }
+
         public bool actualiza_Descuento(char opc ,int IdProducto)
         {
             var msg = "";
@@ -1097,6 +1203,42 @@ namespace MAD._0
             }
 
             return add;
+        }
+
+        //PRINCIPAL CAJERO
+        public DataTable get_DatosProductosByName(char op, string Nombre)
+        {
+            var msg = "";
+            DataTable tabla = new DataTable();
+            try
+            {
+                conectar();
+                string qry = "spProductos";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = op;
+                var parametro2 = _comandosql.Parameters.Add("@Nombre", SqlDbType.VarChar, 30);
+                parametro2.Value = Nombre;
+
+                _adaptador.SelectCommand = _comandosql;
+                _adaptador.Fill(tabla);
+
+            }
+            catch (SqlException e)
+            {
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return tabla;
         }
     }
 

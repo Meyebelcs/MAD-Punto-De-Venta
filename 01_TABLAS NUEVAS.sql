@@ -191,6 +191,9 @@ ALTER TABLE Venta
 ALTER COLUMN Total decimal(10,2) NULL
 
 ALTER TABLE Venta
+ALTER COLUMN CantidadProducto decimal(10,2) NULL
+
+ALTER TABLE Venta
 ADD MontoCambio decimal(10,2) NULL
 
 ALTER TABLE Venta
@@ -210,6 +213,12 @@ ADD NombreCajero VARCHAR(100)  NULL
 
 ALTER TABLE Venta
 ADD IdCajero INT NULL
+
+ALTER TABLE Venta
+ADD IdDepartamento INT NULL
+
+ALTER TABLE Venta
+ADD UnidadMedida VARCHAR(30) NULL
 
 -----------------------------------------------------------------
 
@@ -544,6 +553,11 @@ SELECT dbo.fn_IdProvisional()
 
 SELECT dbo.fn_busquedaDepartamento(1000000) 
 
+SELECT dbo.fn_LOGINcAJERO('coco2020',1000000)
+
+SELECT dbo.fn_LOGINaDMINITRADOR('coco2020',1000009)
+
+
 SELECT IdCaja[IdCaja],IdAdministrador[Quién dió de alta],Numero[Num Caja],IdCajero[IdCajero]
 FROM Caja 
 WHERE Eliminacion = 0 AND IdCajero=NULL 
@@ -557,7 +571,7 @@ SELECT  IdCajero[IdCajero], IdEmpleado[IdEmpleado], IdAdmin[IdAdmin]
 FROM Cajero  
 WHERE IdCaja = 0;
 
-	 
+
 
 INSERT INTO Caja(IdCajero,IdAdministrador,Numero, Eliminacion)
 VALUES(NULL,1000000,3,0);
@@ -573,10 +587,10 @@ DELETE
 		FROM Descuento 
 		WHERE  IdDescuento = 1000003;
 
-UPDATE Descuento
+UPDATE Cajero
 		SET
-			Porcentaje = 50
-WHERE IdDescuento= 1000003;
+			Eliminacion = 1
+WHERE IdCajero= 1000002;
 
 
 UPDATE Descuento

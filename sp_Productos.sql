@@ -113,7 +113,15 @@ BEGIN
 		WHERE  IdProducto = @IdProducto;
 	END;
 
-	IF @Accion = 'V'
+	IF @Accion = 'N'
+	BEGIN
+		SELECT IdProducto [IdProducto],IdDepartamento [Departamento],Nombre [Nombre],Descripcion [Descripcion],Descuento [Descuento],
+		UnidaddeMedida [UnidadMedida],Costo [Costo],Eliminacion [Eliminacion],CantidadDeInventario [CantidadInventario]
+		FROM Productos  
+		WHERE Nombre = @Nombre and Eliminacion = 0;
+	END;
+
+		IF @Accion = 'V'
 	BEGIN
 		SELECT IdProducto [IdProducto],IdDepartamento [Departamento],Nombre [Nombre],Descripcion [Descripcion],Descuento [Descuento],
 		UnidaddeMedida [UnidadMedida],Costo [Costo],Eliminacion [Eliminacion],CantidadDeInventario [CantidadInventario]
@@ -138,6 +146,14 @@ BEGIN
 		SELECT IdProducto [IdProducto],IdDepartamento [Departamento],Nombre [Nombre]
 		FROM Productos  
 		WHERE Descuento = 0 and Eliminacion = 0;
+	END;
+
+	IF @Accion = 'X'
+	BEGIN
+		SELECT IdProducto [IdProducto],IdDepartamento [Departamento],Nombre [Nombre],Descripcion [Descripcion],Descuento [Descuento],
+		UnidaddeMedida [UnidadMedida],Costo [Costo],CantidadDeInventario [CantidadInventario]
+		FROM Productos  
+		WHERE Eliminacion = 0;
 	END;
 
 	IF @Accion = '*'
