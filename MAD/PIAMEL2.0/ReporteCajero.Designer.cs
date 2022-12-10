@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReporteCajero));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,7 +50,7 @@
             this.PrintPDF = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DG_REPORTCAJERO)).BeginInit(); 
+            ((System.ComponentModel.ISupportInitialize)(this.DG_REPORTCAJERO)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -72,7 +71,7 @@
             this.label2.ForeColor = System.Drawing.Color.Indigo;
             this.label2.Location = new System.Drawing.Point(26, 44);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 16);
+            this.label2.Size = new System.Drawing.Size(102, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Rango Fechas:";
             // 
@@ -121,7 +120,7 @@
             this.TodosCajeros.ForeColor = System.Drawing.Color.Indigo;
             this.TodosCajeros.Location = new System.Drawing.Point(10, 22);
             this.TodosCajeros.Name = "TodosCajeros";
-            this.TodosCajeros.Size = new System.Drawing.Size(58, 20);
+            this.TodosCajeros.Size = new System.Drawing.Size(57, 20);
             this.TodosCajeros.TabIndex = 8;
             this.TodosCajeros.Text = "Todos";
             this.TodosCajeros.UseVisualStyleBackColor = true;
@@ -134,7 +133,7 @@
             this.UnCajero.ForeColor = System.Drawing.Color.Indigo;
             this.UnCajero.Location = new System.Drawing.Point(10, 44);
             this.UnCajero.Name = "UnCajero";
-            this.UnCajero.Size = new System.Drawing.Size(110, 20);
+            this.UnCajero.Size = new System.Drawing.Size(109, 20);
             this.UnCajero.TabIndex = 9;
             this.UnCajero.Text = "Solamente Uno";
             this.UnCajero.UseVisualStyleBackColor = true;
@@ -147,7 +146,7 @@
             this.label6.ForeColor = System.Drawing.Color.Indigo;
             this.label6.Location = new System.Drawing.Point(6, 67);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 16);
+            this.label6.Size = new System.Drawing.Size(62, 16);
             this.label6.TabIndex = 10;
             this.label6.Text = "Escriba ID:";
             // 
@@ -202,7 +201,7 @@
             this.label7.ForeColor = System.Drawing.Color.Indigo;
             this.label7.Location = new System.Drawing.Point(6, 69);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 16);
+            this.label7.Size = new System.Drawing.Size(62, 16);
             this.label7.TabIndex = 12;
             this.label7.Text = "Escriba ID:";
             // 
@@ -212,7 +211,7 @@
             this.UnoDepa.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UnoDepa.Location = new System.Drawing.Point(7, 46);
             this.UnoDepa.Name = "UnoDepa";
-            this.UnoDepa.Size = new System.Drawing.Size(110, 20);
+            this.UnoDepa.Size = new System.Drawing.Size(109, 20);
             this.UnoDepa.TabIndex = 1;
             this.UnoDepa.Text = "Solamente Uno";
             this.UnoDepa.UseVisualStyleBackColor = true;
@@ -224,7 +223,7 @@
             this.TodosDepa.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TodosDepa.Location = new System.Drawing.Point(7, 23);
             this.TodosDepa.Name = "TodosDepa";
-            this.TodosDepa.Size = new System.Drawing.Size(58, 20);
+            this.TodosDepa.Size = new System.Drawing.Size(57, 20);
             this.TodosDepa.TabIndex = 0;
             this.TodosDepa.Text = "Todos";
             this.TodosDepa.UseVisualStyleBackColor = true;
@@ -296,8 +295,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReporteCajero";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReporteCajero";
             this.Load += new System.EventHandler(this.ReporteCajero_Load);
             this.groupBox1.ResumeLayout(false);

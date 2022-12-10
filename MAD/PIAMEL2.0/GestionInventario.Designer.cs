@@ -44,6 +44,7 @@
             this.txt_cantidad_GP = new System.Windows.Forms.TextBox();
             this.chb_agotados_GP = new System.Windows.Forms.CheckBox();
             this.chb_merma_GP = new System.Windows.Forms.CheckBox();
+            this.btn_buscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Lista_GP)).BeginInit();
             this.SuspendLayout();
             // 
@@ -152,14 +153,14 @@
             // cb_departamentos_GP
             // 
             this.cb_departamentos_GP.FormattingEnabled = true;
-            this.cb_departamentos_GP.Location = new System.Drawing.Point(274, 174);
+            this.cb_departamentos_GP.Location = new System.Drawing.Point(250, 174);
             this.cb_departamentos_GP.Name = "cb_departamentos_GP";
             this.cb_departamentos_GP.Size = new System.Drawing.Size(218, 25);
             this.cb_departamentos_GP.TabIndex = 26;
             // 
             // txt_cantidad_GP
             // 
-            this.txt_cantidad_GP.Location = new System.Drawing.Point(807, 174);
+            this.txt_cantidad_GP.Location = new System.Drawing.Point(743, 174);
             this.txt_cantidad_GP.Name = "txt_cantidad_GP";
             this.txt_cantidad_GP.Size = new System.Drawing.Size(100, 23);
             this.txt_cantidad_GP.TabIndex = 27;
@@ -186,12 +187,24 @@
             this.chb_merma_GP.Text = "Con Merma";
             this.chb_merma_GP.UseVisualStyleBackColor = true;
             // 
+            // btn_buscar
+            // 
+            this.btn_buscar.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btn_buscar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_buscar.Location = new System.Drawing.Point(814, 212);
+            this.btn_buscar.Name = "btn_buscar";
+            this.btn_buscar.Size = new System.Drawing.Size(111, 30);
+            this.btn_buscar.TabIndex = 30;
+            this.btn_buscar.Text = "Buscar";
+            this.btn_buscar.UseVisualStyleBackColor = false;
+            // 
             // GestionInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1034, 650);
+            this.Controls.Add(this.btn_buscar);
             this.Controls.Add(this.chb_merma_GP);
             this.Controls.Add(this.chb_agotados_GP);
             this.Controls.Add(this.txt_cantidad_GP);
@@ -236,5 +249,6 @@
         private System.Windows.Forms.TextBox txt_cantidad_GP;
         private System.Windows.Forms.CheckBox chb_agotados_GP;
         private System.Windows.Forms.CheckBox chb_merma_GP;
+        private System.Windows.Forms.Button btn_buscar;
     }
 }

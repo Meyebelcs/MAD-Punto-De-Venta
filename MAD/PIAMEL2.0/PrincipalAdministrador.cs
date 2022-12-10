@@ -116,5 +116,19 @@ namespace MAD._0
             pantalla.Show();
             this.Hide();
         }
+
+        private void btn_reportecajero_Click(object sender, EventArgs e)
+        {
+            ReporteCajero pantalla = new ReporteCajero();
+            pantalla.Show();
+            this.Hide();
+        }
+
+        private void btn_reporteventas_Click(object sender, EventArgs e)
+        {
+            ReporteVentas pantalla = new ReporteVentas();
+            pantalla.Show();
+            this.Hide();
+        }
     }
 }

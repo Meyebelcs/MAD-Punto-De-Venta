@@ -44,9 +44,9 @@
             this.btn_cerrarS_PA = new System.Windows.Forms.Button();
             this.btn_productos_PA = new System.Windows.Forms.Button();
             this.btn_departamento = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_reportecajero = new System.Windows.Forms.Button();
             this.btn_empleados = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_reporteventas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Lista_PA)).BeginInit();
             this.SuspendLayout();
             // 
@@ -215,16 +215,17 @@
             this.btn_departamento.UseVisualStyleBackColor = false;
             this.btn_departamento.Click += new System.EventHandler(this.btn_departamento_Click);
             // 
-            // button2
+            // btn_reportecajero
             // 
-            this.button2.BackColor = System.Drawing.Color.Crimson;
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(930, 246);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 76);
-            this.button2.TabIndex = 24;
-            this.button2.Text = "Reporte de Cajeros";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_reportecajero.BackColor = System.Drawing.Color.Crimson;
+            this.btn_reportecajero.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_reportecajero.Location = new System.Drawing.Point(930, 246);
+            this.btn_reportecajero.Name = "btn_reportecajero";
+            this.btn_reportecajero.Size = new System.Drawing.Size(147, 76);
+            this.btn_reportecajero.TabIndex = 24;
+            this.btn_reportecajero.Text = "Reporte de Cajeros";
+            this.btn_reportecajero.UseVisualStyleBackColor = false;
+            this.btn_reportecajero.Click += new System.EventHandler(this.btn_reportecajero_Click);
             // 
             // btn_empleados
             // 
@@ -238,16 +239,17 @@
             this.btn_empleados.UseVisualStyleBackColor = false;
             this.btn_empleados.Click += new System.EventHandler(this.btn_empleados_Click);
             // 
-            // button1
+            // btn_reporteventas
             // 
-            this.button1.BackColor = System.Drawing.Color.Crimson;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(930, 353);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 76);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "Reporte de   Ventas";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_reporteventas.BackColor = System.Drawing.Color.Crimson;
+            this.btn_reporteventas.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_reporteventas.Location = new System.Drawing.Point(930, 353);
+            this.btn_reporteventas.Name = "btn_reporteventas";
+            this.btn_reporteventas.Size = new System.Drawing.Size(147, 76);
+            this.btn_reporteventas.TabIndex = 26;
+            this.btn_reporteventas.Text = "Reporte de   Ventas";
+            this.btn_reporteventas.UseVisualStyleBackColor = false;
+            this.btn_reporteventas.Click += new System.EventHandler(this.btn_reporteventas_Click);
             // 
             // PrincipalAdministrador
             // 
@@ -255,9 +257,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1129, 718);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_reporteventas);
             this.Controls.Add(this.btn_empleados);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_reportecajero);
             this.Controls.Add(this.btn_departamento);
             this.Controls.Add(this.btn_productos_PA);
             this.Controls.Add(this.btn_cerrarS_PA);
@@ -302,8 +304,8 @@
         private System.Windows.Forms.Button btn_cerrarS_PA;
         private System.Windows.Forms.Button btn_productos_PA;
         private System.Windows.Forms.Button btn_departamento;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_reportecajero;
         private System.Windows.Forms.Button btn_empleados;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_reporteventas;
     }
 }

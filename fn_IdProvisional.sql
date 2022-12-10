@@ -1,3 +1,4 @@
+
 --FUNCIONES
 
 IF OBJECT_ID('fn_busquedaCajero')IS NOT NULL

@@ -166,7 +166,9 @@ namespace PIAMEL2._0
 
         private void GoBack_Click(object sender, EventArgs e)
         {
-
+            PrincipalAdministrador pantalla = new PrincipalAdministrador();
+            pantalla.Show();
+            this.Hide();
         }
     }
 }

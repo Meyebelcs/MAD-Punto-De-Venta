@@ -236,6 +236,10 @@ CONSTRAINT FK_DESCUENTO_IDA FOREIGN KEY (IdAdmin)
    REFERENCES Administrador(IdAdministrador)
 );
 
+ALTER TABLE Descuento
+ADD Eliminacion BIT NULL
+
+-------------------------------------------------------------
 IF OBJECT_ID('Opcion_Pago')IS NOT NULL
 	DROP TABLE Opcion_Pago;
 
@@ -316,6 +320,13 @@ ALTER COLUMN subtotal decimal(10,2) NULL
 
 ALTER TABLE NotaCredito
 ALTER COLUMN total decimal(10,2) NULL
+
+ALTER TABLE NotaCredito
+ADD FechaDevolucion DATETIME NULL
+
+ALTER TABLE NotaCredito
+ADD IdCaja INT NULL
+
 -----------------------------------------------------------------
 
 IF OBJECT_ID('Caja')IS NOT NULL
@@ -379,9 +390,23 @@ ALTER COLUMN DescuentoTotal decimal(10,2) NULL
 ALTER TABLE Ticket
 ADD MontoCambio decimal(10,2) NULL
 -----------------------------------------------------------------
+INSERT INTO Opcion_Pago( Nombre)
+VALUES('Efectivo');
 
+INSERT INTO Opcion_Pago( Nombre)
+VALUES('Tarjeta de Credito');
 
+INSERT INTO Opcion_Pago( Nombre)
+VALUES('Tarjeta de Puntos');
 
+INSERT INTO Opcion_Pago( Nombre)
+VALUES('Tarjeta de débito');
+
+INSERT INTO Opcion_Pago( Nombre)
+VALUES('Cheque');
+
+INSERT INTO Opcion_Pago( Nombre)
+VALUES('Vales de despensa');
 /*----------------------------------*/
 
 INSERT INTO Empleados( Nombre,APpellidoP,APpellidoM,Telefono, Email, FechaIngreso, CURP, FechaNac, Contraseña, NumNomina, Eliminacion)
@@ -464,6 +489,7 @@ VALUES('Efectivo');
 
 INSERT INTO Opcion_Pago( Nombre)
 VALUES('Tarjeta de Credito');
+
 ----
 
 INSERT INTO Tipo_Pago( IdCajero,IdPago, IdVenta)
@@ -504,6 +530,7 @@ SELECT *FROM Opcion_Pago
 SELECT *FROM Tipo_Pago
 SELECT *FROM Caja
 SELECT *FROM Ticket
+SELECT *FROM NotaCredito
 
 SELECT dbo.fn_busquedaCajero(1000000)
 
@@ -546,13 +573,13 @@ DELETE
 		FROM Cajero 
 		WHERE  IdCajero = 1000004;
 
-UPDATE Caja
+UPDATE Descuento
 		SET
-			IdCajero = NULL
-WHERE IdCaja= 1000002;
+			Porcentaje = 50
+WHERE IdDescuento= 1000003;
 
 
-UPDATE Historial_Productos
+UPDATE Descuento
 		SET
 			Eliminacion = 0
 WHERE IdEmpleado = 1000003;

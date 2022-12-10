@@ -115,6 +115,13 @@ BEGIN
 
     END;
 
+	IF @Accion = 'T'
+	BEGIN
+		SELECT IdProducto [IdProducto],IdDepartamento [Departamento],Nombre [Nombre]
+		FROM Productos  
+		WHERE Descuento = 0 and Eliminacion = 0;
+	END;
+
 	IF @Accion = '*'
 	BEGIN
 		SELECT IdProducto [IdProducto],IdDepartamento [Departamento],Nombre [Nombre],Descripcion [Descripcion],Descuento [Descuento],
@@ -130,6 +137,9 @@ BEGIN
 		SELECT dbo.fn_IdProvisionalProductos() 
 	END
 END;
+
+
+
 
 
 

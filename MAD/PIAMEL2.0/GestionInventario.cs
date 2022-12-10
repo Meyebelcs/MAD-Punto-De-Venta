@@ -44,6 +44,16 @@ namespace MAD._0
             var tabla = new DataTable();//creo tabla 
             tabla = obj.ConsultaTabla("spProductos", "*");//manda llamar el SP
             dgv_Lista_GP.DataSource = tabla; //Asigna la info a la tabla
+
+            //LLENAR LOS COMBOBOX
+            var obj2 = new EnlaceDB();
+            var depas = new DataTable();
+            depas = obj2.ConsultaTabla("spDepartamento", "*");
+            cb_departamentos_GP.DataSource = depas;
+            cb_departamentos_GP.DisplayMember = "Nombre";
+            cb_departamentos_GP.ValueMember = "IdDepartamento";
+
+            cb_departamentos_GP.SelectedIndex = -1;
         }
     }
 }
