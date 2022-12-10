@@ -35,5 +35,25 @@ namespace MAD._0
             pantalla.Show();
             this.Hide();
         }
+
+        private void Modificar_Caja_Load(object sender, EventArgs e)
+        {
+            //llenar combobox con los cajeros disponibles
+
+            var obj2 = new EnlaceDB();
+            var cajas = new DataTable();
+            cajas = obj2.ConsultaTabla("spCaja", "*");
+            cb_numcaja.DataSource = cajas;
+
+            cb_numcaja.DisplayMember = "Num Caja";
+            cb_numcaja.ValueMember = "IdCaja";
+            cb_numcaja.SelectedIndex = -1;
+
+        }
+
+        private void cb_numcaja_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //busca la caja seleccionada
+        }
     }
 }

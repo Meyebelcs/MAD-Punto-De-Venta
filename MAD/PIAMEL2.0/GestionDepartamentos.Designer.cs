@@ -143,6 +143,7 @@
             this.dgv_empleados.Size = new System.Drawing.Size(330, 337);
             this.dgv_empleados.TabIndex = 96;
             this.dgv_empleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_empleados_CellClick);
+            this.dgv_empleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_empleados_CellContentClick);
             // 
             // chb_PermiteDevolucion
             // 

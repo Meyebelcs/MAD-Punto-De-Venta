@@ -78,6 +78,10 @@ BEGIN
 		WHERE IdEmpleado = @IdEmpleado AND Eliminacion = 0;
 	END;
 
+	IF @Accion='B'
+	BEGIN
+		SELECT dbo.fn_busquedaCajero(@IdCaja)
+	END
 
 	IF @Accion = '*'
 	BEGIN

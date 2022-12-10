@@ -40,6 +40,17 @@
             this.btn_NCaja = new System.Windows.Forms.Button();
             this.btn_ECaja = new System.Windows.Forms.Button();
             this.btn_MCaja = new System.Windows.Forms.Button();
+            this.chb_sincajero = new System.Windows.Forms.CheckBox();
+            this.LBL_ID = new System.Windows.Forms.Label();
+            this.txt_admin = new System.Windows.Forms.TextBox();
+            this.lbl_administrador = new System.Windows.Forms.Label();
+            this.cbcajero = new System.Windows.Forms.ComboBox();
+            this.lbl_cajero = new System.Windows.Forms.Label();
+            this.lbl_numcaja = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_num = new System.Windows.Forms.TextBox();
+            this.LBL_IDCAJA = new System.Windows.Forms.Label();
+            this.lblb_idempleado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cajasinfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,16 +118,17 @@
             // 
             this.dgv_cajasinfo.BackgroundColor = System.Drawing.SystemColors.MenuBar;
             this.dgv_cajasinfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_cajasinfo.Location = new System.Drawing.Point(240, 129);
+            this.dgv_cajasinfo.Location = new System.Drawing.Point(32, 115);
             this.dgv_cajasinfo.Name = "dgv_cajasinfo";
-            this.dgv_cajasinfo.Size = new System.Drawing.Size(576, 205);
+            this.dgv_cajasinfo.Size = new System.Drawing.Size(272, 233);
             this.dgv_cajasinfo.TabIndex = 19;
+            this.dgv_cajasinfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cajasinfo_CellClick);
             // 
             // btn_NCaja
             // 
             this.btn_NCaja.BackColor = System.Drawing.Color.MidnightBlue;
             this.btn_NCaja.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_NCaja.Location = new System.Drawing.Point(33, 74);
+            this.btn_NCaja.Location = new System.Drawing.Point(667, 96);
             this.btn_NCaja.Name = "btn_NCaja";
             this.btn_NCaja.Size = new System.Drawing.Size(147, 76);
             this.btn_NCaja.TabIndex = 24;
@@ -128,11 +140,11 @@
             // 
             this.btn_ECaja.BackColor = System.Drawing.Color.MidnightBlue;
             this.btn_ECaja.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ECaja.Location = new System.Drawing.Point(32, 277);
+            this.btn_ECaja.Location = new System.Drawing.Point(514, 373);
             this.btn_ECaja.Name = "btn_ECaja";
-            this.btn_ECaja.Size = new System.Drawing.Size(147, 76);
+            this.btn_ECaja.Size = new System.Drawing.Size(147, 39);
             this.btn_ECaja.TabIndex = 25;
-            this.btn_ECaja.Text = "Eliminar Caja";
+            this.btn_ECaja.Text = "Eliminar";
             this.btn_ECaja.UseVisualStyleBackColor = false;
             this.btn_ECaja.Click += new System.EventHandler(this.btn_ECaja_Click);
             // 
@@ -140,20 +152,138 @@
             // 
             this.btn_MCaja.BackColor = System.Drawing.Color.MidnightBlue;
             this.btn_MCaja.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_MCaja.Location = new System.Drawing.Point(33, 175);
+            this.btn_MCaja.Location = new System.Drawing.Point(667, 372);
             this.btn_MCaja.Name = "btn_MCaja";
-            this.btn_MCaja.Size = new System.Drawing.Size(147, 76);
+            this.btn_MCaja.Size = new System.Drawing.Size(147, 40);
             this.btn_MCaja.TabIndex = 26;
-            this.btn_MCaja.Text = "Modificar Caja";
+            this.btn_MCaja.Text = "Modificar";
             this.btn_MCaja.UseVisualStyleBackColor = false;
             this.btn_MCaja.Click += new System.EventHandler(this.btn_MCaja_Click);
+            // 
+            // chb_sincajero
+            // 
+            this.chb_sincajero.AutoSize = true;
+            this.chb_sincajero.Location = new System.Drawing.Point(422, 301);
+            this.chb_sincajero.Name = "chb_sincajero";
+            this.chb_sincajero.Size = new System.Drawing.Size(131, 23);
+            this.chb_sincajero.TabIndex = 103;
+            this.chb_sincajero.Text = "Caja sin cajero";
+            this.chb_sincajero.UseVisualStyleBackColor = true;
+            this.chb_sincajero.CheckedChanged += new System.EventHandler(this.chb_sincajero_CheckedChanged);
+            // 
+            // LBL_ID
+            // 
+            this.LBL_ID.AutoSize = true;
+            this.LBL_ID.ForeColor = System.Drawing.Color.Indigo;
+            this.LBL_ID.Location = new System.Drawing.Point(511, 158);
+            this.LBL_ID.Name = "LBL_ID";
+            this.LBL_ID.Size = new System.Drawing.Size(67, 19);
+            this.LBL_ID.TabIndex = 102;
+            this.LBL_ID.Text = "IDADMIN";
+            // 
+            // txt_admin
+            // 
+            this.txt_admin.Enabled = false;
+            this.txt_admin.Location = new System.Drawing.Point(389, 178);
+            this.txt_admin.Name = "txt_admin";
+            this.txt_admin.ReadOnly = true;
+            this.txt_admin.Size = new System.Drawing.Size(207, 24);
+            this.txt_admin.TabIndex = 101;
+            // 
+            // lbl_administrador
+            // 
+            this.lbl_administrador.AutoSize = true;
+            this.lbl_administrador.ForeColor = System.Drawing.Color.Indigo;
+            this.lbl_administrador.Location = new System.Drawing.Point(399, 158);
+            this.lbl_administrador.Name = "lbl_administrador";
+            this.lbl_administrador.Size = new System.Drawing.Size(109, 19);
+            this.lbl_administrador.TabIndex = 100;
+            this.lbl_administrador.Text = "Lo dió de alta:";
+            // 
+            // cbcajero
+            // 
+            this.cbcajero.FormattingEnabled = true;
+            this.cbcajero.Location = new System.Drawing.Point(490, 260);
+            this.cbcajero.Name = "cbcajero";
+            this.cbcajero.Size = new System.Drawing.Size(142, 27);
+            this.cbcajero.TabIndex = 97;
+            // 
+            // lbl_cajero
+            // 
+            this.lbl_cajero.AutoSize = true;
+            this.lbl_cajero.ForeColor = System.Drawing.Color.Indigo;
+            this.lbl_cajero.Location = new System.Drawing.Point(340, 265);
+            this.lbl_cajero.Name = "lbl_cajero";
+            this.lbl_cajero.Size = new System.Drawing.Size(138, 19);
+            this.lbl_cajero.TabIndex = 96;
+            this.lbl_cajero.Text = "Cajero encargado";
+            // 
+            // lbl_numcaja
+            // 
+            this.lbl_numcaja.AutoSize = true;
+            this.lbl_numcaja.ForeColor = System.Drawing.Color.Indigo;
+            this.lbl_numcaja.Location = new System.Drawing.Point(401, 232);
+            this.lbl_numcaja.Name = "lbl_numcaja";
+            this.lbl_numcaja.Size = new System.Drawing.Size(83, 19);
+            this.lbl_numcaja.TabIndex = 95;
+            this.lbl_numcaja.Text = "Caja Num.";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Indigo;
+            this.label1.Location = new System.Drawing.Point(29, 93);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(158, 19);
+            this.label1.TabIndex = 104;
+            this.label1.Text = "Selecciona una caja:";
+            // 
+            // txt_num
+            // 
+            this.txt_num.Location = new System.Drawing.Point(490, 227);
+            this.txt_num.Name = "txt_num";
+            this.txt_num.Size = new System.Drawing.Size(100, 24);
+            this.txt_num.TabIndex = 105;
+            // 
+            // LBL_IDCAJA
+            // 
+            this.LBL_IDCAJA.AutoSize = true;
+            this.LBL_IDCAJA.ForeColor = System.Drawing.Color.Indigo;
+            this.LBL_IDCAJA.Location = new System.Drawing.Point(724, 305);
+            this.LBL_IDCAJA.Name = "LBL_IDCAJA";
+            this.LBL_IDCAJA.Size = new System.Drawing.Size(58, 19);
+            this.LBL_IDCAJA.TabIndex = 106;
+            this.LBL_IDCAJA.Text = "IDCAJA";
+            this.LBL_IDCAJA.Visible = false;
+            // 
+            // lblb_idempleado
+            // 
+            this.lblb_idempleado.AutoSize = true;
+            this.lblb_idempleado.ForeColor = System.Drawing.Color.Indigo;
+            this.lblb_idempleado.Location = new System.Drawing.Point(724, 286);
+            this.lblb_idempleado.Name = "lblb_idempleado";
+            this.lblb_idempleado.Size = new System.Drawing.Size(109, 19);
+            this.lblb_idempleado.TabIndex = 107;
+            this.lblb_idempleado.Text = "NoTieneCajero";
+            this.lblb_idempleado.Visible = false;
             // 
             // GestionCajas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.ClientSize = new System.Drawing.Size(871, 428);
+            this.ClientSize = new System.Drawing.Size(857, 445);
+            this.Controls.Add(this.lblb_idempleado);
+            this.Controls.Add(this.LBL_IDCAJA);
+            this.Controls.Add(this.txt_num);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.chb_sincajero);
+            this.Controls.Add(this.LBL_ID);
+            this.Controls.Add(this.txt_admin);
+            this.Controls.Add(this.lbl_administrador);
+            this.Controls.Add(this.cbcajero);
+            this.Controls.Add(this.lbl_cajero);
+            this.Controls.Add(this.lbl_numcaja);
             this.Controls.Add(this.btn_MCaja);
             this.Controls.Add(this.btn_ECaja);
             this.Controls.Add(this.btn_NCaja);
@@ -189,5 +319,16 @@
         private System.Windows.Forms.Button btn_NCaja;
         private System.Windows.Forms.Button btn_ECaja;
         private System.Windows.Forms.Button btn_MCaja;
+        private System.Windows.Forms.CheckBox chb_sincajero;
+        private System.Windows.Forms.Label LBL_ID;
+        private System.Windows.Forms.TextBox txt_admin;
+        private System.Windows.Forms.Label lbl_administrador;
+        private System.Windows.Forms.ComboBox cbcajero;
+        private System.Windows.Forms.Label lbl_cajero;
+        private System.Windows.Forms.Label lbl_numcaja;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txt_num;
+        private System.Windows.Forms.Label LBL_IDCAJA;
+        private System.Windows.Forms.Label lblb_idempleado;
     }
 }

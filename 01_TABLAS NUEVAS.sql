@@ -505,6 +505,7 @@ SELECT *FROM Tipo_Pago
 SELECT *FROM Caja
 SELECT *FROM Ticket
 
+SELECT dbo.fn_busquedaCajero(1000000)
 
 Select MAX(IdEmpleados) AS maximo from Empleados
 

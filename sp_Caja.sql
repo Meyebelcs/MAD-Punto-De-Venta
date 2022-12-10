@@ -61,6 +61,14 @@ BEGIN
 		from Caja
 	END;
 
+	IF @Accion = 'S'
+	BEGIN
+		SELECT IdCaja[IdCaja],IdAdministrador[Quién dió de alta],Numero[Num Caja]
+		FROM Caja  
+		WHERE IdCaja = @IdCaja;
+	END;
+
+
 	IF @Accion = '*'
 	BEGIN
 		SELECT IdCaja[IdCaja],IdAdministrador[Quién dió de alta],Numero[Num Caja]

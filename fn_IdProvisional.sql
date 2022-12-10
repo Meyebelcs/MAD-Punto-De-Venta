@@ -1,4 +1,30 @@
+--FUNCIONES
 
+IF OBJECT_ID('fn_busquedaCajero')IS NOT NULL
+	DROP FUNCTION fn_busquedaCajero;
+Go
+CREATE FUNCTION fn_busquedaCajero
+(
+@IdCaja  int
+)
+RETURNS int
+BEGIN
+
+	DECLARE @Empleado int;
+
+	SET @Empleado = 0 
+
+	Select @Empleado = IdEmpleado
+	
+	from Cajero
+
+	WHERE IdCaja = @IdCaja and Eliminacion = 0
+
+	
+		RETURN @Empleado;
+
+END;
+Go
 
 --FUNCIONES
 
