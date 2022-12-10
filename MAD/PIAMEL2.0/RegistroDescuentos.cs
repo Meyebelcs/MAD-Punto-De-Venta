@@ -47,7 +47,7 @@ namespace PIAMEL2._0
                 MessageBox.Show("El porcentaje debe ser un numero entre el 1 y el 100", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            
+
             //validaciono a las fechas que sean congruentes-------------------------------------------------------------------------------------------------------
 
             #endregion
@@ -57,7 +57,7 @@ namespace PIAMEL2._0
             bool control;
 
             //alta de decsuento
-            control = Descuento.add_Descuento("I",0, Convert.ToInt32(cb_producto.Text), Convert.ToInt32(LBL_Depa.Text), Convert.ToInt32(lbl_idadmin.Text), Convert.ToInt32(txtx_porcentaje.Text), DateInicio.Value, DateFinal.Value);
+            control = Descuento.add_Descuento("I", 0, Convert.ToInt32(cb_producto.Text), Convert.ToInt32(LBL_Depa.Text), Convert.ToInt32(lbl_idadmin.Text), Convert.ToInt32(txtx_porcentaje.Text), DateInicio.Value, DateFinal.Value);
 
             if (!control)
             {
@@ -65,6 +65,22 @@ namespace PIAMEL2._0
                 return;
 
             }
+
+
+            //ACTUALIZAR LA TABLA DE PRODUCTOS EL PRODUCTO A QUIEN FUE ASIGNADO EL DESCUENTOO
+            var enlace = new EnlaceDB();
+
+            bool productodescuento;
+
+            productodescuento = enlace.actualiza_Producto( Convert.ToInt32(cb_producto.Text));
+            if (!productodescuento)
+            {
+                MessageBox.Show("No se pudo modificar correctamente el producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+
+            }
+            MessageBox.Show("Se modificó correctamente el producto con su descuento", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); 
+
 
             MessageBox.Show("Se agregó correctamente el nuevo Descuento", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 

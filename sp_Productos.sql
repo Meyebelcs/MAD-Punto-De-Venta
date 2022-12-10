@@ -86,6 +86,15 @@ BEGIN
 		WHERE  IdProducto = @IdProducto ;
     END;
 
+		IF @Accion = 'C'
+    BEGIN
+	/*ACTUALIZA DESCUENTO*/
+        UPDATE Productos 
+		SET
+			Descuento = 1 
+		WHERE  IdProducto = @IdProducto ;
+    END;
+
 	IF @Accion = 'S'
 	BEGIN
 	SELECT IdProducto [IdProducto],IdDepartamento [Departamento],Nombre [Nombre],Descripcion [Descripcion],Descuento [Descuento],

@@ -570,8 +570,8 @@ DELETE FROM Empleados
 WHERE Nombre = 'Boing'
 
 DELETE 
-		FROM Cajero 
-		WHERE  IdCajero = 1000004;
+		FROM Descuento 
+		WHERE  IdDescuento = 1000003;
 
 UPDATE Descuento
 		SET

@@ -92,10 +92,10 @@ namespace MAD._0
             string IdProducto = INFO.Rows[0][1].ToString();
             var nombreproducto = new DataTable();
             nombreproducto = obj.get_DatosProductos('S', Convert.ToInt32(IdProducto)); //traigo de la base los datos del user q inició sesion
-            txt_producto.Text = nombreproducto.Rows[0][1].ToString();
+            txt_producto.Text = nombreproducto.Rows[0][2].ToString();
 
             //BUSCO EL DEPARTAMENTO
-            string IdDepa = INFO.Rows[0][1].ToString();
+            string IdDepa = INFO.Rows[0][2].ToString();
             var NombreDepa = new DataTable();
             NombreDepa = obj.get_DatosDepartamento('S', Convert.ToInt32(IdDepa)); //traigo de la base los datos del user q inició sesion
             txt_depa.Text = NombreDepa.Rows[0][1].ToString();
