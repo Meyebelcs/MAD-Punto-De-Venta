@@ -72,7 +72,7 @@ namespace PIAMEL2._0
 
             bool productodescuento;
 
-            productodescuento = enlace.actualiza_Producto( Convert.ToInt32(cb_producto.Text));
+            productodescuento = enlace.actualiza_Descuento( 'C', Convert.ToInt32(cb_producto.Text));
             if (!productodescuento)
             {
                 MessageBox.Show("No se pudo modificar correctamente el producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

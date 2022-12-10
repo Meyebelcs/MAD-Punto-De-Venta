@@ -202,8 +202,7 @@ namespace PIAMEL2._0
                 enlace.get_DatosDepartamento('E', departamentSelected);
 
                 MessageBox.Show("se eliminó correctamente el departamento", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-
+              
                 //recargar pantalla
                 this.Close();
                 GestionDepartamentos pantalla = new GestionDepartamentos();

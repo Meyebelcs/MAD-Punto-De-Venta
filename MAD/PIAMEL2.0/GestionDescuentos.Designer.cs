@@ -144,6 +144,7 @@
             this.btn_EProducto.TabIndex = 28;
             this.btn_EProducto.Text = "Eliminar";
             this.btn_EProducto.UseVisualStyleBackColor = false;
+            this.btn_EProducto.Click += new System.EventHandler(this.btn_EProducto_Click);
             // 
             // btn_MProducto
             // 

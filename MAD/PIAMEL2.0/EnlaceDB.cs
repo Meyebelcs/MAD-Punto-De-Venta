@@ -1062,7 +1062,7 @@ namespace MAD._0
             return tabla;
         }
 
-        public bool actualiza_Producto(int IdProducto)
+        public bool actualiza_Descuento(char opc ,int IdProducto)
         {
             var msg = "";
             var add = true;
@@ -1075,7 +1075,7 @@ namespace MAD._0
                 _comandosql.CommandTimeout = 1200;
 
                 var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
-                parametro1.Value = "C";
+                parametro1.Value = opc;
                 var parametro2 = _comandosql.Parameters.Add("@IdProducto", SqlDbType.Int, 20);
                 parametro2.Value = IdProducto;
                
