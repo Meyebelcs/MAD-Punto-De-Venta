@@ -286,5 +286,36 @@ namespace PIAMEL2._0
                 e.Handled = !char.IsDigit(e.KeyChar); //Solo numeros en el txt
             }
         }
+
+        private void txt_reorden_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar); //Solo numeros en el txt
+        }
+
+        private void txt_precioUnitario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (txt_cantidadInv.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+        }
     }
 }

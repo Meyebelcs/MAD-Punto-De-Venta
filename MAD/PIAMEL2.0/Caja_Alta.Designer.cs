@@ -107,6 +107,7 @@
             this.txt_numcaja.Name = "txt_numcaja";
             this.txt_numcaja.Size = new System.Drawing.Size(67, 23);
             this.txt_numcaja.TabIndex = 64;
+            this.txt_numcaja.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_numcaja_KeyPress);
             // 
             // btn_regresar_GC
             // 

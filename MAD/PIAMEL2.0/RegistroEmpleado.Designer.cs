@@ -322,6 +322,7 @@
             // 
             // txt_curp_RE
             // 
+            this.txt_curp_RE.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txt_curp_RE.Location = new System.Drawing.Point(42, 450);
             this.txt_curp_RE.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txt_curp_RE.Name = "txt_curp_RE";

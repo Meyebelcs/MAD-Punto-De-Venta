@@ -297,5 +297,10 @@ namespace MAD._0
                 cbcajero.Enabled = true;
             }
         }
+
+        private void txt_num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar); //Solo numeros en el txt
+        }
     }
 }

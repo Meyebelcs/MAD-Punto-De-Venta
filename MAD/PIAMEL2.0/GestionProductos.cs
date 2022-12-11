@@ -196,7 +196,13 @@ namespace MAD._0
                 enlace.get_DatosInfoProducto('E', ProductSelected);
                 enlace.get_DatosHistorialProducto('E', ProductSelected);
 
+                if (cb_si.Checked==true)//si tenia descuento tambien se elimina
+                {
+                    enlace.get_DatosPorcentaje('P', ProductSelected);
 
+                    MessageBox.Show("se eliminó correctamente el descuento", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
 
                 MessageBox.Show("se eliminó correctamente el Producto", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -334,7 +340,28 @@ namespace MAD._0
 
         private void txt_precioUnitario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar); //Solo numeros en el txt
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (txt_cantidadInv.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
         }
 
         private void txt_reorden_KeyPress(object sender, KeyPressEventArgs e)

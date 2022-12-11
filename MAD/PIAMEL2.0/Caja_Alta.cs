@@ -123,5 +123,10 @@ namespace PIAMEL2._0
 
 
         }
+
+        private void txt_numcaja_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar); //Solo numeros en el txt
+        }
     }
 }

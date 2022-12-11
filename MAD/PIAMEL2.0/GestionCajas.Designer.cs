@@ -244,6 +244,7 @@
             this.txt_num.Name = "txt_num";
             this.txt_num.Size = new System.Drawing.Size(100, 24);
             this.txt_num.TabIndex = 105;
+            this.txt_num.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_num_KeyPress);
             // 
             // LBL_IDCAJA
             // 

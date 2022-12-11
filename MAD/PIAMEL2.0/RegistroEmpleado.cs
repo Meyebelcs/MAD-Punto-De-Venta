@@ -181,6 +181,7 @@ namespace MAD._0
                 }
             }
 
+
             //Que el Num de nomina no se repita
 
             if (tablita.Rows.Count >= 0)

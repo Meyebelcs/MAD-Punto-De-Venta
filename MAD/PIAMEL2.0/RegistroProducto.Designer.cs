@@ -133,6 +133,7 @@
             this.txt_precioUnitario.Name = "txt_precioUnitario";
             this.txt_precioUnitario.Size = new System.Drawing.Size(106, 23);
             this.txt_precioUnitario.TabIndex = 140;
+            this.txt_precioUnitario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_precioUnitario_KeyPress);
             // 
             // lbl_precioUni
             // 
@@ -150,6 +151,7 @@
             this.txt_reorden.Name = "txt_reorden";
             this.txt_reorden.Size = new System.Drawing.Size(182, 23);
             this.txt_reorden.TabIndex = 138;
+            this.txt_reorden.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_reorden_KeyPress);
             // 
             // lbl_reorden
             // 
