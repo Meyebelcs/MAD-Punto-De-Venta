@@ -43,6 +43,12 @@ BEGIN
 			WHERE  IdPago = @IdPago;
 	END;
 
+	IF @Accion = 'N'
+	BEGIN
+		SELECT IdPago [Id],Nombre [Tipo de Pago]
+		FROM Opcion_Pago  
+		WHERE Nombre = @Nombre;
+	END;
 
 	IF @Accion = '*'
 	BEGIN

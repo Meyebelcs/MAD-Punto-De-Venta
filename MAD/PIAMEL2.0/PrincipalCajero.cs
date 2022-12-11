@@ -15,9 +15,14 @@ namespace MAD._0
     {
         private int productoSelected;
         private static int idVenta;
+        private static decimal Total;
         public int getidVenta()
         {
             return idVenta;
+        }
+        public decimal getTotal()
+        {
+            return Total;
         }
 
         public PrincipalCajero()
@@ -66,6 +71,12 @@ namespace MAD._0
 
         private void btn_ticket_PC_Click(object sender, EventArgs e)
         {
+            if (idVenta==0)
+            {
+                MessageBox.Show("La lista de venta está vacía. Agrega productos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            
             //Selecciona el tipo de pago
             var frmPago = new Pago();
             frmPago.ShowDialog(); //Ventana Modal
@@ -335,6 +346,7 @@ namespace MAD._0
                     }
 
                     lbl_Total_PC.Text = "$ " + totalVenta;
+                    Total = totalVenta;
 
                 }
                 else

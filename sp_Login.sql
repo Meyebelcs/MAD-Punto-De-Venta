@@ -34,7 +34,7 @@ BEGIN
 
 		FROM Empleados E JOIN Administrador A
 		on E.IdEmpleados = A.IdEmpleado
-		WHERE A.IdEmpleado = @IdRol AND E.Contraseña=@Contraseña AND A.Eliminacion = 0;
+		WHERE A.IdEmpleado = @IdRol AND E.Contraseña=@Contraseña AND A.Eliminacion = 0 AND E.Eliminacion = 0;
 
 	END;
 
@@ -46,7 +46,7 @@ BEGIN
 
 		FROM Empleados E JOIN Cajero C
 		on E.IdEmpleados = C.IdEmpleado
-		WHERE C.IdEmpleado = @IdRol AND E.Contraseña=@Contraseña AND C.Eliminacion = 0 ;
+		WHERE C.IdEmpleado = @IdRol AND E.Contraseña=@Contraseña AND C.Eliminacion = 0 AND E.Eliminacion = 0;
 		
 	END
 

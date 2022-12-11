@@ -259,7 +259,7 @@ CREATE TABLE Opcion_Pago(
 IdPago        INT IDENTITY(1000000,1) NOT NULL PRIMARY KEY,
 Nombre        VARCHAR(30) NOT NULL,
 );
-
+------------------------------------------------------------------
 IF OBJECT_ID('Tipo_Pago')IS NOT NULL
 	DROP TABLE Tipo_Pago;
 
@@ -279,6 +279,21 @@ CONSTRAINT FK_TIPO_PAGO_IDV FOREIGN KEY (IdVenta)
    REFERENCES Venta(IdVenta)
 );
 
+ALTER TABLE Tipo_Pago
+ADD Identificador INT NULL
+
+ALTER TABLE Tipo_Pago
+ADD Opcion VARCHAR(50) NULL
+
+ALTER TABLE Tipo_Pago
+ADD MontoCambio decimal(10,2) NULL
+
+ALTER TABLE Tipo_Pago
+ADD MontopPagado decimal(10,2) NULL
+
+ALTER TABLE Tipo_Pago
+ADD Eliminacion BIT NULL
+------------------------------------------------------------------
 IF OBJECT_ID('Devolucion')IS NOT NULL
 	DROP TABLE Devolucion;
 
@@ -401,6 +416,21 @@ ALTER COLUMN DescuentoTotal decimal(10,2) NULL
 
 ALTER TABLE Ticket
 ADD MontoCambio decimal(10,2) NULL
+
+ALTER TABLE Ticket
+ADD IdentificadorVenta INT  NULL
+
+
+IdTicket         INT = NULL,
+IdVenta           INT = NULL,
+IdCajero         INT = NULL,
+IdTipoPago        INT = NULL,
+FechaHr           DATETIME = NULL,
+NumCaja          INT = NULL,
+Subtotal		decimal(10,2) =NULL,
+DescuentoTotal	decimal(10,2)= NULL,
+MontoCambio		decimal(10,2)= NULL,
+IdentificadorVenta	INT = NULL
 -----------------------------------------------------------------
 INSERT INTO Opcion_Pago( Nombre)
 VALUES('Efectivo');
@@ -589,13 +619,18 @@ WHERE IdVenta = 1000005
 and IdVenta = 1000001 and IdVenta = 1000002 and IdVenta = 1000003 and IdVenta = 1000004 and IdVenta = 1000005
 
 DELETE 
-		FROM Descuento 
-		WHERE  IdDescuento = 1000003;
+		FROM Venta 
+		WHERE  Identificador = 1000025;
+
+		
+DELETE 
+		FROM Tipo_Pago 
+		WHERE  Identificador = 1000026;
 
 UPDATE Cajero
 		SET
-			Eliminacion = 1
-WHERE IdCajero= 1000002;
+			Eliminacion = 0
+WHERE IdEmpleado= 1000006;
 
 
 UPDATE Descuento

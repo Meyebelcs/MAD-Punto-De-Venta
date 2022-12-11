@@ -525,12 +525,70 @@ namespace PIAMEL2._0
                 enlace.get_DatosEmpleado('E', empleadoSelected);
 
                 MessageBox.Show("se eliminó correctamente el empleado", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
 
-                //si elimina el empleado tambien se elimina en admin o cajero segun el caso
 
+                //VALIDACION DE CAJERO Y ADMIN
+
+                var chequeo = new EnlaceDB();
+                Login gestor = new Login();
+
+                if (chequeo.validarRol(empleadoSelected)) //si es admin elimina el admin
+                {
+                    //buscar idadmin del seleccionado
+                    var enlace2 = new EnlaceDB();
+                    var idadmin = new DataTable();
+                    idadmin = enlace2.get_DatosAdmin('V', empleadoSelected); //traigo de la base los datos del idadmin 
+                    string idadministrador = idadmin.Rows[0][0].ToString();
+
+                    //si es qadministrador y cambio a cajero
+                    //se elimina el admin
+                    var administrador = new EnlaceDB();
+                    bool admin;
+
+                    admin = administrador.add_Administrador("E", Convert.ToInt32(txt_usuario_RE.Text), Convert.ToInt32(idadministrador), 0);
+                    if (!admin)
+                    {
+                        MessageBox.Show("No se pudo ELIMINAR correctamente el administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+
+                    }
+                    MessageBox.Show("Se ELIMINÓ correctamente el administrador", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+               
+                }
+                else
+                {
+                    if (!chequeo.validarRol(empleadoSelected))//si es cajero elimina el cajero
+                    {
+
+                        //buscar idcajero del seleccionado
+                        var enlace2 = new EnlaceDB();
+                        var idcaj = new DataTable();
+                        idcaj = enlace2.get_DatosCajero('V', empleadoSelected); //traigo de la base los datos del idcajero 
+                        string idcajero = idcaj.Rows[0][0].ToString();
+
+                        var CAJERO = new EnlaceDB();
+                        bool cajeros;
+                        cajeros = CAJERO.add_Cajero("E", Convert.ToInt32(idcajero), Convert.ToInt32(txt_usuario_RE.Text), 0);
+                        if (!cajeros)
+                        {
+                            MessageBox.Show("No se pudo ELIMINAR correctamente el cajero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
+
+                        }
+                        MessageBox.Show("Se ELIMINÓ correctamente el cajero", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                        //SE LIBERA LA CAJA DE ESTE CAJERO SI ESQUE ESTABA UTILIZANDO UNA
+
+                        enlace.actualiza_Caja(0, empleadoSelected);
+
+                    }
+                }
 
                 //recargar pantalla
+                this.Close();
+                gestionEmpleados pantalla = new gestionEmpleados();
+                pantalla.Show();
+               
             }
             else
             {

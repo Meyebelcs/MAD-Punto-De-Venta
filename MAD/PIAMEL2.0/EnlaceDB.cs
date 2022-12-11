@@ -1359,6 +1359,133 @@ namespace MAD._0
 
             return tabla;
         }
+
+        //OPCION PAGO
+        public DataTable get_IdOpcionPago(char op, string Opcion)
+        {
+            var msg = "";
+            DataTable tabla = new DataTable();
+            try
+            {
+                conectar();
+                string qry = "spOpcion_Pago";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = op;
+                var parametro2 = _comandosql.Parameters.Add("@Nombre", SqlDbType.VarChar, 50);
+                parametro2.Value = Opcion;
+
+                _adaptador.SelectCommand = _comandosql;
+                _adaptador.Fill(tabla);
+
+            }
+            catch (SqlException e)
+            {
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return tabla;
+        }
+        public bool add_TipoPago(string opc, int IdTipo, int IdCajero, int IdPago, int IdVenta, int Identificador, string Opcion, decimal MontoCambio, decimal MontopPagado)
+        {
+            var msg = "";
+            var add = true;
+            try
+            {
+                conectar();
+                string qry = "spTipo_Pago";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = opc;
+                var parametro2 = _comandosql.Parameters.Add("@IdTipo", SqlDbType.Int, 20);
+                parametro2.Value = IdTipo;
+                var parametro3 = _comandosql.Parameters.Add("@IdCajero", SqlDbType.Int, 20);
+                parametro3.Value = IdCajero;
+                var parametro4 = _comandosql.Parameters.Add("@IdPago", SqlDbType.Int, 20);
+                parametro4.Value = IdPago;
+                var parametro5 = _comandosql.Parameters.Add("@IdVenta", SqlDbType.Int, 20);
+                parametro5.Value = IdVenta;
+                var parametro6 = _comandosql.Parameters.Add("@Identificador", SqlDbType.Int, 20);
+                parametro6.Value = Identificador;
+                var parametro7 = _comandosql.Parameters.Add("@Opcion", SqlDbType.VarChar, 50);
+                parametro7.Value = Opcion;
+                var parametro8 = _comandosql.Parameters.Add("@MontoCambio", SqlDbType.Decimal, 10);
+                _comandosql.Parameters["@MontoCambio"].Precision = 10;
+                _comandosql.Parameters["@MontoCambio"].Scale = 2;
+                parametro8.Value = MontoCambio;
+                var parametro9 = _comandosql.Parameters.Add("@MontopPagado", SqlDbType.Decimal, 10);
+                _comandosql.Parameters["@MontopPagado"].Precision = 10;
+                _comandosql.Parameters["@MontopPagado"].Scale = 2;
+                parametro9.Value = MontopPagado;
+
+
+                _adaptador.InsertCommand = _comandosql;
+
+                _comandosql.ExecuteNonQuery();
+
+            }
+            catch (SqlException e)
+            {
+                add = false;
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return add;
+        }
+        public DataTable get_DatosTipoPago(char op, int Identificador)
+        {
+            var msg = "";
+            DataTable tabla = new DataTable();
+            try
+            {
+                conectar();
+                string qry = "spTipo_Pago";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = op;
+                var parametro2 = _comandosql.Parameters.Add("@Identificador", SqlDbType.Int, 20);
+                parametro2.Value = Identificador;
+
+                _adaptador.SelectCommand = _comandosql;
+                _adaptador.Fill(tabla);
+
+            }
+            catch (SqlException e)
+            {
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return tabla;
+        }
+
+      
     }
 
 }

@@ -34,7 +34,6 @@
             this.cb_opcionP_P = new System.Windows.Forms.ComboBox();
             this.btn_Agregar_P = new System.Windows.Forms.Button();
             this.dgv_Lista_P = new System.Windows.Forms.DataGridView();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lbl_efectivo_P = new System.Windows.Forms.Label();
@@ -51,6 +50,8 @@
             this.lbl_fecha_PC = new System.Windows.Forms.Label();
             this.lbl_tiempo_PC = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.montopagar = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Lista_P)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,27 +83,20 @@
             this.btn_Agregar_P.TabIndex = 2;
             this.btn_Agregar_P.Text = "Agregar";
             this.btn_Agregar_P.UseVisualStyleBackColor = false;
+            this.btn_Agregar_P.Click += new System.EventHandler(this.btn_Agregar_P_Click);
             // 
             // dgv_Lista_P
             // 
             this.dgv_Lista_P.BackgroundColor = System.Drawing.SystemColors.MenuBar;
             this.dgv_Lista_P.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Lista_P.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Lista_P.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Cantidad});
             this.dgv_Lista_P.Location = new System.Drawing.Point(45, 255);
             this.dgv_Lista_P.Name = "dgv_Lista_P";
             this.dgv_Lista_P.RowHeadersWidth = 51;
             this.dgv_Lista_P.RowTemplate.Height = 24;
             this.dgv_Lista_P.Size = new System.Drawing.Size(478, 177);
             this.dgv_Lista_P.TabIndex = 3;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.MinimumWidth = 6;
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.Width = 125;
+            this.dgv_Lista_P.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Lista_P_CellEndEdit);
             // 
             // label2
             // 
@@ -153,11 +147,11 @@
             this.lbl_Total_P.AutoSize = true;
             this.lbl_Total_P.Font = new System.Drawing.Font("Century Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Total_P.ForeColor = System.Drawing.Color.Indigo;
-            this.lbl_Total_P.Location = new System.Drawing.Point(594, 512);
+            this.lbl_Total_P.Location = new System.Drawing.Point(600, 513);
             this.lbl_Total_P.Name = "lbl_Total_P";
-            this.lbl_Total_P.Size = new System.Drawing.Size(108, 41);
+            this.lbl_Total_P.Size = new System.Drawing.Size(88, 41);
             this.lbl_Total_P.TabIndex = 9;
-            this.lbl_Total_P.Text = "$0.00";
+            this.lbl_Total_P.Text = "0.00";
             // 
             // label6
             // 
@@ -273,12 +267,36 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // montopagar
+            // 
+            this.montopagar.AutoSize = true;
+            this.montopagar.Font = new System.Drawing.Font("Century Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.montopagar.ForeColor = System.Drawing.Color.Indigo;
+            this.montopagar.Location = new System.Drawing.Point(559, 373);
+            this.montopagar.Name = "montopagar";
+            this.montopagar.Size = new System.Drawing.Size(108, 41);
+            this.montopagar.TabIndex = 19;
+            this.montopagar.Text = "$0.00";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Indigo;
+            this.label8.Location = new System.Drawing.Point(568, 512);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(38, 41);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "$";
+            // 
             // Pago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(758, 584);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.montopagar);
             this.Controls.Add(this.lbl_fecha_PC);
             this.Controls.Add(this.lbl_tiempo_PC);
             this.Controls.Add(this.lbl_numcaja_PC);
@@ -327,7 +345,6 @@
         private System.Windows.Forms.Button btn_pagar_P;
         private System.Windows.Forms.Button btn_cancelar_P;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.Label lbl_numcaja_PC;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbl_nombrec_PC;
@@ -335,5 +352,7 @@
         private System.Windows.Forms.Label lbl_fecha_PC;
         private System.Windows.Forms.Label lbl_tiempo_PC;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label montopagar;
+        private System.Windows.Forms.Label label8;
     }
 }
