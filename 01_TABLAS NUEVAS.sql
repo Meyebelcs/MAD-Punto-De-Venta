@@ -220,6 +220,9 @@ ADD IdDepartamento INT NULL
 ALTER TABLE Venta
 ADD UnidadMedida VARCHAR(30) NULL
 
+ALTER TABLE Venta
+ADD Identificador INT NULL
+
 -----------------------------------------------------------------
 
 IF OBJECT_ID('Descuento')IS NOT NULL
@@ -580,8 +583,10 @@ VALUES(NULL,1000000,3,0);
 ALTER TABLE Empleados
 ALTER COLUMN Nombre VARCHAR(50) NOT NULL
 
-DELETE FROM Empleados
-WHERE Nombre = 'Boing'
+DELETE FROM Venta 
+WHERE IdVenta = 1000005 
+
+and IdVenta = 1000001 and IdVenta = 1000002 and IdVenta = 1000003 and IdVenta = 1000004 and IdVenta = 1000005
 
 DELETE 
 		FROM Descuento 

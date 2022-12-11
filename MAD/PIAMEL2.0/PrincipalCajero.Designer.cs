@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_Lista_PC = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -72,6 +72,9 @@
             this.lbl_descuento = new System.Windows.Forms.Label();
             this.tp_fechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.total = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Lista_PC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_busqueda_PC)).BeginInit();
             this.SuspendLayout();
@@ -79,33 +82,33 @@
             // dgv_Lista_PC
             // 
             this.dgv_Lista_PC.BackgroundColor = System.Drawing.SystemColors.MenuBar;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Lista_PC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Lista_PC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dgv_Lista_PC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Lavender;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Lista_PC.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Lavender;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Lista_PC.DefaultCellStyle = dataGridViewCellStyle17;
             this.dgv_Lista_PC.Location = new System.Drawing.Point(666, 123);
             this.dgv_Lista_PC.Name = "dgv_Lista_PC";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Lista_PC.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Lista_PC.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dgv_Lista_PC.RowHeadersWidth = 51;
             this.dgv_Lista_PC.RowTemplate.Height = 24;
             this.dgv_Lista_PC.Size = new System.Drawing.Size(640, 458);
@@ -125,7 +128,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1025, 657);
+            this.label2.Location = new System.Drawing.Point(1015, 657);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(128, 41);
             this.label2.TabIndex = 2;
@@ -135,7 +138,7 @@
             // 
             this.lbl_Total_PC.AutoSize = true;
             this.lbl_Total_PC.Font = new System.Drawing.Font("Century Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Total_PC.Location = new System.Drawing.Point(1176, 657);
+            this.lbl_Total_PC.Location = new System.Drawing.Point(1130, 657);
             this.lbl_Total_PC.Name = "lbl_Total_PC";
             this.lbl_Total_PC.Size = new System.Drawing.Size(108, 41);
             this.lbl_Total_PC.TabIndex = 3;
@@ -259,23 +262,23 @@
             // 
             this.dgv_busqueda_PC.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dgv_busqueda_PC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.Lavender;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_busqueda_PC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Lavender;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_busqueda_PC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dgv_busqueda_PC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Lavender;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_busqueda_PC.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.Lavender;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_busqueda_PC.DefaultCellStyle = dataGridViewCellStyle20;
             this.dgv_busqueda_PC.Location = new System.Drawing.Point(26, 205);
             this.dgv_busqueda_PC.Name = "dgv_busqueda_PC";
             this.dgv_busqueda_PC.RowHeadersWidth = 51;
@@ -288,7 +291,7 @@
             // 
             this.btn_AgregarP_PC.BackColor = System.Drawing.Color.MidnightBlue;
             this.btn_AgregarP_PC.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btn_AgregarP_PC.Location = new System.Drawing.Point(177, 541);
+            this.btn_AgregarP_PC.Location = new System.Drawing.Point(177, 572);
             this.btn_AgregarP_PC.Name = "btn_AgregarP_PC";
             this.btn_AgregarP_PC.Size = new System.Drawing.Size(212, 56);
             this.btn_AgregarP_PC.TabIndex = 17;
@@ -494,12 +497,42 @@
             this.label12.TabIndex = 93;
             this.label12.Text = "Fecha de Ingreso:";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(345, 538);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(109, 20);
+            this.label13.TabIndex = 95;
+            this.label13.Text = "Total a pagar:";
+            // 
+            // total
+            // 
+            this.total.AutoSize = true;
+            this.total.Location = new System.Drawing.Point(455, 538);
+            this.total.Name = "total";
+            this.total.Size = new System.Drawing.Size(17, 20);
+            this.total.TabIndex = 96;
+            this.total.Text = "$";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(480, 501);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(21, 20);
+            this.label15.TabIndex = 97;
+            this.label15.Text = "%";
+            // 
             // PrincipalCajero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1318, 714);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.total);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.tp_fechaIngreso);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.lbl_descuento);
@@ -591,5 +624,8 @@
         private System.Windows.Forms.Label lbl_descuento;
         private System.Windows.Forms.DateTimePicker tp_fechaIngreso;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label total;
+        private System.Windows.Forms.Label label15;
     }
 }

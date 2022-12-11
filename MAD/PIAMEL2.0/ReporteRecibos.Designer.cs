@@ -113,8 +113,7 @@
             // 
             // dgv_ticket
             // 
-            this.dgv_ticket.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgv_ticket.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgv_ticket.BackgroundColor = System.Drawing.SystemColors.MenuBar;
             this.dgv_ticket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ticket.Location = new System.Drawing.Point(74, 270);
             this.dgv_ticket.Name = "dgv_ticket";
@@ -143,6 +142,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Indigo;
             this.label1.Location = new System.Drawing.Point(75, 114);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 19);
@@ -171,6 +171,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Indigo;
             this.label2.Location = new System.Drawing.Point(75, 188);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(201, 19);
@@ -238,7 +239,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(961, 704);
             this.Controls.Add(this.btn_imprimirPDF);
             this.Controls.Add(this.btn_buscarFechaCaja);
@@ -259,6 +260,7 @@
             this.Controls.Add(this.lbl_nombrec_PA);
             this.Controls.Add(this.label4);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.Indigo;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "ReporteRecibos";

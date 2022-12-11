@@ -68,6 +68,16 @@ BEGIN
 		WHERE  IdProducto = @IdProducto and Eliminacion = 0;
     END;
 
+	IF @Accion = 'R'
+    BEGIN
+	/*se actualiza el inventario*/
+        UPDATE Productos 
+		SET
+         CantidadDeInventario =  @CantidadDeInventario
+
+		WHERE IdProducto = @IdProducto 
+    END;
+
     IF @Accion = 'A'
     BEGIN
 	/*se deshabilitará el hecho de q contiene descuento*/

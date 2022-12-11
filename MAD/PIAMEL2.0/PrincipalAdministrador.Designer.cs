@@ -52,8 +52,7 @@
             // 
             // dgv_Lista_PA
             // 
-            this.dgv_Lista_PA.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dgv_Lista_PA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_Lista_PA.BackgroundColor = System.Drawing.SystemColors.MenuBar;
             this.dgv_Lista_PA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Lista_PA.Location = new System.Drawing.Point(239, 223);
             this.dgv_Lista_PA.Name = "dgv_Lista_PA";
@@ -65,6 +64,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Indigo;
             this.label1.Location = new System.Drawing.Point(235, 201);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(354, 19);
@@ -255,7 +255,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1129, 718);
             this.Controls.Add(this.btn_reporteventas);
             this.Controls.Add(this.btn_empleados);

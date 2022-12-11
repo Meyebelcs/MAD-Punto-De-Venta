@@ -26,7 +26,8 @@ CREATE PROCEDURE spVenta(
 @NombreCajero		VARCHAR(100) = NULL,
 @IdCajero			INT= NULL,
 @IdDepartamento		INT = NULL,
-@UnidadMedida		VARCHAR(30) = NULL
+@UnidadMedida		VARCHAR(30) = NULL,
+@Identificador   INT = NULL
 )
 AS
 
@@ -37,8 +38,8 @@ BEGIN
 
 	IF @Accion = 'I'
 	BEGIN
-		INSERT INTO Venta(IdProducto,NombreProducto,CantidadProducto,CostoUnitario,Costo,Descuento,subtotal,Total,Departamento,MontoCambio,MontopPagado,FechaRegistro,NombreCajero,IdCajero,IdDepartamento,UnidadMedida)
-		VALUES(@IdProducto,@NombreProducto,@CantidadProducto,@CostoUnitario,@Costo,@Descuento,@subtotal,@Total,@Departamento,@MontoCambio,@MontopPagado,@FechaRegistro,@NombreCajero,@IdCajero,@IdDepartamento,@UnidadMedida);
+		INSERT INTO Venta(IdProducto,NombreProducto,CantidadProducto,CostoUnitario,Costo,Descuento,subtotal,Total,Departamento,MontoCambio,MontopPagado,FechaRegistro,NombreCajero,IdCajero,IdDepartamento,UnidadMedida,Identificador)
+		VALUES(@IdProducto,@NombreProducto,@CantidadProducto,@CostoUnitario,@Costo,@Descuento,@subtotal,@Total,@Departamento,@MontoCambio,@MontopPagado,@FechaRegistro,@NombreCajero,@IdCajero,@IdDepartamento,@UnidadMedida,@Identificador);
 	END;
 
 	IF @Accion = 'U'
@@ -60,7 +61,8 @@ BEGIN
 			NombreCajero		=@NombreCajero,		
 			IdCajero			=@IdCajero	,		
 			IdDepartamento		=@IdDepartamento,		
-			UnidadMedida		=@UnidadMedida		
+			UnidadMedida		=@UnidadMedida,
+			Identificador		=@Identificador		
 
 		WHERE IdVenta = @IdVenta;
 	END;
@@ -72,6 +74,20 @@ BEGIN
 		WHERE  IdVenta = @IdVenta;
 	END;
 
+	
+	IF @Accion = 'M'
+	BEGIN
+		Select MAX(IdVenta) 
+		FROM Venta 
+	END;
+
+	IF @Accion = 'T'
+	BEGIN
+		SELECT NombreProducto[Nombre Producto],CantidadProducto[Cantidad Vendida],UnidadMedida[Unidad de Medida],Costo[Costo],Descuento[Descuento],subtotal[subtotal],Total[Total],
+		Departamento[Departamento]
+		FROM Venta  
+		WHERE Identificador = @Identificador;
+	END;
 
 	IF @Accion = '*'
 	BEGIN

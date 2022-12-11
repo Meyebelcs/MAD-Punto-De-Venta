@@ -1240,6 +1240,125 @@ namespace MAD._0
 
             return tabla;
         }
+
+        //VENTA
+        public bool add_Venta(char opc, int IdProducto, string NombreProducto, decimal CantidadProducto, decimal CostoUnitario, decimal Costo, string Descuento, decimal subtotal, decimal Total, string  Departamento, decimal MontoCambio, decimal MontopPagado, DateTime FechaRegistro, string NombreCajero,int IdCajero, int IdDepartamento, string UnidadMedida, int Identificador)
+        {
+            var msg = "";
+            var add = true;
+            try
+            {
+                conectar();
+                string qry = "spVenta";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = opc;
+                var parametro3 = _comandosql.Parameters.Add("@IdProducto", SqlDbType.Int, 20);
+                parametro3.Value = IdProducto;
+                var parametro4 = _comandosql.Parameters.Add("@NombreProducto", SqlDbType.VarChar, 50);
+                parametro4.Value = NombreProducto;
+                var parametro5 = _comandosql.Parameters.Add("@CantidadProducto", SqlDbType.Decimal, 10);
+                _comandosql.Parameters["@CantidadProducto"].Precision = 10;
+                _comandosql.Parameters["@CantidadProducto"].Scale = 2;
+                parametro5.Value = CantidadProducto;
+                var parametro6 = _comandosql.Parameters.Add("@CostoUnitario", SqlDbType.Decimal, 10);
+                _comandosql.Parameters["@CostoUnitario"].Precision = 10;
+                _comandosql.Parameters["@CostoUnitario"].Scale = 2;
+                parametro6.Value = CostoUnitario;
+                var parametro7 = _comandosql.Parameters.Add("@Costo", SqlDbType.Decimal, 10);
+                _comandosql.Parameters["@Costo"].Precision = 10;
+                _comandosql.Parameters["@Costo"].Scale = 2;
+                parametro7.Value = Costo;
+                var parametro8 = _comandosql.Parameters.Add("@Descuento", SqlDbType.VarChar, 50);
+                parametro8.Value = Descuento;
+                var parametro9 = _comandosql.Parameters.Add("@subtotal", SqlDbType.Decimal, 10);
+                _comandosql.Parameters["@subtotal"].Precision = 10;
+                _comandosql.Parameters["@subtotal"].Scale = 2;
+                parametro9.Value = subtotal;
+                var parametro10 = _comandosql.Parameters.Add("@Total", SqlDbType.Decimal, 10);
+                _comandosql.Parameters["@Total"].Precision = 10;
+                _comandosql.Parameters["@Total"].Scale = 2;
+                parametro10.Value = Total;
+                var parametro11 = _comandosql.Parameters.Add("@Departamento", SqlDbType.VarChar, 50);
+                parametro11.Value = Departamento;
+                var parametro18 = _comandosql.Parameters.Add("@MontoCambio", SqlDbType.Decimal, 10);
+                _comandosql.Parameters["@MontoCambio"].Precision = 10;
+                _comandosql.Parameters["@MontoCambio"].Scale = 2;
+                parametro18.Value = MontoCambio;
+                var parametro12 = _comandosql.Parameters.Add("@MontopPagado", SqlDbType.Decimal, 10);
+                _comandosql.Parameters["@MontopPagado"].Precision = 10;
+                _comandosql.Parameters["@MontopPagado"].Scale = 2;
+                parametro12.Value = MontopPagado;
+                var parametro13 = _comandosql.Parameters.Add("@FechaRegistro", SqlDbType.DateTime);
+                parametro13.Value = FechaRegistro;
+                var parametro14 = _comandosql.Parameters.Add("@NombreCajero", SqlDbType.VarChar, 50);
+                parametro14.Value = NombreCajero;
+                var parametr15 = _comandosql.Parameters.Add("@IdCajero", SqlDbType.Int, 20);
+                parametr15.Value = IdCajero;
+                var parametro16 = _comandosql.Parameters.Add("@IdDepartamento", SqlDbType.Int, 20);
+                parametro16.Value = IdDepartamento;
+                var parametro17 = _comandosql.Parameters.Add("@UnidadMedida", SqlDbType.VarChar, 50);
+                parametro17.Value = UnidadMedida;
+                var parametro19 = _comandosql.Parameters.Add("@Identificador", SqlDbType.Int, 20);
+                parametro19.Value = Identificador;
+                
+                _adaptador.InsertCommand = _comandosql;
+
+                _comandosql.ExecuteNonQuery();
+
+            }
+            catch (SqlException e)
+            {
+                add = false;
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return add;
+        }
+
+        public DataTable get_DatosVenta(char op, int Identificador)
+        {
+            var msg = "";
+            DataTable tabla = new DataTable();
+            try
+            {
+                conectar();
+                string qry = "spVenta";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = op;
+                var parametro2 = _comandosql.Parameters.Add("@Identificador", SqlDbType.Int, 20);
+                parametro2.Value = Identificador;
+
+                _adaptador.SelectCommand = _comandosql;
+                _adaptador.Fill(tabla);
+
+            }
+            catch (SqlException e)
+            {
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return tabla;
+        }
     }
 
 }
