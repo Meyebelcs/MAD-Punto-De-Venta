@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MAD._0
@@ -16,6 +17,7 @@ namespace MAD._0
     public partial class GestionProductos : Form
     {
         private int ProductSelected;
+        private bool decimales = false;
         public GestionProductos()
         {
             InitializeComponent();
@@ -114,7 +116,7 @@ namespace MAD._0
                 bool control;
 
                 //modifica de producto
-                control = product.add_Productos("U", Convert.ToInt32(txt_id.Text), txt_nombre.Text, Convert.ToInt32(departamentoSelected), txt_descripcion.Text, cbUnidadMedida.Text, Convert.ToDecimal(txt_costo.Text), Convert.ToInt32(txt_cantidadInv.Text));
+                control = product.add_Productos("U", Convert.ToInt32(txt_id.Text), txt_nombre.Text, Convert.ToInt32(departamentoSelected), txt_descripcion.Text, cbUnidadMedida.Text, Convert.ToDecimal(txt_costo.Text), Convert.ToDecimal(txt_cantidadInv.Text));
 
                 if (!control)
                 {
@@ -137,7 +139,7 @@ namespace MAD._0
 
 
                 //modifica de info producto
-                control = enlace.add_InfoProductos("U", Convert.ToInt32(idInfoProduct), Convert.ToInt32(lbl_idadmin.Text), Convert.ToInt32(txt_id.Text), tp_fechaIngreso.Value, Convert.ToInt32(txt_reorden.Text), Convert.ToDecimal(txt_precioUnitario.Text), Convert.ToInt32(txt_cantidadInv.Text));
+                control = enlace.add_InfoProductos("U", Convert.ToInt32(idInfoProduct), Convert.ToInt32(lbl_idadmin.Text), Convert.ToInt32(txt_id.Text), tp_fechaIngreso.Value, Convert.ToInt32(txt_reorden.Text), Convert.ToDecimal(txt_precioUnitario.Text));
 
                 if (!control)
                 {
@@ -245,12 +247,89 @@ namespace MAD._0
 
         private void txt_costo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar); //Solo numeros en el txt
+            if (cbUnidadMedida.Text == "Unidad")
+            {
+                decimales = false;
+            }
+
+            if (decimales == true) //aceptará decimales
+            {
+                if (Char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    if (txt_costo.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                    {
+                        e.Handled = true;
+                    }
+                    else
+                    {
+                        if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
+                        {
+                            e.Handled = false;
+                        }
+                        else
+                        {
+                            e.Handled = true;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                e.Handled = !char.IsDigit(e.KeyChar); //Solo numeros en el txt
+            }
         }
 
         private void txt_cantidadInv_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar); //Solo numeros en el txt
+            if (cbUnidadMedida.Text == "Unidad")
+            {
+                decimales = false;
+            }
+
+            if (decimales == true) //aceptará decimales
+            {
+                if (Char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    if (txt_cantidadInv.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                    {
+                        /* string cadena = txt_cantidadInv.Text;
+                         char[] a = cadena.ToCharArray();
+
+                         for (int i = 0; i < txt_cantidadInv.TextLength; i++)
+                         {
+                             if (a[i] == '.' ) 
+                             {
+                                 e.Handled = false;
+
+                             }
+                         }*/
+                        e.Handled = true;
+                    }
+                    else
+                    {
+                        if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
+                        {
+                            e.Handled = false;
+                        }
+                        else
+                        {
+                            e.Handled = true;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                e.Handled = !char.IsDigit(e.KeyChar); //Solo numeros en el txt
+            }
         }
 
         private void txt_precioUnitario_KeyPress(object sender, KeyPressEventArgs e)
@@ -265,8 +344,8 @@ namespace MAD._0
 
         private void dgv_productos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           
-
+            //inicializo de nuevo el booleano
+            decimales = false;
 
             Login gestor = new Login();
 
@@ -359,6 +438,26 @@ namespace MAD._0
                     btn_MProducto.Visible = true;
                 }
 
+            }
+        }
+
+        private void cbUnidadMedida_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbUnidadMedida.Text == "Unidad")
+            {
+                txt_costo.Text = " ";
+                txt_cantidadInv.Text = " ";
+                txt_costo.Enabled = true;
+                //habilita solo dejar que escriba numeros sin decimales
+                decimales = false;
+            }
+            else
+            {
+                txt_costo.Text = " ";
+                txt_cantidadInv.Text = " ";
+                txt_costo.Enabled = true;
+                //habilita  dejar que escriba numeros con decimales
+                decimales = true;
             }
         }
     }

@@ -187,7 +187,6 @@ namespace MAD._0
 
         }
 
-
         private void dgv_Lista_P_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (!generaPago)

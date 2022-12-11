@@ -18,7 +18,7 @@ CREATE PROCEDURE spProductos(
 @UnidaddeMedida     VARCHAR(20) = NULL,
 @Costo              decimal(10,2) = NULL,
 @Eliminacion        BIT = NULL,
-@CantidadDeInventario INT = NULL
+@CantidadDeInventario  decimal(10,2) = NULL
 
 
 

@@ -784,7 +784,7 @@ namespace MAD._0
 
             return tabla;
         }
-        public bool add_Productos(string opc, int IdProducto, string Nombre, int IdDepartamento, string Descripcion, string UnidaddeMedida, Decimal Costo, int CantidadDeInventario)
+        public bool add_Productos(string opc, int IdProducto, string Nombre, int IdDepartamento, string Descripcion, string UnidaddeMedida, Decimal Costo, Decimal CantidadDeInventario)
         {
             var msg = "";
             var add = true;
@@ -813,11 +813,12 @@ namespace MAD._0
                 var parametro8 = _comandosql.Parameters.Add("@Costo", SqlDbType.Decimal,10);
                 _comandosql.Parameters["@Costo"].Precision = 10;
                 _comandosql.Parameters["@Costo"].Scale = 2;
-
                 parametro8.Value = Costo;
                 var parametro9 = _comandosql.Parameters.Add("@Eliminacion", SqlDbType.Int, 1);
                 parametro9.Value = 0;
-                var parametro10 = _comandosql.Parameters.Add("@CantidadDeInventario", SqlDbType.Int, 20);
+                var parametro10 = _comandosql.Parameters.Add("@CantidadDeInventario", SqlDbType.Decimal, 10);
+                _comandosql.Parameters["@CantidadDeInventario"].Precision = 10;
+                _comandosql.Parameters["@CantidadDeInventario"].Scale = 2;
                 parametro10.Value = CantidadDeInventario;
 
                 _adaptador.InsertCommand = _comandosql;
@@ -839,7 +840,7 @@ namespace MAD._0
 
             return add;
         }
-        public bool add_InfoProductos(string opc, int IdInfoProductos, int IdAdministrador, int IdProducto, DateTime FechaDeAlta, int PuntoReorden, Decimal PrecioUnitario, int CantidadDeInventario)
+        public bool add_InfoProductos(string opc, int IdInfoProductos, int IdAdministrador, int IdProducto, DateTime FechaDeAlta, int PuntoReorden, Decimal PrecioUnitario)
         {
             var msg = "";
             var add = true;

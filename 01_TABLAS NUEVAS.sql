@@ -107,6 +107,9 @@ CONSTRAINT FK_PRODUCTOS_DEP FOREIGN KEY (IdDepartamento)
 
 ALTER TABLE Productos
 ALTER COLUMN Costo decimal(10,2) NULL
+
+ALTER TABLE Productos
+ALTER COLUMN CantidadDeInventario decimal(10,2) NULL
 -----------------------------------------------------------------
 IF OBJECT_ID('Info_Productos')IS NOT NULL
 	DROP TABLE Info_Productos;
@@ -612,8 +615,8 @@ WHERE IdVenta = 1000005
 and IdVenta = 1000001 and IdVenta = 1000002 and IdVenta = 1000003 and IdVenta = 1000004 and IdVenta = 1000005
 
 DELETE 
-		FROM Venta 
-		WHERE  Identificador = 1000050;
+		FROM Productos 
+		WHERE  IdProducto = 1000008;
 
 		
 DELETE 

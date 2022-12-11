@@ -125,6 +125,7 @@
             this.cbUnidadMedida.Name = "cbUnidadMedida";
             this.cbUnidadMedida.Size = new System.Drawing.Size(108, 25);
             this.cbUnidadMedida.TabIndex = 141;
+            this.cbUnidadMedida.SelectedIndexChanged += new System.EventHandler(this.cbUnidadMedida_SelectedIndexChanged);
             // 
             // txt_precioUnitario
             // 
@@ -176,6 +177,7 @@
             this.txt_cantidadInv.Name = "txt_cantidadInv";
             this.txt_cantidadInv.Size = new System.Drawing.Size(182, 23);
             this.txt_cantidadInv.TabIndex = 135;
+            this.txt_cantidadInv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cantidadInv_KeyPress);
             // 
             // lbl_costo
             // 
@@ -189,10 +191,12 @@
             // 
             // txt_costo
             // 
+            this.txt_costo.Enabled = false;
             this.txt_costo.Location = new System.Drawing.Point(46, 312);
             this.txt_costo.Name = "txt_costo";
             this.txt_costo.Size = new System.Drawing.Size(108, 23);
             this.txt_costo.TabIndex = 133;
+            this.txt_costo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_costo_KeyPress);
             // 
             // lbl_medida
             // 

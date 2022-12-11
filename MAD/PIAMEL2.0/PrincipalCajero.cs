@@ -19,7 +19,7 @@ namespace MAD._0
         private static decimal Subtotal;
         private int productoSelectedVenta=0;
         private int ventaSelectedVenta =0;
-
+        private bool decimales = false;
 
         public int getidVenta()
         {
@@ -53,7 +53,6 @@ namespace MAD._0
         private void PrincipalCajero_Load(object sender, EventArgs e)
         {
            
-
             //inicializo 
             idVenta = 0;
             dTotal = 0;
@@ -260,8 +259,6 @@ namespace MAD._0
         private void btn_AgregarP_PC_Click(object sender, EventArgs e)
         {
 
-            txt_cantidad.Text = " ";
-
             //dar de alta venta
             if (productoSelected != 0)
             {
@@ -353,7 +350,7 @@ namespace MAD._0
                     #region ACTUALIZA_INVENTARIO_PRODUCTO
                    
                     //alta de producto
-                    control = obj.add_Productos("R", Convert.ToInt32(idproducto.Text)," ", 0, " ", " ", 0, Convert.ToInt32(cantidadInventario));
+                    control = obj.add_Productos("R", Convert.ToInt32(idproducto.Text)," ", 0, " ", " ", 0, Convert.ToDecimal(cantidadInventario));
 
                     if (!control)
                     {
@@ -393,6 +390,7 @@ namespace MAD._0
                     lbl_Total_PC.Text = "$ " + totalVenta;
                     dTotal = totalVenta;
                     Subtotal = subtotalVenta;
+                    txt_cantidad.Text = " ";
 
 
                 }
@@ -486,6 +484,70 @@ namespace MAD._0
             ventaSelectedVenta = Convert.ToInt32(row.Cells[8].Value.ToString()); //ID DE la venta SELECCIONADa
             productoSelectedVenta = Convert.ToInt32(row.Cells[9].Value.ToString());//ID DEl producto SELECCIONADo
         }
-        
+
+        private void btn_NuevaVenta_Click(object sender, EventArgs e)
+        {
+            Login gestor = new Login();
+            //se reinicia todo
+            gestor.setEstadoCompra(1);
+
+            this.Close();
+            PrincipalCajero pantalla = new PrincipalCajero();
+            pantalla.Show();
+
+        }
+
+        private void txt_cantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txt_unidad.Text == "Unidad")
+            {
+                decimales = false;
+            }
+            else
+            {
+                decimales = true;
+            }
+
+            if (decimales == true) //aceptará decimales
+            {
+                if (Char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    if (txt_cantidad.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                    {
+                        /* string cadena = txt_cantidadInv.Text;
+                         char[] a = cadena.ToCharArray();
+
+                         for (int i = 0; i < txt_cantidadInv.TextLength; i++)
+                         {
+                             if (a[i] == '.' ) 
+                             {
+                                 e.Handled = false;
+
+                             }
+                         }*/
+                        e.Handled = true;
+                    }
+                    else
+                    {
+                        if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
+                        {
+                            e.Handled = false;
+                        }
+                        else
+                        {
+                            e.Handled = true;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                e.Handled = !char.IsDigit(e.KeyChar); //Solo numeros en el txt
+            }
+        }
     }
 }

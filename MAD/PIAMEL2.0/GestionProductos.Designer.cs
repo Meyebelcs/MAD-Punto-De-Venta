@@ -320,6 +320,7 @@
             this.cbUnidadMedida.Name = "cbUnidadMedida";
             this.cbUnidadMedida.Size = new System.Drawing.Size(108, 27);
             this.cbUnidadMedida.TabIndex = 48;
+            this.cbUnidadMedida.SelectedIndexChanged += new System.EventHandler(this.cbUnidadMedida_SelectedIndexChanged);
             // 
             // label14
             // 
