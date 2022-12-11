@@ -15,14 +15,23 @@ namespace MAD._0
     {
         private int productoSelected;
         private static int idVenta;
-        private static decimal Total;
+        private static decimal dTotal;
+        private static decimal Subtotal;
+        private int productoSelectedVenta=0;
+        private int ventaSelectedVenta =0;
+
+
         public int getidVenta()
         {
             return idVenta;
         }
         public decimal getTotal()
         {
-            return Total;
+            return dTotal;
+        }
+        public decimal getSubTotal()
+        {
+            return Subtotal;
         }
 
         public PrincipalCajero()
@@ -43,14 +52,27 @@ namespace MAD._0
 
         private void PrincipalCajero_Load(object sender, EventArgs e)
         {
+           
+
             //inicializo 
             idVenta = 0;
+            dTotal = 0;
+            Subtotal = 0;
+            Login gestor = new Login();
 
-            //abre una ventana modal
-            //Pregunta cual caja va a utilizar
-            var frmSeleccionDeCaja = new Caja_Seleccion();
-            frmSeleccionDeCaja.ShowDialog(); //Ventana Modal
+            if (gestor.getEstadoCompra() == 1)
+            {
+                gestor.setEstadoCompra(0);
 
+            }
+            else
+            {
+                //abre una ventana modal
+                //Pregunta cual caja va a utilizar
+                var frmSeleccionDeCaja = new Caja_Seleccion();
+                frmSeleccionDeCaja.ShowDialog(); //Ventana Modal
+
+            }
 
             //muestra los datos del usuario
             var enlace = new EnlaceDB();
@@ -80,6 +102,17 @@ namespace MAD._0
             //Selecciona el tipo de pago
             var frmPago = new Pago();
             frmPago.ShowDialog(); //Ventana Modal
+
+            Login gestor = new Login();
+
+            if (gestor.getEstadoCompra() == 1)
+            {
+               
+                this.Close();
+                PrincipalCajero pantalla = new PrincipalCajero();
+                pantalla.Show();
+
+            }
         }
 
         private void btn_cerrarS_PC_Click(object sender, EventArgs e)
@@ -99,6 +132,7 @@ namespace MAD._0
 
         private void btn_codigoP_Click(object sender, EventArgs e)
         {
+            txt_cantidad.Text = " ";
             if (txt_codigop_PC.TextLength < 1)
             {
                 MessageBox.Show("Ingresa un codigo de producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -116,6 +150,7 @@ namespace MAD._0
 
         private void btn_nombre_Click(object sender, EventArgs e)
         {
+            txt_cantidad.Text = " ";
             if (txt_nombreP_PC.TextLength < 1)
             {
                 MessageBox.Show("Ingresa un Nombre de producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -132,6 +167,7 @@ namespace MAD._0
 
         private void button1_Click(object sender, EventArgs e)
         {
+            txt_cantidad.Text = " ";
             //muestro los productos
             var obj = new EnlaceDB(); //creo objeto enlaceDB
             var tabla = new DataTable();//creo tabla 
@@ -150,7 +186,11 @@ namespace MAD._0
 
         private void dgv_busqueda_PC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            //INICIALIZO LAS VARIABLES DE LA LISTA YA QUE YA NO ESTÁ SELECCIONANDO NINGUNA
+            ventaSelectedVenta = 0; //ID DE la venta SELECCIONADa
+            productoSelectedVenta = 0;//ID DEl producto SELECCIONADo
+
+
             var row = (sender as DataGridView).CurrentRow;
             productoSelected = Convert.ToInt32(row.Cells[0].Value.ToString()); //ID DEL descuento SELECCIONADO
 
@@ -219,6 +259,9 @@ namespace MAD._0
 
         private void btn_AgregarP_PC_Click(object sender, EventArgs e)
         {
+
+            txt_cantidad.Text = " ";
+
             //dar de alta venta
             if (productoSelected != 0)
             {
@@ -335,6 +378,7 @@ namespace MAD._0
                     dgv_Lista_PC.DataSource = ventaGenerada; //Asigna la info a la tabla
 
                     decimal totalVenta = 0;
+                    decimal subtotalVenta = 0;
 
                     //MUESTRA EL PRECIO TOTAL DE LA SUMA DE LA VENTA
                     if (ventaGenerada.Rows.Count >= 0)
@@ -342,11 +386,14 @@ namespace MAD._0
                         foreach (DataRow fila in ventaGenerada.Rows)
                         {
                             totalVenta = totalVenta + Convert.ToDecimal(fila["Total"]);
+                            subtotalVenta = subtotalVenta + Convert.ToDecimal(fila["subtotal"]);
                         }
                     }
 
                     lbl_Total_PC.Text = "$ " + totalVenta;
-                    Total = totalVenta;
+                    dTotal = totalVenta;
+                    Subtotal = subtotalVenta;
+
 
                 }
                 else
@@ -361,5 +408,84 @@ namespace MAD._0
                 return;
             }
         }
+
+        private void btn_eliminarP_PC_Click(object sender, EventArgs e)
+        {
+            if (idVenta == 0)
+            {
+                MessageBox.Show("La lista de venta está vacía. Agrega productos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (ventaSelectedVenta == 0 || productoSelectedVenta == 0)
+            {
+                MessageBox.Show("Selecciona un producto de la lista", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            //se elimina la venta que se generó y se le suma la cantidad al inventario de ese producto
+
+            var enlace = new EnlaceDB();
+            DialogResult result = MessageBox.Show(" Se le quitará el producto de la lista de venta\n ¿Está seguro que desea continuar?", "Eliminar", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.No)
+            {
+                MessageBox.Show("No se eliminó el producto de la lista", "Cancelado", MessageBoxButtons.OK);
+                return;
+            }
+
+            //primero obtener la cantidad vendida y luego eliminarlo
+
+            //BUSCAR EN VENTA CON EL ID DE VENTA Y AHI TRAER LA CANTIDAD VENDIDA
+            var obj = new EnlaceDB();
+            var INFO = new DataTable();
+            INFO = obj.get_DatosVentaInventario('X', ventaSelectedVenta); //traigo de la base los datos del ventaa
+
+            string cantidadVendida = " ";
+
+            if (INFO.Rows.Count >= 1)
+            {
+                cantidadVendida = INFO.Rows[0][3].ToString();
+               
+            }
+
+            //CON ESA ACTUALIZO EL INVENTARIO EN PRODUCTO CON EL IDDEL PRODCUCTO SELECCIONADO
+            #region ACTUALIZA_INVENTARIO_PRODUCTO
+
+            MessageBox.Show("cantidad" + cantidadVendida, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+           
+            bool control = true;
+         
+            control = obj.add_Productos("Z", productoSelectedVenta, " ", 0, " ", " ", 0, Convert.ToDecimal(cantidadVendida));
+
+            if (!control)
+            {
+                MessageBox.Show("No se pudo actualizar el inventario del Producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+
+            }
+            MessageBox.Show("Se modificó correctamente el inventario del producto", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            #endregion
+
+            //AHORA SI ELIMINAMOS LA VENTA DE LA LISTA
+            enlace.get_DatosVentaInventario('D', ventaSelectedVenta);
+
+            MessageBox.Show("se eliminó correctamente el producto de la lista", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //mostrar lista de nuevo en el datagridview
+            var ventaGenerada = new DataTable();//creo tabla 
+            ventaGenerada = obj.get_DatosVenta('T', idVenta);//manda llamar el SP
+
+            dgv_Lista_PC.DataSource = ventaGenerada; //Asigna la info a la tabla
+        }
+
+        private void dgv_Lista_PC_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            var row = (sender as DataGridView).CurrentRow;
+            ventaSelectedVenta = Convert.ToInt32(row.Cells[8].Value.ToString()); //ID DE la venta SELECCIONADa
+            productoSelectedVenta = Convert.ToInt32(row.Cells[9].Value.ToString());//ID DEl producto SELECCIONADo
+        }
+        
     }
 }

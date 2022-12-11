@@ -57,6 +57,12 @@ BEGIN
 		WHERE  IdTicket = @IdTicket;
 	END;
 
+	IF @Accion = 'M'
+	BEGIN
+		Select MAX(IdTicket) 
+		 from Ticket
+	END;
+	
 
 	IF @Accion = '*'
 	BEGIN

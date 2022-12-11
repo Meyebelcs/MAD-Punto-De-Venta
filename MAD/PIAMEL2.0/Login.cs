@@ -15,7 +15,16 @@ namespace MAD._0
         private static int usuario;
         private static bool Admin;
         private static string NumCaja;
+        private static int compra = 0;
 
+        public void setEstadoCompra(int estado)
+        {
+            compra = estado;
+        }
+        public int getEstadoCompra()
+        {
+            return compra;
+        }
         public Login()
         {
             InitializeComponent();

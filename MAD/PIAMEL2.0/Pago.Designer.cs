@@ -34,10 +34,6 @@
             this.cb_opcionP_P = new System.Windows.Forms.ComboBox();
             this.btn_Agregar_P = new System.Windows.Forms.Button();
             this.dgv_Lista_P = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lbl_efectivo_P = new System.Windows.Forms.Label();
-            this.lbl_cambio_P = new System.Windows.Forms.Label();
             this.lbl_Total_P = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btn_pagar_P = new System.Windows.Forms.Button();
@@ -52,6 +48,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.montopagar = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.tp_fechaIngreso = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Lista_P)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,50 +95,6 @@
             this.dgv_Lista_P.Size = new System.Drawing.Size(478, 177);
             this.dgv_Lista_P.TabIndex = 3;
             this.dgv_Lista_P.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Lista_P_CellEndEdit);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Indigo;
-            this.label2.Location = new System.Drawing.Point(514, 448);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 17);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Pago en efectivo:";
-            this.label2.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Indigo;
-            this.label3.Location = new System.Drawing.Point(585, 480);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 17);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Cambio:";
-            this.label3.Visible = false;
-            // 
-            // lbl_efectivo_P
-            // 
-            this.lbl_efectivo_P.AutoSize = true;
-            this.lbl_efectivo_P.ForeColor = System.Drawing.Color.Indigo;
-            this.lbl_efectivo_P.Location = new System.Drawing.Point(662, 448);
-            this.lbl_efectivo_P.Name = "lbl_efectivo_P";
-            this.lbl_efectivo_P.Size = new System.Drawing.Size(53, 17);
-            this.lbl_efectivo_P.TabIndex = 6;
-            this.lbl_efectivo_P.Text = "$100.00";
-            this.lbl_efectivo_P.Visible = false;
-            // 
-            // lbl_cambio_P
-            // 
-            this.lbl_cambio_P.AutoSize = true;
-            this.lbl_cambio_P.ForeColor = System.Drawing.Color.Indigo;
-            this.lbl_cambio_P.Location = new System.Drawing.Point(662, 480);
-            this.lbl_cambio_P.Name = "lbl_cambio_P";
-            this.lbl_cambio_P.Size = new System.Drawing.Size(39, 17);
-            this.lbl_cambio_P.TabIndex = 7;
-            this.lbl_cambio_P.Text = "$5.00";
-            this.lbl_cambio_P.Visible = false;
             // 
             // lbl_Total_P
             // 
@@ -272,11 +226,12 @@
             this.montopagar.AutoSize = true;
             this.montopagar.Font = new System.Drawing.Font("Century Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.montopagar.ForeColor = System.Drawing.Color.Indigo;
-            this.montopagar.Location = new System.Drawing.Point(559, 373);
+            this.montopagar.Location = new System.Drawing.Point(543, 391);
             this.montopagar.Name = "montopagar";
             this.montopagar.Size = new System.Drawing.Size(108, 41);
             this.montopagar.TabIndex = 19;
             this.montopagar.Text = "$0.00";
+            this.montopagar.Visible = false;
             // 
             // label8
             // 
@@ -289,12 +244,35 @@
             this.label8.TabIndex = 20;
             this.label8.Text = "$";
             // 
+            // tp_fechaIngreso
+            // 
+            this.tp_fechaIngreso.CustomFormat = "yyyy-MM-dd/h:m:s";
+            this.tp_fechaIngreso.Enabled = false;
+            this.tp_fechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.tp_fechaIngreso.Location = new System.Drawing.Point(44, 113);
+            this.tp_fechaIngreso.Name = "tp_fechaIngreso";
+            this.tp_fechaIngreso.Size = new System.Drawing.Size(200, 22);
+            this.tp_fechaIngreso.TabIndex = 96;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.Indigo;
+            this.label12.Location = new System.Drawing.Point(41, 93);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(113, 17);
+            this.label12.TabIndex = 95;
+            this.label12.Text = "Fecha de Ingreso:";
+            // 
             // Pago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(758, 584);
+            this.Controls.Add(this.tp_fechaIngreso);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.montopagar);
             this.Controls.Add(this.lbl_fecha_PC);
@@ -308,10 +286,6 @@
             this.Controls.Add(this.btn_pagar_P);
             this.Controls.Add(this.lbl_Total_P);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.lbl_cambio_P);
-            this.Controls.Add(this.lbl_efectivo_P);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.dgv_Lista_P);
             this.Controls.Add(this.btn_Agregar_P);
             this.Controls.Add(this.cb_opcionP_P);
@@ -336,10 +310,6 @@
         private System.Windows.Forms.ComboBox cb_opcionP_P;
         private System.Windows.Forms.Button btn_Agregar_P;
         private System.Windows.Forms.DataGridView dgv_Lista_P;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lbl_efectivo_P;
-        private System.Windows.Forms.Label lbl_cambio_P;
         private System.Windows.Forms.Label lbl_Total_P;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_pagar_P;
@@ -354,5 +324,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label montopagar;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker tp_fechaIngreso;
+        private System.Windows.Forms.Label label12;
     }
 }

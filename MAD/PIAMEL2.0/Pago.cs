@@ -54,6 +54,12 @@ namespace MAD._0
 
         private void btn_pagar_P_Click(object sender, EventArgs e)
         {
+            if (hallegado!=true)
+            {
+                MessageBox.Show("Ingresa el monto requerido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             var resp = new DialogResult();
 
             resp = MessageBox.Show("¿Seguro que quiere realizar esta compra?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -64,10 +70,40 @@ namespace MAD._0
             }
 
             //SE GENERA EL TICKET 
+            //Si cumple toda las validaciones continua y guarda la info en la base de datos
+            var ticket = new EnlaceDB();
+            bool control;
+            PrincipalCajero idVenta = new PrincipalCajero();
+            Login gestor = new Login();
 
+
+            //TRAIGO ID DE TICKET X´S
+            var obj = new EnlaceDB();
+            var INFO = new DataTable();
+            INFO = obj.ConsultaTabla("spTipo_Pago", "M"); //traigo de la base los datos del empleado
+
+            string idtipopago= " ";
+            if (INFO.Rows.Count >= 1)
+            {
+                idtipopago = INFO.Rows[0][0].ToString();
+
+            }
+            //alta de ticket
+            control = ticket.add_Ticket("I", 0,idVenta.getidVenta() ,gestor.getCurrentIdUser() , Convert.ToInt32(idtipopago), tp_fechaIngreso.Value, Convert.ToInt32(gestor.getNumCaja()), idVenta.getSubTotal(), idVenta.getTotal(), 0);
+
+            if (!control)
+            {
+                MessageBox.Show("No se pudo agregar correctamente el ticket", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+
+            }
 
             MessageBox.Show("Pago realizado con éxito", "Compra exitosa", MessageBoxButtons.OK);
-           // this.Close();
+           this.Close();
+
+            //se reinicia todo
+            gestor.setEstadoCompra(1);
+
         }
 
         private void Pago_Load(object sender, EventArgs e)
@@ -101,6 +137,11 @@ namespace MAD._0
             if (cb_opcionP_P.SelectedIndex == -1)
             {
                 MessageBox.Show("Selecciona una opción de pago", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (hallegado == true)
+            {
+                MessageBox.Show("Ya ingresaste el monto suficiente, puedes hacer tu ticket", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -154,6 +195,10 @@ namespace MAD._0
                 return;
             }
 
+           
+            PrincipalCajero total = new PrincipalCajero();
+            PrincipalCajero idVenta = new PrincipalCajero();
+
             decimal Total = 0;
             for (int i = 0; i < dgv_Lista_P.RowCount - 1; i++)
             {
@@ -162,12 +207,27 @@ namespace MAD._0
 
 
                 //PREGUNTO SI LA SUMA YA LLEGO A LA CANTIDAD PEDIDA, DEJE DE METER MAS MONEY
-                //si la suma es > al total a pagar
-                //te excediste de dinero, cambia la cifra
-                //y asigna 0 de nuevo o no hace ningun update y solo carga la tabla de nuevo
-               //si llega a ser la cantidad exacta a pagar hallegado = true;
+                if (Total > total.getTotal()) //si la suma es > al total a pagar
+                {
+                    //te excediste de dinero, cambia la cifra
+                    //no hace ningun update y solo carga la tabla de nuev
 
+                    //la muestra en la tabla
+                    //muestro los tipos de pago de esa venta
+                    var obj2 = new EnlaceDB(); //creo objeto enlaceDB
+                    var tabla = new DataTable();//creo tabla 
+                    tabla = obj2.get_DatosTipoPago('T', idVenta.getidVenta());//manda llamar el SP
 
+                    dgv_Lista_P.DataSource = tabla; //Asigna la info a la tabla
+                    MessageBox.Show("te excediste de dinero, cambia la cifra", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                if (Total == total.getTotal())
+                {   //si llega a ser la cantidad exacta a pagar 
+                    //te excediste de dinero, cambia la cifra
+                    hallegado = true;
+                
+                }
 
                 var obj = new EnlaceDB(); //creo objeto enlaceDB
                 bool control = true;
@@ -177,9 +237,14 @@ namespace MAD._0
             }
             montopagar.Text = "$ " + Total.ToString();
 
-            decimal HayQuePagar= Convert.ToDecimal(lbl_Total_P.Text) - Total;
+            decimal HayQuePagar= total.getTotal() - Total;
 
             lbl_Total_P.Text = HayQuePagar.ToString();
+
+            //muestro los tipos de pago de esa venta
+            var obj3 = new EnlaceDB(); //creo objeto enlaceDB
+            var tabla2 = new DataTable();//creo tabla 
+            tabla2 = obj3.get_DatosTipoPago('T', idVenta.getidVenta());//manda llamar el SP
 
         }
     }

@@ -113,6 +113,7 @@
             this.dgv_Lista_PC.RowTemplate.Height = 24;
             this.dgv_Lista_PC.Size = new System.Drawing.Size(640, 458);
             this.dgv_Lista_PC.TabIndex = 0;
+            this.dgv_Lista_PC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Lista_PC_CellClick);
             // 
             // label1
             // 
@@ -309,6 +310,7 @@
             this.btn_eliminarP_PC.TabIndex = 18;
             this.btn_eliminarP_PC.Text = "Eliminar Producto";
             this.btn_eliminarP_PC.UseVisualStyleBackColor = false;
+            this.btn_eliminarP_PC.Click += new System.EventHandler(this.btn_eliminarP_PC_Click);
             // 
             // btn_ticket_PC
             // 

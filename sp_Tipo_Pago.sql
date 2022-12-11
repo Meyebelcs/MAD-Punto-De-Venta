@@ -50,6 +50,12 @@ BEGIN
 		WHERE IdTipo = @IdTipo;
 	END;
 
+	IF @Accion = 'M'
+	BEGIN
+		Select MAX(IdTipo) 
+		 from Tipo_Pago
+	END;
+
 	IF @Accion = 'T'
 	BEGIN
 		SELECT Opcion[Opcion de pago], IdPago[IdPago],IdTipo[IdTipo],MontopPagado[Monto a Pagar]

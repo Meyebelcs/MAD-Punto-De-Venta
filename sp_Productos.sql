@@ -70,10 +70,20 @@ BEGIN
 
 	IF @Accion = 'R'
     BEGIN
-	/*se actualiza el inventario*/
+	/*se actualiza el inventario RESTA LA VENTA*/
         UPDATE Productos 
 		SET
          CantidadDeInventario =  @CantidadDeInventario
+
+		WHERE IdProducto = @IdProducto 
+    END;
+
+	IF @Accion = 'Z'
+    BEGIN
+	/*se actualiza el inventario SUMA LA VENTA*/
+        UPDATE Productos 
+		SET
+         CantidadDeInventario = CantidadDeInventario + @CantidadDeInventario
 
 		WHERE IdProducto = @IdProducto 
     END;

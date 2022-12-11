@@ -392,7 +392,7 @@ CREATE TABLE Ticket(
 IdTicket          INT IDENTITY(1000000,1) NOT NULL PRIMARY KEY,
 IdVenta           INT NOT NULL,
 IdCajero          INT NOT NULL,
-IdTipoPago          INT NOT NULL,
+IdTipoPago          INT NOT NULL, /*no es necesario*/
 FechaHr           DATETIME NOT NULL,
 NumCaja           INT NOT NULL,
 Subtotal          MONEY NOT NULL,
@@ -420,17 +420,10 @@ ADD MontoCambio decimal(10,2) NULL
 ALTER TABLE Ticket
 ADD IdentificadorVenta INT  NULL
 
+ALTER TABLE Ticket
+DROP COLUMN IdentificadorVenta
 
-IdTicket         INT = NULL,
-IdVenta           INT = NULL,
-IdCajero         INT = NULL,
-IdTipoPago        INT = NULL,
-FechaHr           DATETIME = NULL,
-NumCaja          INT = NULL,
-Subtotal		decimal(10,2) =NULL,
-DescuentoTotal	decimal(10,2)= NULL,
-MontoCambio		decimal(10,2)= NULL,
-IdentificadorVenta	INT = NULL
+
 -----------------------------------------------------------------
 INSERT INTO Opcion_Pago( Nombre)
 VALUES('Efectivo');
@@ -620,12 +613,16 @@ and IdVenta = 1000001 and IdVenta = 1000002 and IdVenta = 1000003 and IdVenta = 
 
 DELETE 
 		FROM Venta 
-		WHERE  Identificador = 1000025;
+		WHERE  Identificador = 1000050;
 
 		
 DELETE 
 		FROM Tipo_Pago 
-		WHERE  Identificador = 1000026;
+		WHERE  IdVenta = 1000000;
+
+DELETE 
+FROM Ticket 
+WHERE  IdTicket = 1000003;
 
 UPDATE Cajero
 		SET

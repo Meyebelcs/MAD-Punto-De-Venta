@@ -84,10 +84,18 @@ BEGIN
 	IF @Accion = 'T'
 	BEGIN
 		SELECT NombreProducto[Nombre Producto],CantidadProducto[Cantidad Vendida],UnidadMedida[Unidad de Medida],Costo[Costo],Descuento[Descuento],subtotal[subtotal],Total[Total],
-		Departamento[Departamento]
+		Departamento[Departamento],IdVenta[IdVenta],IdProducto[IdProducto]
 		FROM Venta  
 		WHERE Identificador = @Identificador;
 	END;
+
+	IF @Accion = 'X'
+	BEGIN
+		SELECT IdVenta[IdVenta],IdProducto[IdProducto],NombreProducto[Nombre Producto],CantidadProducto[Cantidad Vendida],CostoUnitario[CostoUnitario],Costo[Costo],Descuento[Descuento],subtotal[subtotal],Total[Total],
+		Departamento[Departamento],MontoCambio[Monto Cambio],MontopPagado[Monto Pagado],FechaRegistro[FechaRegistro],NombreCajero[Nombre Cajero],IdCajero[IdCajero],IdDepartamento[IdDepartamento],UnidadMedida[Unidad de Medida]
+		FROM Venta  
+		WHERE IdVenta = @IdVenta;
+	 END;
 
 	IF @Accion = '*'
 	BEGIN
