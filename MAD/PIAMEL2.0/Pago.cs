@@ -89,7 +89,7 @@ namespace MAD._0
 
             }
             //alta de ticket
-            control = ticket.add_Ticket("I", 0,idVenta.getidVenta() ,gestor.getCurrentIdUser() , Convert.ToInt32(idtipopago), tp_fechaIngreso.Value, Convert.ToInt32(gestor.getNumCaja()), idVenta.getSubTotal(), idVenta.getTotal(), 0);
+            control = ticket.add_Ticket("I", 0,idVenta.getidVenta() ,gestor.getCurrentIdUser() , Convert.ToInt32(idtipopago), tp_fechaIngreso.Value, Convert.ToInt32(gestor.getNumCaja()), idVenta.getSubTotal(), idVenta.getTotal(), 0, gestor.getidcaja());
 
             if (!control)
             {

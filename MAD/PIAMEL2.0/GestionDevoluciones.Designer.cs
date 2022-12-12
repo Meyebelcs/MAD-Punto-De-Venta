@@ -39,9 +39,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_idticket = new System.Windows.Forms.TextBox();
             this.btn_buscar = new System.Windows.Forms.Button();
-            this.dgv_ticket = new System.Windows.Forms.DataGridView();
+            this.dgv_DEVOLUCIONES = new System.Windows.Forms.DataGridView();
             this.btn_AgregarP = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_motivo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_producto = new System.Windows.Forms.TextBox();
@@ -51,9 +51,18 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txt_departamento = new System.Windows.Forms.TextBox();
             this.btn_crearNota = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.idnotacredito = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_ticket)).BeginInit();
+            this.ID_producto = new System.Windows.Forms.Label();
+            this.id_depa = new System.Windows.Forms.Label();
+            this.IDTICKET = new System.Windows.Forms.Label();
+            this.tp_fechaIngreso = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this.CANTIDAD = new System.Windows.Forms.Label();
+            this.SUBTOTAL = new System.Windows.Forms.Label();
+            this.IDVENTA = new System.Windows.Forms.Label();
+            this.idcaja = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DEVOLUCIONES)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_regresar_GR
@@ -145,16 +154,17 @@
             this.btn_buscar.UseVisualStyleBackColor = false;
             this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
             // 
-            // dgv_ticket
+            // dgv_DEVOLUCIONES
             // 
-            this.dgv_ticket.BackgroundColor = System.Drawing.SystemColors.MenuBar;
-            this.dgv_ticket.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgv_ticket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_ticket.Location = new System.Drawing.Point(40, 168);
-            this.dgv_ticket.Name = "dgv_ticket";
-            this.dgv_ticket.RowHeadersWidth = 51;
-            this.dgv_ticket.Size = new System.Drawing.Size(535, 339);
-            this.dgv_ticket.TabIndex = 28;
+            this.dgv_DEVOLUCIONES.BackgroundColor = System.Drawing.SystemColors.MenuBar;
+            this.dgv_DEVOLUCIONES.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgv_DEVOLUCIONES.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_DEVOLUCIONES.Location = new System.Drawing.Point(40, 168);
+            this.dgv_DEVOLUCIONES.Name = "dgv_DEVOLUCIONES";
+            this.dgv_DEVOLUCIONES.RowHeadersWidth = 51;
+            this.dgv_DEVOLUCIONES.Size = new System.Drawing.Size(535, 339);
+            this.dgv_DEVOLUCIONES.TabIndex = 28;
+            this.dgv_DEVOLUCIONES.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DEVOLUCIONES_CellClick);
             // 
             // btn_AgregarP
             // 
@@ -168,13 +178,13 @@
             this.btn_AgregarP.UseVisualStyleBackColor = false;
             this.btn_AgregarP.Click += new System.EventHandler(this.btn_AgregarP_Click);
             // 
-            // textBox2
+            // txt_motivo
             // 
-            this.textBox2.Location = new System.Drawing.Point(808, 307);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(176, 94);
-            this.textBox2.TabIndex = 30;
+            this.txt_motivo.Location = new System.Drawing.Point(808, 307);
+            this.txt_motivo.Multiline = true;
+            this.txt_motivo.Name = "txt_motivo";
+            this.txt_motivo.Size = new System.Drawing.Size(176, 94);
+            this.txt_motivo.TabIndex = 30;
             // 
             // label2
             // 
@@ -201,6 +211,7 @@
             this.txt_producto.Enabled = false;
             this.txt_producto.Location = new System.Drawing.Point(808, 179);
             this.txt_producto.Name = "txt_producto";
+            this.txt_producto.ReadOnly = true;
             this.txt_producto.Size = new System.Drawing.Size(176, 24);
             this.txt_producto.TabIndex = 33;
             // 
@@ -219,6 +230,7 @@
             this.txt_monto.Enabled = false;
             this.txt_monto.Location = new System.Drawing.Point(808, 253);
             this.txt_monto.Name = "txt_monto";
+            this.txt_monto.ReadOnly = true;
             this.txt_monto.Size = new System.Drawing.Size(176, 24);
             this.txt_monto.TabIndex = 35;
             // 
@@ -248,6 +260,7 @@
             this.txt_departamento.Enabled = false;
             this.txt_departamento.Location = new System.Drawing.Point(808, 215);
             this.txt_departamento.Name = "txt_departamento";
+            this.txt_departamento.ReadOnly = true;
             this.txt_departamento.Size = new System.Drawing.Size(176, 24);
             this.txt_departamento.TabIndex = 38;
             // 
@@ -263,13 +276,14 @@
             this.btn_crearNota.UseVisualStyleBackColor = false;
             this.btn_crearNota.Click += new System.EventHandler(this.btn_crearNota_Click);
             // 
-            // textBox1
+            // idnotacredito
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(808, 478);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(176, 24);
-            this.textBox1.TabIndex = 41;
+            this.idnotacredito.Enabled = false;
+            this.idnotacredito.Location = new System.Drawing.Point(808, 478);
+            this.idnotacredito.Name = "idnotacredito";
+            this.idnotacredito.ReadOnly = true;
+            this.idnotacredito.Size = new System.Drawing.Size(176, 24);
+            this.idnotacredito.TabIndex = 41;
             // 
             // label7
             // 
@@ -281,13 +295,120 @@
             this.label7.TabIndex = 40;
             this.label7.Text = "Código de Nota de crédito";
             // 
+            // ID_producto
+            // 
+            this.ID_producto.AutoSize = true;
+            this.ID_producto.ForeColor = System.Drawing.Color.Indigo;
+            this.ID_producto.Location = new System.Drawing.Point(626, 184);
+            this.ID_producto.Name = "ID_producto";
+            this.ID_producto.Size = new System.Drawing.Size(94, 19);
+            this.ID_producto.TabIndex = 42;
+            this.ID_producto.Text = "ID_producto";
+            this.ID_producto.Visible = false;
+            // 
+            // id_depa
+            // 
+            this.id_depa.AutoSize = true;
+            this.id_depa.ForeColor = System.Drawing.Color.Indigo;
+            this.id_depa.Location = new System.Drawing.Point(595, 218);
+            this.id_depa.Name = "id_depa";
+            this.id_depa.Size = new System.Drawing.Size(65, 19);
+            this.id_depa.TabIndex = 43;
+            this.id_depa.Text = "d_depa";
+            this.id_depa.Visible = false;
+            // 
+            // IDTICKET
+            // 
+            this.IDTICKET.AutoSize = true;
+            this.IDTICKET.ForeColor = System.Drawing.Color.Indigo;
+            this.IDTICKET.Location = new System.Drawing.Point(595, 253);
+            this.IDTICKET.Name = "IDTICKET";
+            this.IDTICKET.Size = new System.Drawing.Size(60, 19);
+            this.IDTICKET.TabIndex = 44;
+            this.IDTICKET.Text = "idticket";
+            this.IDTICKET.Visible = false;
+            // 
+            // tp_fechaIngreso
+            // 
+            this.tp_fechaIngreso.CustomFormat = "yyyy-MM-dd/h:m:s";
+            this.tp_fechaIngreso.Enabled = false;
+            this.tp_fechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.tp_fechaIngreso.Location = new System.Drawing.Point(598, 557);
+            this.tp_fechaIngreso.Name = "tp_fechaIngreso";
+            this.tp_fechaIngreso.Size = new System.Drawing.Size(200, 24);
+            this.tp_fechaIngreso.TabIndex = 94;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Indigo;
+            this.label9.Location = new System.Drawing.Point(595, 537);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(132, 19);
+            this.label9.TabIndex = 93;
+            this.label9.Text = "Fecha de Ingreso:";
+            // 
+            // CANTIDAD
+            // 
+            this.CANTIDAD.AutoSize = true;
+            this.CANTIDAD.ForeColor = System.Drawing.Color.Indigo;
+            this.CANTIDAD.Location = new System.Drawing.Point(598, 382);
+            this.CANTIDAD.Name = "CANTIDAD";
+            this.CANTIDAD.Size = new System.Drawing.Size(138, 19);
+            this.CANTIDAD.TabIndex = 95;
+            this.CANTIDAD.Text = "cantidadDevuelta";
+            this.CANTIDAD.Visible = false;
+            // 
+            // SUBTOTAL
+            // 
+            this.SUBTOTAL.AutoSize = true;
+            this.SUBTOTAL.ForeColor = System.Drawing.Color.Indigo;
+            this.SUBTOTAL.Location = new System.Drawing.Point(598, 408);
+            this.SUBTOTAL.Name = "SUBTOTAL";
+            this.SUBTOTAL.Size = new System.Drawing.Size(65, 19);
+            this.SUBTOTAL.TabIndex = 96;
+            this.SUBTOTAL.Text = "subtotal";
+            this.SUBTOTAL.Visible = false;
+            // 
+            // IDVENTA
+            // 
+            this.IDVENTA.AutoSize = true;
+            this.IDVENTA.ForeColor = System.Drawing.Color.Indigo;
+            this.IDVENTA.Location = new System.Drawing.Point(614, 144);
+            this.IDVENTA.Name = "IDVENTA";
+            this.IDVENTA.Size = new System.Drawing.Size(63, 19);
+            this.IDVENTA.TabIndex = 97;
+            this.IDVENTA.Text = "IDVENTA";
+            this.IDVENTA.Visible = false;
+            // 
+            // idcaja
+            // 
+            this.idcaja.AutoSize = true;
+            this.idcaja.ForeColor = System.Drawing.Color.Indigo;
+            this.idcaja.Location = new System.Drawing.Point(598, 442);
+            this.idcaja.Name = "idcaja";
+            this.idcaja.Size = new System.Drawing.Size(54, 19);
+            this.idcaja.TabIndex = 98;
+            this.idcaja.Text = "idcaja";
+            this.idcaja.Visible = false;
+            // 
             // GestionDevoluciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1020, 612);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.idcaja);
+            this.Controls.Add(this.IDVENTA);
+            this.Controls.Add(this.SUBTOTAL);
+            this.Controls.Add(this.CANTIDAD);
+            this.Controls.Add(this.tp_fechaIngreso);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.IDTICKET);
+            this.Controls.Add(this.id_depa);
+            this.Controls.Add(this.ID_producto);
+            this.Controls.Add(this.idnotacredito);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btn_crearNota);
             this.Controls.Add(this.txt_departamento);
@@ -298,9 +419,9 @@
             this.Controls.Add(this.txt_producto);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_motivo);
             this.Controls.Add(this.btn_AgregarP);
-            this.Controls.Add(this.dgv_ticket);
+            this.Controls.Add(this.dgv_DEVOLUCIONES);
             this.Controls.Add(this.btn_buscar);
             this.Controls.Add(this.txt_idticket);
             this.Controls.Add(this.label1);
@@ -318,7 +439,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GestionDevoluciones";
             this.Load += new System.EventHandler(this.GestionDevoluciones_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_ticket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DEVOLUCIONES)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,9 +456,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_idticket;
         private System.Windows.Forms.Button btn_buscar;
-        private System.Windows.Forms.DataGridView dgv_ticket;
+        private System.Windows.Forms.DataGridView dgv_DEVOLUCIONES;
         private System.Windows.Forms.Button btn_AgregarP;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_motivo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_producto;
@@ -347,7 +468,16 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_departamento;
         private System.Windows.Forms.Button btn_crearNota;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox idnotacredito;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label ID_producto;
+        private System.Windows.Forms.Label id_depa;
+        private System.Windows.Forms.Label IDTICKET;
+        private System.Windows.Forms.DateTimePicker tp_fechaIngreso;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label CANTIDAD;
+        private System.Windows.Forms.Label SUBTOTAL;
+        private System.Windows.Forms.Label IDVENTA;
+        private System.Windows.Forms.Label idcaja;
     }
 }

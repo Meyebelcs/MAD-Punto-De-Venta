@@ -1,7 +1,7 @@
 USE DB_MAD;
 Go
 
-/*-----------------------------spAdministrador-------------------------------------------*/
+/*-----------------------------spTicket-------------------------------------------*/
 IF OBJECT_ID('spTicket')IS NOT NULL
 BEGIN
 DROP PROCEDURE spTicket;
@@ -18,8 +18,8 @@ CREATE PROCEDURE spTicket(
 @NumCaja            INT = NULL,
 @Subtotal           decimal(10,2) =NULL,
 @DescuentoTotal     decimal(10,2) =NULL,
-@MontoCambio		decimal(10,2)= NULL
-
+@MontoCambio		decimal(10,2)= NULL,
+@IdCaja				INT = NULL
 )
 AS
 
@@ -30,8 +30,8 @@ BEGIN
 
 	IF @Accion = 'I'
 	BEGIN
-		INSERT INTO Ticket(IdVenta,IdCajero,IdTipoPago,FechaHr,NumCaja,Subtotal,DescuentoTotal,MontoCambio)
-		VALUES(@IdVenta,@IdCajero,@IdTipoPago,@FechaHr,@NumCaja,@Subtotal,@DescuentoTotal,@MontoCambio);
+		INSERT INTO Ticket(IdVenta,IdCajero,IdTipoPago,FechaHr,NumCaja,Subtotal,DescuentoTotal,MontoCambio,IdCaja)
+		VALUES(@IdVenta,@IdCajero,@IdTipoPago,@FechaHr,@NumCaja,@Subtotal,@DescuentoTotal,@MontoCambio,@IdCaja);
 	END;
 
 	IF @Accion = 'U'
@@ -63,6 +63,14 @@ BEGIN
 		 from Ticket
 	END;
 	
+	IF @Accion = 'T'
+	BEGIN
+		SELECT IdTicket [IdTicket],IdVenta[IdVenta],IdCajero[IdCajero],IdTipoPago[IdTipoPago],FechaHr[Fecha],NumCaja[Numero de Caja],IdCaja[IdCaja],
+		Subtotal[Subtotal],DescuentoTotal[Descuento Total],MontoCambio[MontoCambio]
+		FROM Ticket  
+		WHERE IdTicket =  @IdTicket
+
+ END;
 
 	IF @Accion = '*'
 	BEGIN

@@ -226,6 +226,9 @@ ADD UnidadMedida VARCHAR(30) NULL
 ALTER TABLE Venta
 ADD Identificador INT NULL
 
+ALTER TABLE Venta
+ADD Eliminacion BIT NULL
+
 -----------------------------------------------------------------
 
 IF OBJECT_ID('Descuento')IS NOT NULL
@@ -324,6 +327,13 @@ CONSTRAINT FK_DEVOLUCION_IDAD FOREIGN KEY (IdAdministrador)
 
 ALTER TABLE Devolucion
 ADD Motivo VARCHAR(80) NULL
+
+ALTER TABLE Devolucion
+ADD FechaRegistro datetime NULL
+
+ALTER TABLE Devolucion
+ADD IdTicket INT NULL
+
 -----------------------------------------------------------------
 
 IF OBJECT_ID('NotaCredito')IS NOT NULL
@@ -352,10 +362,16 @@ ALTER TABLE NotaCredito
 ALTER COLUMN total decimal(10,2) NULL
 
 ALTER TABLE NotaCredito
+ALTER COLUMN cantidad decimal(10,2) NULL
+
+ALTER TABLE NotaCredito
 ADD FechaDevolucion DATETIME NULL
 
 ALTER TABLE NotaCredito
 ADD IdCaja INT NULL
+
+ALTER TABLE NotaCredito
+ADD IdDevolucion INT NULL
 
 -----------------------------------------------------------------
 
@@ -426,7 +442,8 @@ ADD IdentificadorVenta INT  NULL
 ALTER TABLE Ticket
 DROP COLUMN IdentificadorVenta
 
-
+ALTER TABLE Ticket
+ADD IdCaja INT  NULL
 -----------------------------------------------------------------
 INSERT INTO Opcion_Pago( Nombre)
 VALUES('Efectivo');
@@ -539,6 +556,9 @@ VALUES(1000003,1000001,1000001);
 
 INSERT INTO Devolucion( IdVenta,Merma, IdProducto, IdDepartamento, IdAdministrador)
 VALUES(1000000,'0', 1000000,1000000,1000000);
+
+INSERT INTO NotaCredito(idProducto,idTicket,cantidad,subtotal,total,FechaDevolucion,IdCaja)
+VALUES(1000000,1000005,0,0,0,'11-01-2022',1000000);
 ----
 
 INSERT INTO Caja(Numero, IdAdministrador,IdCajero)
@@ -569,8 +589,12 @@ SELECT *FROM Tipo_Pago
 SELECT *FROM Caja
 SELECT *FROM Ticket
 SELECT *FROM NotaCredito
+SELECT *FROM Devolucion
+
 
 SELECT dbo.fn_busquedaCajero(1000000)
+
+
 
 Select MAX(IdEmpleados) AS maximo from Empleados
 
@@ -578,7 +602,7 @@ SELECT Top 1 IdEmpleados
 From Empleados
 order by IdEmpleados desc
 
-SELECT dbo.fn_IdProvisional() 
+SELECT dbo.fn_IdProvisionalNotaCredito() 
 
 SELECT dbo.fn_busquedaDepartamento(1000000) 
 
@@ -610,33 +634,33 @@ ALTER TABLE Empleados
 ALTER COLUMN Nombre VARCHAR(50) NOT NULL
 
 DELETE FROM Venta 
-WHERE IdVenta = 1000005 
+WHERE IdVenta = 1000001 
 
 and IdVenta = 1000001 and IdVenta = 1000002 and IdVenta = 1000003 and IdVenta = 1000004 and IdVenta = 1000005
 
 DELETE 
-		FROM Productos 
-		WHERE  IdProducto = 1000008;
+		FROM NotaCredito 
+		WHERE  IdNotaCredito = 1000001;
 
 		
 DELETE 
 		FROM Tipo_Pago 
-		WHERE  IdVenta = 1000000;
+		WHERE  IdVenta = 1000011;
 
 DELETE 
-FROM Ticket 
-WHERE  IdTicket = 1000003;
+FROM Devolucion 
+WHERE  IdDevolucion = 1000000;
 
-UPDATE Cajero
+UPDATE Productos
+		SET
+			UnidaddeMedida = 'Kilogramos'
+WHERE IdProducto= 1000001;
+
+
+UPDATE Venta
 		SET
 			Eliminacion = 0
-WHERE IdEmpleado= 1000006;
-
-
-UPDATE Descuento
-		SET
-			Eliminacion = 0
-WHERE IdEmpleado = 1000003;
+WHERE IdVenta = 1000047;
 
 UPDATE Empleados
 		SET

@@ -77,6 +77,15 @@ BEGIN
 		WHERE  IdDescuento = @IdDescuento;
 	END;
 
+	IF @Accion = 'P' 
+	/*eliminacion logica*/
+	BEGIN
+		UPDATE Descuento 
+		SET
+			Eliminacion = 1 
+		WHERE  IdProducto = @IdProducto;
+	END;
+
 
 	IF @Accion = '*'
 	BEGIN

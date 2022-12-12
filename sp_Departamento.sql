@@ -83,6 +83,13 @@ BEGIN
 		WHERE IdDepartamento = @IdDepartamento and Eliminacion = 0;
 	END;
 
+	IF @Accion = 'C'
+	BEGIN
+		SELECT  PermiteDevolucion[Permite Devolucion]
+		FROM Departamento  
+		WHERE  IdDepartamento = @IdDepartamento;
+	END;
+
 	IF @Accion = 'T'
 	BEGIN
 		SELECT  IdDepartamento[IdDepartamento], Nombre[Nombre],Descripcion[Descripcion],IdAdminstrador[IdAdmins],PermiteDevolucion[Permite Devolucion],Eliminacion[Eliminacion],FechaIngreso[Fecha Ingreso]

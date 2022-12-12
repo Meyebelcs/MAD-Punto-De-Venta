@@ -27,7 +27,9 @@ CREATE PROCEDURE spVenta(
 @IdCajero			INT= NULL,
 @IdDepartamento		INT = NULL,
 @UnidadMedida		VARCHAR(30) = NULL,
-@Identificador   INT = NULL
+@Identificador   INT = NULL,
+@Eliminacion BIT= NULL
+
 )
 AS
 
@@ -38,8 +40,8 @@ BEGIN
 
 	IF @Accion = 'I'
 	BEGIN
-		INSERT INTO Venta(IdProducto,NombreProducto,CantidadProducto,CostoUnitario,Costo,Descuento,subtotal,Total,Departamento,MontoCambio,MontopPagado,FechaRegistro,NombreCajero,IdCajero,IdDepartamento,UnidadMedida,Identificador)
-		VALUES(@IdProducto,@NombreProducto,@CantidadProducto,@CostoUnitario,@Costo,@Descuento,@subtotal,@Total,@Departamento,@MontoCambio,@MontopPagado,@FechaRegistro,@NombreCajero,@IdCajero,@IdDepartamento,@UnidadMedida,@Identificador);
+		INSERT INTO Venta(IdProducto,NombreProducto,CantidadProducto,CostoUnitario,Costo,Descuento,subtotal,Total,Departamento,MontoCambio,MontopPagado,FechaRegistro,NombreCajero,IdCajero,IdDepartamento,UnidadMedida,Identificador,Eliminacion)
+		VALUES(@IdProducto,@NombreProducto,@CantidadProducto,@CostoUnitario,@Costo,@Descuento,@subtotal,@Total,@Departamento,@MontoCambio,@MontopPagado,@FechaRegistro,@NombreCajero,@IdCajero,@IdDepartamento,@UnidadMedida,@Identificador,0);
 	END;
 
 	IF @Accion = 'U'
@@ -74,6 +76,14 @@ BEGIN
 		WHERE  IdVenta = @IdVenta;
 	END;
 
+	IF @Accion = 'E' 
+	/*eliminacion logica*/
+	BEGIN
+		UPDATE Venta 
+		SET
+			Eliminacion = 1 
+			WHERE  IdVenta = @IdVenta
+	END;
 	
 	IF @Accion = 'M'
 	BEGIN
@@ -89,11 +99,20 @@ BEGIN
 		WHERE Identificador = @Identificador;
 	END;
 
+		IF @Accion = 'O'
+	BEGIN
+		SELECT V.IdVenta[IdVenta],V.IdProducto[IdProducto],V.NombreProducto[Nombre Producto],V.CantidadProducto[Cantidad Vendida],V.CostoUnitario[CostoUnitario],V.Costo[Costo],V.Descuento[Descuento],V.subtotal[subtotal],V.Total[Total],
+		V.Departamento[Departamento],V.MontoCambio[Monto Cambio],V.MontopPagado[Monto Pagado],V.FechaRegistro[FechaRegistro],V.NombreCajero[Nombre Cajero],V.IdCajero[IdCajero],V.IdDepartamento[IdDepartamento],V.UnidadMedida[Unidad de Medida], T.IdCaja[IdCaja], V.Eliminacion[Eliminacion]
+		FROM Venta V JOIN Ticket T
+		on V.Identificador = T.IdVenta
+		WHERE V.IdVenta = @IdVenta;
+	 END;
+
 	IF @Accion = 'X'
 	BEGIN
 		SELECT IdVenta[IdVenta],IdProducto[IdProducto],NombreProducto[Nombre Producto],CantidadProducto[Cantidad Vendida],CostoUnitario[CostoUnitario],Costo[Costo],Descuento[Descuento],subtotal[subtotal],Total[Total],
 		Departamento[Departamento],MontoCambio[Monto Cambio],MontopPagado[Monto Pagado],FechaRegistro[FechaRegistro],NombreCajero[Nombre Cajero],IdCajero[IdCajero],IdDepartamento[IdDepartamento],UnidadMedida[Unidad de Medida]
-		FROM Venta  
+		FROM Venta 
 		WHERE IdVenta = @IdVenta;
 	 END;
 

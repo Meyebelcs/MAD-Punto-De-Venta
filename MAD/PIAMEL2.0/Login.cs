@@ -16,7 +16,15 @@ namespace MAD._0
         private static bool Admin;
         private static string NumCaja;
         private static int compra = 0;
-
+        private static int idcaja=0;
+        public int getidcaja()
+        {
+            return idcaja;
+        }
+        public void setidcaja(int idcajaactual)
+        {
+            idcaja = idcajaactual;
+        }
         public void setEstadoCompra(int estado)
         {
             compra = estado;

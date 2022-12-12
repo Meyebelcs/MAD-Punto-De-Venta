@@ -1521,7 +1521,7 @@ namespace MAD._0
         }
 
         //TICKET
-        public bool add_Ticket(string opc, int IdTicket, int IdVenta, int IdCajero, int IdTipoPago, DateTime FechaHr, int NumCaja, decimal Subtotal , decimal DescuentoTotal, decimal MontoCambio)
+        public bool add_Ticket(string opc, int IdTicket, int IdVenta, int IdCajero, int IdTipoPago, DateTime FechaHr, int NumCaja, decimal Subtotal , decimal DescuentoTotal, decimal MontoCambio, int IdCaja)
         {
             var msg = "";
             var add = true;
@@ -1559,6 +1559,190 @@ namespace MAD._0
                 _comandosql.Parameters["@MontoCambio"].Precision = 10;
                 _comandosql.Parameters["@MontoCambio"].Scale = 2;
                 parametro10.Value = MontoCambio;
+                var parametro11 = _comandosql.Parameters.Add("@IdCaja", SqlDbType.Int, 20);
+                parametro11.Value = IdCaja;
+                
+
+                _adaptador.InsertCommand = _comandosql;
+
+                _comandosql.ExecuteNonQuery();
+
+            }
+            catch (SqlException e)
+            {
+                add = false;
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return add;
+        }
+        public DataTable get_DatosTicket(char op, int IdTicket)
+        {
+            var msg = "";
+            DataTable tabla = new DataTable();
+            try
+            {
+                conectar();
+                string qry = "spTicket";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = op;
+                var parametro2 = _comandosql.Parameters.Add("@IdTicket", SqlDbType.Int, 20);
+                parametro2.Value = IdTicket;
+
+                _adaptador.SelectCommand = _comandosql;
+                _adaptador.Fill(tabla);
+
+            }
+            catch (SqlException e)
+            {
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return tabla;
+        }
+        //DEVOLUCIONES
+        public DataTable get_DatosDevolucion(char op, int IdVenta)
+        {
+            var msg = "";
+            DataTable tabla = new DataTable();
+            try
+            {
+                conectar();
+                string qry = "spDevolucion";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = op;
+                var parametro2 = _comandosql.Parameters.Add("@IdVenta", SqlDbType.Int, 20);
+                parametro2.Value = IdVenta;
+
+                _adaptador.SelectCommand = _comandosql;
+                _adaptador.Fill(tabla);
+
+            }
+            catch (SqlException e)
+            {
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return tabla;
+        }
+
+        public bool add_Devolucion(string opc, int IdDevolucion, int IdProducto, int IdDepartamento, int IdAdministrador, int IdVenta, int Merma, string Motivo, DateTime FechaRegistro, int IdTicket)
+        {
+            var msg = "";
+            var add = true;
+            try
+            {
+                conectar();
+                string qry = "spDevolucion";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = opc;
+                var parametro2 = _comandosql.Parameters.Add("@IdDevolucion", SqlDbType.Int, 20);
+                parametro2.Value = IdDevolucion;
+                var parametro3 = _comandosql.Parameters.Add("@IdProducto", SqlDbType.Int, 20);
+                parametro3.Value = IdProducto;
+                var parametro4 = _comandosql.Parameters.Add("@IdDepartamento", SqlDbType.Int, 20);
+                parametro4.Value = IdDepartamento;
+                var parametro5 = _comandosql.Parameters.Add("@IdAdministrador", SqlDbType.Int, 20);
+                parametro5.Value = IdAdministrador;
+                var parametro6 = _comandosql.Parameters.Add("@IdVenta", SqlDbType.Int, 20);
+                parametro6.Value = IdVenta;
+                var parametro7 = _comandosql.Parameters.Add("@Merma", SqlDbType.Int, 1);
+                parametro7.Value = Merma;
+                var parametro8 = _comandosql.Parameters.Add("@Motivo", SqlDbType.VarChar, 100);
+                parametro8.Value = Motivo;
+                var parametro9 = _comandosql.Parameters.Add("@FechaRegistro", SqlDbType.DateTime);
+                parametro9.Value = FechaRegistro;
+                var parametro10 = _comandosql.Parameters.Add("@IdTicket", SqlDbType.Int, 20);
+                parametro10.Value = IdTicket;
+
+
+                _adaptador.InsertCommand = _comandosql;
+
+                _comandosql.ExecuteNonQuery();
+
+            }
+            catch (SqlException e)
+            {
+                add = false;
+                msg = "Excepción de base de datos: \n";
+                msg += e.Message;
+                MessageBox.Show(msg, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            finally
+            {
+                desconectar();
+            }
+
+            return add;
+        }
+
+        //NOTA CREDITO
+        public bool add_NotaCredito(string opc, int IdProducto, int IdTicket, decimal cantidad, decimal subtotal, decimal total, DateTime FechaDevolucion, int IdCaja, int IdDevolucion)
+        {
+            var msg = "";
+            var add = true;
+            try
+            {
+                conectar();
+                string qry = "spNotaCredito";
+                _comandosql = new SqlCommand(qry, _conexion);
+                _comandosql.CommandType = CommandType.StoredProcedure;
+                _comandosql.CommandTimeout = 1200;
+
+                var parametro1 = _comandosql.Parameters.Add("@Accion", SqlDbType.Char, 1);
+                parametro1.Value = opc;
+                var parametro3 = _comandosql.Parameters.Add("@IdProducto", SqlDbType.Int, 20);
+                parametro3.Value = IdProducto;
+                var parametro4 = _comandosql.Parameters.Add("@idTicket", SqlDbType.Int, 20);
+                parametro4.Value = IdTicket;
+                var parametro5 = _comandosql.Parameters.Add("@cantidad", SqlDbType.Decimal, 10);
+                _comandosql.Parameters["@cantidad"].Precision = 10;
+                _comandosql.Parameters["@cantidad"].Scale = 2;
+                parametro5.Value = cantidad;
+                var parametro6 = _comandosql.Parameters.Add("@subtotal", SqlDbType.Decimal, 10);
+                _comandosql.Parameters["@subtotal"].Precision = 10;
+                _comandosql.Parameters["@subtotal"].Scale = 2;
+                parametro6.Value = subtotal;
+                var parametro7 = _comandosql.Parameters.Add("@total", SqlDbType.Decimal, 10);
+                _comandosql.Parameters["@total"].Precision = 10;
+                _comandosql.Parameters["@total"].Scale = 2;
+                parametro7.Value = total;
+                var parametro8 = _comandosql.Parameters.Add("@FechaDevolucion", SqlDbType.DateTime);
+                parametro8.Value = FechaDevolucion;
+                var parametro9 = _comandosql.Parameters.Add("@IdCaja", SqlDbType.Int, 20);
+                parametro9.Value = IdCaja;
+                var parametro10 = _comandosql.Parameters.Add("@IdDevolucion", SqlDbType.Int, 20);
+                parametro10.Value = IdDevolucion;
 
 
                 _adaptador.InsertCommand = _comandosql;

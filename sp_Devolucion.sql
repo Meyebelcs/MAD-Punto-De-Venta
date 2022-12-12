@@ -1,7 +1,7 @@
 USE DB_MAD;
 Go
 
-/*-----------------------------spAdministrador-------------------------------------------*/
+/*-----------------------------spDevolucion-------------------------------------------*/
 IF OBJECT_ID('spDevolucion')IS NOT NULL
 BEGIN
 DROP PROCEDURE spDevolucion;
@@ -18,7 +18,7 @@ CREATE PROCEDURE spDevolucion(
 @Merma                BIT  = NULL,
 @Motivo				 VARCHAR(80)= NULL,
 @FechaRegistro datetime =NULL,
-@IdTicket INT NULL
+@IdTicket INT =NULL
 
 )
 AS
@@ -61,6 +61,21 @@ BEGIN
 		SELECT IdDevolucion[IdDevoluion],IdVenta[IdVenta],Merma[Merma], IdProducto[IdPreductos],IdDepartamento[IdDepartamento],IdAdministrador[IdAdministrador],Motivo[IdAdministrador]
 		FROM Devolucion 
 		ORDER BY IdDevolucion;
+	END;
+
+		IF @Accion = 'C'
+	BEGIN
+		SELECT NombreProducto[Nombre Producto],CantidadProducto[Cantidad Vendida],UnidadMedida[Unidad de Medida],Costo[Costo],Descuento[Descuento],subtotal[subtotal],Total[Total],
+		Departamento[Departamento],IdVenta[IdVenta],IdProducto[IdProducto]
+		FROM Venta 
+		where  Identificador = @IdVenta
+	END;
+
+		IF @Accion = 'V'
+	BEGIN
+		SELECT IdDevolucion[IdDevoluion]
+		FROM Devolucion 
+		where  IdVenta = @IdVenta
 	END;
 
 	IF @Accion = '*'

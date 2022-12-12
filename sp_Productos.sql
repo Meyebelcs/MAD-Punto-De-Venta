@@ -70,7 +70,7 @@ BEGIN
 
 	IF @Accion = 'R'
     BEGIN
-	/*se actualiza el inventario RESTA LA VENTA*/
+	/*se actualiza el inventario */
         UPDATE Productos 
 		SET
          CantidadDeInventario =  @CantidadDeInventario
@@ -152,8 +152,8 @@ BEGIN
 	 IF @Accion = 'J'
     BEGIN
 	/*iMPRIME LOS PRODUCTOS QUE YA LLEGARON AL PUNTO DE REORDEN*/
-        SELECT P.IdProducto [IdProducto],P.Nombre [Nombre],P.IdDepartamento [Departamento],P.Descuento [Descuento],
-		P.UnidaddeMedida [UnidadMedida],P.Costo [Costo],P.CantidadDeInventario [Inventario], P.Descripcion [Descripcion]
+        SELECT P.IdProducto [IdProducto],P.Nombre [Nombre],I.PuntoReorden[Punto Reorden],P.CantidadDeInventario [Inventario],P.IdDepartamento [Departamento],P.Descuento [Descuento],
+		P.UnidaddeMedida [Unidad Medida],P.Costo [Costo], P.Descripcion [Descripcion]
 
 		FROM Productos P JOIN Info_Productos I
 		on P.IdProducto = I.IdProducto
